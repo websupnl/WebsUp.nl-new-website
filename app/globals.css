@@ -1,0 +1,337 @@
+/* Google Fonts — voor tailwindcss */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ============================
+   DESIGN TOKENS — WebsUp
+   ============================ */
+:root {
+  /* Brand */
+  --color-primary:        #493ee5;
+  --color-primary-dark:   #3730a3;
+  --color-tertiary:       #502cfb;
+  --color-primary-light:  #eef2ff;
+
+  /* Surface */
+  --surface:              #f8f9fc;
+  --surface-container:    #e8eeff;
+  --surface-low:          #edf4ff;
+
+  /* Text */
+  --on-surface:           #0b1526;
+  --on-surface-muted:     #56647a;
+
+  /* Shadows */
+  --shadow-xs:   0 1px 2px rgba(11,21,38,0.04);
+  --shadow-sm:   0 2px 8px rgba(11,21,38,0.06);
+  --shadow-md:   0 4px 20px rgba(11,21,38,0.08);
+  --shadow-lg:   0 8px 40px rgba(11,21,38,0.10);
+  --shadow-xl:   0 16px 64px rgba(11,21,38,0.12);
+  --shadow-brand:0 4px 20px rgba(73,62,229,0.25);
+  --shadow-brand-lg: 0 8px 40px rgba(73,62,229,0.35);
+
+  /* Legacy compat */
+  --background:           #f8f9fc;
+  --foreground:           #0b1526;
+}
+
+/* ============================
+   BASE
+   ============================ */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--on-surface);
+  background-color: var(--surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================
+   TYPOGRAPHY
+   ============================ */
+.font-headline,
+h1, h2, h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Brand gradient — WebsUp signature: oranje → roze → paars */
+:root {
+  --brand-gradient: linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%);
+  --brand-gradient-text: linear-gradient(135deg, #f97316 0%, #ec4899 45%, #a78bfa 100%);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: var(--brand-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Overline badge — brand gradient border */
+.overline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(249,115,22,0.06);
+  color: #ea580c;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1px solid rgba(236,72,153,0.2);
+}
+
+/* ============================
+   MESH GRADIENT BACKGROUND
+   ============================ */
+.mesh-gradient-bg {
+  background-color: #f8f9fc;
+  background-image:
+    radial-gradient(at 0% 0%,   hsla(243, 75%, 57%, 0.14) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, hsla(260, 96%, 58%, 0.09) 0px, transparent 55%),
+    radial-gradient(at 100% 100%, hsla(243, 75%, 57%, 0.07) 0px, transparent 55%),
+    radial-gradient(at 0% 100%, hsla(248, 96%, 58%, 0.10) 0px, transparent 55%);
+}
+
+/* Hero-specific richer gradient */
+.hero-gradient-bg {
+  background-color: #f8f9fc;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, hsla(243, 75%, 57%, 0.16) 0px, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 100% 20%, hsla(260, 96%, 62%, 0.12) 0px, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0% 70%, hsla(243, 75%, 57%, 0.08) 0px, transparent 60%);
+}
+
+/* Dark section with mesh */
+.dark-mesh-bg {
+  background-color: #080f1e;
+  background-image:
+    radial-gradient(at 80% 0%,  hsla(243, 80%, 50%, 0.25) 0px, transparent 50%),
+    radial-gradient(at 20% 100%, hsla(260, 90%, 55%, 0.20) 0px, transparent 50%);
+}
+
+/* ============================
+   GLASSMORPHISM
+   ============================ */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+.glass-panel-dark {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.glass-nav {
+  background: rgba(248, 249, 252, 0.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+/* Premium surface card */
+.surface-card {
+  background: #ffffff;
+  border: 1px solid rgba(11,21,38,0.07);
+  box-shadow: var(--shadow-sm);
+  border-radius: 1.25rem;
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.surface-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(73,62,229,0.15);
+  transform: translateY(-2px);
+}
+
+/* Stripe-like bordered inset card */
+.inset-card {
+  background: rgba(248,249,252,0.8);
+  border: 1px solid rgba(11,21,38,0.08);
+  border-radius: 1rem;
+}
+
+/* ============================
+   PAGE TRANSITIONS
+   ============================ */
+.page-shell {
+  animation: pageFadeIn 0.22s ease-out;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ============================
+   REVEAL ANIMATION
+   ============================ */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance, 28px), 0) scale(0.985);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-shell { animation: none; }
+  .reveal, .reveal-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================
+   BUTTONS
+   ============================ */
+.btn-brand {
+  background: var(--brand-gradient);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 4px 20px rgba(236,72,153,0.30);
+}
+
+.btn-brand:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(236,72,153,0.40);
+  filter: brightness(1.05);
+}
+
+.btn-ghost {
+  background: rgba(11,21,38,0.04);
+  color: var(--on-surface);
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid rgba(11,21,38,0.08);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(11,21,38,0.07);
+  border-color: rgba(73,62,229,0.25);
+  color: #493ee5;
+}
+
+.btn-dark-ghost {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-dark-ghost:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.30);
+}
+
+/* Scrolling marquee for trust strip */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ============================
+   TIPTAP EDITOR
+   ============================ */
+.tiptap { outline: none; min-height: 300px; }
+.tiptap p { margin-bottom: 1rem; line-height: 1.7; }
+.tiptap h1 { font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem; margin-top: 1.5rem; }
+.tiptap h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; margin-top: 1.5rem; }
+.tiptap h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1.25rem; }
+.tiptap ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+.tiptap ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+.tiptap li { margin-bottom: 0.25rem; line-height: 1.7; }
+.tiptap blockquote { border-left: 4px solid #493ee5; padding-left: 1rem; font-style: italic; color: #4B5563; margin: 1rem 0; }
+.tiptap strong { font-weight: 600; }
+.tiptap a { color: #493ee5; text-decoration: underline; }
+
+/* ============================
+   PROSE CONTENT
+   ============================ */
+.prose-content p  { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
+.prose-content h1 { font-size: 2rem; font-weight: 700; margin: 2rem 0 1rem; color: #091d2d; font-family: 'Plus Jakarta Sans', sans-serif; }
+.prose-content h2 { font-size: 1.5rem; font-weight: 600; margin: 1.75rem 0 0.75rem; color: #091d2d; font-family: 'Plus Jakarta Sans', sans-serif; }
+.prose-content h3 { font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: #1F2937; font-family: 'Plus Jakarta Sans', sans-serif; }
+.prose-content ul { list-style-type: disc; padding-left: 1.75rem; margin-bottom: 1rem; }
+.prose-content ol { list-style-type: decimal; padding-left: 1.75rem; margin-bottom: 1rem; }
+.prose-content li { margin-bottom: 0.375rem; line-height: 1.7; }
+.prose-content blockquote { border-left: 4px solid #493ee5; padding: 0.75rem 1rem; background-color: #eef2ff; border-radius: 0 0.375rem 0.375rem 0; margin: 1.5rem 0; }
+.prose-content a { color: #493ee5; text-decoration: underline; }
+.prose-content strong { font-weight: 600; color: #091d2d; }
+.prose-content img { border-radius: 0.75rem; margin: 1.5rem 0; max-width: 100%; }
+
+/* ============================
+   HERO WAVE ANIMATION (Stripe-stijl)
+   ============================ */
+@keyframes hero-wave-drift {
+  0%,100% { transform: scale(1.08) translate(0, 0); }
+  25%     { transform: scale(1.14) translate(-2.5%, 1.5%); }
+  50%     { transform: scale(1.10) translate(1.5%, -3%); }
+  75%     { transform: scale(1.13) translate(-1%, 2%); }
+}
+
+.hero-wave-bg {
+  animation: hero-wave-drift 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-wave-bg { animation: none; transform: scale(1.08); }
+}
+
+/* ============================
+   ROUTE PROGRESS
+   ============================ */
+.route-progress {
+  animation: route-progress-slide 1.1s ease-in-out infinite;
+}
+
+@keyframes route-progress-slide {
+  0%   { transform: translateX(-110%); }
+  60%  { transform: translateX(220%); }
+  100% { transform: translateX(220%); }
+}
