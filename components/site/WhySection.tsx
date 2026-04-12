@@ -1,184 +1,231 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import {
+  ArrowRight,
+  Globe,
+  ShoppingCart,
+  LayoutPanelTop,
+  Workflow,
+  Link2,
+  Calculator,
+} from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
-import { MessageCircle, Eye, Wrench, CheckCircle } from 'lucide-react'
 
-const pillars = [
+const cards = [
   {
-    Icon: MessageCircle,
-    title: 'Eén aanspreekpunt — altijd',
-    desc: 'Je praat direct met mij. Geen projectmanager ertussen, geen doorspelen naar collega\'s. Ik ben degene die luistert, denkt en bouwt.',
-    color: 'text-orange-600',
-    bg: 'bg-orange-50',
-    border: 'border-orange-100',
+    title: 'Websites die vertrouwen opbouwen',
+    description:
+      'Voor bedrijven die professioneel zichtbaar willen zijn en meer uit hun online aanwezigheid willen halen.',
+    href: '/diensten/websites',
+    icon: Globe,
+    image:
+      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80',
+    eyebrow: 'Website',
+    accent: 'text-orange-400',
+    span: 'lg:col-span-7',
+    height: 'min-h-[32rem]',
   },
   {
-    Icon: Eye,
-    title: 'Eerlijk en transparant',
-    desc: 'Geen vage offertes of verborgen kosten. Ik zeg wat ik kan maken, wat het kost en wanneer het klaar is. En als iets niet past, zeg ik dat ook gewoon.',
-    color: 'text-pink-600',
-    bg: 'bg-pink-50',
-    border: 'border-pink-100',
+    title: 'Webshops die verkoop makkelijker maken',
+    description:
+      'Van presentatie tot checkout en opvolging. Minder losse handelingen, meer grip op je proces.',
+    href: '/diensten/webshops',
+    icon: ShoppingCart,
+    image:
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80',
+    eyebrow: 'Webshop',
+    accent: 'text-pink-400',
+    span: 'lg:col-span-5',
+    height: 'min-h-[15.25rem]',
   },
   {
-    Icon: Wrench,
-    title: 'Technisch én praktisch',
-    desc: 'Ik denk mee in systemen en processen, niet alleen in pagina\'s. Of het nu WordPress, Shopify of maatwerk is — ik kies wat het beste bij jou past.',
-    color: 'text-violet-600',
-    bg: 'bg-violet-50',
-    border: 'border-violet-100',
+    title: 'Dashboards en systemen op maat',
+    description:
+      'Voor processen die niet meer lekker passen in losse tools, Excel lijsten of handmatig werk.',
+    href: '/diensten/apps-dashboards',
+    icon: Workflow,
+    image:
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    eyebrow: 'Maatwerk',
+    accent: 'text-orange-400',
+    span: 'lg:col-span-5',
+    height: 'min-h-[15.25rem]',
   },
 ]
 
-interface WhySectionProps {
-  testimonials?: Array<{ name: string; role?: string; content: string }>
-}
+const compactPoints = [
+  'Van eenvoudige website tot compleet klantportaal',
+  'Geen standaard pakket, maar wat jouw bedrijf nodig heeft',
+  'Ontwerp, techniek en logica in één traject geregeld',
+]
 
-export default function WhySection({ testimonials = [] }: WhySectionProps) {
-  const displayTestimonials = testimonials.length > 0
-    ? testimonials.slice(0, 3).map((t, i) => ({
-        num: `0${i + 1}`,
-        quote: t.content,
-        author: t.name,
-        role: t.role ?? '',
-        offset: i === 1,
-      }))
-    : [
-        {
-          num: '01',
-          quote: 'Daan denkt verder dan een website. Hij keek meteen hoe hij ons hele systeem kon verbeteren. Dat verschil merk je.',
-          author: 'Tevreden klant',
-          role: 'Ondernemer',
-          offset: false,
-        },
-        {
-          num: '02',
-          quote: 'Eindelijk iemand die gewoon eerlijk zegt wat mogelijk is en wat niet. Korte lijnen, snel resultaat.',
-          author: 'Opdrachtgever',
-          role: 'MKB eigenaar',
-          offset: true,
-        },
-        {
-          num: '03',
-          quote: 'Na de lancering was Daan nog steeds bereikbaar. Niet via een ticket systeem, gewoon via WhatsApp.',
-          author: 'Klant',
-          role: 'Dienstverlener',
-          offset: false,
-        },
-      ]
+const modules = [
+  { label: 'Portalen', icon: LayoutPanelTop },
+  { label: 'Koppelingen', icon: Link2 },
+  { label: 'Calculators', icon: Calculator },
+]
 
+export default function WhySection() {
   return (
-    <section className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-20 lg:gap-28 items-start">
-
-        {/* Left — sticky: Daan als persoon */}
-        <Reveal className="lg:sticky lg:top-32">
-          <span className="overline-badge mb-6 inline-flex">Waarom WebsUp</span>
-
-          {/* Persoonlijke intro */}
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-md" style={{ background: 'linear-gradient(135deg,#f97316,#ec4899,#a78bfa)' }}>
-              D
-            </div>
-            <div>
-              <div className="font-headline font-bold text-slate-900 text-lg">Daan Koolhaas</div>
-              <div className="text-sm text-slate-400">Oprichter &amp; bouwer — WebsUp.nl</div>
-            </div>
-          </div>
-
-          <h2 className="font-headline text-4xl md:text-[2.75rem] font-extrabold text-slate-900 mb-7 leading-[1.1] tracking-[-0.02em]">
-            Geen groot bureau.<br />
-            <span className="gradient-text">Gewoon Daan.</span>
-          </h2>
-          <p className="text-lg text-slate-500 leading-relaxed mb-10">
-            Bij WebsUp werk je met mij — de persoon die jouw website ontwerpt, bouwt en live zet.
-            Geen account managers, geen wachtrijen. Gewoon direct contact met degene die het werk doet.
-          </p>
-
-          <div className="space-y-5">
-            {pillars.map(({ Icon, title, desc, color, bg, border }) => (
-              <div key={title} className="flex gap-4 group">
-                <div className={`shrink-0 w-11 h-11 rounded-2xl flex items-center justify-center border transition-shadow group-hover:shadow-md ${bg} ${border}`}>
-                  <Icon size={17} className={color} />
-                </div>
-                <div className="pt-0.5">
-                  <h5 className="font-headline text-sm font-bold text-slate-900 mb-1">{title}</h5>
-                  <p className="text-slate-500 leading-relaxed text-sm">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Werkwijze mini-stappen */}
-          <div className="mt-10 p-6 bg-slate-50 rounded-2xl border border-slate-100">
-            <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Zo werk ik</div>
-            <div className="space-y-3">
-              {[
-                'Gratis kennismaking — bij jou of telefonisch',
-                'Duidelijk voorstel zonder kleine lettertjes',
-                'Bouwen met jouw feedback tussendoor',
-                'Live — en bereikbaar daarna',
-              ].map((step, i) => (
-                <div key={step} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
-                    {i + 1}
-                  </div>
-                  <span className="text-sm text-slate-600">{step}</span>
-                </div>
-              ))}
-            </div>
+    <section className="bg-[#06040c] py-28 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Reveal className="mb-14">
+          <span className="overline-badge mb-5 inline-flex">Wat ik voor je kan bouwen</span>
+          <div className="max-w-4xl">
+            <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-white md:text-6xl">
+              Van website tot maatwerk systeem.
+            </h2>
+            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-white/62">
+              Soms is een sterke website genoeg. Soms vraagt je bedrijf om meer: een webshop die beter verkoopt, een dashboard dat overzicht geeft, een portaal voor klanten of een maatwerk oplossing die werk uit handen neemt. WebsUp bouwt wat nodig is, los of slim gecombineerd.
+            </p>
           </div>
         </Reveal>
 
-        {/* Right — testimonial cards */}
-        <div className="space-y-5">
-          {displayTestimonials.map((t, i) => (
-            <Reveal key={t.num} delay={i * 80}>
-              <div
-                className={`p-7 rounded-[1.25rem] border transition-all duration-300 hover:border-indigo-100 hover:shadow-lg ${
-                  t.offset ? 'lg:translate-x-8 bg-indigo-50 border-indigo-100' : 'bg-slate-50 border-slate-100'
-                }`}
-              >
-                {/* Stars */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, k) => (
-                    <div key={k} className="w-3.5 h-3.5 rounded-sm bg-amber-400" />
+        <div className="grid gap-5 lg:grid-cols-12">
+          <Reveal className={cards[0].span}>
+            <Link
+              href={cards[0].href}
+              className={`group relative flex overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 ${cards[0].height}`}
+            >
+              <Image
+                src={cards[0].image}
+                alt={cards[0].title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                sizes="(max-width: 1024px) 100vw, 58vw"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(6,4,12,0.14)_0%,rgba(6,4,12,0.18)_35%,rgba(6,4,12,0.92)_100%)]" />
+              <div className="absolute inset-x-0 bottom-0 p-8 lg:p-10">
+                <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white/80 backdrop-blur-sm">
+                  {cards[0].eyebrow}
+                </div>
+                <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm ${cards[0].accent}`}>
+                  <Globe size={18} />
+                </div>
+                <h3 className="max-w-xl font-headline text-3xl font-bold leading-tight text-white">
+                  {cards[0].title}
+                </h3>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/65">
+                  {cards[0].description}
+                </p>
+              </div>
+              <div className="absolute right-7 top-7 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition-transform duration-200 group-hover:translate-x-1">
+                <ArrowRight size={16} />
+              </div>
+            </Link>
+          </Reveal>
+
+          <div className="grid gap-5 lg:col-span-5">
+            {cards.slice(1).map((card, index) => {
+              const Icon = card.icon
+
+              return (
+                <Reveal key={card.title} delay={index * 80}>
+                  <Link
+                    href={card.href}
+                    className={`group relative flex overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 ${card.height}`}
+                  >
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      sizes="(max-width: 1024px) 100vw, 42vw"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(6,4,12,0.16)_0%,rgba(6,4,12,0.24)_38%,rgba(6,4,12,0.92)_100%)]" />
+                    <div className="relative flex w-full flex-col justify-between p-6">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white/80 backdrop-blur-sm">
+                          {card.eyebrow}
+                        </div>
+                        <div className={`flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm ${card.accent}`}>
+                          <Icon size={16} />
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="font-headline text-2xl font-bold leading-tight text-white">
+                          {card.title}
+                        </h3>
+                        <p className="mt-2 max-w-md text-sm leading-relaxed text-white/62">
+                          {card.description}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </Reveal>
+              )
+            })}
+          </div>
+        </div>
+
+        <Reveal delay={120} className="mt-5">
+          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.03)_100%)]">
+            <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="border-b border-white/10 p-7 lg:border-b-0 lg:border-r lg:p-8">
+                <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/8 px-3 py-1 text-xs font-semibold text-white/80">
+                  Geen standaard pakket. Wel een aanpak die past.
+                </div>
+                <p className="max-w-2xl text-base leading-relaxed text-white/70">
+                  Niet ieder bedrijf heeft hetzelfde nodig. Daarom kijk ik niet vanuit een vast stramien, maar vanuit jouw situatie. Soms is een website de juiste stap. Soms zit de winst juist in een koppeling, calculator, portaal of intern systeem.
+                </p>
+
+                <div className="mt-6 grid gap-3 md:grid-cols-3">
+                  {compactPoints.map((point) => (
+                    <div
+                      key={point}
+                      className="rounded-[1.25rem] border border-white/10 bg-[#0b0813] px-4 py-3 text-sm leading-relaxed text-white/62"
+                    >
+                      {point}
+                    </div>
                   ))}
                 </div>
 
-                <p className={`text-base leading-relaxed mb-6 ${t.offset ? 'text-indigo-900' : 'text-slate-700'}`}>
-                  &ldquo;{t.quote}&rdquo;
-                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {modules.map((module) => {
+                    const Icon = module.icon
 
-                <div className="flex items-center gap-3 pt-4 border-t border-white/60">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs" style={{ background: 'linear-gradient(135deg,#f97316,#ec4899)' }}>
-                    {t.author.charAt(0).toUpperCase()}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-900 text-sm">{t.author}</div>
-                    {t.role && <div className="text-slate-400 text-xs">{t.role}</div>}
-                  </div>
-                  <div className="ml-auto">
-                    <CheckCircle size={16} className="text-emerald-400" />
-                  </div>
+                    return (
+                      <div
+                        key={module.label}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/65"
+                      >
+                        <Icon size={13} className="text-orange-400" />
+                        {module.label}
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
-            </Reveal>
-          ))}
 
-          {/* Vertrouwens-signal */}
-          <Reveal delay={240}>
-            <div className="p-6 bg-slate-900 text-white rounded-[1.25rem]">
-              <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-3">Direct bereikbaar</div>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Niet via een ticketsysteem of e-mail die pas na 3 dagen beantwoord wordt.
-                Gewoon even appen of bellen met Daan.
-              </p>
-              <div className="mt-4 flex items-center gap-2 text-xs text-slate-400">
-                <div className="w-2 h-2 rounded-full bg-emerald-400" />
-                Beschikbaar via WhatsApp · {new Date().getFullYear()}
+              <div className="flex h-full flex-col justify-between p-7 lg:p-8">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-orange-400">
+                    Samen kijken wat past
+                  </div>
+                  <p className="mt-4 text-base leading-relaxed text-white/72">
+                    Website, webshop of maatwerkoplossing nodig? Dan kijken we samen wat past bij jouw bedrijf, je doelen en hoe je nu werkt.
+                  </p>
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-white/90"
+                  >
+                    Plan een kennismaking
+                    <ArrowRight size={14} />
+                  </Link>
+                  <Link
+                    href="/diensten"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  >
+                    Bekijk diensten
+                  </Link>
+                </div>
               </div>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

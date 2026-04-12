@@ -1,6 +1,7 @@
 # WebsUp.nl — Volledige site-inventaris voor AI-assistenten
 
 **Lees dit ALTIJD voordat je iets aanmaakt of aanpast.**
+**Gebruik daarnaast ook altijd `CLAUDE.md` als aanvullende projectinstructie bij elke taak in deze repository.**
 Maak nooit een pagina, component of lib-bestand aan dat hieronder al bestaat.
 
 ---

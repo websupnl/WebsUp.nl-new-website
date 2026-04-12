@@ -3,7 +3,7 @@ export const revalidate = 3600
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { getPublicationBySlug, getAllPublicationSlugs } from '@/lib/queries/publications'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
@@ -92,10 +92,8 @@ export default async function ProjectDetailPage({ params }: Props) {
         </section>
       )}
 
-      <CTASection
-        heading="Jouw project is het volgende."
-        subheading="Laten we kijken wat ik voor jou kan bouwen."
-      />
+      <CTASection />
     </div>
   )
 }
+

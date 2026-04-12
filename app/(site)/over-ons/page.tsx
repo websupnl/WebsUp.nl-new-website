@@ -2,159 +2,356 @@ export const revalidate = 3600
 
 import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
+import {
+  ArrowRight,
+  CheckCircle,
+  MapPin,
+  MessageCircle,
+  Quote,
+  Star,
+  Wrench,
+} from 'lucide-react'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import CTASection from '@/components/site/CTASection'
-import { CheckCircle, MessageCircle, Eye, Wrench } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
-import { Tooltip } from '@/components/ui/tooltip-card'
+import { getTestimonials } from '@/lib/queries/testimonials'
+import type { Testimonial } from '@/types/database.types'
 
 export const metadata: Metadata = {
-  title: 'Over ons',
-  description: 'WebsUp is Daan Koolhaas — een zelfstandige webdeveloper uit Friesland. Persoonlijk contact, eerlijk advies en direct met de persoon die bouwt.',
+  title: 'Over mij',
+  description:
+    'Bij WebsUp schakel je direct met degene die meedenkt, ontwerpt en bouwt. Geen tussenlagen, geen ruis, wel korte lijnen en een oplossing die past bij jouw bedrijf.',
 }
 
-const stats = [
-  { value: '94+', label: 'Klanten geholpen' },
-  { value: '7+', label: 'Jaar ervaring' },
-  { value: '100%', label: 'Maatwerk' },
-  { value: 'Friesland', label: 'Gevestigd' },
-]
-
-const gradientStyle = {
-  background: 'linear-gradient(135deg,#f97316 0%,#ec4899 50%,#a78bfa 100%)',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-  backgroundClip: 'text',
-} as React.CSSProperties
-
-const values = [
+const fallbackTestimonials = [
   {
+    id: 'fallback-jeremy-palsma',
+    name: 'Jeremy Palsma',
+    role: 'Google review',
+    content:
+      'Daan heeft voor ons in no time, binnen 2 weken, een complete professionele website gebouwd. Hij denkt creatief mee, komt met slimme ideeen en regelt alles snel en duidelijk. Qua kwaliteit en uitstraling komt het resultaat verrassend dicht in de buurt van veel duurdere agencies.',
+    rating: 5,
+  },
+  {
+    id: 'fallback-r-haak',
+    name: 'R. Haak',
+    role: 'Google review',
+    content:
+      'Gewoon top. Geduldig en het meedenken voor een mooie website. Ik heb voor WebsUp gekozen voor betrouwbaarheid, professionaliteit en persoonlijke communicatie.',
+    rating: 5,
+  },
+  {
+    id: 'fallback-nynke',
+    name: 'Nynke',
+    role: 'Google review',
+    content:
+      'Wij zijn super tevreden met onze nieuwe website. Het contact was fijn en snel, er werd goed geluisterd naar onze wensen en het resultaat is precies zoals we hoopten.',
+    rating: 5,
+  },
+] satisfies Array<Pick<Testimonial, 'id' | 'name' | 'role' | 'content' | 'rating'>>
+
+const reasons = [
+  {
+    title: 'Direct contact',
+    text: 'Je schakelt direct met degene die meedenkt en bouwt. Dat maakt het traject sneller, duidelijker en persoonlijker.',
     icon: MessageCircle,
-    title: 'Eén aanspreekpunt',
-    desc: 'Geen accountmanager die doorverwijst. Je werkt direct met Daan — van eerste gesprek tot oplevering en daarna.',
   },
   {
-    icon: Eye,
-    title: 'Eerlijk & transparant',
-    desc: 'Geen verborgen kosten, geen vage beloftes. Je weet vooraf wat je krijgt, wat het kost en wanneer het klaar is.',
+    title: 'Eerlijk advies',
+    text: 'Geen standaard pakket en geen opgeblazen voorstel. Wel duidelijkheid over wat slim is, en wat niet nodig is.',
+    icon: CheckCircle,
   },
   {
+    title: 'Technisch en praktisch',
+    text: 'Van website tot webshop of maatwerk oplossing. Altijd gekozen op basis van wat jouw bedrijf echt verder helpt.',
     icon: Wrench,
-    title: 'Technisch én praktisch',
-    desc: 'WordPress, Shopify, Next.js of volledig maatwerk — het juiste platform voor jouw situatie, niet het duurste.',
   },
 ]
+
+const collaborationSteps = [
+  'We beginnen gewoon met een gesprek over je bedrijf, je vraag en waar je op vastloopt.',
+  'Daarna bepalen we samen wat de slimste stap is. Soms is dat een website, soms juist meer.',
+  'Vanaf daar bouwen we iets dat klopt, goed werkt en later verder kan meegroeien.',
+]
+
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex items-center gap-1">
+      {Array.from({ length: 5 }).map((_, index) => (
+        <Star
+          key={index}
+          size={14}
+          className={index < rating ? 'fill-orange-400 text-orange-400' : 'fill-white/10 text-white/10'}
+        />
+      ))}
+    </div>
+  )
+}
 
 export default async function OverOnsPage() {
+  const testimonials = await getTestimonials()
+  const reviewItems = (testimonials.length > 0 ? testimonials : fallbackTestimonials).slice(0, 3)
+  const featuredReview = reviewItems[0]
+  const sideReviews = reviewItems.slice(1)
+
   return (
     <div>
       <WavePageHeader
-        badge="Over WebsUp"
+        badge="Over mij"
         title="Geen groot bureau."
-        titleHighlight="Gewoon Daan."
-        subtitle="Persoonlijk contact, eerlijk advies en direct met de persoon die bouwt. Gebaseerd in Friesland."
-      />
-
-      {/* Stats balk */}
-      <div className="bg-white border-b border-slate-100 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map(({ value, label }) => (
-              <div key={label} className="text-center lg:text-left">
-                <div className="text-3xl font-bold leading-none" style={gradientStyle}>{value}</div>
-                <div className="text-slate-500 text-sm mt-1">{label}</div>
-              </div>
-            ))}
-          </div>
+        titleHighlight="Wel direct contact."
+        subtitle="Bij WebsUp schakel je direct met degene die meedenkt, ontwerpt en bouwt. Geen tussenlagen, geen ruis, wel korte lijnen en een oplossing die past bij jouw bedrijf."
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-all hover:-translate-y-px hover:bg-white/90"
+          >
+            Plan een kennismaking
+            <ArrowRight size={14} />
+          </Link>
+          <Link
+            href="/contact?ref=ontwerp"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-white/15"
+          >
+            Vraag gratis ontwerp aan
+          </Link>
         </div>
-      </div>
 
-      {/* Daan + persoonlijke tekst */}
-      <section className="bg-white py-16 lg:py-24">
-        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Afbeelding */}
-            <div className="relative h-80 lg:h-[520px] rounded-2xl overflow-hidden shadow-xl order-2 lg:order-1">
-              <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=70"
-                alt="Daan Koolhaas — WebsUp"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+        <div className="mt-7 flex flex-wrap gap-2">
+          {['Direct contact', 'Korte lijnen', 'Persoonlijk en professioneel'].map((item) => (
+            <span
+              key={item}
+              className="inline-flex rounded-full border border-white/12 bg-white/8 px-3 py-1 text-xs font-semibold text-white/70"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </WavePageHeader>
 
-            {/* Tekst */}
-            <div className="order-1 lg:order-2">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-                Hoi, ik ben Daan.
-              </h2>
-              <div className="space-y-4 text-slate-500 leading-relaxed text-lg">
-                <p>
-                  Ik bouw websites en digitale oplossingen voor ondernemers die niet willen jongleren met bureaus, tussenlagen of vage offertes. Bij WebsUp doe je dat gewoon rechtstreeks met mij.
-                </p>
-                <p>
-                  Met meer dan 7 jaar ervaring in webdevelopment weet ik wat werkt — en wat niet. Van een snelle{' '}
-                  <Tooltip content="Open-source CMS. Ideaal voor blogs, bedrijfssites en portals. Snel te beheren zonder technische kennis.">
-                    <span className="font-semibold text-slate-700 cursor-default underline decoration-dotted underline-offset-2">WordPress</span>
-                  </Tooltip>
-                  -site tot een volledig maatwerk{' '}
-                  <Tooltip content="Next.js is een React-framework gebouwd voor snelheid en SEO. Dé keuze voor moderne, schaalbare websites en apps.">
-                    <span className="font-semibold text-slate-700 cursor-default underline decoration-dotted underline-offset-2">Next.js</span>
-                  </Tooltip>
-                  -platform: ik kies het platform dat bij jouw situatie past, niet het duurste.
-                </p>
-                <p>
-                  Ik ben gevestigd in Friesland en werk voor klanten door heel Nederland. Bereikbaar via WhatsApp, altijd direct antwoord. Geen ticketsystemen, geen helpdesk.
-                </p>
+      <section className="bg-white py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Reveal className="overflow-hidden rounded-[2rem] border border-slate-100 bg-slate-50 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+            <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
+              <div className="relative min-h-[26rem]">
+                <Image
+                  src="/Daan Koolhaas.jpg"
+                  alt="Daan Koolhaas van WebsUp"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/70 via-[#06040c]/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <div className="text-lg font-semibold">Daan Koolhaas</div>
+                  <div className="mt-1 text-sm text-white/72">Direct aanspreekpunt voor jouw project</div>
+                </div>
               </div>
-              <ul className="mt-8 space-y-3">
-                {[
-                  {
-                    text: (
-                      <>
-                        <Tooltip content="WordPress voor content-sites, Shopify voor webshops, Next.js voor snelle maatwerk-platforms.">
-                          <span className="underline decoration-dotted underline-offset-2 cursor-default">WordPress, Shopify, Next.js</span>
-                        </Tooltip>
-                        {' '}& volledig maatwerk
-                      </>
-                    ),
-                  },
-                  { text: 'Technisch sterk — van code tot server tot SEO' },
-                  { text: 'Vaste prijs, geen verrassingen achteraf' },
-                  { text: 'Direct bereikbaar via WhatsApp' },
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <CheckCircle size={17} className="flex-shrink-0 mt-0.5" style={{ color: '#f97316' }} />
-                    <span className="text-slate-500 text-sm leading-relaxed">{item.text}</span>
-                  </li>
-                ))}
-              </ul>
+
+              <div className="p-7 lg:p-10">
+                <span className="overline-badge mb-4 inline-flex">Wie er achter WebsUp zit</span>
+                <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
+                  Hoi, ik ben Daan.
+                </h2>
+                <div className="mt-5 space-y-4 text-lg leading-relaxed text-slate-500">
+                  <p>
+                    Ik bouw websites en digitale oplossingen voor ondernemers en bedrijven die geen zin hebben in onnodig gedoe, vage trajecten of doorschuiven tussen verschillende mensen. Bij WebsUp werk je direct met degene die meedenkt en bouwt.
+                  </p>
+                  <p>
+                    Soms is dat een website. Soms een webshop, dashboard of maatwerk oplossing. Ik kijk niet vanuit een standaard pakket, maar vanuit wat het beste past bij jouw situatie, je doelen en hoe jouw bedrijf werkt.
+                  </p>
+                </div>
+
+                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-500">
+                  <MapPin size={14} className="text-orange-500" />
+                  Gebaseerd in Friesland, werk voor klanten door heel Nederland.
+                </div>
+
+                <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                  {[
+                    'Direct contact met degene die bouwt',
+                    'Eerlijk advies over wat wel en niet nodig is',
+                    'Technisch sterk, maar praktisch ingestoken',
+                    'Ruimte om later door te bouwen',
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-start gap-3 rounded-[1.15rem] border border-slate-100 bg-white px-4 py-4 text-sm leading-relaxed text-slate-600"
+                    >
+                      <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
 
-      {/* Waarden */}
-      <section className="bg-slate-50 py-16 lg:py-24">
-        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
-              Waarom ondernemers voor WebsUp kiezen
-            </h2>
+      <section className="bg-white pb-20 lg:pb-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+            <Reveal className="rounded-[2rem] border border-slate-100 bg-white p-7 shadow-[0_16px_40px_rgba(15,23,42,0.04)] lg:p-10">
+              <span className="overline-badge mb-4 inline-flex">Waarom dit anders werkt</span>
+              <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
+                Persoonlijk samenwerken, professioneel gebouwd.
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-slate-500">
+                Niet omdat WebsUp het grootste bureau is, maar juist omdat de lijnen kort zijn en de samenwerking duidelijk voelt. Je weet met wie je werkt, waar je aan toe bent en wat er gebouwd wordt.
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-slate-500">
+                Klanten zijn hier geen nummer. Juist de interessantere vraagstukken maken het werk leuker, omdat daar het meedenken en bouwen echt samenkomen.
+              </p>
+            </Reveal>
+
+            <div className="grid gap-4">
+              {reasons.map((item, index) => {
+                const Icon = item.icon
+
+                return (
+                  <Reveal key={item.title} delay={index * 70}>
+                    <div className="rounded-[1.5rem] border border-slate-100 bg-slate-50 p-6">
+                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-orange-500 shadow-sm">
+                        <Icon size={18} />
+                      </div>
+                      <h3 className="font-headline text-xl font-bold text-slate-900">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.text}</p>
+                    </div>
+                  </Reveal>
+                )
+              })}
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {values.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-white rounded-2xl p-8 border border-slate-100">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: 'linear-gradient(135deg,#f97316 0%,#ec4899 50%,#a78bfa 100%)' }}>
-                  <Icon size={20} className="text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-3">{title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <Reveal className="rounded-[2rem] bg-[#06040c] p-7 text-white lg:p-10">
+              <span className="overline-badge mb-4 inline-flex">Samenwerken</span>
+              <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] md:text-4xl">
+                Geen ruis, wel duidelijke lijnen.
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-white/66">
+                Ik geloof niet in onnodig ingewikkelde trajecten. Het begint meestal gewoon met een gesprek: waar loop je tegenaan, wat wil je neerzetten en wat is daarin de slimste stap?
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-white/66">
+                Of het nu gaat om een website, webshop of maatwerk digitale oplossing, het doel is altijd hetzelfde. Iets maken dat klopt, goed werkt en waar je op verder kunt bouwen.
+              </p>
+            </Reveal>
+
+            <Reveal className="rounded-[2rem] border border-slate-100 bg-white p-7 lg:p-10">
+              <div className="space-y-5">
+                {collaborationSteps.map((step, index) => (
+                  <div key={step} className="flex items-start gap-4">
+                    <div
+                      className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl text-sm font-bold text-white"
+                      style={{ background: 'linear-gradient(135deg,#f97316 0%,#ec4899 55%,#a78bfa 100%)' }}
+                    >
+                      {index + 1}
+                    </div>
+                    <p className="pt-1 text-base leading-relaxed text-slate-600">{step}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+
+              <div className="mt-8 border-t border-slate-100 pt-6">
+                <div className="text-sm font-semibold text-slate-900">Wat dat in de praktijk betekent</div>
+                <p className="mt-3 text-base leading-relaxed text-slate-500">
+                  Geen accountmanager ertussen, geen onnodige vertraging en geen voorstel dat groter wordt gemaakt dan nodig. Wel een traject waarin ontwerp, techniek en logica goed op elkaar aansluiten.
+                </p>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Reveal className="mb-12 max-w-3xl">
+            <span className="overline-badge mb-4 inline-flex">Reviews</span>
+            <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
+              Wat klanten over de samenwerking zeggen
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-slate-500">
+              Echte reviews van klanten die met WebsUp hebben samengewerkt. Juist daarin zie je het persoonlijke contact en de korte lijnen terug.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
+            {featuredReview && (
+              <Reveal>
+                <article className="h-full rounded-[2rem] bg-[#06040c] p-7 text-white shadow-[0_22px_60px_rgba(15,23,42,0.16)] lg:p-10">
+                  <div className="mb-6 flex items-start justify-between gap-4">
+                    <StarRating rating={featuredReview.rating} />
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-orange-400">
+                      <Quote size={16} />
+                    </div>
+                  </div>
+                  <blockquote className="max-w-2xl font-headline text-2xl font-bold leading-[1.3] text-white md:text-[2rem]">
+                    &ldquo;{featuredReview.content}&rdquo;
+                  </blockquote>
+                  <div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-6">
+                    <div
+                      className="flex h-12 w-12 items-center justify-center rounded-full text-sm font-bold text-white"
+                      style={{ background: 'linear-gradient(135deg,#f97316 0%,#ec4899 55%,#a78bfa 100%)' }}
+                    >
+                      {featuredReview.name
+                        .split(' ')
+                        .map((part) => part.charAt(0))
+                        .join('')
+                        .slice(0, 2)
+                        .toUpperCase()}
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-white">{featuredReview.name}</div>
+                      <div className="text-xs text-white/45">{featuredReview.role || 'Klant van WebsUp'}</div>
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            )}
+
+            <div className="grid gap-5">
+              {sideReviews.map((testimonial, index) => (
+                <Reveal key={testimonial.id} delay={index * 80}>
+                  <article className="rounded-[1.6rem] border border-slate-100 bg-slate-50 p-6 shadow-[0_12px_40px_rgba(15,23,42,0.04)]">
+                    <div className="mb-4 flex items-start justify-between gap-4">
+                      <StarRating rating={testimonial.rating} />
+                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white text-orange-500 shadow-sm">
+                        <Quote size={15} />
+                      </div>
+                    </div>
+                    <blockquote className="text-sm leading-relaxed text-slate-600">
+                      &ldquo;{testimonial.content}&rdquo;
+                    </blockquote>
+                    <div className="mt-5 flex items-center gap-3 border-t border-slate-200 pt-4">
+                      <div
+                        className="flex h-10 w-10 items-center justify-center rounded-full text-xs font-bold text-white"
+                        style={{ background: 'linear-gradient(135deg,#f97316 0%,#ec4899 55%,#a78bfa 100%)' }}
+                      >
+                        {testimonial.name
+                          .split(' ')
+                          .map((part) => part.charAt(0))
+                          .join('')
+                          .slice(0, 2)
+                          .toUpperCase()}
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-slate-900">{testimonial.name}</div>
+                        <div className="text-xs text-slate-400">{testimonial.role || 'Klant van WebsUp'}</div>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       <CTASection />

@@ -34,18 +34,20 @@ export default function Footer({
       ],
     },
     {
-      heading: 'Werk',
+      heading: 'Informatie',
       links: [
+        { label: 'Over mij', href: '/over-ons' },
+        { label: 'Kennisbank', href: '/kennisbank' },
         { label: 'Projecten', href: '/projecten' },
-        { label: 'Blog', href: '/blog' },
       ],
     },
     {
-      heading: 'Bedrijf',
-      links: [
-        { label: 'Contact', href: '/contact' },
-        ...footerLinks,
-      ],
+      heading: 'Contact',
+      links: [{ label: 'Contact opnemen', href: '/contact' }],
+    },
+    {
+      heading: 'Juridisch',
+      links: footerLinks,
     },
   ]
 
@@ -58,9 +60,9 @@ export default function Footer({
           <div className="col-span-2">
             <Link href="/" className="inline-block mb-5">
               {logoUrl ? (
-                <img src={logoUrl} alt={siteName} className="h-7 w-auto" />
+                <img src={logoUrl} alt={siteName} className="h-16 w-auto" />
               ) : (
-                <img src="/WebsUp.nl logo zwart.png" alt={siteName} className="h-14 w-auto" />
+                <img src="/WebsUp.nl logo zwart.png" alt={siteName} className="h-20 w-auto" />
               )}
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed max-w-[240px] mb-7">

@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import { Tooltip } from '@/components/ui/tooltip-card'
@@ -14,43 +13,26 @@ interface HeroSectionProps {
   secondaryCtaHref?: string
 }
 
-function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
-  const [val, setVal] = useState(0)
-  useEffect(() => {
-    let n = 0
-    const step = () => {
-      n = Math.min(n + Math.ceil(target / 60), target)
-      setVal(n)
-      if (n < target) requestAnimationFrame(step)
-    }
-    const t = setTimeout(() => requestAnimationFrame(step), 600)
-    return () => clearTimeout(t)
-  }, [target])
-  return <>{val}{suffix}</>
-}
-
 const platforms = [
-  { name: 'WordPress',  dot: '#21759b', tip: 'Open-source CMS. Snel op te zetten en eenvoudig te beheren. Ideaal voor bedrijfssites, blogs en portals.' },
-  { name: 'Shopify',    dot: '#96bf48', tip: 'Het toonaangevende e-commerce platform. Veilig, schaalbaar en klaar voor iDEAL en Mollie.' },
-  { name: 'Next.js',    dot: '#ffffff', tip: 'React-framework van Vercel. Razendsnel, SEO-vriendelijk en schaalbaar van startup tot enterprise.' },
-  { name: 'Maatwerk',   dot: '#a78bfa', tip: 'Geen template, maar code gebouwd specifiek voor jouw proces. Maximale flexibiliteit en schaalbaarheid.' },
+  { name: 'WordPress', dot: '#21759b', tip: 'Sterk voor bedrijfssites, landingspagina’s en beheerbare content-websites.' },
+  { name: 'Shopify', dot: '#96bf48', tip: 'Ideaal voor webshops die snel live moeten, goed moeten verkopen en makkelijk te beheren zijn.' },
+  { name: 'Webapps', dot: '#f97316', tip: 'Voor portals, calculators, klantomgevingen en andere maatwerk functionaliteiten.' },
+  { name: 'Dashboards', dot: '#ec4899', tip: 'Voor realtime inzicht, klantdata, processen en interne tools op maat.' },
+  { name: 'Maatwerk', dot: '#a78bfa', tip: 'Wanneer standaard tools niet meer passen en er echt iets om jouw proces heen gebouwd moet worden.' },
 ]
 
-const logos = ['BP Uitgevers','Weso','Thuisbatterijen Friesland','Bouma Installaties','OtterMedia','Rottevalle.com']
+const logos = ['BP Uitgevers', 'Weso', 'Thuisbatterijen Friesland', 'Bouma Installaties', 'OtterMedia', 'Rottevalle.com']
 const marquee = [...logos, ...logos]
 
 export default function HeroSection({
   ctaLabel = siteConfig.hero.ctaLabel,
   ctaHref = siteConfig.hero.ctaHref,
-  secondaryCtaLabel = siteConfig.hero.secondaryCtaLabel,
+  secondaryCtaLabel = 'Vraag gratis ontwerp aan',
   secondaryCtaHref = siteConfig.hero.secondaryCtaHref,
 }: HeroSectionProps) {
   return (
     <div>
-      {/* ═══ HERO ═══════════════════════════════════════════════ */}
-      <section className="relative bg-[#06040c] overflow-hidden min-h-screen flex flex-col">
-
-        {/* Wave background — geanimeerd, Stripe-stijl */}
+      <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#06040c]">
         <div className="absolute inset-0 overflow-hidden">
           <div className="hero-wave-bg absolute inset-[-8%]">
             <Image
@@ -63,7 +45,6 @@ export default function HeroSection({
               quality={90}
             />
           </div>
-          {/* Gradient overlay: links donker voor tekstleesbaarheid, rechts open voor wave */}
           <div
             className="absolute inset-0"
             style={{
@@ -71,28 +52,20 @@ export default function HeroSection({
                 'linear-gradient(110deg, rgba(6,4,12,0.95) 0%, rgba(6,4,12,0.85) 42%, rgba(6,4,12,0.50) 65%, rgba(6,4,12,0.18) 100%)',
             }}
           />
-          {/* Vignette bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#06040c] to-transparent pointer-events-none" />
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#06040c] to-transparent" />
         </div>
 
-        {/* Content */}
-        <div className="relative flex-1 flex items-center max-w-7xl mx-auto w-full px-6 lg:px-8 pt-32 pb-20 lg:pt-44 lg:pb-28">
-          <div className="max-w-[820px] w-full">
-
-            {/* Eyebrow */}
-            <p className="text-sm text-white/50 mb-6 font-medium tabular-nums">
-              Klanten geholpen door WebsUp:{' '}
-              <span className="font-bold text-white/80">
-                <Counter target={94} suffix="+" />
-              </span>
+        <div className="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-44">
+          <div className="w-full max-w-[860px]">
+            <p className="mb-6 text-sm font-medium text-white/50">
+              Voor ondernemers en bedrijven die verder willen dan alleen een mooie website
             </p>
 
-            {/* H1 */}
             <h1
-              className="font-headline font-extrabold text-white tracking-[-0.03em] leading-[1.06] mb-7"
+              className="mb-7 font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-white"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
             >
-              Eén aanspreekpunt.{' '}
+              Een aanspreekpunt.{' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #ec4899 45%, #a78bfa 100%)',
@@ -105,17 +78,14 @@ export default function HeroSection({
               </span>
             </h1>
 
-            <p className="text-base md:text-lg text-white/60 leading-relaxed mb-10 max-w-[46ch]">
-              Ik ben Daan — ik bouw websites, webshops, apps en automatiseringen
-              die als één geheel werken. Persoonlijk contact, eerlijk advies,
-              direct met de persoon die bouwt.
+            <p className="mb-10 max-w-[56ch] text-base leading-relaxed text-white/60 md:text-lg">
+              WebsUp bouwt websites en webshops die vertrouwen geven, goed werken en klaar zijn om door te groeien. Heb je meer nodig? Dan bouwen we verder met dashboards, koppelingen, calculators of andere maatwerk oplossingen.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-3 mb-12">
+            <div className="mb-12 flex flex-wrap gap-3">
               <Link
                 href={ctaHref}
-                className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold text-sm px-7 py-3.5 rounded-full hover:-translate-y-px hover:bg-white/90 transition-all duration-150 shadow-lg"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 shadow-lg transition-all duration-150 hover:-translate-y-px hover:bg-white/90"
               >
                 {ctaLabel}
                 <ArrowRight size={14} />
@@ -123,21 +93,19 @@ export default function HeroSection({
               {secondaryCtaLabel && secondaryCtaHref && (
                 <Link
                   href={secondaryCtaHref}
-                  className="inline-flex items-center gap-2 bg-white/10 text-white font-semibold text-sm px-6 py-3.5 rounded-full border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-150 hover:-translate-y-px backdrop-blur-sm"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-150 hover:-translate-y-px hover:border-white/30 hover:bg-white/15"
                 >
                   {secondaryCtaLabel}
                 </Link>
               )}
             </div>
 
-            {/* Platform badges */}
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs text-white/35 font-medium mr-1">Werkend met:</span>
-              {platforms.map((p) => (
-                <Tooltip key={p.name} content={p.tip} containerClassName="text-white/60">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/8 border border-white/12 text-white/60 cursor-default hover:bg-white/12 hover:text-white/80 transition-colors">
-                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: p.dot }} />
-                    {p.name}
+              {platforms.map((platform) => (
+                <Tooltip key={platform.name} content={platform.tip} containerClassName="text-white/60">
+                  <span className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-white/12 bg-white/8 px-2.5 py-1 text-xs font-semibold text-white/60 transition-colors hover:bg-white/12 hover:text-white/80">
+                    <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: platform.dot }} />
+                    {platform.name}
                   </span>
                 </Tooltip>
               ))}
@@ -145,22 +113,26 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Bottom hairline */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/8 pointer-events-none" />
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-white/8" />
       </section>
 
-      {/* ═══ LOGO STRIP ══════════════════════════════════════════ */}
-      <div className="bg-[#06040c] border-b border-white/6 py-5 overflow-hidden relative">
-        <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-             style={{ background: 'linear-gradient(to right, #06040c, transparent)' }} />
-        <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-             style={{ background: 'linear-gradient(to left, #06040c, transparent)' }} />
+      <div className="relative overflow-hidden border-b border-white/6 bg-[#06040c] py-5">
+        <div
+          className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-20"
+          style={{ background: 'linear-gradient(to right, #06040c, transparent)' }}
+        />
+        <div
+          className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-20"
+          style={{ background: 'linear-gradient(to left, #06040c, transparent)' }}
+        />
 
-        <ul className="flex items-center gap-0 w-max marquee-track list-none m-0 p-0">
+        <ul className="marquee-track m-0 flex w-max list-none items-center gap-0 p-0">
           {marquee.map((name, i) => (
-            <li key={`${name}-${i}`}
-                className="flex items-center px-10 border-r border-white/6 last:border-r-0">
-              <span className="font-headline font-bold text-sm text-white/25 whitespace-nowrap hover:text-white/45 transition-opacity cursor-default">
+            <li
+              key={`${name}-${i}`}
+              className="flex items-center border-r border-white/6 px-10 last:border-r-0"
+            >
+              <span className="font-headline text-sm font-bold whitespace-nowrap text-white/25 transition-opacity hover:text-white/45">
                 {name}
               </span>
             </li>

@@ -62,7 +62,7 @@ export default function AboutSection({
           <Reveal delay={120} className="relative h-80 lg:h-[480px] rounded-2xl overflow-hidden bg-gray-100">
             <Image
               src={image}
-              alt="Over ons"
+              alt="Over mij"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"

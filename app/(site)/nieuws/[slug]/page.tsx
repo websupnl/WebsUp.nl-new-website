@@ -140,14 +140,9 @@ export default async function NieuwsDetailPage({ params }: Props) {
       )}
 
       <Reveal className="pt-6 pb-24 lg:pb-32">
-        <CTASection
-          heading="Vraag meer informatie aan"
-          subheading="Wilt u meer weten over dit onderwerp of bent u benieuwd wat BP Uitgevers voor uw organisatie kan betekenen? Neem vrijblijvend contact op."
-          ctaLabel="Neem contact op"
-          ctaHref="/contact"
-
-        />
+        <CTASection />
       </Reveal>
     </article>
   )
 }
+

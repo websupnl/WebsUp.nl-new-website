@@ -15,21 +15,19 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
-  heading = siteConfig.cta.heading,
-  subheading = siteConfig.cta.subheading,
-  ctaLabel = siteConfig.cta.ctaLabel,
+  heading = 'Benieuwd wat ik voor jou kan bouwen?',
+  subheading = 'Plan een gratis kennismaking — telefonisch of bij jou op locatie. Geen verkooppraatje, gewoon een eerlijk gesprek over wat jouw bedrijf nodig heeft.',
+  ctaLabel = 'Plan een kennismaking',
   ctaHref = siteConfig.cta.ctaHref,
   secondaryLabel = 'Stuur een mail',
   secondaryHref = `mailto:${siteConfig.email}`,
   className = '',
 }: CTASectionProps) {
   return (
-    <section className={`py-20 px-6 lg:px-8 ${className}`}>
-      <div className="max-w-7xl mx-auto">
+    <section className={`px-6 py-20 lg:px-8 ${className}`}>
+      <div className="mx-auto max-w-7xl">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#06040c] min-h-[340px] flex items-center">
-
-            {/* Wave background — dezelfde als hero/page headers */}
+          <div className="relative flex min-h-[340px] items-center overflow-hidden rounded-[2rem] bg-[#06040c]">
             <div className="absolute inset-0 overflow-hidden">
               <div className="hero-wave-bg absolute inset-[-8%]">
                 <Image
@@ -41,22 +39,19 @@ export default function CTASection({
                   quality={80}
                 />
               </div>
-              {/* Gradient: links open voor wave, rechts donkerder voor tekst leesbaarheid */}
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(110deg, rgba(6,4,12,0.88) 0%, rgba(6,4,12,0.75) 40%, rgba(6,4,12,0.40) 65%, rgba(6,4,12,0.15) 100%)',
+                    'linear-gradient(110deg, rgba(6,4,12,0.88) 0%, rgba(6,4,12,0.75) 40%, rgba(6,4,12,0.4) 65%, rgba(6,4,12,0.15) 100%)',
                 }}
               />
             </div>
 
-            {/* Content — links uitgelijnd */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-10 md:px-16 py-16">
-              <div className="max-w-xl w-full">
-                {/* Overline */}
+            <div className="relative z-10 mx-auto w-full max-w-7xl px-10 py-16 md:px-16">
+              <div className="max-w-xl">
                 <span
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[0.68rem] font-bold uppercase tracking-[0.08em] mb-6 border"
+                  className="mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.08em]"
                   style={{
                     background: 'rgba(249,115,22,0.10)',
                     borderColor: 'rgba(236,72,153,0.25)',
@@ -64,56 +59,54 @@ export default function CTASection({
                   }}
                 >
                   <span
-                    className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                    className="h-1.5 w-1.5 rounded-full"
                     style={{ background: 'linear-gradient(135deg,#f97316,#ec4899)' }}
                   />
                   Klaar voor de volgende stap?
                 </span>
 
                 <h2
-                  className="font-headline font-extrabold text-white tracking-[-0.025em] leading-[1.08] mb-5"
-                  style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)' }}
+                  className="mb-5 font-headline text-white"
+                  style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.025em' }}
                 >
                   {heading}
                 </h2>
-                <p className="text-white/55 text-base md:text-lg leading-relaxed mb-8">
-                  {subheading}
-                </p>
+                <p className="mb-3 text-base leading-relaxed text-white/55 md:text-lg">{subheading}</p>
+                <p className="mb-8 text-sm text-white/40">Telefonisch, online of gewoon bij jou op locatie.</p>
 
-                <div className="flex flex-wrap gap-3 mb-8">
+                <div className="mb-8 flex flex-wrap gap-3">
                   <Link
                     href={ctaHref}
-                    className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold text-sm px-7 py-3.5 rounded-full hover:-translate-y-px hover:bg-white/90 transition-all duration-150 shadow-lg"
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 shadow-lg transition-all duration-150 hover:-translate-y-px hover:bg-white/90"
                   >
                     {ctaLabel}
                     <ArrowRight size={14} />
                   </Link>
                   <a
                     href={secondaryHref}
-                    className="inline-flex items-center gap-2 bg-white/10 text-white font-semibold text-sm px-6 py-3.5 rounded-full border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-150 hover:-translate-y-px"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-px hover:border-white/30 hover:bg-white/15"
                   >
                     <Mail size={14} />
                     {secondaryLabel}
                   </a>
                 </div>
 
-                {/* Contact mini */}
-                <div className="flex flex-wrap gap-5 pt-6 border-t border-white/8">
+                <div className="flex flex-wrap gap-5 border-t border-white/8 pt-6">
                   <a
                     href={`tel:${siteConfig.phone.replace(/\s/g, '')}`}
-                    className="flex items-center gap-1.5 text-white/35 hover:text-white/70 text-xs transition-colors"
+                    className="flex items-center gap-1.5 text-xs text-white/35 transition-colors hover:text-white/70"
                   >
                     <Phone size={12} />
                     {siteConfig.phone}
                   </a>
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="flex items-center gap-1.5 text-white/35 hover:text-white/70 text-xs transition-colors"
+                    className="flex items-center gap-1.5 text-xs text-white/35 transition-colors hover:text-white/70"
                   >
                     <Mail size={12} />
                     {siteConfig.email}
                   </a>
-                  <span className="text-white/20 text-xs">Friesland, Nederland</span>
+                  <span className="text-xs text-white/20">Friesland, Nederland</span>
                 </div>
               </div>
             </div>

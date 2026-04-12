@@ -1,11 +1,10 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, ExternalLink, CheckCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
 import WavePageHeader from '@/components/site/WavePageHeader'
-import ConnectBanner from '@/components/site/ConnectBanner'
 
 export const metadata: Metadata = {
   title: 'Projecten',
@@ -232,10 +231,8 @@ export default function ProjectenPage() {
         </section>
       )}
 
-      <CTASection
-        heading="Jouw project is het volgende."
-        subheading="Vertel me waar je mee bezig bent. Ik denk mee en adviseer eerlijk — ook als iets anders beter past."
-      />
+      <CTASection />
     </div>
   )
 }
+

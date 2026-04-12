@@ -68,6 +68,8 @@ export default function Navbar({
   const [scrolled, setScrolled] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const [headerHeight, setHeaderHeight] = useState(96)
+  const headerRef = useRef<HTMLElement>(null)
   const megaRef = useRef<HTMLDivElement>(null)
   const megaTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -77,15 +79,45 @@ export default function Navbar({
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        setHeaderHeight(headerRef.current.getBoundingClientRect().height)
+      }
+    }
+
+    updateHeaderHeight()
+    window.addEventListener('resize', updateHeaderHeight)
+
+    const resizeObserver = typeof ResizeObserver !== 'undefined' && headerRef.current
+      ? new ResizeObserver(updateHeaderHeight)
+      : null
+
+    if (resizeObserver && headerRef.current) {
+      resizeObserver.observe(headerRef.current)
+    }
+
+    return () => {
+      window.removeEventListener('resize', updateHeaderHeight)
+      resizeObserver?.disconnect()
+    }
+  }, [])
+
   // Close mega on route change
   useEffect(() => { setMegaOpen(false); setMobileOpen(false) }, [pathname])
+
+  useEffect(() => {
+    return () => {
+      if (megaTimeout.current) clearTimeout(megaTimeout.current)
+    }
+  }, [])
 
   const openMega = () => {
     if (megaTimeout.current) clearTimeout(megaTimeout.current)
     setMegaOpen(true)
   }
   const closeMega = () => {
-    megaTimeout.current = setTimeout(() => setMegaOpen(false), 120)
+    megaTimeout.current = setTimeout(() => setMegaOpen(false), 180)
   }
 
   const items = navItems.length > 0 ? navItems : FALLBACK_NAV
@@ -99,24 +131,25 @@ export default function Navbar({
   return (
     <>
       <header
-        className={`fixed top-5 w-full z-50 transition-all duration-500 ${
+        ref={headerRef}
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           scrolled || megaOpen
             ? 'bg-white/95 backdrop-blur-xl backdrop-saturate-150 shadow-sm border-b border-slate-900/6'
             : 'bg-transparent'
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex min-h-[6.25rem] items-center justify-between">
 
             {/* Logo */}
             <Link href="/" className="flex items-center flex-shrink-0">
               {logoUrl ? (
-                <img src={logoUrl} alt={siteName} className="h-8 w-auto" />
+                <img src={logoUrl} alt={siteName} className="h-30 w-auto" />
               ) : (
                 <img
                   src={scrolled || megaOpen ? '/WebsUp.nl logo zwart.png' : '/WebsUp.nl logo wit.png'}
                   alt={siteName}
-                  className="h-65 w-auto transition-opacity duration-300"
+                  className="h-24 w-auto transition-opacity duration-300"
                 />
               )}
             </Link>
@@ -267,12 +300,12 @@ export default function Navbar({
       <div
         onMouseEnter={openMega}
         onMouseLeave={closeMega}
-        className={`fixed top-20 left-0 right-0 z-40 transition-all duration-300 ease-out origin-top ${
+        className={`fixed left-0 right-0 z-40 origin-top transition-all duration-300 ease-out ${
           megaOpen
             ? 'opacity-100 translate-y-0 pointer-events-auto'
             : 'opacity-0 -translate-y-2 pointer-events-none'
         }`}
-        style={{ willChange: 'opacity, transform' }}
+        style={{ top: `${headerHeight}px`, willChange: 'opacity, transform' }}
       >
         {/* Backdrop blur border */}
         <div className="border-t border-slate-900/6" />

@@ -28,12 +28,12 @@ function formatDate(date: string) {
 }
 
 const categories = [
-  { label: 'WordPress', tip: 'Artikelen over WordPress: plugins, thema\'s, beveiliging en optimalisatie.' },
-  { label: 'Next.js', tip: 'Deep dives in het React-framework voor moderne, snelle websites en apps.' },
-  { label: 'SEO', tip: 'Praktische tips om hoger te scoren in Google en meer organisch verkeer te krijgen.' },
-  { label: 'Automatisering', tip: 'Workflows, n8n, API-koppelingen en alles om handmatig werk te elimineren.' },
-  { label: 'Webshops', tip: 'Shopify, WooCommerce en conversieoptimalisatie voor online verkoop.' },
-  { label: 'Algemeen', tip: 'Overige tips over webdevelopment, ondernemen en digitale groei.' },
+  { label: 'Meer aanvragen via je website', tip: 'Praktische tips over duidelijkere websites, structuur en betere online zichtbaarheid.' },
+  { label: 'Hoger in Google komen', tip: 'SEO uitgelegd zonder technisch jargon, gericht op meer bereik en betere vindbaarheid.' },
+  { label: 'Tijd besparen met automatisering', tip: 'Voor ondernemers die minder handmatig werk willen en processen slimmer willen inrichten.' },
+  { label: 'Webshop verbeteren', tip: 'Tips over conversie, checkout, productpresentatie en online verkopen.' },
+  { label: 'Website sneller en duidelijker', tip: 'Artikelen over snelheid, gebruiksvriendelijkheid en vertrouwen op je site.' },
+  { label: 'Digitale keuzes maken', tip: 'Hulp bij de vraag wat slim is: WordPress, maatwerk, webshop, koppelingen of iets daartussenin.' },
 ]
 
 export default async function KennisbankPage() {
@@ -45,70 +45,75 @@ export default async function KennisbankPage() {
         badge="Kennisbank"
         title="Praktische kennis,"
         titleHighlight="gratis."
-        subtitle="Artikelen, handleidingen en tips over webdevelopment, SEO, automatisering en digitale groei."
+        subtitle="Artikelen, handleidingen en tips over websites, online vindbaarheid, automatisering en digitale groei."
       />
 
-      {/* Categorieën */}
-      <div className="bg-white border-b border-slate-100 py-4 sticky top-20 z-40">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-2 overflow-x-auto scrollbar-hide">
-          <span className="text-xs text-slate-400 font-medium whitespace-nowrap mr-1">Filter:</span>
-          {categories.map((cat) => (
-            <Tooltip key={cat.label} content={cat.tip}>
-              <span className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-50 text-slate-600 border border-slate-100 cursor-pointer hover:border-slate-300 transition-colors whitespace-nowrap">
-                {cat.label}
-              </span>
-            </Tooltip>
-          ))}
+      <div className="bg-white py-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-4 max-w-2xl">
+            <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">Populaire onderwerpen</div>
+            <p className="mt-2 text-sm leading-relaxed text-slate-500">
+              Niet technisch ingestoken, maar gewoon in duidelijke taal. Dit zijn de onderwerpen waar ondernemers meestal mee zitten.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {categories.map((cat) => (
+              <Tooltip key={cat.label} content={cat.tip}>
+                <span className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-600 transition-colors hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600">
+                  {cat.label}
+                </span>
+              </Tooltip>
+            ))}
+          </div>
         </div>
       </div>
 
       <section className="bg-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {articles.length === 0 ? (
-            <Reveal className="text-center py-24">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 bg-slate-50 border border-slate-100">
+            <Reveal className="py-24 text-center">
+              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50">
                 <BookOpen size={24} className="text-slate-400" />
               </div>
-              <h2 className="font-headline text-2xl font-bold text-slate-900 mb-3">
+              <h2 className="mb-3 font-headline text-2xl font-bold text-slate-900">
                 Eerste artikel komt eraan
               </h2>
-              <p className="text-slate-500 max-w-md mx-auto leading-relaxed mb-6">
+              <p className="mx-auto mb-6 max-w-md leading-relaxed text-slate-500">
                 We zijn bezig met de eerste kennisbank artikelen. Heb je een vraag? Neem gerust contact op.
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-slate-900 text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-slate-800 hover:-translate-y-px transition-all shadow-sm"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:-translate-y-px hover:bg-slate-800"
               >
                 Stel een vraag <ArrowRight size={14} />
               </Link>
             </Reveal>
           ) : (
             <>
-              {/* Featured */}
               {articles[0] && (
                 <Reveal className="mb-12">
                   <Link
                     href={`/kennisbank/${articles[0].slug}`}
-                    className="group grid lg:grid-cols-5 gap-0 rounded-[1.75rem] overflow-hidden border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                    className="group grid gap-0 overflow-hidden rounded-[1.75rem] border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl lg:grid-cols-5"
                   >
                     {articles[0].image_url && (
-                      <div className="lg:col-span-2 aspect-video lg:aspect-auto overflow-hidden bg-slate-100">
+                      <div className="aspect-video overflow-hidden bg-slate-100 lg:col-span-2 lg:aspect-auto">
                         <img
                           src={articles[0].image_url}
                           alt={articles[0].title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                       </div>
                     )}
                     <div className={`flex flex-col justify-center p-8 lg:p-12 ${articles[0].image_url ? 'lg:col-span-3' : 'lg:col-span-5'}`}>
-                      <span className="text-xs font-bold uppercase tracking-wider text-orange-500 mb-3">
+                      <span className="mb-3 text-xs font-bold uppercase tracking-wider text-orange-500">
                         Uitgelicht
                       </span>
-                      <h2 className="font-headline text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 group-hover:text-orange-500 transition-colors leading-tight">
+                      <h2 className="mb-4 font-headline text-2xl font-extrabold leading-tight text-slate-900 transition-colors group-hover:text-orange-500 md:text-3xl">
                         {articles[0].title}
                       </h2>
                       {articles[0].excerpt && (
-                        <p className="text-slate-500 leading-relaxed mb-5 line-clamp-3">
+                        <p className="mb-5 leading-relaxed text-slate-500 line-clamp-3">
                           {articles[0].excerpt}
                         </p>
                       )}
@@ -121,38 +126,37 @@ export default async function KennisbankPage() {
                 </Reveal>
               )}
 
-              {/* Grid */}
               {articles.length > 1 && (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                   {articles.slice(1).map((article, i) => (
                     <Reveal key={article.id} delay={i * 50}>
                       <Link
                         href={`/kennisbank/${article.slug}`}
-                        className="group flex flex-col h-full rounded-2xl border border-slate-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                       >
                         {article.image_url ? (
                           <div className="aspect-video overflow-hidden bg-slate-50">
                             <img
                               src={article.image_url}
                               alt={article.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                           </div>
                         ) : (
-                          <div className="aspect-video bg-slate-50 flex items-center justify-center">
+                          <div className="flex aspect-video items-center justify-center bg-slate-50">
                             <BookOpen size={28} className="text-slate-200" />
                           </div>
                         )}
-                        <div className="p-6 flex flex-col flex-1">
-                          <h3 className="font-headline font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition-colors leading-snug">
+                        <div className="flex flex-1 flex-col p-6">
+                          <h3 className="mb-2 font-headline font-bold leading-snug text-slate-900 transition-colors group-hover:text-orange-500">
                             {article.title}
                           </h3>
                           {article.excerpt && (
-                            <p className="text-slate-500 text-sm leading-relaxed mb-4 flex-1 line-clamp-3">
+                            <p className="mb-4 flex-1 text-sm leading-relaxed text-slate-500 line-clamp-3">
                               {article.excerpt}
                             </p>
                           )}
-                          <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-50 text-xs text-slate-400">
+                          <div className="mt-auto flex items-center justify-between border-t border-slate-50 pt-4 text-xs text-slate-400">
                             <span>{formatDate(article.created_at)}</span>
                             <span className="flex items-center gap-1"><Clock size={11} />{readingTime(article.content)} min</span>
                           </div>

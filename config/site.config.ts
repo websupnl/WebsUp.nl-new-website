@@ -20,7 +20,7 @@ export const siteConfig = {
     { label: "Diensten", href: "/diensten" },
     { label: "Projecten", href: "/projecten" },
     { label: "Kennisbank", href: "/kennisbank" },
-    { label: "Over ons", href: "/over-ons" },
+    { label: "Over mij", href: "/over-ons" },
     { label: "Contact", href: "/contact" },
   ],
 
@@ -235,7 +235,7 @@ export const siteConfig = {
 
   // Legacy stubs (voor backward-compat van niet-gebruikte components)
   about: {
-    badge: 'Over ons',
+    badge: 'Over mij',
     heading: 'Wij zijn WebsUp.nl',
     body: 'Maatwerk digitale oplossingen uit Friesland.',
     highlights: ['Persoonlijk', 'Technisch sterk', 'Resultaatgericht'],

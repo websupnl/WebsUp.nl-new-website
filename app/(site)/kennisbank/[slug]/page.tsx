@@ -104,10 +104,8 @@ export default async function BlogArticlePage({ params }: Props) {
         )}
       </article>
 
-      <CTASection
-        heading="Meer weten of hulp nodig?"
-        subheading="Neem gerust contact op. Ik help je graag verder."
-      />
+      <CTASection />
     </div>
   )
 }
+
