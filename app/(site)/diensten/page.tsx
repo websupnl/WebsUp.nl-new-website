@@ -38,7 +38,7 @@ export default function DienstenPage() {
         badge="Diensten"
         title="Digitale oplossingen"
         titleHighlight="die werken."
-        subtitle="Websites, webshops, apps en automatiseringen — persoonlijk gebouwd door Daan vanuit Friesland."
+        subtitle="Websites, webshops, apps en automatiseringen die aansluiten op hoe jouw bedrijf werkt."
       >
         <Link
           href="/contact"

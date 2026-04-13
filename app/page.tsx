@@ -8,6 +8,7 @@ import AboutMeSection from '@/components/site/AboutMeSection'
 import TestimonialsSection from '@/components/site/TestimonialsSection'
 import StarterCTASection from '@/components/site/StarterCTASection'
 import WhySection from '@/components/site/WhySection'
+import VoorWieSection from '@/components/site/VoorWieSection'
 import CTASection from '@/components/site/CTASection'
 import CookieBanner from '@/components/site/CookieBanner'
 import { getTestimonials } from '@/lib/queries/testimonials'
@@ -48,6 +49,7 @@ export default async function HomePage() {
         <HeroSection />
         <AboutMeSection />
         <WhySection />
+        <VoorWieSection />
         <StarterCTASection />
         <TestimonialsSection testimonials={testimonials} />
         <CTASection />

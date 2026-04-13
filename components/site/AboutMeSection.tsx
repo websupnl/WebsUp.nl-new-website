@@ -3,23 +3,35 @@ import Link from 'next/link'
 import { ArrowRight, MapPin, MessageCircle, Wrench } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 
-const points = [
-  'Direct contact met degene die meedenkt en bouwt',
-  'Eerlijk advies over wat wel en niet nodig is',
-  'Een oplossing die praktisch werkt en met je bedrijf mee kan groeien',
+const highlights = [
+  {
+    title: 'Direct contact',
+    text: 'Korte lijnen, snel schakelen en direct duidelijkheid tijdens het hele traject.',
+    icon: MessageCircle,
+  },
+  {
+    title: 'Technisch sterk',
+    text: 'Van website tot maatwerk module: slim bedacht en degelijk gebouwd.',
+    icon: Wrench,
+  },
+  {
+    title: 'Persoonlijk & dichtbij',
+    text: 'Nuchter, betrokken en goed bereikbaar. Online, telefonisch of gewoon op locatie.',
+    icon: MapPin,
+  },
 ]
 
 export default function AboutMeSection() {
   return (
     <section className="bg-white py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+        <div className="grid items-end gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
           <Reveal>
-            <div className="relative overflow-hidden rounded-[2rem] border border-slate-100 bg-slate-100 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+            <div className="relative">
               <div className="absolute left-5 top-5 z-10 inline-flex rounded-full border border-white/50 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-700 backdrop-blur-sm">
                 Over WebsUp
               </div>
-              <div className="relative h-[24rem] sm:h-[30rem]">
+              <div className="relative h-[24rem] overflow-hidden rounded-[2.5rem] bg-slate-100 sm:h-[32rem]">
                 <Image
                   src="/Daan Koolhaas.jpg"
                   alt="Daan Koolhaas"
@@ -51,37 +63,22 @@ export default function AboutMeSection() {
               WebsUp is bewust persoonlijk opgezet. Je schakelt direct met degene die meedenkt, ontwerpt en bouwt. Geen ruis, geen onnodige omwegen, wel korte lijnen, eerlijk advies en een oplossing die past bij jouw bedrijf.
             </p>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5">
-                <MessageCircle size={18} className="text-orange-500" />
-                <div className="mt-3 text-sm font-semibold text-slate-900">Direct contact</div>
-                <div className="mt-1 text-sm leading-relaxed text-slate-500">
-                  Korte lijnen, snel schakelen en direct duidelijkheid tijdens het hele traject.
-                </div>
-              </div>
-              <div className="rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5">
-                <Wrench size={18} className="text-pink-500" />
-                <div className="mt-3 text-sm font-semibold text-slate-900">Technisch sterk</div>
-                <div className="mt-1 text-sm leading-relaxed text-slate-500">
-                  Van website tot maatwerk module: slim bedacht en degelijk gebouwd.
-                </div>
-              </div>
-              <div className="rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5">
-                <MapPin size={18} className="text-orange-500" />
-                <div className="mt-3 text-sm font-semibold text-slate-900">Persoonlijk & dichtbij</div>
-                <div className="mt-1 text-sm leading-relaxed text-slate-500">
-                  Nuchter, betrokken en goed bereikbaar. Online, telefonisch of gewoon op locatie.
-                </div>
-              </div>
-            </div>
+            <div className="mt-10 border-t border-slate-200 pt-6">
+              <div className="grid gap-6 sm:grid-cols-3">
+                {highlights.map((item) => {
+                  const Icon = item.icon
 
-            <div className="mt-8 space-y-3">
-              {points.map((point) => (
-                <div key={point} className="flex items-start gap-3 text-sm leading-relaxed text-slate-600">
-                  <div className="mt-1 h-2 w-2 rounded-full bg-orange-500" />
-                  {point}
-                </div>
-              ))}
+                  return (
+                    <div key={item.title} className="border-l border-slate-200 pl-4">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-orange-500">
+                        <Icon size={18} />
+                      </div>
+                      <div className="mt-4 text-sm font-semibold text-slate-900">{item.title}</div>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.text}</p>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
 
             <Link

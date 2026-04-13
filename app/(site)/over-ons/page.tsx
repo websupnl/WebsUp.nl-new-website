@@ -7,10 +7,8 @@ import {
   ArrowRight,
   CheckCircle,
   MapPin,
-  MessageCircle,
   Quote,
   Star,
-  Wrench,
 } from 'lucide-react'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import CTASection from '@/components/site/CTASection'
@@ -50,24 +48,6 @@ const fallbackTestimonials = [
     rating: 5,
   },
 ] satisfies Array<Pick<Testimonial, 'id' | 'name' | 'role' | 'content' | 'rating'>>
-
-const reasons = [
-  {
-    title: 'Direct contact',
-    text: 'Je schakelt direct met degene die meedenkt en bouwt. Dat maakt het traject sneller, duidelijker en persoonlijker.',
-    icon: MessageCircle,
-  },
-  {
-    title: 'Eerlijk advies',
-    text: 'Geen standaard pakket en geen opgeblazen voorstel. Wel duidelijkheid over wat slim is, en wat niet nodig is.',
-    icon: CheckCircle,
-  },
-  {
-    title: 'Technisch en praktisch',
-    text: 'Van website tot webshop of maatwerk oplossing. Altijd gekozen op basis van wat jouw bedrijf echt verder helpt.',
-    icon: Wrench,
-  },
-]
 
 const collaborationSteps = [
   'We beginnen gewoon met een gesprek over je bedrijf, je vraag en waar je op vastloopt.',
@@ -193,38 +173,54 @@ export default async function OverOnsPage() {
 
       <section className="bg-white pb-20 lg:pb-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-            <Reveal className="rounded-[2rem] border border-slate-100 bg-white p-7 shadow-[0_16px_40px_rgba(15,23,42,0.04)] lg:p-10">
-              <span className="overline-badge mb-4 inline-flex">Waarom dit anders werkt</span>
-              <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-                Persoonlijk samenwerken, professioneel gebouwd.
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-slate-500">
-                Niet omdat WebsUp het grootste bureau is, maar juist omdat de lijnen kort zijn en de samenwerking duidelijk voelt. Je weet met wie je werkt, waar je aan toe bent en wat er gebouwd wordt.
-              </p>
-              <p className="mt-4 text-lg leading-relaxed text-slate-500">
-                Klanten zijn hier geen nummer. Juist de interessantere vraagstukken maken het werk leuker, omdat daar het meedenken en bouwen echt samenkomen.
-              </p>
-            </Reveal>
+          <Reveal className="overflow-hidden rounded-[2rem] border border-slate-100 bg-white shadow-[0_16px_40px_rgba(15,23,42,0.04)]">
+            <div className="grid gap-0 lg:grid-cols-[1.2fr_0.8fr]">
+              <div className="p-7 lg:p-10">
+                <span className="overline-badge mb-4 inline-flex">Waarom dit anders werkt</span>
+                <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
+                  Persoonlijk samenwerken, zonder het groter te maken dan het is.
+                </h2>
+                <div className="mt-6 space-y-4 text-lg leading-relaxed text-slate-500">
+                  <p>
+                    WebsUp is geen groot bureau met accountmanagers, saleslagen of trajecten die onnodig zwaar worden opgetuigd. Het voordeel daarvan is simpel: communicatie blijft helder, keuzes blijven logisch en het werk blijft dicht op de praktijk.
+                  </p>
+                  <p>
+                    Juist daardoor is er ruimte om eerlijk te kijken naar wat wel nodig is, en wat niet. Soms is dat een complete website, soms alleen een slimmere structuur, een webshop of een maatwerk oplossing achter de schermen.
+                  </p>
+                  <p>
+                    Het doel is niet om overal een groot verhaal van te maken, maar om iets neer te zetten dat technisch klopt, prettig werkt en later nog verder kan meegroeien.
+                  </p>
+                </div>
+              </div>
 
-            <div className="grid gap-4">
-              {reasons.map((item, index) => {
-                const Icon = item.icon
-
-                return (
-                  <Reveal key={item.title} delay={index * 70}>
-                    <div className="rounded-[1.5rem] border border-slate-100 bg-slate-50 p-6">
-                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-orange-500 shadow-sm">
-                        <Icon size={18} />
-                      </div>
-                      <h3 className="font-headline text-xl font-bold text-slate-900">{item.title}</h3>
+              <div className="border-t border-slate-100 bg-slate-50 p-7 lg:border-l lg:border-t-0 lg:p-10">
+                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+                  In de praktijk
+                </div>
+                <div className="mt-6 space-y-6">
+                  {[
+                    {
+                      label: 'Communicatie',
+                      text: 'Snel, duidelijk en zonder omwegen.',
+                    },
+                    {
+                      label: 'Aanpak',
+                      text: 'Geen standaard pakket, maar keuzes die passen bij het bedrijf.',
+                    },
+                    {
+                      label: 'Techniek',
+                      text: 'Stevig genoeg om nu goed te werken en later op door te bouwen.',
+                    },
+                  ].map((item) => (
+                    <div key={item.label} className="border-b border-slate-200 pb-6 last:border-b-0 last:pb-0">
+                      <div className="text-sm font-semibold text-slate-900">{item.label}</div>
                       <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.text}</p>
                     </div>
-                  </Reveal>
-                )
-              })}
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
