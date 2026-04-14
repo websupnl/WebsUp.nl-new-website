@@ -106,6 +106,16 @@ export default function Navbar({
   // Close mega on route change
   useEffect(() => { setMegaOpen(false); setMobileOpen(false) }, [pathname])
 
+  // Lock body scroll when side drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
   useEffect(() => {
     return () => {
       if (megaTimeout.current) clearTimeout(megaTimeout.current)
@@ -231,68 +241,6 @@ export default function Navbar({
             </button>
           </div>
 
-          {/* Mobile menu */}
-          {mobileOpen && (
-            <div className="md:hidden mb-4 py-3 px-2 space-y-1 rounded-2xl border border-white/10 bg-slate-950/97 backdrop-blur-xl shadow-xl">
-              {/* Diensten met sub-items */}
-              <div>
-                <button
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/8 transition-colors"
-                >
-                  Diensten
-                  <ChevronDown size={14} className={`transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {mobileServicesOpen && (
-                  <div className="mt-1 ml-3 space-y-0.5 border-l border-white/10 pl-3">
-                    {DIENSTEN.map((d) => (
-                      <Link
-                        key={d.href}
-                        href={d.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="block px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors"
-                      >
-                        {d.title}
-                      </Link>
-                    ))}
-                    <Link
-                      href="/diensten"
-                      onClick={() => setMobileOpen(false)}
-                      className="block px-3 py-2 rounded-lg text-xs text-white/40 hover:text-white/70 transition-colors"
-                    >
-                      Alle diensten →
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {items.filter((i) => i.url !== '/diensten').map((item) => (
-                <Link
-                  key={item.id}
-                  href={item.url}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                    isActive(item.url)
-                      ? 'bg-white/10 text-white'
-                      : 'text-white/70 hover:text-white hover:bg-white/8'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-
-              <div className="px-2 pt-1">
-                <Link
-                  href="/contact?ref=ontwerp"
-                  onClick={() => setMobileOpen(false)}
-                  className="block text-center font-semibold text-sm px-4 py-2.5 rounded-full text-white"
-                  style={{ background: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)' }}
-                >
-                  Gratis ontwerp
-                </Link>
-              </div>
-            </div>
-          )}
         </nav>
       </header>
 
@@ -409,6 +357,110 @@ export default function Navbar({
           onClick={() => setMegaOpen(false)}
         />
       )}
+
+      {/* ── Mobile side drawer backdrop ─────────────────────────── */}
+      <div
+        className={`fixed inset-0 z-40 bg-[#06040c]/70 backdrop-blur-sm transition-all duration-300 md:hidden ${
+          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setMobileOpen(false)}
+      />
+
+      {/* ── Mobile side drawer ──────────────────────────────────── */}
+      <div
+        className={`fixed top-0 right-0 h-full z-50 w-[300px] flex flex-col bg-[#06040c] border-l border-white/8 shadow-2xl transition-transform duration-300 ease-out md:hidden ${
+          mobileOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        {/* Drawer header */}
+        <div className="flex items-center justify-between px-5 py-5 border-b border-white/8 flex-shrink-0">
+          <img src="/WebsUp.nl logo wit.png" alt={siteName} className="h-14 w-auto" />
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="p-2 rounded-xl text-white/50 hover:text-white hover:bg-white/10 transition-colors"
+            aria-label="Menu sluiten"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        {/* Nav items */}
+        <div className="flex-1 overflow-y-auto px-3 py-4 space-y-0.5">
+          {/* Diensten accordion */}
+          <div>
+            <button
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/8 transition-colors"
+            >
+              Diensten
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+            <div
+              className={`overflow-hidden transition-all duration-200 ${
+                mobileServicesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="mt-1 ml-3 space-y-0.5 border-l border-white/10 pl-3 pb-1">
+                {DIENSTEN.map((d) => {
+                  const Icon = d.icon
+                  return (
+                    <Link
+                      key={d.href}
+                      href={d.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors"
+                    >
+                      <Icon size={14} className="text-white/35 flex-shrink-0" />
+                      {d.title}
+                    </Link>
+                  )
+                })}
+                <Link
+                  href="/diensten"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-1 px-3 py-2 rounded-lg text-xs text-white/35 hover:text-white/60 transition-colors"
+                >
+                  Alle diensten <ArrowRight size={11} />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Other nav items */}
+          {items.filter((i) => i.url !== '/diensten').map((item) => (
+            <Link
+              key={item.id}
+              href={item.url}
+              onClick={() => setMobileOpen(false)}
+              className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                isActive(item.url)
+                  ? 'bg-white/10 text-white'
+                  : 'text-white/70 hover:text-white hover:bg-white/8'
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Drawer footer — CTA */}
+        <div className="px-4 py-5 border-t border-white/8 flex-shrink-0 space-y-3">
+          <Link
+            href="/contact?ref=ontwerp"
+            onClick={() => setMobileOpen(false)}
+            className="block text-center font-semibold text-sm px-4 py-3 rounded-full text-white transition-opacity hover:opacity-90"
+            style={{ background: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)' }}
+          >
+            Gratis ontwerp
+          </Link>
+          <p className="text-center text-xs text-white/25">
+            Persoonlijk advies · Direct contact met Daan
+          </p>
+        </div>
+      </div>
     </>
   )
 }
