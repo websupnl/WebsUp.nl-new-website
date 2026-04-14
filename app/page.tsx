@@ -9,9 +9,12 @@ import TestimonialsSection from '@/components/site/TestimonialsSection'
 import StarterCTASection from '@/components/site/StarterCTASection'
 import WhySection from '@/components/site/WhySection'
 import VoorWieSection from '@/components/site/VoorWieSection'
+import FAQSection from '@/components/site/FAQSection'
+import KennisbankPreviewSection from '@/components/site/KennisbankPreviewSection'
 import CTASection from '@/components/site/CTASection'
 import CookieBanner from '@/components/site/CookieBanner'
 import { getTestimonials } from '@/lib/queries/testimonials'
+import { getLatestNewsArticles } from '@/lib/queries/news'
 import { getMergedSiteSettings, getMergedSeoSettings, getNavigationItems } from '@/lib/queries/site-settings'
 import { siteConfig } from '@/config/site.config'
 
@@ -28,10 +31,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [testimonials, settings, allNavItems] = await Promise.all([
+  const [testimonials, settings, allNavItems, latestArticles] = await Promise.all([
     getTestimonials(),
     getMergedSiteSettings(),
     getNavigationItems(),
+    getLatestNewsArticles(3),
   ])
 
   const headerNavItems = allNavItems.filter((i) => i.location === 'header')
@@ -52,6 +56,8 @@ export default async function HomePage() {
         <VoorWieSection />
         <StarterCTASection />
         <TestimonialsSection testimonials={testimonials} />
+        <FAQSection limit={5} />
+        <KennisbankPreviewSection articles={latestArticles} />
         <CTASection />
       </main>
       <Footer

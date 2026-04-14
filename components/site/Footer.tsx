@@ -38,6 +38,7 @@ export default function Footer({
       links: [
         { label: 'Over mij', href: '/over-ons' },
         { label: 'Kennisbank', href: '/kennisbank' },
+        { label: 'Veelgestelde vragen', href: '/veelgestelde-vragen' },
         { label: 'Projecten', href: '/projecten' },
       ],
     },

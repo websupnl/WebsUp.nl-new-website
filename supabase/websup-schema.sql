@@ -211,6 +211,42 @@ create policy "Auth kan testimonials beheren"
   with check (auth.role() = 'authenticated');
 
 -- ============================================================
+-- PROJECTS
+-- ============================================================
+create table if not exists projects (
+  id          uuid primary key default uuid_generate_v4(),
+  tenant_id   uuid not null default '00000000-0000-0000-0000-000000000001'
+              references tenants(id) on delete cascade,
+  title       text not null,
+  slug        text not null unique,
+  category    text,
+  excerpt     text,
+  content     text,
+  image_url   text,
+  website_url text,
+  highlights  jsonb not null default '[]'::jsonb,
+  featured    boolean not null default false,
+  published   boolean not null default false,
+  sort_order  int not null default 0,
+  created_at  timestamptz not null default now(),
+  updated_at  timestamptz not null default now()
+);
+
+create index if not exists projects_slug_idx on projects(slug);
+create index if not exists projects_tenant_idx on projects(tenant_id, published, sort_order, created_at desc);
+create index if not exists projects_featured_idx on projects(featured, sort_order);
+
+alter table projects enable row level security;
+
+create policy "Public kan gepubliceerde projecten lezen"
+  on projects for select
+  using (published = true);
+create policy "Auth kan projecten beheren"
+  on projects for all
+  using (auth.role() = 'authenticated')
+  with check (auth.role() = 'authenticated');
+
+-- ============================================================
 -- NEWS_ARTICLES (optioneel — voor blog/nieuws later)
 -- ============================================================
 create table if not exists news_articles (

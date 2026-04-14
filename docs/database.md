@@ -21,6 +21,7 @@ Tenant ID (fixed, single-tenant): `00000000-0000-0000-0000-000000000001`
 | `publications` | Core publication content | ✅ |
 | `publication_blocks` | Flexible content blocks per publication | via FK |
 | `testimonials` | Customer reviews | ✅ |
+| `projects` | Portfolio projecten | ✅ |
 | `news_articles` | Blog/news content | ✅ |
 | `author_requests` | Word-auteur form submissions | ✅ |
 | `pages` | Static CMS pages (unused) | ✅ |
@@ -164,6 +165,29 @@ Customer testimonials. Admin → Testimonials.
 
 ---
 
+### `projects`
+Portfolio projecten. Admin -> Projecten.
+
+| Column | Type | Notes |
+|---|---|---|
+| id | uuid PK | |
+| tenant_id | uuid FK -> tenants | |
+| title | text | Required |
+| slug | text | UNIQUE |
+| category | text | Label / markt / type project |
+| excerpt | text | Korte intro op overzichtspagina |
+| content | text | Volledige projectomschrijving |
+| image_url | text | Mockup / cover |
+| website_url | text | Optionele live link |
+| highlights | jsonb | Array met highlights |
+| featured | boolean | Uitgelicht project |
+| published | boolean | Zichtbaar op site |
+| sort_order | int | Sorteervolgorde |
+| created_at | timestamptz | |
+| updated_at | timestamptz | |
+
+---
+
 ### `news_articles`
 News/blog articles. Admin → Nieuws.
 
@@ -256,6 +280,7 @@ tenants
   └─ navigation_items (1:N)
   └─ modules (1:N)
   └─ forms (1:N)
+  └─ projects (1:N)
   └─ publications (1:N)
        └─ publication_blocks (1:N, CASCADE)
   └─ testimonials (1:N)

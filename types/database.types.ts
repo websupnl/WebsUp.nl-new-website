@@ -166,6 +166,59 @@ export interface Database {
         }
         Relationships: []
       }
+      projects: {
+        Row: {
+          id: string
+          tenant_id: string
+          title: string
+          slug: string
+          category: string | null
+          excerpt: string | null
+          content: string | null
+          image_url: string | null
+          website_url: string | null
+          highlights: string[]
+          featured: boolean
+          published: boolean
+          sort_order: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          tenant_id?: string
+          title: string
+          slug: string
+          category?: string | null
+          excerpt?: string | null
+          content?: string | null
+          image_url?: string | null
+          website_url?: string | null
+          highlights?: string[]
+          featured?: boolean
+          published?: boolean
+          sort_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          tenant_id?: string
+          title?: string
+          slug?: string
+          category?: string | null
+          excerpt?: string | null
+          content?: string | null
+          image_url?: string | null
+          website_url?: string | null
+          highlights?: string[]
+          featured?: boolean
+          published?: boolean
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       pages: {
         Row: {
           id: string
@@ -519,6 +572,10 @@ export type UpdatePublication = Database['public']['Tables']['publications']['Up
 export type Testimonial   = Database['public']['Tables']['testimonials']['Row']
 export type NewTestimonial = Database['public']['Tables']['testimonials']['Insert']
 export type UpdateTestimonial = Database['public']['Tables']['testimonials']['Update']
+
+export type Project = Database['public']['Tables']['projects']['Row']
+export type NewProject = Database['public']['Tables']['projects']['Insert']
+export type UpdateProject = Database['public']['Tables']['projects']['Update']
 
 export type Page          = Database['public']['Tables']['pages']['Row']
 export type Setting       = Database['public']['Tables']['settings']['Row']

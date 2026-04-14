@@ -223,6 +223,60 @@ export const siteConfig = {
     ],
   },
 
+  faq: {
+    heading: "Veelgestelde vragen",
+    subheading:
+      "Korte antwoorden op vragen die vaak terugkomen over websites, webshops, maatwerk en samenwerking.",
+    items: [
+      {
+        question: "Wat kost een website of webshop?",
+        answer:
+          "Dat hangt af van wat er nodig is. Een eenvoudige website is iets anders dan een maatwerk traject met koppelingen, contentstructuur of extra functionaliteit. Daarom begint het altijd met scherp krijgen wat slim is voor jouw situatie.",
+      },
+      {
+        question: "Werk je alleen in Friesland?",
+        answer:
+          "Nee. WebsUp is gevestigd in Friesland, maar werkt voor klanten door heel Nederland. Online kan bijna alles, en waar nodig is overleg op locatie ook gewoon mogelijk.",
+      },
+      {
+        question: "Werk je met WordPress of juist maatwerk?",
+        answer:
+          "Allebei. Soms is WordPress de slimste keuze, soms Shopify en soms juist maatwerk met Next.js of een koppeling daarachter. Het platform volgt de vraag, niet andersom.",
+      },
+      {
+        question: "Kan ik later verder uitbreiden?",
+        answer:
+          "Ja, dat is juist vaak het uitgangspunt. De basis moet nu goed werken, maar wel ruimte houden om later door te bouwen met extra pagina’s, functionaliteit, automatisering of een klantenportaal.",
+      },
+      {
+        question: "Kan ik mijn website daarna zelf beheren?",
+        answer:
+          "Ja, als dat belangrijk is wordt daar rekening mee gehouden. Denk aan een CMS, duidelijke structuur en een oplossing die praktisch blijft in dagelijks gebruik.",
+      },
+      {
+        question: "Doe je ook SEO en vindbaarheid?",
+        answer:
+          "Ja. Geen losse trucjes, maar een sterke technische basis, duidelijke pagina-opbouw, goede contentstructuur en keuzes die helpen om beter gevonden te worden.",
+      },
+      {
+        question: "Kun je ook automatiseringen of koppelingen bouwen?",
+        answer:
+          "Ja. WebsUp bouwt niet alleen websites, maar ook koppelingen, dashboards, formulieren, portalen en automatiseringen die handmatig werk verminderen.",
+      },
+      {
+        question: "Hoe snel kan een project live staan?",
+        answer:
+          "Dat verschilt per project. Een compacte website kan snel live, terwijl maatwerk of inhoudelijke trajecten meer tijd vragen. In het begin wordt daar altijd duidelijkheid over gegeven.",
+      },
+    ],
+  },
+
+  knowledgePreview: {
+    heading: "Uit de kennisbank",
+    subheading:
+      "Praktische artikelen over websites, online vindbaarheid, automatisering en digitale keuzes.",
+  },
+
   // CTA sectie
   cta: {
     heading: "Benieuwd wat ik voor jou kan bouwen?",

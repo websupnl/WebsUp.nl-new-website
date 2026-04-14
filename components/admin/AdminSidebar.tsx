@@ -6,6 +6,7 @@ import LoadingLink from '@/components/ui/LoadingLink'
 import { useToast } from '@/hooks/useToast'
 import {
   LayoutDashboard,
+  FolderOpen,
   BookOpen,
   Newspaper,
   MessageSquare,
@@ -17,6 +18,7 @@ import {
 
 const editorNavItems = [
   { label: 'Dashboard', href: '/admin', icon: LayoutDashboard, exact: true },
+  { label: 'Projecten', href: '/admin/projecten', icon: FolderOpen },
   { label: 'Publicaties', href: '/admin/publicaties', icon: BookOpen },
   { label: 'Nieuws', href: '/admin/nieuws', icon: Newspaper },
   { label: 'Testimonials', href: '/admin/testimonials', icon: MessageSquare },

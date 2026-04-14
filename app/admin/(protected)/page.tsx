@@ -1,13 +1,15 @@
 import Link from 'next/link'
 import { createServerSupabaseClient } from '@/lib/supabase/server'
 import { formatDate } from '@/lib/utils'
-import { BookOpen, Newspaper, MessageSquare, Plus, Eye, ArrowRight } from 'lucide-react'
+import { BookOpen, Newspaper, MessageSquare, FolderOpen, Plus, Eye, ArrowRight } from 'lucide-react'
 import { getTenantId } from '@/lib/tenant'
 import { isMissingColumnError } from '@/lib/supabase/schema-helpers'
+import { getAllProjectsAdmin } from '@/lib/queries/projects'
 
 export default async function AdminDashboardPage() {
   const supabase = await createServerSupabaseClient()
   const tenantId = getTenantId()
+  const projects = await getAllProjectsAdmin()
   const pubCountRes = await supabase.from('publications').select('*', { count: 'exact', head: true }).eq('tenant_id', tenantId)
   const newsCountRes = await supabase.from('news_articles').select('*', { count: 'exact', head: true }).eq('tenant_id', tenantId)
   const testimonialCountRes = await supabase.from('testimonials').select('*', { count: 'exact', head: true }).eq('tenant_id', tenantId)
@@ -56,6 +58,13 @@ export default async function AdminDashboardPage() {
       href: '/admin/kennisbank',
     },
     {
+      label: 'Projecten',
+      value: projects.length,
+      icon: FolderOpen,
+      color: 'bg-blue-50 text-blue-600',
+      href: '/admin/projecten',
+    },
+    {
       label: 'Nieuwsartikelen',
       value: newsCount ?? 0,
       icon: Newspaper,
@@ -79,7 +88,7 @@ export default async function AdminDashboardPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {stats.map((stat) => {
           const Icon = stat.icon
           return (
@@ -120,6 +129,13 @@ export default async function AdminDashboardPage() {
           >
             <Plus size={16} />
             Nieuw artikel
+          </Link>
+          <Link
+            href="/admin/projecten/new"
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium rounded-xl transition-colors"
+          >
+            <Plus size={16} />
+            Nieuw project
           </Link>
           <Link
             href="/"
