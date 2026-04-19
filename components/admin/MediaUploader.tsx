@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { Upload, X, Loader2, ImageIcon } from 'lucide-react'
 import { uploadMedia } from '@/lib/actions/settings.actions'
@@ -12,6 +13,8 @@ interface MediaUploaderProps {
   maxSizeMB?: number
   className?: string
 }
+
+const passthroughLoader = ({ src }: { src: string }) => src
 
 export default function MediaUploader({
   value,
@@ -94,11 +97,14 @@ export default function MediaUploader({
         ) : value ? (
           <div className="relative">
             {/* Preview */}
-            <img
+            <Image
+              loader={passthroughLoader}
+              unoptimized
               src={value}
               alt="Preview"
+              width={256}
+              height={64}
               className="h-16 max-w-full object-contain rounded-lg mx-auto"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 rounded-lg transition-colors" />
             {/* Clear button */}

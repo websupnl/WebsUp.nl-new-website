@@ -1,34 +1,23 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ArrowRight, Monitor, ShoppingCart, LayoutDashboard, Zap } from 'lucide-react'
 import WavePageHeader from '@/components/site/WavePageHeader'
-import { Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight, CheckCircle, LucideIcon } from 'lucide-react'
-import { siteConfig } from '@/config/site.config'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
-import { Tooltip } from '@/components/ui/tooltip-card'
+import { services, serviceProcess } from '@/lib/site/services'
 
 export const metadata: Metadata = {
   title: 'Diensten',
   description:
-    'Websites, webshops, maatwerk apps, dashboards en automatisering. Persoonlijk gebouwd door Daan.',
+    'Websites, webshops, dashboards en automatisering van WebsUp. Persoonlijk gebouwd, technisch sterk en gericht op wat echt werkt.',
 }
 
-const iconMap: Record<string, LucideIcon> = { Monitor, ShoppingCart, LayoutDashboard, Zap }
-
-/* Placeholder images per dienst (Unsplash) */
-const serviceImages: Record<string, string> = {
-  Websites:          'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=70',
-  Webshops:          'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=70',
-  'Apps & dashboards': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=70',
-  Automatisering:    'https://images.unsplash.com/photo-1518432031352-d6fc5734c3d0?auto=format&fit=crop&w=800&q=70',
-}
-
-const serviceSlug: Record<string, string> = {
-  Websites:          'websites',
-  Webshops:          'webshops',
-  'Apps & dashboards': 'apps-dashboards',
-  Automatisering:    'automatisering',
+const iconMap = {
+  Monitor,
+  ShoppingCart,
+  LayoutDashboard,
+  Zap,
 }
 
 export default function DienstenPage() {
@@ -37,81 +26,95 @@ export default function DienstenPage() {
       <WavePageHeader
         badge="Diensten"
         title="Digitale oplossingen"
-        titleHighlight="die werken."
-        subtitle="Websites, webshops, apps en automatiseringen die aansluiten op hoe jouw bedrijf werkt."
+        titleHighlight="die logisch werken."
+        subtitle="Websites, webshops, dashboards en automatiseringen die aansluiten op hoe jouw bedrijf werkt. Geen standaard pakket, maar een route die past."
       >
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold text-sm px-6 py-3 rounded-full hover:-translate-y-px hover:bg-white/90 transition-all duration-150 shadow-sm"
+          className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-all duration-150 hover:-translate-y-px hover:bg-white/90"
         >
-          Gratis kennismaking
+          Plan een kennismaking
           <ArrowRight size={14} />
         </Link>
       </WavePageHeader>
 
-      {/* Service cards */}
-      <section className="bg-white py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <Reveal className="mb-14">
+      <section className="bg-white py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Reveal className="max-w-3xl">
             <span className="overline-badge mb-4 inline-flex">Wat ik bouw</span>
-            <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-slate-900 tracking-[-0.02em] leading-[1.08] max-w-xl">
-              Kies jouw dienst — of combineer ze.
+            <h2 className="font-headline text-4xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-5xl">
+              Geen rij losse diensten, maar onderdelen die op elkaar kunnen aansluiten.
             </h2>
+            <p className="mt-5 text-lg leading-relaxed text-slate-600">
+              Soms is een sterke website genoeg. Soms zit de winst juist in een webshop, dashboard of koppeling achter de schermen.
+              Het doel is niet om zoveel mogelijk te bouwen, maar om de slimste stap te zetten.
+            </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {siteConfig.services.map((service, i) => {
-              const Icon = iconMap[service.icon] ?? Zap
-              const slug = serviceSlug[service.title] ?? 'websites'
-              const img = serviceImages[service.title]
+          <div className="mt-16 space-y-16">
+            {services.map((service, index) => {
+              const Icon = iconMap[service.icon]
+
               return (
-                <Reveal key={service.title} delay={i * 60}>
-                  <Link
-                    href={`/diensten/${slug}`}
-                    className="group flex flex-col bg-white border border-slate-100 rounded-[1.5rem] overflow-hidden hover:border-orange-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                  >
-                    {/* Image */}
-                    <div className="relative h-52 overflow-hidden bg-slate-100">
-                      {img && (
-                        <Image
-                          src={img}
-                          alt={service.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-                      {/* Icon badge */}
-                      <div className="absolute top-4 left-4 w-10 h-10 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center">
-                        <Icon size={17} className="text-white" />
+                <Reveal key={service.slug} delay={index * 40}>
+                  <article className={`grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-500">
+                        {service.shortLabel}
                       </div>
+                      <h3 className="mt-3 font-headline text-3xl font-extrabold leading-tight text-slate-900 md:text-4xl">
+                        {service.overviewTitle}
+                      </h3>
+                      <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+                        {service.overviewText}
+                      </p>
+
+                      <div className="mt-6 space-y-2.5 border-l-2 border-orange-200 pl-5">
+                        {service.outcomes.slice(0, 2).map((outcome) => (
+                          <div key={outcome.title}>
+                            <div className="text-sm font-semibold text-slate-900">{outcome.title}</div>
+                            <p className="mt-1 text-sm leading-relaxed text-slate-500">{outcome.text}</p>
+                          </div>
+                        ))}
+                      </div>
+
+                      <Link
+                        href={`/diensten/${service.slug}`}
+                        className="mt-8 inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
+                      >
+                        Bekijk {service.title.toLowerCase()}
+                        <ArrowRight size={14} />
+                      </Link>
                     </div>
 
-                    {/* Body */}
-                    <div className="p-7 flex-1 flex flex-col">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="font-headline text-xl font-bold text-slate-900 tracking-tight">
-                          {service.title}
-                        </h3>
-                        <ArrowRight
-                          size={16}
-                          className="text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0 mt-1"
-                        />
+                    <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50">
+                      <div className="grid gap-0 md:grid-cols-[0.92fr_1.08fr]">
+                        <div className="relative min-h-[18rem] border-b border-slate-200 bg-slate-100 md:border-b-0 md:border-r">
+                          <Image
+                            src={service.image}
+                            alt={service.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 40vw"
+                          />
+                        </div>
+
+                        <div className="p-6 md:p-8">
+                          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-orange-500 shadow-sm">
+                            <Icon size={18} />
+                          </div>
+                          <div className="mt-5 text-sm font-semibold text-slate-900">Typische onderdelen</div>
+                          <div className="mt-4 space-y-3">
+                            {service.deliverables.slice(0, 4).map((item) => (
+                              <div key={item} className="border-b border-slate-200 pb-3 text-sm leading-relaxed text-slate-600 last:border-b-0 last:pb-0">
+                                {item}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                      <p className="text-slate-500 text-sm leading-relaxed mb-5 flex-1">
-                        {service.description}
-                      </p>
-                      <ul className="space-y-2">
-                        {service.bullets.map((b) => (
-                          <li key={b} className="flex items-center gap-2 text-sm text-slate-600">
-                            <CheckCircle size={13} className="text-orange-400 flex-shrink-0" />
-                            {b}
-                          </li>
-                        ))}
-                      </ul>
                     </div>
-                  </Link>
+                  </article>
                 </Reveal>
               )
             })}
@@ -119,34 +122,37 @@ export default function DienstenPage() {
         </div>
       </section>
 
-      {/* Tech stack sectie */}
-      <section className="bg-slate-50 py-14 lg:py-20 border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <Reveal>
-            <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Tech stack — hover voor uitleg</p>
-            <div className="flex flex-wrap gap-3">
-              {[
-                { name: 'Next.js', tip: 'React-framework voor razendsnel laden en perfecte SEO. Gebruikt voor alle maatwerk websites en apps.' },
-                { name: 'WordPress', tip: 'Het meest gebruikte CMS ter wereld. Ideaal voor sites die je zelf wil beheren.' },
-                { name: 'Shopify', tip: 'Toonaangevend e-commerce platform. Klaar voor iDEAL, Mollie en internationale verkoop.' },
-                { name: 'WooCommerce', tip: 'Webshop-plugin op WordPress. Flexibel en volledig aanpasbaar.' },
-                { name: 'Supabase', tip: 'Open-source Firebase-alternatief. Database, authenticatie en opslag in één.' },
-                { name: 'n8n', tip: 'No-code automation tool. Koppel honderden apps zonder te programmeren.' },
-                { name: 'Tailwind CSS', tip: 'Utility-first CSS framework. Snelle, consistente en responsive UI\'s.' },
-                { name: 'TypeScript', tip: 'Getypeerde JavaScript. Minder bugs, betere code-kwaliteit en snellere ontwikkeling.' },
-                { name: 'Vercel', tip: 'Hostingplatform geoptimaliseerd voor Next.js. Wereldwijd CDN, automatische deploys.' },
-                { name: 'Cloudflare', tip: 'DNS, CDN en DDoS-beveiliging. Sneller en veiliger voor elke website.' },
-                { name: 'Mollie', tip: 'Nederlandse betaalprovider. iDEAL, creditcard, Klarna en meer in één integratie.' },
-                { name: 'Docker', tip: 'Containerplatform voor consistente deployments. Zelfde omgeving lokaal als in productie.' },
-              ].map((tech) => (
-                <Tooltip key={tech.name} content={tech.tip}>
-                  <span className="px-4 py-2 rounded-full text-sm font-semibold bg-white border border-slate-200 text-slate-700 cursor-default hover:border-slate-300 hover:shadow-sm transition-all">
-                    {tech.name}
-                  </span>
-                </Tooltip>
-              ))}
+      <section className="bg-slate-50 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+            <Reveal>
+              <span className="overline-badge mb-4 inline-flex">Werkwijze</span>
+              <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
+                Kort schakelen, duidelijk bouwen.
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-slate-600">
+                Of het nu om een website, webshop of systeem gaat: het traject moet helder zijn, zonder onnodig gedoe of vage omwegen.
+              </p>
+            </Reveal>
+
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-7 md:p-10">
+              <div className="space-y-5">
+                {serviceProcess.map((step, index) => (
+                  <Reveal key={step} delay={index * 50}>
+                    <div className="flex items-start gap-4 border-b border-slate-100 pb-5 last:border-b-0 last:pb-0">
+                      <div
+                        className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl text-sm font-bold text-white"
+                        style={{ background: 'linear-gradient(135deg,#f97316 0%,#ec4899 55%,#a78bfa 100%)' }}
+                      >
+                        {index + 1}
+                      </div>
+                      <p className="pt-1 text-base leading-relaxed text-slate-600">{step}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

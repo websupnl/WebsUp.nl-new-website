@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CheckCircle, ArrowRight } from 'lucide-react'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { PublicationBlock } from '@/types/database.types'
 
 interface Props {
@@ -8,19 +8,21 @@ interface Props {
 }
 
 export default function PublicationBlockRenderer({ block, index }: Props) {
-  const bg = index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
+  const sectionClass = index % 2 === 0 ? 'bg-white' : 'bg-[color:var(--surface-2)]'
 
   if (block.type === 'text') {
     return (
-      <section className={`${bg} py-16 lg:py-20`}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={`${sectionClass} py-16 lg:py-20`}>
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
           {block.title && (
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
               {block.title}
             </h2>
           )}
           {block.content && (
-            <p className="text-gray-500 text-lg leading-relaxed">{block.content}</p>
+            <div className="mt-5 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
+              {block.content}
+            </div>
           )}
         </div>
       </section>
@@ -30,25 +32,29 @@ export default function PublicationBlockRenderer({ block, index }: Props) {
   if (block.type === 'features') {
     const items = (block.content ?? '')
       .split('\n')
-      .map((s) => s.trim())
+      .map((item) => item.trim())
       .filter(Boolean)
 
     return (
-      <section className={`${bg} py-16 lg:py-20`}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {block.title && (
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-10 text-center leading-tight">
-              {block.title}
-            </h2>
-          )}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {items.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-3 bg-white rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
-              >
-                <CheckCircle size={18} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+      <section className={`${sectionClass} py-16 lg:py-20`}>
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+          <div>
+            {block.title && (
+              <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
+                {block.title}
+              </h2>
+            )}
+            <p className="mt-5 max-w-md text-base leading-relaxed text-slate-600">
+              Geen stapel losse kaarten, maar een leesbare opsomming van de belangrijkste punten uit
+              deze publicatie.
+            </p>
+          </div>
+
+          <div className="divide-y divide-slate-200 rounded-[1.75rem] border border-slate-200 bg-white">
+            {items.map((item) => (
+              <div key={item} className="flex items-start gap-3 px-6 py-5">
+                <CheckCircle2 size={18} className="mt-0.5 flex-shrink-0 text-orange-500" />
+                <p className="text-sm leading-relaxed text-slate-600 md:text-base">{item}</p>
               </div>
             ))}
           </div>
@@ -59,23 +65,24 @@ export default function PublicationBlockRenderer({ block, index }: Props) {
 
   if (block.type === 'cta') {
     return (
-      <section className="bg-blue-600 py-14">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-[#06040c] py-16 lg:py-20">
+        <div className="mx-auto max-w-4xl px-6 text-center text-white lg:px-8">
           {block.title && (
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">{block.title}</h2>
+            <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] md:text-4xl">
+              {block.title}
+            </h2>
           )}
           {block.content && (
-            <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/68 md:text-lg">
               {block.content}
             </p>
           )}
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-7 py-4 bg-white text-blue-600 font-semibold rounded-full hover:bg-blue-50 transition-all hover:shadow-lg"
-          >
-            Neem contact op
-            <ArrowRight size={18} />
-          </Link>
+          <div className="mt-8">
+            <Link href="/contact" className="btn-brand inline-flex items-center gap-2">
+              Neem contact op
+              <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
       </section>
     )

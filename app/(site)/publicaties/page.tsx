@@ -1,85 +1,97 @@
 export const dynamic = 'force-dynamic'
 
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import Link from 'next/link'
 import Image from 'next/image'
-import PublicationGrid from '@/components/site/PublicationGrid'
+import { ArrowRight, BookOpen } from 'lucide-react'
 import CTASection from '@/components/site/CTASection'
-import { getPublications } from '@/lib/queries/publications'
-import { BookOpen, Users, Award, TrendingUp } from 'lucide-react'
+import WavePageHeader from '@/components/site/WavePageHeader'
 import Reveal from '@/components/ui/Reveal'
+import { getPublications } from '@/lib/queries/publications'
+import { formatDate } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Publicaties',
-  description: 'Bekijk al onze zakelijke publicaties over financiële strategieën, management en innovatie.',
+  description: 'Digitale publicaties en magazines die via WebsUp beheerd en gepresenteerd worden.',
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
-
-const stats = [
-  { icon: BookOpen, value: '500+', label: 'Publicaties verzorgd' },
-  { icon: Users, value: '1.200+', label: 'Lezers per editie' },
-  { icon: TrendingUp, value: '15+', label: 'Jaar ervaring' },
-  { icon: Award, value: '100%', label: 'Zakelijke doelgroep' },
-]
 
 export default async function PublicatiesPage() {
   const publications = await getPublications()
 
   return (
     <div>
-      {/* Hero */}
-      <div className="relative bg-gray-900 text-white py-24 lg:py-32 overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80"
-          alt="Publicaties"
-          fill
-          className="object-cover opacity-40"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/30" />
-        <Reveal className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4 bg-blue-400/10 border border-blue-400/20 px-3 py-1 rounded-full">
-            Onze publicaties
-          </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-3xl">
-            Zakelijke kennis die echt werkt
-          </h1>
-          <p className="text-gray-300 text-xl max-w-2xl leading-relaxed">
-            Diepgaande inzichten voor professionals die hun sector vooruit willen brengen.
-          </p>
-        </Reveal>
-      </div>
+      <WavePageHeader
+        badge="Publicaties"
+        title="Digitale publicaties"
+        titleHighlight="en magazines."
+        subtitle="Deze route blijft beschikbaar voor publicaties en bladerbare magazines, maar speelt bewust geen hoofdrol in de primaire WebsUp-site."
+      />
 
-      {/* Stats balk */}
-      <div className="bg-blue-600 py-8">
-        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Icon size={18} className="text-white" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-white leading-none">{value}</div>
-                  <div className="text-blue-200 text-xs mt-0.5">{label}</div>
-                </div>
+      <section className="bg-white py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          {publications.length === 0 ? (
+            <Reveal className="py-24 text-center">
+              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50">
+                <BookOpen size={24} className="text-slate-400" />
               </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
+              <h2 className="mb-3 font-headline text-2xl font-bold text-slate-900">Nog geen publicaties beschikbaar</h2>
+              <p className="mx-auto max-w-md leading-relaxed text-slate-500">
+                Zodra er publicaties live staan, verschijnen ze hier in dezelfde rustige stijl als de rest van de site.
+              </p>
+            </Reveal>
+          ) : (
+            <div className="divide-y divide-slate-200 rounded-[2rem] border border-slate-200 bg-slate-50">
+              {publications.map((publication, index) => (
+                <Reveal key={publication.id} delay={index * 40}>
+                  <article className="grid gap-6 px-6 py-6 md:grid-cols-[12rem_1fr_auto] md:items-center md:px-8">
+                    <div className="relative overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white">
+                      {publication.image_url ? (
+                        <Image
+                          src={publication.image_url}
+                          alt={publication.title}
+                          width={480}
+                          height={640}
+                          className="aspect-[4/5] h-auto w-full object-cover"
+                          sizes="192px"
+                        />
+                      ) : (
+                        <div className="flex aspect-[4/5] items-center justify-center bg-slate-100">
+                          <BookOpen size={26} className="text-slate-300" />
+                        </div>
+                      )}
+                    </div>
 
-      <Reveal>
-        <PublicationGrid
-          publications={publications}
-          title=""
-          subtitle=""
-          showViewAll={false}
-        />
-      </Reveal>
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-500">
+                        {publication.label || 'Publicatie'}
+                      </div>
+                      <h2 className="mt-2 font-headline text-2xl font-bold text-slate-900">{publication.title}</h2>
+                      <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600">
+                        {publication.excerpt ?? publication.description ?? 'Digitale publicatie beschikbaar via WebsUp.'}
+                      </p>
+                      <div className="mt-4 text-xs text-slate-400">{formatDate(publication.created_at)}</div>
+                    </div>
 
-      <Reveal className="pt-2 pb-16 lg:pb-24">
-        <CTASection />
-      </Reveal>
+                    <Link
+                      href={`/publicaties/${publication.slug}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition-colors hover:text-orange-500"
+                    >
+                      Bekijk publicatie
+                      <ArrowRight size={14} />
+                    </Link>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <CTASection />
     </div>
   )
 }

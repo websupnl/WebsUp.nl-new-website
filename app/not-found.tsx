@@ -1,40 +1,43 @@
 import Link from 'next/link'
-import { ArrowLeft, Compass, Search } from 'lucide-react'
+import { ArrowRight, Compass, Home, Search } from 'lucide-react'
+import SiteFrame from '@/components/site/SiteFrame'
 
 export default function NotFound() {
   return (
-    <main className="relative overflow-hidden bg-slate-950 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.35),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(14,165,233,0.18),_transparent_28%)]" />
-      <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 py-16 text-center">
-        <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-blue-950/40">
-          <Compass size={34} className="text-blue-300" />
-        </div>
-        <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.28em] text-blue-200">
-          <Search size={13} />
-          Pagina niet gevonden
-        </span>
-        <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
-          Deze pagina bestaat niet.
-        </h1>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-          De pagina die u zoekt is mogelijk verplaatst of verwijderd. Ga terug naar de homepage of bekijk onze publicaties.
-        </p>
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-500"
-          >
-            Naar homepage
-          </Link>
-          <Link
-            href="/publicaties"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
-          >
-            <ArrowLeft size={16} />
-            Bekijk publicaties
-          </Link>
-        </div>
-      </div>
-    </main>
+    <SiteFrame>
+      <main className="bg-[color:var(--surface-2)]">
+        <section className="hero-wave-bg relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.22),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(236,72,153,0.16),transparent_24%)]" />
+          <div className="relative mx-auto max-w-5xl px-6 py-24 text-center text-white md:py-32 lg:px-8">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-[1.5rem] border border-white/12 bg-white/8 text-orange-300">
+              <Compass size={28} />
+            </div>
+            <span className="overline-badge mt-8 inline-flex">404</span>
+            <h1 className="mt-6 font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] md:text-6xl">
+              Deze pagina is er niet meer.
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/68">
+              Mogelijk is de route verplaatst, verwijderd of was de link gewoon niet juist. De rest
+              van de site staat wel gewoon voor je klaar.
+            </p>
+
+            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link href="/" className="btn-brand inline-flex items-center gap-2">
+                Naar homepage
+                <Home size={15} />
+              </Link>
+              <Link href="/diensten" className="btn-dark-ghost inline-flex items-center gap-2">
+                Bekijk diensten
+                <ArrowRight size={15} />
+              </Link>
+              <Link href="/kennisbank" className="btn-dark-ghost inline-flex items-center gap-2">
+                Naar kennisbank
+                <Search size={15} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+    </SiteFrame>
   )
 }

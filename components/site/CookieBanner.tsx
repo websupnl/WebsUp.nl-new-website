@@ -1,15 +1,19 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    if (!localStorage.getItem('cookie-consent')) {
-      setVisible(true)
-    }
+    const frame = requestAnimationFrame(() => {
+      if (!localStorage.getItem('cookie-consent')) {
+        setVisible(true)
+      }
+    })
+
+    return () => cancelAnimationFrame(frame)
   }, [])
 
   const accept = () => {
@@ -26,23 +30,25 @@ export default function CookieBanner() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 p-4 sm:p-6">
-      <div className="max-w-3xl mx-auto bg-gray-900 text-white rounded-2xl shadow-2xl px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <p className="text-sm text-gray-300 flex-1">
-          Wij gebruiken cookies voor een goede werking van de website en om uw ervaring te verbeteren.{' '}
-          <Link href="/cookies" className="underline hover:text-white transition-colors">
-            Meer informatie
+      <div className="mx-auto flex max-w-4xl flex-col gap-4 rounded-[1.75rem] border border-white/10 bg-[#06040c] px-5 py-5 text-white shadow-[0_24px_70px_rgba(15,23,42,0.24)] sm:flex-row sm:items-center">
+        <p className="flex-1 text-sm leading-relaxed text-white/70">
+          WebsUp gebruikt functionele cookies voor een goed werkende website en beperkte analytics om te zien wat beter kan.
+          Meer weten? Lees het{' '}
+          <Link href="/cookies" className="font-semibold text-white underline underline-offset-4 transition-colors hover:text-orange-300">
+            cookiebeleid
           </Link>
+          .
         </p>
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex flex-shrink-0 items-center gap-2">
           <button
             onClick={decline}
-            className="px-4 py-2 text-sm text-gray-400 hover:text-white rounded-xl transition-colors"
+            className="rounded-full border border-white/12 px-4 py-2 text-sm text-white/65 transition-colors hover:bg-white/5 hover:text-white"
           >
             Weigeren
           </button>
           <button
             onClick={accept}
-            className="px-4 py-2 text-sm font-semibold bg-white text-gray-900 hover:bg-gray-100 rounded-xl transition-colors"
+            className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition-colors hover:bg-white/90"
           >
             Accepteren
           </button>

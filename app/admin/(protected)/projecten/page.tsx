@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Eye, Pencil, Plus, Star } from 'lucide-react'
 import { getAllProjectsAdmin } from '@/lib/queries/projects'
+
+const passthroughLoader = ({ src }: { src: string }) => src
 
 function isPersistedProjectId(value?: string | null) {
   return Boolean(
@@ -48,9 +51,13 @@ export default async function AdminProjectenPage() {
                   <td className="px-5 py-4">
                     <div className="flex items-start gap-3">
                       {project.image_url ? (
-                        <img
+                        <Image
+                          loader={passthroughLoader}
+                          unoptimized
                           src={project.image_url}
                           alt=""
+                          width={56}
+                          height={40}
                           className="w-14 h-10 rounded-lg object-cover border border-gray-100"
                         />
                       ) : (

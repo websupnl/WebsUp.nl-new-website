@@ -14,9 +14,8 @@ export default function FAQSection({
   showPageLink = true,
   sectionClassName = 'bg-white py-24 lg:py-28',
 }: FAQSectionProps) {
-  const items = typeof limit === 'number'
-    ? siteConfig.faq.items.slice(0, limit)
-    : siteConfig.faq.items
+  const items =
+    typeof limit === 'number' ? siteConfig.faq.items.slice(0, limit) : siteConfig.faq.items
 
   return (
     <section className={sectionClassName}>
@@ -34,7 +33,8 @@ export default function FAQSection({
             <div className="mt-8 border-l-2 border-orange-200 pl-5">
               <div className="text-sm font-semibold text-slate-900">Staat je vraag er niet tussen?</div>
               <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                Dan is kort sparren vaak sneller dan blijven twijfelen. Eén goed gesprek maakt meestal snel duidelijk wat slim is.
+                Dan is kort sparren vaak sneller dan blijven twijfelen. Een goed gesprek maakt
+                meestal snel duidelijk wat slim is.
               </p>
             </div>
 

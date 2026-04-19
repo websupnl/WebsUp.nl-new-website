@@ -122,10 +122,13 @@ export const Tooltip = ({
 
   useEffect(() => {
     if (isVisible && contentRef.current) {
-      const newPosition = calculatePosition(mouse.x, mouse.y);
-      setPosition(newPosition);
+      const frame = window.requestAnimationFrame(() => {
+        const newPosition = calculatePosition(mouse.x, mouse.y);
+        setPosition(newPosition);
+      });
+
+      return () => window.cancelAnimationFrame(frame);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isVisible, height, mouse.x, mouse.y]);
 
   return (

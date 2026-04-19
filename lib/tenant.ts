@@ -17,7 +17,8 @@ export function getTenantId(): string {
  * Server-side: resolve tenant from request hostname (future multi-tenant hook)
  * For now returns the same as getTenantId().
  */
-export function getTenantIdFromHostname(_hostname: string): string {
+export function getTenantIdFromHostname(hostname: string): string {
   // TODO: look up tenant by hostname in DB for true multi-tenant
+  void hostname
   return getTenantId()
 }

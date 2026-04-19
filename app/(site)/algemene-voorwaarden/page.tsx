@@ -1,116 +1,92 @@
 import type { Metadata } from 'next'
-import Reveal from '@/components/ui/Reveal'
+import LegalPage from '@/components/site/LegalPage'
+import { siteConfig } from '@/config/site.config'
 
 export const metadata: Metadata = {
-  title: 'Algemene Voorwaarden',
-  description: 'Lees de algemene voorwaarden van Business Publicatie Uitgevers.',
+  title: 'Algemene voorwaarden',
+  description: 'De algemene voorwaarden van WebsUp voor websites, webshops, maatwerk en digitale dienstverlening.',
 }
 
 export default function AlgemeneVoorwaardenPage() {
   return (
-    <Reveal className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">Algemene Voorwaarden</h1>
-      <p className="text-gray-400 text-sm mb-10">Versie 1.0 — januari 2025</p>
-
-      <div className="prose-content space-y-8 text-gray-700">
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Artikel 1 — Definities</h2>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><strong>Business Publicatie Uitgevers:</strong> de besloten vennootschap gevestigd te Amsterdam.</li>
-            <li><strong>Opdrachtgever:</strong> de natuurlijke of rechtspersoon die een overeenkomst aangaat met Business Publicatie Uitgevers.</li>
-            <li><strong>Diensten:</strong> alle door Business Publicatie Uitgevers aangeboden publicaties, advertentiemogelijkheden en gerelateerde diensten.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Artikel 2 — Toepasselijkheid</h2>
-          <p>
-            Deze algemene voorwaarden zijn van toepassing op alle offertes, aanbiedingen, overeenkomsten
-            en diensten van Business Publicatie Uitgevers, tenzij schriftelijk anders overeengekomen.
-          </p>
-          <p className="mt-2">
-            Afwijkingen van deze voorwaarden zijn slechts geldig indien en voor zover deze schriftelijk
-            zijn overeengekomen.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Artikel 3 — Totstandkoming overeenkomst</h2>
-          <p>
-            Een overeenkomst komt tot stand op het moment dat Business Publicatie Uitgevers een opdracht
-            schriftelijk bevestigt of met de uitvoering ervan aanvangt. Offertes zijn geldig gedurende
-            30 dagen, tenzij anders vermeld.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Artikel 4 — Prijzen en betaling</h2>
-          <p>
-            Alle prijzen zijn exclusief btw, tenzij anders vermeld. Facturen dienen te worden voldaan
-            binnen 14 dagen na factuurdatum. Bij niet-tijdige betaling is de opdrachtgever van rechtswege
-            in verzuim en is een rente van 1% per maand verschuldigd.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Artikel 5 — Uitvoering van diensten</h2>
-          <p>
-            Business Publicatie Uitgevers zal de opdracht naar beste inzicht en vermogen uitvoeren.
-            Opgegeven levertijden zijn indicatief en geven de opdrachtgever bij overschrijding geen
-            recht op schadevergoeding of ontbinding van de overeenkomst.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Artikel 6 — Intellectueel eigendom</h2>
-          <p>
-            Alle door Business Publicatie Uitgevers vervaardigde of ter beschikking gestelde materialen,
-            publicaties en content blijven eigendom van Business Publicatie Uitgevers, tenzij schriftelijk
-            anders overeengekomen. Het is niet toegestaan deze te verveelvoudigen, openbaar te maken
-            of te exploiteren zonder voorafgaande schriftelijke toestemming.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Artikel 7 — Aansprakelijkheid</h2>
-          <p>
-            De aansprakelijkheid van Business Publicatie Uitgevers is beperkt tot het bedrag dat in het
-            betreffende geval door de aansprakelijkheidsverzekering wordt gedekt. Indien geen verzekeringsuitkering
-            plaatsvindt, is de aansprakelijkheid beperkt tot de factuurwaarde van de opdracht.
-          </p>
-          <p className="mt-2">
-            Business Publicatie Uitgevers is niet aansprakelijk voor indirecte schade, gevolgschade of
-            gederfde winst.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Artikel 8 — Klachten</h2>
-          <p>
-            Klachten over de uitvoering van de diensten dienen binnen 14 dagen na constatering schriftelijk
-            te worden ingediend bij Business Publicatie Uitgevers. Klachten schorten de betalingsverplichting
-            niet op.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Artikel 9 — Toepasselijk recht</h2>
-          <p>
-            Op alle overeenkomsten is Nederlands recht van toepassing. Geschillen worden bij uitsluiting
-            voorgelegd aan de bevoegde rechter in het arrondissement Amsterdam.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Contact</h2>
-          <p>
-            Voor vragen over deze voorwaarden kunt u contact opnemen via{' '}
-            <a href="mailto:info@businesspublicatieuitgevers.nl" className="text-blue-600 hover:underline">
-              info@businesspublicatieuitgevers.nl
-            </a>.
-          </p>
-        </section>
-      </div>
-    </Reveal>
+    <LegalPage
+      badge="Voorwaarden"
+      title="Algemene voorwaarden"
+      subtitle="De basisafspraken voor offertes, samenwerking, oplevering en aansprakelijkheid bij WebsUp."
+      updatedLabel="19 april 2026"
+      sections={[
+        {
+          title: '1. Toepasselijkheid',
+          paragraphs: [
+            'Deze voorwaarden gelden voor alle offertes, overeenkomsten en werkzaamheden van WebsUp, tenzij schriftelijk iets anders is afgesproken.',
+          ],
+        },
+        {
+          title: '2. Offertes en overeenkomsten',
+          paragraphs: [
+            'Een offerte is vrijblijvend tenzij daarin een geldigheidsduur staat vermeld. Een overeenkomst ontstaat zodra een voorstel wordt geaccepteerd of zodra WebsUp in overleg start met de uitvoering.',
+          ],
+        },
+        {
+          title: '3. Uitvoering van werkzaamheden',
+          paragraphs: [
+            'WebsUp voert opdrachten uit naar beste inzicht en vermogen. Daarbij wordt gewerkt vanuit een praktische aanpak: duidelijk afstemmen, gericht bouwen en bijsturen waar nodig.',
+            'Levertijden zijn altijd indicatief, tenzij schriftelijk een harde deadline is afgesproken.',
+          ],
+        },
+        {
+          title: '4. Input en medewerking van de opdrachtgever',
+          paragraphs: [
+            'De opdrachtgever levert tijdig juiste informatie, feedback, teksten, beelden en andere benodigde input aan. Vertraging in die aanlevering kan invloed hebben op planning en oplevering.',
+          ],
+        },
+        {
+          title: '5. Prijzen en betaling',
+          paragraphs: [
+            'Alle genoemde prijzen zijn exclusief btw tenzij anders vermeld. Facturen dienen te worden betaald binnen de afgesproken termijn.',
+            'Bij grotere trajecten kan WebsUp werken met deelbetalingen of een aanbetaling vooraf.',
+          ],
+        },
+        {
+          title: '6. Revisies en meerwerk',
+          paragraphs: [
+            'Normale feedback- en correctierondes horen bij een traject. Extra wensen of wijzigingen buiten de afgesproken scope gelden als meerwerk en kunnen apart worden geoffreerd.',
+          ],
+        },
+        {
+          title: '7. Oplevering en nazorg',
+          paragraphs: [
+            'Een project geldt als opgeleverd zodra de afgesproken onderdelen zijn geleverd of live zijn gezet. Kleine restpunten die normaal gebruik niet blokkeren, houden oplevering niet automatisch tegen.',
+          ],
+        },
+        {
+          title: '8. Intellectueel eigendom',
+          paragraphs: [
+            'Concepten, ontwerpen, code en andere opgeleverde onderdelen blijven eigendom van WebsUp totdat facturen volledig zijn voldaan, tenzij schriftelijk iets anders is afgesproken.',
+            'Na volledige betaling krijgt de opdrachtgever het gebruiksrecht op het afgesproken eindresultaat binnen het doel van de opdracht.',
+          ],
+        },
+        {
+          title: '9. Aansprakelijkheid',
+          paragraphs: [
+            'WebsUp is niet aansprakelijk voor indirecte schade, gevolgschade, gemiste omzet of schade die ontstaat door foutieve input van derden of door systemen buiten de invloedssfeer van WebsUp.',
+            'Directe aansprakelijkheid is altijd beperkt tot het bedrag van het betreffende deel van de opdracht of het bedrag dat de verzekeraar uitkeert, als dat lager is.',
+          ],
+        },
+        {
+          title: '10. Onderhoud, externe tools en hosting',
+          paragraphs: [
+            'Als een project gebruikmaakt van externe diensten zoals hosting, plugins, platforms, betaalproviders of APIs, dan blijven de voorwaarden en beschikbaarheid van die partijen van toepassing.',
+          ],
+        },
+        {
+          title: '11. Toepasselijk recht',
+          paragraphs: [
+            'Op alle overeenkomsten met WebsUp is Nederlands recht van toepassing. Geschillen worden voorgelegd aan de bevoegde rechter in Nederland.',
+          ],
+          note: `Voor vragen over deze voorwaarden kun je mailen naar ${siteConfig.email}.`,
+        },
+      ]}
+    />
   )
 }

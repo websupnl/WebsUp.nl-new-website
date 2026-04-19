@@ -1,293 +1,279 @@
 // ============================================================
-// SITE CONFIG — WebsUp.nl
+// SITE CONFIG - WebsUp.nl
 // ============================================================
 
 export const siteConfig = {
-  // Bedrijfsinfo
-  name: "WebsUp.nl",
-  shortName: "WebsUp",
+  name: 'WebsUp.nl',
+  shortName: 'WebsUp',
   description:
-    "Websites, webshops, apps en automatiseringen die jouw bedrijf laten groeien. Maatwerk digitale oplossingen uit Friesland.",
-  url: "https://websup.nl",
+    'Websites, webshops, dashboards en automatiseringen die duidelijk werken en ruimte houden om door te groeien. Persoonlijk gebouwd vanuit Friesland.',
+  url: 'https://websup.nl',
 
-  // Contact
-  email: "info@websup.nl",
-  phone: "06 82202148",
-  address: "Friesland, Nederland",
+  email: 'info@websup.nl',
+  phone: '06 82202148',
+  address: 'Friesland, Nederland',
 
-  // Navigatie
   nav: [
-    { label: "Diensten", href: "/diensten" },
-    { label: "Projecten", href: "/projecten" },
-    { label: "Kennisbank", href: "/kennisbank" },
-    { label: "Over mij", href: "/over-ons" },
-    { label: "Contact", href: "/contact" },
+    { label: 'Diensten', href: '/diensten' },
+    { label: 'Projecten', href: '/projecten' },
+    { label: 'Kennisbank', href: '/kennisbank' },
+    { label: 'Over mij', href: '/over-ons' },
+    { label: 'Contact', href: '/contact' },
   ],
 
-  // Branding
   brand: {
-    primary: "#2563EB",
-    primaryHover: "#1D4ED8",
-    primaryLight: "#EFF6FF",
-    primaryText: "#FFFFFF",
+    primary: '#f97316',
+    primaryHover: '#ea580c',
+    primaryLight: '#fff0e7',
+    primaryText: '#0f172a',
   },
 
-  // Social media
   social: {
-    linkedin: "https://linkedin.com/company/websup",
-    twitter: "",
-    facebook: "",
+    linkedin: 'https://linkedin.com/company/websup',
+    twitter: '',
+    facebook: '',
   },
 
-  // SEO defaults
   seo: {
-    titleTemplate: "%s | WebsUp.nl",
-    defaultTitle: "WebsUp.nl | Websites, apps & systemen die groeien",
+    titleTemplate: '%s | WebsUp.nl',
+    defaultTitle: 'WebsUp.nl | Websites, webshops en systemen die duidelijk werken',
     defaultDescription:
-      "Wij bouwen moderne websites, webshops, maatwerk apps en automatiseringen die jouw bedrijf laten groeien. Persoonlijk, technisch sterk en resultaatgericht.",
-    ogImage: "/og-image.png",
+      'WebsUp bouwt websites, webshops, dashboards en automatiseringen die vertrouwen geven, praktisch werken en later verder kunnen groeien.',
+    ogImage: '/og-image.png',
   },
 
-  // Hero sectie
   hero: {
-    heading: "Jouw complete digitale systeem. Eén aanspreekpunt.",
+    heading: 'Een aanspreekpunt. Alles digitaal geregeld.',
     subheading:
-      "Ik ben Daan — zelfstandig en persoonlijk. Ik bouw websites, webshops, apps en automatiseringen die samenwerken als één geheel. Van WordPress tot maatwerk: altijd direct contact met de persoon die bouwt.",
-    ctaLabel: "Plan een kennismaking",
-    ctaHref: "/contact",
-    secondaryCtaLabel: "Bekijk het werk",
-    secondaryCtaHref: "/projecten",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1920&q=80",
+      'WebsUp bouwt websites en webshops die vertrouwen geven, goed werken en klaar zijn om door te groeien. Heb je meer nodig? Dan bouwen we verder met dashboards, koppelingen, calculators of andere maatwerk oplossingen.',
+    ctaLabel: 'Plan een kennismaking',
+    ctaHref: '/contact',
+    secondaryCtaLabel: 'Bekijk het werk',
+    secondaryCtaHref: '/projecten',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1920&q=80',
     trustBadges: [
-      { value: "5+", label: "Tevreden klanten" },
-      { value: "100%", label: "Maatwerk" },
-      { value: "Friesland", label: "Gevestigd" },
+      { value: '5+', label: 'Tevreden klanten' },
+      { value: '100%', label: 'Maatwerk' },
+      { value: 'Friesland', label: 'Gevestigd' },
     ],
   },
 
-  // USP blokken (FeatureCards) — direct na hero
   features: [
     {
-      icon: "Globe",
-      title: "Websites & webshops",
+      icon: 'Globe',
+      title: 'Websites & webshops',
       description:
-        "Snel, modern en conversiegericht. Gebouwd op Next.js voor maximale prestaties en SEO.",
+        'Sterke digitale bases voor bedrijven die professioneel zichtbaar willen zijn en beter online willen verkopen.',
     },
     {
-      icon: "LayoutDashboard",
-      title: "Apps & dashboards",
+      icon: 'LayoutDashboard',
+      title: 'Apps & dashboards',
       description:
-        "Klantportalen, interne tools en dashboards op maat. Processen automatiseren en inzicht geven.",
+        'Klantportalen, dashboards en interne tools op maat voor bedrijven die meer grip en overzicht nodig hebben.',
     },
     {
-      icon: "Zap",
-      title: "Automatisering",
+      icon: 'Zap',
+      title: 'Automatisering',
       description:
-        "Koppelingen, workflows en slimme systemen die handmatig werk elimineren en je bedrijf efficiënter maken.",
+        'Koppelingen en workflows die terugkerend werk verminderen en processen rustiger en duidelijker maken.',
     },
   ],
 
-  // Diensten (uitgebreid, voor ServicesSection)
   services: [
     {
-      icon: "Monitor",
-      title: "Websites",
+      icon: 'Monitor',
+      title: 'Websites',
       description:
-        "Moderne, snelle websites die niet alleen mooi zijn, maar ook gericht op resultaat en conversie. Gebouwd met Next.js voor topprestaties.",
+        'Professionele websites die duidelijk vertellen wat je doet, vertrouwen opbouwen en gericht zijn op contact, aanvragen en groei.',
       bullets: [
-        "Conversiegerichte designs",
-        "Razendsnel door Next.js",
-        "Zoekmachine geoptimaliseerd",
-        "Mobiel-first & responsief",
+        'Sterke online basis',
+        'Mobiel en technisch sterk',
+        'Logische contentstructuur',
+        'Klaar om door te bouwen',
       ],
-      href: "/diensten#websites",
+      href: '/diensten/websites',
     },
     {
-      icon: "ShoppingCart",
-      title: "Webshops",
+      icon: 'ShoppingCart',
+      title: 'Webshops',
       description:
-        "Gebruiksvriendelijke webshops die verkopen, met slimme functies en optimale gebruikerservaring.",
+        'Webshops die niet alleen mooi ogen, maar ook logisch verkopen en prettig te beheren zijn.',
       bullets: [
-        "Optimale checkout flow",
-        "Koppeling met betaalsystemen",
-        "Voorraadbeheer & orders",
-        "Upsell & cross-sell logica",
+        'Duidelijke productpresentatie',
+        'Sterke checkoutflow',
+        'Koppelingen met betalingen en mail',
+        'Basis voor verdere optimalisatie',
       ],
-      href: "/diensten#webshops",
+      href: '/diensten/webshops',
     },
     {
-      icon: "LayoutDashboard",
-      title: "Apps & dashboards",
+      icon: 'LayoutDashboard',
+      title: 'Apps & dashboards',
       description:
-        "Maatwerk tools, klantportalen en dashboards die processen automatiseren en realtime inzicht geven.",
+        'Maatwerk tools voor bedrijven die processen, klantdata of interne overzichten beter willen organiseren.',
       bullets: [
-        "Klantportalen op maat",
-        "Interne management tools",
-        "Realtime data dashboards",
-        "Rolgebaseerde toegang",
+        'Klantportalen op maat',
+        'Interne dashboards',
+        'Realtime inzicht',
+        'Veilige toegang per rol',
       ],
-      href: "/diensten#apps",
+      href: '/diensten/apps-dashboards',
     },
     {
-      icon: "Zap",
-      title: "Automatisering",
+      icon: 'Zap',
+      title: 'Automatisering',
       description:
-        "Koppelingen en slimme systemen die handmatig werk verminderen en jouw bedrijf efficiënter maken.",
+        'Slimme workflows en koppelingen die handmatig werk verminderen en opvolging beter laten doorlopen.',
       bullets: [
-        "API-koppelingen",
-        "Workflow automatisering",
-        "CRM & email integraties",
-        "Data synchronisatie",
+        'API-koppelingen',
+        'Lead- en orderflows',
+        'CRM en mailintegraties',
+        'Minder fouten en meer rust',
       ],
-      href: "/diensten#automatisering",
+      href: '/diensten/automatisering',
     },
   ],
 
-  // Why WebsUp USPs
   whyWebsUp: {
-    badge: "Waarom WebsUp?",
-    heading: "Geen bureau. Een digitale partner.",
+    badge: 'Waarom WebsUp?',
+    heading: 'Geen groot bureau. Wel een sterke digitale partner.',
     subheading:
-      "Wij combineren de persoonlijke aanpak van een zelfstandige met de technische kracht van een modern development team.",
+      'Persoonlijk contact, stevige techniek en een aanpak die niet groter wordt gemaakt dan nodig.',
     items: [
       {
-        icon: "User",
-        title: "Persoonlijke aanpak",
+        icon: 'User',
+        title: 'Persoonlijke aanpak',
         description:
-          "Directe lijn met de developer. Geen accountmanagers, geen vertraagde communicatie. Jij praat met degene die bouwt.",
+          'Directe lijn met degene die meedenkt en bouwt. Geen accountmanagers, geen onnodige tussenlagen.',
       },
       {
-        icon: "Code2",
-        title: "Technisch sterk",
+        icon: 'Code2',
+        title: 'Technisch sterk',
         description:
-          "Next.js, React, Supabase, n8n. Geen WordPress-templates maar echte maatwerk code die schaalbaar is.",
+          'Van WordPress en Shopify tot maatwerk in Next.js, Supabase en n8n. De techniek volgt de vraag, niet andersom.',
       },
       {
-        icon: "TrendingUp",
-        title: "Focus op groei",
+        icon: 'TrendingUp',
+        title: 'Focus op groei',
         description:
-          "Elke beslissing is gericht op resultaat: meer leads, hogere conversie, minder handmatig werk.",
+          'Iedere keuze moet bijdragen aan duidelijkheid, betere opvolging, meer vertrouwen of meer grip op je proces.',
       },
       {
-        icon: "Layers",
-        title: "Alles onder één dak",
+        icon: 'Layers',
+        title: 'Alles sluit op elkaar aan',
         description:
-          "Van website tot automatisering: één aanspreekpunt voor al je digitale behoeften. Nu en in de toekomst.",
+          'Website, webshop, koppelingen en maatwerk kunnen als een geheel worden opgebouwd in plaats van losse onderdelen.',
       },
     ],
   },
 
-  // Werkwijze / Process
   process: {
-    heading: "Zo werken wij",
-    subheading: "Van idee tot live in een helder en transparant proces.",
+    heading: 'Zo werken we',
+    subheading: 'Van eerste gesprek tot livegang in een duidelijk en praktisch traject.',
     steps: [
       {
-        number: "01",
-        title: "Kennismaking & analyse",
+        number: '01',
+        title: 'Kennismaking',
         description:
-          "We beginnen met een gratis gesprek. Ik luister, stel vragen en denk mee over wat jouw bedrijf écht nodig heeft.",
+          'We bespreken je bedrijf, je doelen en waar je nu tegenaan loopt. Daar begint de slimste oplossing.',
       },
       {
-        number: "02",
-        title: "Voorstel & planning",
+        number: '02',
+        title: 'Opzet en richting',
         description:
-          "Geen vage offertes. Je krijgt een concrete aanpak, duidelijke scope en eerlijke prijzen.",
+          'Je krijgt een duidelijke aanpak, zodat je weet wat we gaan bouwen en waarom die route logisch is.',
       },
       {
-        number: "03",
-        title: "Bouw & feedback",
+        number: '03',
+        title: 'Bouwen en aanscherpen',
         description:
-          "Ik bouw iteratief. Je ziet tussentijdse resultaten en geeft feedback voordat alles vastligt.",
+          'We werken stap voor stap, met korte feedbackrondes en zonder het proces onnodig zwaar te maken.',
       },
       {
-        number: "04",
-        title: "Live & doorgroeien",
+        number: '04',
+        title: 'Live en verder bouwen',
         description:
-          "Na lancering ben ik beschikbaar voor ondersteuning, uitbreidingen en nieuwe functionaliteiten.",
+          'Na oplevering kan de basis gewoon doorgroeien met nieuwe pagina’s, koppelingen of maatwerk.',
       },
     ],
   },
 
-  // Use cases
   useCases: {
-    heading: "Voor wie bouw ik?",
-    subheading: "Van lokale MKB tot groeiende webshops.",
+    heading: 'Voor wie bouw ik?',
+    subheading: 'Van lokale dienstverleners en installatiebedrijven tot ondernemers die online meer grip willen.',
     items: [
-      { label: "MKB & ZZP'ers", icon: "Briefcase" },
-      { label: "Webshops", icon: "ShoppingCart" },
-      { label: "Installatiebedrijven", icon: "Wrench" },
-      { label: "Dienstverleners", icon: "Handshake" },
-      { label: "Startups", icon: "Rocket" },
-      { label: "Lokale ondernemers", icon: "MapPin" },
+      { label: "MKB & ZZP'ers", icon: 'Briefcase' },
+      { label: 'Webshops', icon: 'ShoppingCart' },
+      { label: 'Installatiebedrijven', icon: 'Wrench' },
+      { label: 'Dienstverleners', icon: 'Handshake' },
+      { label: 'Startups', icon: 'Rocket' },
+      { label: 'Lokale ondernemers', icon: 'MapPin' },
     ],
   },
 
   faq: {
-    heading: "Veelgestelde vragen",
+    heading: 'Veelgestelde vragen',
     subheading:
-      "Korte antwoorden op vragen die vaak terugkomen over websites, webshops, maatwerk en samenwerking.",
+      'Korte antwoorden op vragen die vaak terugkomen over websites, webshops, maatwerk en samenwerking.',
     items: [
       {
-        question: "Wat kost een website of webshop?",
+        question: 'Wat kost een website of webshop?',
         answer:
-          "Dat hangt af van wat er nodig is. Een eenvoudige website is iets anders dan een maatwerk traject met koppelingen, contentstructuur of extra functionaliteit. Daarom begint het altijd met scherp krijgen wat slim is voor jouw situatie.",
+          'Dat hangt af van wat er nodig is. Een compacte website is iets anders dan een maatwerk traject met koppelingen, contentstructuur of extra functionaliteit. Daarom begint het altijd met scherp krijgen wat slim is voor jouw situatie.',
       },
       {
-        question: "Werk je alleen in Friesland?",
+        question: 'Werk je alleen in Friesland?',
         answer:
-          "Nee. WebsUp is gevestigd in Friesland, maar werkt voor klanten door heel Nederland. Online kan bijna alles, en waar nodig is overleg op locatie ook gewoon mogelijk.",
+          'Nee. WebsUp is gevestigd in Friesland, maar werkt voor klanten door heel Nederland. Online kan bijna alles en waar nodig is overleg op locatie ook gewoon mogelijk.',
       },
       {
-        question: "Werk je met WordPress of juist maatwerk?",
+        question: 'Werk je met WordPress of juist maatwerk?',
         answer:
-          "Allebei. Soms is WordPress de slimste keuze, soms Shopify en soms juist maatwerk met Next.js of een koppeling daarachter. Het platform volgt de vraag, niet andersom.",
+          'Allebei. Soms is WordPress de slimste keuze, soms Shopify en soms juist maatwerk met Next.js of een koppeling daarachter. Het platform volgt de vraag, niet andersom.',
       },
       {
-        question: "Kan ik later verder uitbreiden?",
+        question: 'Kan ik later verder uitbreiden?',
         answer:
-          "Ja, dat is juist vaak het uitgangspunt. De basis moet nu goed werken, maar wel ruimte houden om later door te bouwen met extra pagina’s, functionaliteit, automatisering of een klantenportaal.",
+          'Ja. De basis moet nu goed werken, maar wel ruimte houden om later door te bouwen met extra pagina’s, functionaliteit, automatisering of een klantenportaal.',
       },
       {
-        question: "Kan ik mijn website daarna zelf beheren?",
+        question: 'Kan ik mijn website daarna zelf beheren?',
         answer:
-          "Ja, als dat belangrijk is wordt daar rekening mee gehouden. Denk aan een CMS, duidelijke structuur en een oplossing die praktisch blijft in dagelijks gebruik.",
+          'Ja, als dat belangrijk is wordt daar rekening mee gehouden. Denk aan een CMS, duidelijke structuur en een oplossing die praktisch blijft in dagelijks gebruik.',
       },
       {
-        question: "Doe je ook SEO en vindbaarheid?",
+        question: 'Doe je ook SEO en vindbaarheid?',
         answer:
-          "Ja. Geen losse trucjes, maar een sterke technische basis, duidelijke pagina-opbouw, goede contentstructuur en keuzes die helpen om beter gevonden te worden.",
+          'Ja. Geen losse trucjes, maar een sterke technische basis, duidelijke pagina-opbouw, goede contentstructuur en keuzes die helpen om beter gevonden te worden.',
       },
       {
-        question: "Kun je ook automatiseringen of koppelingen bouwen?",
+        question: 'Kun je ook automatiseringen of koppelingen bouwen?',
         answer:
-          "Ja. WebsUp bouwt niet alleen websites, maar ook koppelingen, dashboards, formulieren, portalen en automatiseringen die handmatig werk verminderen.",
+          'Ja. WebsUp bouwt niet alleen websites, maar ook koppelingen, dashboards, formulieren, portalen en automatiseringen die handmatig werk verminderen.',
       },
       {
-        question: "Hoe snel kan een project live staan?",
+        question: 'Hoe snel kan een project live staan?',
         answer:
-          "Dat verschilt per project. Een compacte website kan snel live, terwijl maatwerk of inhoudelijke trajecten meer tijd vragen. In het begin wordt daar altijd duidelijkheid over gegeven.",
+          'Dat verschilt per project. Een compacte website kan relatief snel live, terwijl maatwerk of inhoudelijke trajecten meer tijd vragen. In het begin maken we daar altijd duidelijke afspraken over.',
       },
     ],
   },
 
   knowledgePreview: {
-    heading: "Uit de kennisbank",
+    heading: 'Uit de kennisbank',
     subheading:
-      "Praktische artikelen over websites, online vindbaarheid, automatisering en digitale keuzes.",
+      'Praktische artikelen over websites, online vindbaarheid, automatisering en digitale keuzes.',
   },
 
-  // CTA sectie
   cta: {
-    heading: "Benieuwd wat ik voor jou kan bouwen?",
+    heading: 'Benieuwd wat ik voor jou kan bouwen?',
     subheading:
-      "Plan een gratis kennismaking — telefonisch of bij jou op locatie. Geen verkoopverhaal, gewoon een eerlijk gesprek over wat jouw bedrijf nodig heeft.",
-    ctaLabel: "Plan een kennismaking",
-    ctaHref: "/contact",
-    image: "/group-of-young-business-people-in-the-modern-offic-2026-01-08-05-01-37-utc.jpg",
+      'Plan een gratis kennismaking, telefonisch of bij jou op locatie. Geen verkooppraatje, maar gewoon een eerlijk gesprek over wat slim is voor jouw situatie.',
+    ctaLabel: 'Plan een kennismaking',
+    ctaHref: '/contact',
+    image: '/group-of-young-business-people-in-the-modern-offic-2026-01-08-05-01-37-utc.jpg',
   },
 
-  // Legacy stubs (voor backward-compat van niet-gebruikte components)
   about: {
     badge: 'Over mij',
     heading: 'Wij zijn WebsUp.nl',
@@ -314,15 +300,15 @@ export const siteConfig = {
     subheading: '',
   },
 
-  // Footer
   footer: {
-    tagline: "Persoonlijk. Technisch. Eén aanspreekpunt voor jouw complete digitale systeem.",
+    tagline:
+      'Persoonlijk, technisch en zonder onnodige lagen. WebsUp bouwt digitale oplossingen die duidelijk werken en later mee kunnen groeien.',
     links: [
-      { label: "Privacybeleid", href: "/privacybeleid" },
-      { label: "Cookiebeleid", href: "/cookies" },
-      { label: "Algemene voorwaarden", href: "/algemene-voorwaarden" },
+      { label: 'Privacybeleid', href: '/privacybeleid' },
+      { label: 'Cookiebeleid', href: '/cookies' },
+      { label: 'Algemene voorwaarden', href: '/algemene-voorwaarden' },
     ],
   },
-};
+}
 
-export type SiteConfig = typeof siteConfig;
+export type SiteConfig = typeof siteConfig

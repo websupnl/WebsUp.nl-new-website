@@ -21,13 +21,13 @@ const platforms = [
   { name: 'Maatwerk', dot: '#a78bfa', tip: 'Wanneer standaard tools niet meer passen en er echt iets om jouw proces heen gebouwd moet worden.' },
 ]
 
-const logos = ['BP Uitgevers', 'Weso', 'Thuisbatterijen Friesland', 'Bouma Installaties', 'OtterMedia', 'Rottevalle.com']
+const logos = ['Verkeersschool Haak', 'Rottevalle', 'ContextCareISA', 'Thuisbatterijen Friesland', 'JTEQ', 'Camperhulp']
 const marquee = [...logos, ...logos]
 
 export default function HeroSection({
   ctaLabel = siteConfig.hero.ctaLabel,
   ctaHref = siteConfig.hero.ctaHref,
-  secondaryCtaLabel = 'Vraag gratis ontwerp aan',
+  secondaryCtaLabel = 'Bekijk projecten',
   secondaryCtaHref = siteConfig.hero.secondaryCtaHref,
 }: HeroSectionProps) {
   return (
@@ -58,7 +58,7 @@ export default function HeroSection({
         <div className="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-44">
           <div className="w-full max-w-[860px]">
             <p className="mb-6 text-sm font-medium text-white/50">
-              Voor ondernemers en bedrijven die verder willen dan alleen een mooie website
+              Voor ondernemers en bedrijven die duidelijkheid, snelheid en korte lijnen willen
             </p>
 
             <h1
@@ -79,7 +79,8 @@ export default function HeroSection({
             </h1>
 
             <p className="mb-10 max-w-[56ch] text-base leading-relaxed text-white/60 md:text-lg">
-              WebsUp bouwt websites en webshops die vertrouwen geven, goed werken en klaar zijn om door te groeien. Heb je meer nodig? Dan bouwen we verder met dashboards, koppelingen, calculators of andere maatwerk oplossingen.
+              WebsUp bouwt websites, webshops en maatwerk systemen voor bedrijven die iets neer willen zetten
+              dat niet alleen goed oogt, maar ook logisch werkt. Persoonlijk, technisch sterk en zonder onnodige lagen.
             </p>
 
             <div className="mb-12 flex flex-wrap gap-3">
@@ -127,12 +128,12 @@ export default function HeroSection({
         />
 
         <ul className="marquee-track m-0 flex w-max list-none items-center gap-0 p-0">
-          {marquee.map((name, i) => (
+          {marquee.map((name, index) => (
             <li
-              key={`${name}-${i}`}
+              key={`${name}-${index}`}
               className="flex items-center border-r border-white/6 px-10 last:border-r-0"
             >
-              <span className="font-headline text-sm font-bold whitespace-nowrap text-white/25 transition-opacity hover:text-white/45">
+              <span className="font-headline whitespace-nowrap text-sm font-bold text-white/25 transition-opacity hover:text-white/45">
                 {name}
               </span>
             </li>

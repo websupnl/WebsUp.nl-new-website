@@ -1,5 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import type { NavigationItemRow } from '@/types/database.types'
 
@@ -13,6 +14,8 @@ interface FooterProps {
   navItems?: Pick<NavigationItemRow, 'id' | 'label' | 'url'>[]
   footerLinks?: Array<{ label: string; href: string }>
 }
+
+const passthroughLoader = ({ src }: { src: string }) => src
 
 export default function Footer({
   siteName = siteConfig.name,
@@ -29,22 +32,22 @@ export default function Footer({
       links: [
         { label: 'Websites', href: '/diensten/websites' },
         { label: 'Webshops', href: '/diensten/webshops' },
-        { label: 'Apps & Dashboards', href: '/diensten/apps-dashboards' },
+        { label: 'Apps & dashboards', href: '/diensten/apps-dashboards' },
         { label: 'Automatisering', href: '/diensten/automatisering' },
       ],
     },
     {
       heading: 'Informatie',
       links: [
-        { label: 'Over mij', href: '/over-ons' },
-        { label: 'Kennisbank', href: '/kennisbank' },
-        { label: 'Veelgestelde vragen', href: '/veelgestelde-vragen' },
         { label: 'Projecten', href: '/projecten' },
+        { label: 'Kennisbank', href: '/kennisbank' },
+        { label: 'Over mij', href: '/over-ons' },
+        { label: 'Veelgestelde vragen', href: '/veelgestelde-vragen' },
       ],
     },
     {
       heading: 'Contact',
-      links: [{ label: 'Contact opnemen', href: '/contact' }],
+      links: [{ label: 'Neem contact op', href: '/contact' }],
     },
     {
       heading: 'Juridisch',
@@ -53,76 +56,90 @@ export default function Footer({
   ]
 
   return (
-    <footer className="bg-white border-t border-slate-100">
-      {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-14">
-          {/* Brand column */}
-          <div className="col-span-2">
-            <Link href="/" className="inline-block mb-5">
+    <footer className="border-t border-slate-200 bg-white">
+      <div className="mx-auto max-w-7xl px-6 pb-12 pt-16 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_1.85fr] lg:gap-16">
+          <div>
+            <Link href="/" className="inline-block">
               {logoUrl ? (
-                <img src={logoUrl} alt={siteName} className="h-16 w-auto" />
+                <Image
+                  loader={passthroughLoader}
+                  unoptimized
+                  src={logoUrl}
+                  alt={siteName}
+                  width={320}
+                  height={110}
+                  className="h-16 w-auto"
+                />
               ) : (
-                <img src="/WebsUp.nl logo zwart.png" alt={siteName} className="h-20 w-auto" />
+                <Image
+                  src="/WebsUp.nl logo zwart.png"
+                  alt={siteName}
+                  width={320}
+                  height={110}
+                  className="h-20 w-auto"
+                />
               )}
             </Link>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-[240px] mb-7">
+
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-slate-500">
               {siteConfig.footer.tagline}
             </p>
 
-            {/* Contact block */}
-            <div className="space-y-2.5">
+            <div className="mt-8 space-y-3">
               {email && (
                 <a
                   href={`mailto:${email}`}
-                  className="flex items-center gap-2 text-slate-400 hover:text-orange-500 text-xs transition-colors group"
+                  className="flex items-center gap-2 text-sm text-slate-500 transition-colors hover:text-orange-500"
                 >
-                  <Mail size={12} className="shrink-0" />
+                  <Mail size={14} className="shrink-0" />
                   {email}
                 </a>
               )}
               {phone && (
                 <a
                   href={`tel:${phone.replace(/\s/g, '')}`}
-                  className="flex items-center gap-2 text-slate-400 hover:text-orange-500 text-xs transition-colors"
+                  className="flex items-center gap-2 text-sm text-slate-500 transition-colors hover:text-orange-500"
                 >
-                  <Phone size={12} className="shrink-0" />
+                  <Phone size={14} className="shrink-0" />
                   {phone}
                 </a>
               )}
               {address && (
-                <div className="flex items-center gap-2 text-slate-400 text-xs">
-                  <MapPin size={12} className="shrink-0" />
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <MapPin size={14} className="shrink-0" />
                   {address}
                 </div>
               )}
             </div>
           </div>
 
-          {/* Nav columns */}
-          {columns.map((col) => (
-            <div key={col.heading}>
-              <h6 className="font-bold text-slate-900 text-xs uppercase tracking-[0.08em] mb-5">{col.heading}</h6>
-              <ul className="space-y-3">
-                {col.links.map((link) => (
-                  <li key={link.href + link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-slate-500 hover:text-orange-500 text-sm transition-colors duration-150"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+            {columns.map((column) => (
+              <div key={column.heading}>
+                <h6 className="text-xs font-bold uppercase tracking-[0.1em] text-slate-400">
+                  {column.heading}
+                </h6>
+                <ul className="mt-5 space-y-3">
+                  {column.links.map((link) => (
+                    <li key={link.href + link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-slate-600 transition-colors hover:text-orange-500"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-7 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="text-slate-400 text-xs">
-            © {new Date().getFullYear()} WebsUp.nl — Alle rechten voorbehouden.
+        <div className="mt-12 flex flex-col gap-4 border-t border-slate-200 pt-6 md:flex-row md:items-center md:justify-between">
+          <span className="text-xs text-slate-400">
+            Copyright {new Date().getFullYear()} WebsUp.nl - Alle rechten voorbehouden.
           </span>
           <div className="flex items-center gap-6">
             {linkedinUrl && (
@@ -130,16 +147,22 @@ export default function Footer({
                 href={linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-slate-400 hover:text-orange-500 text-xs transition-colors"
+                className="flex items-center gap-1 text-xs text-slate-400 transition-colors hover:text-orange-500"
               >
                 LinkedIn
                 <ArrowUpRight size={11} />
               </a>
             )}
-            <Link href="/privacybeleid" className="text-slate-400 hover:text-orange-500 text-xs transition-colors">
+            <Link
+              href="/privacybeleid"
+              className="text-xs text-slate-400 transition-colors hover:text-orange-500"
+            >
               Privacy
             </Link>
-            <Link href="/algemene-voorwaarden" className="text-slate-400 hover:text-orange-500 text-xs transition-colors">
+            <Link
+              href="/algemene-voorwaarden"
+              className="text-xs text-slate-400 transition-colors hover:text-orange-500"
+            >
               Voorwaarden
             </Link>
           </div>

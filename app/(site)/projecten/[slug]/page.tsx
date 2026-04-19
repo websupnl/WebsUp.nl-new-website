@@ -3,6 +3,7 @@ export const revalidate = 3600
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowLeft, ArrowRight, CheckCircle, ExternalLink } from 'lucide-react'
 import CTASection from '@/components/site/CTASection'
 import Reveal from '@/components/ui/Reveal'
@@ -61,7 +62,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         <div className="flex flex-wrap gap-3">
           <Link
             href="/projecten"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 bg-white/5 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
           >
             <ArrowLeft size={14} />
             Alle projecten
@@ -71,22 +72,26 @@ export default async function ProjectDetailPage({ params }: Props) {
               href={project.website_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-slate-900 text-sm font-semibold hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-white/90"
             >
-              Bekijk website <ExternalLink size={14} />
+              Bekijk website
+              <ExternalLink size={14} />
             </a>
           )}
         </div>
       </WavePageHeader>
 
       <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
+        <div className="mx-auto grid max-w-7xl items-start gap-12 px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8">
           <Reveal>
-            <div className="rounded-[1.75rem] overflow-hidden border border-slate-200 bg-slate-50">
-              <img
+            <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-100">
+              <Image
                 src={project.image_url}
                 alt={project.title}
-                className="w-full aspect-[16/10] object-cover"
+                width={1600}
+                height={1000}
+                className="h-auto w-full object-cover"
+                sizes="(max-width: 1024px) 100vw, 60vw"
               />
             </div>
           </Reveal>
@@ -98,7 +103,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <div className="space-y-3">
                   {project.highlights.map((highlight) => (
                     <div key={highlight} className="flex items-start gap-3 text-slate-600">
-                      <CheckCircle size={18} className="mt-0.5 text-orange-500 flex-shrink-0" />
+                      <CheckCircle size={18} className="mt-0.5 flex-shrink-0 text-orange-500" />
                       <span>{highlight}</span>
                     </div>
                   ))}
@@ -106,19 +111,21 @@ export default async function ProjectDetailPage({ params }: Props) {
               </div>
 
               <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
-                <p className="text-sm text-slate-500 leading-relaxed">
-                  Website, webshop of maatwerkoplossing nodig? Dan kijken we samen wat past bij je bedrijf, je doelen en hoe je nu werkt.
+                <p className="text-sm leading-relaxed text-slate-500">
+                  Website, webshop of maatwerkoplossing nodig? Dan kijken we samen wat past bij je bedrijf,
+                  je doelen en hoe je nu werkt.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-colors"
+                    className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
                   >
-                    Kennismaking plannen <ArrowRight size={14} />
+                    Kennismaking plannen
+                    <ArrowRight size={14} />
                   </Link>
                   <Link
                     href="/diensten"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-slate-200 text-slate-700 text-sm font-semibold hover:bg-white transition-colors"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white"
                   >
                     Bekijk diensten
                   </Link>
@@ -130,24 +137,21 @@ export default async function ProjectDetailPage({ params }: Props) {
       </section>
 
       <section className="bg-slate-50 py-16 lg:py-20">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal>
             <span className="overline-badge mb-4 inline-flex">Over dit project</span>
-            <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-8">
+            <h2 className="font-headline text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
               Van vraagstuk naar praktische oplossing.
             </h2>
           </Reveal>
 
           <Reveal delay={50}>
             {looksLikeHtml(project.content) ? (
-              <div
-                className="prose-content"
-                dangerouslySetInnerHTML={{ __html: project.content }}
-              />
+              <div className="site-article pt-8" dangerouslySetInnerHTML={{ __html: project.content }} />
             ) : (
-              <div className="space-y-5">
+              <div className="space-y-5 pt-8">
                 {plainParagraphs.map((paragraph, index) => (
-                  <p key={index} className="text-slate-600 leading-relaxed text-base md:text-lg">
+                  <p key={index} className="text-base leading-relaxed text-slate-600 md:text-lg">
                     {paragraph}
                   </p>
                 ))}
