@@ -92,9 +92,9 @@ const BlogPostCard = React.forwardRef<HTMLDivElement, BlogPostCardProps>(
       <motion.div
         ref={ref}
         className={cn(cardVariants({ variant, className }))}
-        variants={cardHover}
+        variants={cardHover as any}
         whileHover="hover"
-        {...props}
+        {...(props as any)}
       >
         <Link href={href} className="absolute inset-0 z-10" aria-label={`Lees meer over ${title}`}>
           <span className="sr-only">Lees meer</span>
