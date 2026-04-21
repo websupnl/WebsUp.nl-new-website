@@ -52,7 +52,7 @@ export default async function HomePage() {
       <main className="page-shell flex-1">
         <HeroSection />
         <AboutMeSection />
-        <WhySection />
+        <ServicesSection />
         <VoorWieSection />
         <StarterCTASection />
         <TestimonialsSection testimonials={testimonials} />
