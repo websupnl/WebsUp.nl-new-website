@@ -43,7 +43,7 @@ const BlogPostCard = React.forwardRef<HTMLDivElement, BlogPostCardProps>(
         y: -5,
         transition: {
           duration: 0.2,
-          ease: 'easeInOut',
+          ease: [0.22, 1, 0.36, 1] as const,
         },
       },
     };
