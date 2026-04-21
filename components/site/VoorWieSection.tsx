@@ -1,24 +1,24 @@
 import Link from 'next/link'
 import {
   ArrowRight,
-  Briefcase,
-  ShoppingCart,
-  Wrench,
+  Building2,
+  ShoppingBag,
+  Hammer,
   Handshake,
   Rocket,
-  MapPin,
+  Store,
   type LucideIcon,
 } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import { siteConfig } from '@/config/site.config'
 
 const iconMap: Record<string, LucideIcon> = {
-  Briefcase,
-  ShoppingCart,
-  Wrench,
-  Handshake,
-  Rocket,
-  MapPin,
+  "MKB & ZZP'ers": Building2,
+  Webshops: ShoppingBag,
+  Installatiebedrijven: Hammer,
+  Dienstverleners: Handshake,
+  Startups: Rocket,
+  'Lokale ondernemers': Store,
 }
 
 const descriptions: Record<string, string> = {
@@ -60,23 +60,25 @@ export default function VoorWieSection() {
             </Link>
           </Reveal>
 
-          <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+          <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
             {siteConfig.useCases.items.map((item, index) => {
-              const Icon = iconMap[item.icon] ?? Briefcase
+              const Icon = iconMap[item.label] ?? Building2
 
               return (
                 <Reveal key={item.label} delay={index * 60}>
-                  <div className="border-t border-slate-200 pt-5">
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-orange-500 shadow-sm ring-1 ring-slate-200/80">
-                        <Icon size={18} />
+                  <div className="group flex items-start gap-5">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[1.25rem] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 p-[1px] shadow-lg shadow-orange-500/10 transition-transform duration-300 group-hover:scale-110">
+                      <div className="flex h-full w-full items-center justify-center rounded-[1.2rem] bg-white">
+                        <Icon size={24} strokeWidth={1.75} className="text-slate-800 transition-colors group-hover:text-orange-500" />
                       </div>
-                      <div>
-                        <h3 className="font-headline text-xl font-bold text-slate-900">{item.label}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                          {descriptions[item.label] ?? 'Voor bedrijven die een duidelijke, sterke en praktische digitale basis zoeken.'}
-                        </p>
-                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-headline text-xl font-bold text-slate-900 group-hover:text-orange-500 transition-colors">
+                        {item.label}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                        {descriptions[item.label] ?? 'Voor bedrijven die een duidelijke, sterke en praktische digitale basis zoeken.'}
+                      </p>
                     </div>
                   </div>
                 </Reveal>
@@ -88,3 +90,4 @@ export default function VoorWieSection() {
     </section>
   )
 }
+

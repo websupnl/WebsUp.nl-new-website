@@ -1,75 +1,114 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Monitor, ShoppingCart, LayoutDashboard, Zap, CheckCircle, ArrowRight, LucideIcon } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import Reveal from '@/components/ui/Reveal'
 
-const iconMap: Record<string, LucideIcon> = {
-  Monitor,
-  ShoppingCart,
-  LayoutDashboard,
-  Zap,
+const iconMap: Record<string, LucideIcon> = { Monitor, ShoppingCart, LayoutDashboard, Zap }
+
+const serviceImages: Record<string, string> = {
+  Websites:          'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=70',
+  Webshops:          'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=70',
+  'Apps & dashboards': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=70',
+  Automatisering:    'https://images.unsplash.com/photo-1518432031352-d6fc5734c3d0?auto=format&fit=crop&w=800&q=70',
 }
 
-interface ServicesSectionProps {
-  services?: typeof siteConfig.services
-  title?: string
-  subtitle?: string
+const serviceSlug: Record<string, string> = {
+  Websites:          'websites',
+  Webshops:          'webshops',
+  'Apps & dashboards': 'apps-dashboards',
+  Automatisering:    'automatisering',
 }
 
-export default function ServicesSection({
-  services = siteConfig.services,
-  title = 'Wat we bouwen',
-  subtitle = 'Van simpele website tot complex systeem — wij bouwen wat jouw bedrijf nodig heeft.',
-}: ServicesSectionProps) {
+export default function ServicesSection() {
   return (
-    <section id="diensten" className="bg-white py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal className="text-center mb-14">
-          <span className="inline-block text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3 bg-blue-50 border border-blue-100 px-3 py-1 rounded-full">
-            Diensten
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{title}</h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">{subtitle}</p>
-        </Reveal>
+    <section className="bg-white py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-24 items-start">
+          <Reveal>
+            <span className="overline-badge mb-5 inline-flex">Wat ik voor je kan bouwen</span>
+            <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-6xl">
+              Van website tot <span className="gradient-text">maatwerk systeem.</span>
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-slate-500 max-w-xl">
+              Soms is een sterke website genoeg. Soms vraagt je bedrijf om meer: een webshop die beter verkoopt, een dashboard dat overzicht geeft of een maatwerk oplossing die werk uit handen neemt.
+            </p>
+            
+            <div className="mt-10 flex flex-col gap-5 border-l border-slate-200 pl-6">
+                <div className="text-sm font-semibold text-slate-900 italic">"Niet de techniek, maar de oplossing voor jouw probleem staat centraal."</div>
+                <p className="text-sm text-slate-500 leading-relaxed">
+                    Geen standaard pakketten, maar een aanpak die past bij jouw specifieke situatie en doelen.
+                </p>
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service, index) => {
-            const Icon = iconMap[service.icon] ?? Zap
-            return (
-              <Reveal key={service.title} delay={index * 80}>
-                <div
-                  id={service.href.split('#')[1]}
-                  className="group relative flex flex-col h-full border border-gray-100 rounded-2xl p-8 hover:border-blue-100 hover:shadow-lg transition-all duration-300 bg-white"
-                >
-                  {/* Icon */}
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
-                    <Icon size={22} className="text-blue-600 group-hover:text-white transition-colors duration-300" />
-                  </div>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="btn-brand px-7 py-3.5 text-sm"
+              >
+                Plan een kennismaking
+              </Link>
+              <Link
+                href="/diensten"
+                className="btn-ghost px-7 py-3.5 text-sm"
+              >
+                Alle diensten
+              </Link>
+            </div>
+          </Reveal>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-6">{service.description}</p>
-
-                  {/* Bullets */}
-                  <ul className="space-y-2 mb-8 flex-1">
-                    {service.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-center gap-2.5 text-sm text-gray-600">
-                        <CheckCircle size={15} className="text-blue-500 flex-shrink-0" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-
+          <div className="grid sm:grid-cols-2 gap-6">
+            {siteConfig.services.map((service, i) => {
+              const Icon = iconMap[service.icon] ?? Zap
+              const slug = serviceSlug[service.title] ?? 'websites'
+              const img = serviceImages[service.title]
+              
+              return (
+                <Reveal key={service.title} delay={i * 80}>
                   <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors group/link"
+                    href={`/diensten/${slug}`}
+                    className="group flex flex-col h-full bg-white border border-slate-100 rounded-[2rem] overflow-hidden hover:border-orange-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
                   >
-                    Meer informatie
-                    <ArrowRight size={15} className="group-hover/link:translate-x-0.5 transition-transform" />
+                    {/* Image Header */}
+                    <div className="relative h-44 overflow-hidden bg-slate-100">
+                      {img && (
+                        <Image
+                          src={img}
+                          alt={service.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-700"
+                          sizes="(max-width: 768px) 100vw, 25vw"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
+                      
+                      {/* Floating Icon */}
+                      <div className="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                        <Icon size={18} className="text-white" />
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-7 flex-1 flex flex-col">
+                      <h3 className="font-headline text-xl font-bold text-slate-900 group-hover:text-orange-500 transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                      <p className="mt-3 text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2">
+                        {service.description}
+                      </p>
+                      
+                      <div className="mt-auto pt-5 border-t border-slate-50 flex items-center justify-between">
+                        <span className="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-orange-500 transition-colors">Details</span>
+                        <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-orange-500 transition-all duration-300 group-hover:translate-x-1">
+                            <ArrowRight size={14} className="text-slate-400 group-hover:text-white" />
+                        </div>
+                      </div>
+                    </div>
                   </Link>
-                </div>
-              </Reveal>
-            )
-          })}
+                </Reveal>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -2,12 +2,13 @@ export const revalidate = 3600
 
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Calendar, Clock, BookOpen } from 'lucide-react'
+import { ArrowRight, BookOpen } from 'lucide-react'
 import { getNewsArticles } from '@/lib/queries/news'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import { Tooltip } from '@/components/ui/tooltip-card'
+import { BlogPostCard } from '@/components/ui/card-18'
 
 export const metadata: Metadata = {
   title: 'Kennisbank',
@@ -92,76 +93,31 @@ export default async function KennisbankPage() {
             <>
               {articles[0] && (
                 <Reveal className="mb-12">
-                  <Link
+                  <BlogPostCard
+                    variant="featured"
+                    tag="Uitgelicht"
+                    date={formatDate(articles[0].created_at)}
+                    title={articles[0].title}
+                    description={articles[0].excerpt ?? ''}
+                    imageUrl={articles[0].image_url ?? undefined}
                     href={`/kennisbank/${articles[0].slug}`}
-                    className="group grid gap-0 overflow-hidden rounded-[1.75rem] border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl lg:grid-cols-5"
-                  >
-                    {articles[0].image_url && (
-                      <div className="aspect-video overflow-hidden bg-slate-100 lg:col-span-2 lg:aspect-auto">
-                        <img
-                          src={articles[0].image_url}
-                          alt={articles[0].title}
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                      </div>
-                    )}
-                    <div className={`flex flex-col justify-center p-8 lg:p-12 ${articles[0].image_url ? 'lg:col-span-3' : 'lg:col-span-5'}`}>
-                      <span className="mb-3 text-xs font-bold uppercase tracking-wider text-orange-500">
-                        Uitgelicht
-                      </span>
-                      <h2 className="mb-4 font-headline text-2xl font-extrabold leading-tight text-slate-900 transition-colors group-hover:text-orange-500 md:text-3xl">
-                        {articles[0].title}
-                      </h2>
-                      {articles[0].excerpt && (
-                        <p className="mb-5 leading-relaxed text-slate-500 line-clamp-3">
-                          {articles[0].excerpt}
-                        </p>
-                      )}
-                      <div className="flex items-center gap-4 text-xs text-slate-400">
-                        <span className="flex items-center gap-1.5"><Calendar size={12} />{formatDate(articles[0].created_at)}</span>
-                        <span className="flex items-center gap-1.5"><Clock size={12} />{readingTime(articles[0].content)} min lezen</span>
-                      </div>
-                    </div>
-                  </Link>
+                    readMoreText="Lees meer"
+                  />
                 </Reveal>
               )}
 
               {articles.length > 1 && (
-                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {articles.slice(1).map((article, i) => (
                     <Reveal key={article.id} delay={i * 50}>
-                      <Link
+                      <BlogPostCard
+                        tag="Kennisbank"
+                        date={formatDate(article.created_at)}
+                        title={article.title}
+                        description={article.excerpt ?? ''}
+                        imageUrl={article.image_url ?? undefined}
                         href={`/kennisbank/${article.slug}`}
-                        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                      >
-                        {article.image_url ? (
-                          <div className="aspect-video overflow-hidden bg-slate-50">
-                            <img
-                              src={article.image_url}
-                              alt={article.title}
-                              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                          </div>
-                        ) : (
-                          <div className="flex aspect-video items-center justify-center bg-slate-50">
-                            <BookOpen size={28} className="text-slate-200" />
-                          </div>
-                        )}
-                        <div className="flex flex-1 flex-col p-6">
-                          <h3 className="mb-2 font-headline font-bold leading-snug text-slate-900 transition-colors group-hover:text-orange-500">
-                            {article.title}
-                          </h3>
-                          {article.excerpt && (
-                            <p className="mb-4 flex-1 text-sm leading-relaxed text-slate-500 line-clamp-3">
-                              {article.excerpt}
-                            </p>
-                          )}
-                          <div className="mt-auto flex items-center justify-between border-t border-slate-50 pt-4 text-xs text-slate-400">
-                            <span>{formatDate(article.created_at)}</span>
-                            <span className="flex items-center gap-1"><Clock size={11} />{readingTime(article.content)} min</span>
-                          </div>
-                        </div>
-                      </Link>
+                      />
                     </Reveal>
                   ))}
                 </div>

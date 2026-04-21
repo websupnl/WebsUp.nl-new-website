@@ -1,8 +1,9 @@
 import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
-// Simple classnames helper (geen extra dep nodig)
+// Standard shadcn classnames helper
 export function cn(...inputs: ClassValue[]) {
-  return inputs.filter(Boolean).join(' ')
+  return twMerge(clsx(inputs))
 }
 
 // Slug genereren

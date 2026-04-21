@@ -1,25 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, MapPin, MessageCircle, Wrench } from 'lucide-react'
+import { ArrowRight, MapPin } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
-
-const highlights = [
-  {
-    title: 'Direct contact',
-    text: 'Korte lijnen, snel schakelen en direct duidelijkheid tijdens het hele traject.',
-    icon: MessageCircle,
-  },
-  {
-    title: 'Technisch sterk',
-    text: 'Van website tot maatwerk module: slim bedacht en degelijk gebouwd.',
-    icon: Wrench,
-  },
-  {
-    title: 'Persoonlijk & dichtbij',
-    text: 'Nuchter, betrokken en goed bereikbaar. Online, telefonisch of gewoon op locatie.',
-    icon: MapPin,
-  },
-]
 
 export default function AboutMeSection() {
   return (
@@ -64,30 +46,14 @@ export default function AboutMeSection() {
             </p>
 
             <div className="mt-10 border-t border-slate-200 pt-6">
-              <div className="grid gap-6 sm:grid-cols-3">
-                {highlights.map((item) => {
-                  const Icon = item.icon
-
-                  return (
-                    <div key={item.title} className="border-l border-slate-200 pl-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-orange-500">
-                        <Icon size={18} />
-                      </div>
-                      <div className="mt-4 text-sm font-semibold text-slate-900">{item.title}</div>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.text}</p>
-                    </div>
-                  )
-                })}
-              </div>
+              <Link
+                href="/over-ons"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-slate-800"
+              >
+                Meer over mij
+                <ArrowRight size={14} />
+              </Link>
             </div>
-
-            <Link
-              href="/over-ons"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-slate-800"
-            >
-              Meer over mij
-              <ArrowRight size={14} />
-            </Link>
           </Reveal>
         </div>
       </div>
