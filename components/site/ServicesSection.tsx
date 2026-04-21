@@ -66,46 +66,45 @@ export default function ServicesSection() {
               return (
                 <Reveal key={service.title} delay={i * 80}>
                   <Link
-                    href={`/diensten/${slug}`}
-                    className="group flex flex-col h-full bg-white border border-slate-100 rounded-[2rem] overflow-hidden hover:border-orange-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                  href={`/diensten/${slug}`}
+                  className="group flex flex-col h-full bg-white border border-slate-100 rounded-[2rem] overflow-hidden hover:border-purple-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
                   >
-                    {/* Image Header */}
-                    <div className="relative h-44 overflow-hidden bg-slate-100">
-                      {img && (
-                        <Image
-                          src={img}
-                          alt={service.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-700"
-                          sizes="(max-width: 768px) 100vw, 25vw"
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
-                      
-                      {/* Floating Icon */}
-                      <div className="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
-                        <Icon size={18} className="text-white" />
-                      </div>
-                    </div>
+                  {/* Image Header */}
+                  <div className="relative h-44 overflow-hidden bg-slate-100">
+                    {img && (
+                      <Image
+                        src={img}
+                        alt={service.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
 
-                    {/* Content */}
-                    <div className="p-7 flex-1 flex flex-col">
-                      <h3 className="font-headline text-xl font-bold text-slate-900 group-hover:text-orange-500 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                      <p className="mt-3 text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2">
-                        {service.description}
-                      </p>
-                      
-                      <div className="mt-auto pt-5 border-t border-slate-50 flex items-center justify-between">
-                        <span className="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-orange-500 transition-colors">Details</span>
-                        <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-orange-500 transition-all duration-300 group-hover:translate-x-1">
-                            <ArrowRight size={14} className="text-slate-400 group-hover:text-white" />
-                        </div>
+                    {/* Floating Icon */}
+                    <div className="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                      <Icon size={18} className="text-white" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-7 flex-1 flex flex-col">
+                    <h3 className="font-headline text-xl font-bold text-slate-900 group-hover:text-purple-600 transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="mt-3 text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2">
+                      {service.description}
+                    </p>
+
+                    <div className="mt-auto pt-5 border-t border-slate-50 flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-purple-600 transition-colors">Details</span>
+                      <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-purple-600 transition-all duration-300 group-hover:translate-x-1">
+                          <ArrowRight size={14} className="text-slate-400 group-hover:text-white" />
                       </div>
                     </div>
-                  </Link>
-                </Reveal>
+                  </div>
+                  </Link>                </Reveal>
               )
             })}
           </div>

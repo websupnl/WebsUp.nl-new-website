@@ -44,7 +44,7 @@ export default function VoorWieSection() {
               {siteConfig.useCases.subheading} WebsUp werkt vooral voor bedrijven die duidelijke keuzes willen, niet voor trajecten die groter worden gemaakt dan nodig.
             </p>
 
-            <div className="mt-8 border-l-2 border-orange-200 pl-5">
+            <div className="mt-8 border-l-2 border-purple-200 pl-5">
               <div className="text-sm font-semibold text-slate-900">De gemene deler</div>
               <p className="mt-2 text-sm leading-relaxed text-slate-500">
                 Korte lijnen, praktische techniek en iets bouwen dat niet alleen netjes oogt, maar ook echt bruikbaar is in de praktijk.
@@ -53,7 +53,7 @@ export default function VoorWieSection() {
 
             <Link
               href="/diensten"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition-colors hover:text-orange-500"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition-colors hover:text-purple-600"
             >
               Bekijk diensten
               <ArrowRight size={14} />
@@ -67,13 +67,13 @@ export default function VoorWieSection() {
               return (
                 <Reveal key={item.label} delay={index * 60}>
                   <div className="group flex items-start gap-5">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[1.25rem] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 p-[1px] shadow-lg shadow-orange-500/10 transition-transform duration-300 group-hover:scale-110">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[1.25rem] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 p-[1px] shadow-lg shadow-purple-500/10 transition-transform duration-300 group-hover:scale-110">
                       <div className="flex h-full w-full items-center justify-center rounded-[1.2rem] bg-white">
-                        <Icon size={24} strokeWidth={1.75} className="text-slate-800 transition-colors group-hover:text-orange-500" />
+                        <Icon size={24} strokeWidth={1.75} className="text-slate-800 transition-colors group-hover:text-purple-600" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-headline text-xl font-bold text-slate-900 group-hover:text-orange-500 transition-colors">
+                      <h3 className="font-headline text-xl font-bold text-slate-900 group-hover:text-purple-600 transition-colors">
                         {item.label}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-slate-500">
