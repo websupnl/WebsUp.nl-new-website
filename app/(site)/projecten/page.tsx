@@ -63,7 +63,7 @@ export default async function ProjectenPage() {
           <Reveal className="mb-14">
             <span className="overline-badge mb-4 inline-flex">Uitgelichte projecten</span>
             <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-slate-900 tracking-[-0.02em] leading-[1.08]">
-              Werk dat past bij de praktijk.
+                      Werk dat past bij de praktijk
             </h2>
           </Reveal>
 

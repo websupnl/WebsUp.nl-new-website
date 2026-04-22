@@ -56,7 +56,7 @@ export default function DienstenPage() {
           <Reveal className="mb-14">
             <span className="overline-badge mb-4 inline-flex">Wat ik bouw</span>
             <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-slate-900 tracking-[-0.02em] leading-[1.08] max-w-xl">
-              Kies jouw dienst — of combineer ze.
+              Kies jouw dienst — of combineer ze
             </h2>
           </Reveal>
 

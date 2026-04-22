@@ -39,7 +39,7 @@ export default function AboutMeSection() {
             <span className="overline-badge mb-4 inline-flex">Over WebsUp</span>
             <h2 className="max-w-2xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
               Geen onnodige lagen.
-              <span className="gradient-text"> Gewoon direct schakelen.</span>
+              <span className="gradient-text"> Gewoon direct schakelen</span>
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-500">
               WebsUp is bewust persoonlijk opgezet. Je schakelt direct met degene die meedenkt, ontwerpt en bouwt. Geen ruis, geen onnodige omwegen, wel korte lijnen, eerlijk advies en een oplossing die past bij jouw bedrijf.

@@ -134,7 +134,7 @@ export default async function OverOnsPage() {
               <div className="p-7 lg:p-10">
                 <span className="overline-badge mb-4 inline-flex">Wie er achter WebsUp zit</span>
                 <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-                  Hoi, ik ben Daan.
+                  Hoi, ik ben Daan
                 </h2>
                 <div className="mt-5 space-y-4 text-lg leading-relaxed text-slate-500">
                   <p>
@@ -179,7 +179,7 @@ export default async function OverOnsPage() {
               <div className="p-7 lg:p-10">
                 <span className="overline-badge mb-4 inline-flex">Waarom dit anders werkt</span>
                 <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-                  Persoonlijk samenwerken, zonder het groter te maken dan het is.
+                  Persoonlijk samenwerken, zonder het groter te maken dan het is
                 </h2>
                 <div className="mt-6 space-y-4 text-lg leading-relaxed text-slate-500">
                   <p>
@@ -231,7 +231,7 @@ export default async function OverOnsPage() {
             <Reveal className="rounded-[2rem] bg-[#06040c] p-7 text-white lg:p-10">
               <span className="overline-badge mb-4 inline-flex">Samenwerken</span>
               <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] md:text-4xl">
-                Geen ruis, wel duidelijke lijnen.
+                Geen ruis, wel duidelijke lijnen
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-white/66">
                 Ik geloof niet in onnodig ingewikkelde trajecten. Het begint meestal gewoon met een gesprek: waar loop je tegenaan, wat wil je neerzetten en wat is daarin de slimste stap?

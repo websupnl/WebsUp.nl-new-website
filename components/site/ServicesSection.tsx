@@ -29,7 +29,7 @@ export default function ServicesSection() {
           <Reveal>
             <span className="overline-badge mb-5 inline-flex">Wat ik voor je kan bouwen</span>
             <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-6xl">
-              Van website tot <span className="gradient-text">maatwerk systeem.</span>
+              Van website tot <span className="gradient-text">maatwerk systeem</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-slate-500 max-w-xl">
               Soms is een sterke website genoeg. Soms vraagt je bedrijf om meer: een webshop die beter verkoopt, een dashboard dat overzicht geeft of een maatwerk oplossing die werk uit handen neemt.

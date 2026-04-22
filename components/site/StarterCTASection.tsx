@@ -33,7 +33,7 @@ export default function StarterCTASection() {
               Voor starters
             </div>
             <h2 className="max-w-2xl font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
-              Professioneel starten, zonder meteen te veel op te tuigen.
+              Professioneel starten, zonder meteen te veel op te tuigen
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
               Sta je aan het begin van iets moois? Voor starters en startups met een sterk idee denkt WebsUp graag mee over een slimme digitale basis. In sommige gevallen is er ruimte voor een aangepaste instap, zodat je goed kunt beginnen en later verder kunt bouwen.

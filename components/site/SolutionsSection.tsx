@@ -71,7 +71,7 @@ export default function SolutionsSection() {
           <span className="overline-badge mb-4 inline-flex">Wat ik bouw</span>
           <h2 className="mt-2 max-w-2xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
             Geen losse tools,{' '}
-            <span className="gradient-text">maar een geheel.</span>
+            <span className="gradient-text">maar een geheel</span>
           </h2>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-slate-500">
             Ik bouw websites, webshops, apps en automatiseringen die op elkaar aansluiten. Jij kiest het platform, ik zorg dat het werkt.

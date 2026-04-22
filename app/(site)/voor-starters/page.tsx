@@ -108,7 +108,7 @@ export default function VoorStartersPage() {
               <div className="p-7 lg:p-10">
                 <span className="overline-badge mb-4 inline-flex">Wat dit is</span>
                 <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-                  Geen algemene kortingsactie, maar een passende instap.
+                  Geen algemene kortingsactie, maar een passende instap
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-slate-500">
                   Niet iedere starter heeft direct een compleet traject nodig. Soms is een slimme, haalbare eerste stap veel sterker dan te groot beginnen en onderweg vastlopen.
@@ -145,7 +145,7 @@ export default function VoorStartersPage() {
           <Reveal className="mb-12 max-w-3xl">
             <span className="overline-badge mb-4 inline-flex">Waar ik mee kan helpen</span>
             <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-              De slimste eerste stap hangt af van je idee.
+              De slimste eerste stap hangt af van je idee
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-500">
               Soms begint dat met een website. Soms met een homepage concept, webshop of eerste maatwerk oplossing. Het doel is niet om direct alles te bouwen, maar om goed te beginnen.
@@ -176,7 +176,7 @@ export default function VoorStartersPage() {
             <Reveal className="rounded-[2rem] bg-[#06040c] p-7 text-white lg:p-10">
               <span className="overline-badge mb-4 inline-flex">Waarom ik dit doe</span>
               <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] md:text-4xl">
-                Goede ideeen vroeg helpen opbouwen is juist interessant.
+              Goede ideeen vroeg helpen opbouwen is juist interessant
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-white/66">
                 Niet omdat het goedkoop moet zijn, maar omdat je in een vroege fase vaak nog de beste keuzes kunt maken in opzet, structuur en richting. Daar zit vaak juist de winst.
@@ -189,7 +189,7 @@ export default function VoorStartersPage() {
             <Reveal className="rounded-[2rem] border border-slate-100 bg-slate-50 p-7 lg:p-10">
               <span className="overline-badge mb-4 inline-flex">Hoe het werkt</span>
               <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-                Eerst duidelijkheid. Daarna pas bouwen.
+                Eerst duidelijkheid. Daarna pas bouwen
               </h2>
 
               <div className="mt-8 space-y-5">

@@ -3,6 +3,19 @@
 
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Genty Sans';
+  src:
+    local('Genty Sans'),
+    local('GentySans'),
+    local('Genty Sans Regular'),
+    url('/fonts/GentySans.woff2') format('woff2'),
+    url('/fonts/GentySans.woff') format('woff');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ============================
    DESIGN TOKENS — WebsUp
    ============================ */

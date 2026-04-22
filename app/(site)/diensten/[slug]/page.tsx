@@ -187,7 +187,7 @@ function WebsitesServicePage() {
           <Reveal>
             <span className="overline-badge mb-4 inline-flex">Waarom een goede website telt</span>
             <h2 className="max-w-xl font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-              Je website moet niet alleen mooi zijn. Hij moet duidelijk werken.
+              Je website moet niet alleen mooi zijn. Hij moet duidelijk werken
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-500">
               Voor veel bedrijven is de website de eerste echte indruk. Dan moet direct duidelijk zijn wie je bent, wat je doet en waarom iemand voor jou zou kiezen. Daarom bouwen we websites die vertrouwen geven, logisch zijn opgebouwd en gericht zijn op resultaat, zonder onnodige poespas.
@@ -217,7 +217,7 @@ function WebsitesServicePage() {
           <Reveal className="mb-12 max-w-3xl">
             <span className="overline-badge mb-4 inline-flex">Wat je krijgt</span>
             <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-              Alles wat nodig is voor een sterke online basis.
+              Alles wat nodig is voor een sterke online basis
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-500">
               Geen overvolle lijst met loze features, maar precies wat nodig is om je website professioneel, snel en toekomstbestendig neer te zetten.
@@ -272,7 +272,7 @@ function WebsitesServicePage() {
           <Reveal className="mb-12 max-w-3xl">
             <span className="overline-badge mb-4 inline-flex">Hoe het traject verloopt</span>
             <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-              Duidelijk proces, korte lijnen.
+              Duidelijk proces, korte lijnen
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-500">
               Je hoeft geen compleet plan klaar te hebben. We beginnen bij jouw situatie en werken stap voor stap naar een website die klopt.
@@ -286,7 +286,7 @@ function WebsitesServicePage() {
                   Stap voor stap
                 </div>
                 <h3 className="mt-5 font-headline text-2xl font-bold text-slate-900 md:text-[2rem]">
-                  Geen ingewikkeld traject, wel een duidelijke route.
+                Geen ingewikkeld traject, wel een duidelijke route
                 </h3>
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-500">
                   Je hoeft vooraf niet alles al uitgewerkt te hebben. We brengen eerst scherp in kaart wat de website moet doen, waarna ontwerp, inhoud en techniek logisch op elkaar aansluiten.
@@ -325,7 +325,7 @@ function WebsitesServicePage() {
               <div className="border-b border-white/10 p-7 text-white lg:border-b-0 lg:border-r lg:p-10">
                 <span className="overline-badge mb-4 inline-flex">Waarom WebsUp</span>
                 <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] md:text-4xl">
-                  Persoonlijk contact, technisch sterk en praktisch ingestoken.
+                Persoonlijk contact, technisch sterk en praktisch ingestoken
                 </h2>
                 <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/64">
                   Je schakelt direct met degene die meedenkt en bouwt. Geen ruis, geen onnodige lagen en geen traject dat ingewikkelder wordt gemaakt dan nodig. Wel een website die past bij jouw bedrijf en ruimte laat om verder te bouwen als dat later nodig is.
@@ -347,7 +347,7 @@ function WebsitesServicePage() {
               <div className="p-7 text-white lg:p-10">
                 <div className="text-sm font-semibold text-white/88">Daarna eventueel verder bouwen</div>
                 <h3 className="mt-5 font-headline text-2xl font-bold text-white">
-                  Soms begint het met een website. Daarna bouw je verder.
+            Soms begint het met een website. Daarna bouw je verder
                 </h3>
                 <p className="mt-4 max-w-lg text-base leading-relaxed text-white/62">
                   Heeft je bedrijf later meer nodig, dan kan WebsUp ook verder helpen met webshops, dashboards, portals, koppelingen en automatisering. Geen losse tools als het slimmer als geheel kan.

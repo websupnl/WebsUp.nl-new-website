@@ -159,7 +159,7 @@ export default function BentoSection() {
           <span className="overline-badge mb-5 inline-flex">Wat ik voor jou kan bouwen</span>
           <div className="flex flex-col md:flex-row md:items-end gap-4 justify-between">
             <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.08] tracking-[-0.02em] max-w-lg">
-              Van webshop tot volledig systeem.
+              Van webshop tot volledig systeem
             </h2>
             <p className="text-slate-500 text-lg max-w-xs leading-relaxed md:text-right">
               Elk project is anders.<br />Ik pas me aan jou aan.

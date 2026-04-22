@@ -134,7 +134,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           <Reveal>
             <span className="overline-badge mb-4 inline-flex">Over dit project</span>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-8">
-              Van vraagstuk naar praktische oplossing.
+              Van vraagstuk naar praktische oplossing
             </h2>
           </Reveal>
 

@@ -74,7 +74,7 @@ export default function HeroSection({
                   backgroundClip: 'text',
                 }}
               >
-                Alles digitaal geregeld.
+                Alles digitaal geregeld
               </span>
             </h1>
 

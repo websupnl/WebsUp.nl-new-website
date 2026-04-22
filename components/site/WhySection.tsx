@@ -65,7 +65,7 @@ export default function WhySection() {
         <Reveal className="max-w-4xl">
           <span className="overline-badge mb-5 inline-flex">Wat ik voor je kan bouwen</span>
           <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-6xl">
-            Van website tot maatwerk systeem.
+            Van website tot maatwerk systeem
           </h2>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-500">
             Soms is een sterke website genoeg. Soms vraagt je bedrijf om meer: een webshop die beter verkoopt, een dashboard dat overzicht geeft, een portaal voor klanten of een maatwerk oplossing die werk uit handen neemt. WebsUp bouwt wat nodig is, los of slim gecombineerd.

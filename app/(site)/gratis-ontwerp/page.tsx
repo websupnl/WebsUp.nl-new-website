@@ -81,7 +81,7 @@ export default function GratisOntwerpPage() {
           <Reveal className="lg:sticky lg:top-32 lg:self-start">
             <span className="overline-badge mb-4 inline-flex">Wat je krijgt</span>
             <h2 className="font-headline text-3xl font-extrabold leading-[1.08] text-slate-900 md:text-4xl">
-              Geen standaard template, maar een richting die past bij jouw bedrijf.
+              Geen standaard template, maar een richting die past bij jouw bedrijf
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-500">
               Een gratis ontwerp is bedoeld om snel helder te krijgen wat visueel en inhoudelijk logisch is. Soms is dat een homepage richting, soms juist advies over structuur, aanbod of techniek.
@@ -113,7 +113,7 @@ export default function GratisOntwerpPage() {
           <Reveal className="mb-10 max-w-3xl">
             <span className="overline-badge mb-4 inline-flex">Werkwijze</span>
             <h2 className="font-headline text-3xl font-extrabold leading-[1.08] text-slate-900 md:text-4xl">
-              Snel duidelijkheid over de juiste richting.
+              Snel duidelijkheid over de juiste richting
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-500">
               De aanvraag is bewust laagdrempelig. Het doel is niet om direct alles vast te zetten, maar om de eerste slimme keuzes helder te krijgen.

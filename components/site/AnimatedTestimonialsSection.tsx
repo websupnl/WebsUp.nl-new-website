@@ -87,7 +87,7 @@ export default function AnimatedTestimonialsSection({
         <span className="overline-badge mb-4 inline-flex">Ervaringen</span>
         <h2 className="max-w-3xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
           Geen gelikte verkooppraat.
-          <span className="gradient-text"> Gewoon reacties van klanten.</span>
+          <span className="gradient-text"> Gewoon reacties van klanten</span>
         </h2>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-500">
           Hoe de samenwerking voelt, hoe snel er geschakeld wordt en waarom klanten juist het directe contact waarderen.

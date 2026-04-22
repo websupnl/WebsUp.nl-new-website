@@ -11,6 +11,8 @@ interface WavePageHeaderProps {
   heightClass?: string
 }
 
+const stripFinalDot = (value: string) => value.replace(/\.+\s*$/, '')
+
 /**
  * Herbruikbare donkere paginaheader met hero-bg.png (Stripe-stijl wave).
  * Loopt achter de vaste navbar — geen paddingTop op de sectie zelf.
@@ -23,6 +25,9 @@ export default function WavePageHeader({
   children,
   heightClass = 'min-h-[58vh]',
 }: WavePageHeaderProps) {
+  const displayTitle = stripFinalDot(title)
+  const displayTitleHighlight = titleHighlight ? stripFinalDot(titleHighlight) : undefined
+
   return (
     <div className={`relative bg-[#06040c] overflow-hidden flex flex-col justify-end ${heightClass}`}>
 
@@ -63,8 +68,8 @@ export default function WavePageHeader({
           className="font-headline font-extrabold text-white tracking-[-0.03em] leading-[1.08] mb-5"
           style={{ fontSize: 'clamp(1.9rem, 4.2vw, 3.4rem)' }}
         >
-          {title}
-          {titleHighlight && (
+          {displayTitle}
+          {displayTitleHighlight && (
             <>
               {' '}
               <span
@@ -75,7 +80,7 @@ export default function WavePageHeader({
                   backgroundClip: 'text',
                 }}
               >
-                {titleHighlight}
+                {displayTitleHighlight}
               </span>
             </>
           )}

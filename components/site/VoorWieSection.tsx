@@ -39,7 +39,7 @@ export default function VoorWieSection() {
           <Reveal>
             <span className="overline-badge mb-4 inline-flex">Voor wie</span>
             <h2 className="max-w-xl font-headline text-4xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-5xl">
-              Niet voor iedereen. Wel voor bedrijven die vooruit willen.
+              Niet voor iedereen. Wel voor bedrijven die vooruit willen
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-500">
               {siteConfig.useCases.subheading} WebsUp werkt vooral voor bedrijven die duidelijke keuzes willen, niet voor trajecten die groter worden gemaakt dan nodig.
