@@ -36,7 +36,7 @@ export default function ServicesSection() {
             </p>
             
             <div className="mt-10 flex flex-col gap-5 border-l border-slate-200 pl-6">
-                <div className="text-sm font-semibold text-slate-900 italic">"Niet de techniek, maar de oplossing voor jouw probleem staat centraal."</div>
+                <div className="text-sm font-semibold text-slate-900 italic">&ldquo;Niet de techniek, maar de oplossing voor jouw probleem staat centraal.&rdquo;</div>
                 <p className="text-sm text-slate-500 leading-relaxed">
                     Geen standaard pakketten, maar een aanpak die past bij jouw specifieke situatie en doelen.
                 </p>

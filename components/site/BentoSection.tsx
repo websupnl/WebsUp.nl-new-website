@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Globe, LayoutDashboard, Tv2, Wrench, ShoppingCart, Workflow } from 'lucide-react'
+import { ArrowRight, LayoutDashboard, Tv2, ShoppingCart, Workflow } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import GradientIcon from '@/components/site/GradientIcon'
 
