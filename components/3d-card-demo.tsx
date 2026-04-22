@@ -8,8 +8,8 @@ import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card'
 export default function ThreeDCardDemo() {
   return (
     <CardContainer containerClassName="w-full">
-      <CardBody className="group/card relative w-full max-w-[30rem] overflow-hidden rounded-[1.75rem] border border-orange-100 bg-white shadow-[0_20px_80px_rgba(15,23,42,0.08)]">
-        <CardItem translateZ="24" className="absolute left-5 top-5 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-600">
+      <CardBody className="group/card relative w-full max-w-[30rem] overflow-hidden rounded-[1.75rem] border border-purple-100 bg-white shadow-[0_20px_80px_rgba(15,23,42,0.08)]">
+        <CardItem translateZ="24" className="absolute left-5 top-5 rounded-full border border-purple-200 bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-600">
           Websites op maat
         </CardItem>
 
@@ -42,14 +42,14 @@ export default function ThreeDCardDemo() {
               translateZ="36"
               as={Link}
               href="/diensten"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition-colors hover:text-orange-500"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition-colors hover:text-purple-600"
             >
               Bekijk diensten <ArrowRight size={14} />
             </CardItem>
 
             <CardItem
               translateZ="48"
-              className="rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-orange-500/20"
+              className="rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-purple-500/20"
               style={{ background: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)' }}
             >
               WebsUp

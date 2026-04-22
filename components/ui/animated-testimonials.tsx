@@ -97,7 +97,7 @@ export function AnimatedTestimonials({
                       className="absolute inset-0 origin-bottom"
                     >
                       <div className="relative flex h-full w-full flex-col overflow-hidden">
-                        <div className="relative flex-1 overflow-hidden bg-[linear-gradient(135deg,#f97316_0%,#ec4899_52%,#06040c_100%)]">
+                        <div className="relative flex-1 overflow-hidden bg-[linear-gradient(135deg,#a855f7_0%,#ec4899_52%,#06040c_100%)]">
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.24),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.18),transparent_30%)]" />
                           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#06040c]/80" />
 
@@ -119,7 +119,7 @@ export function AnimatedTestimonials({
                                     size={14}
                                     className={cn(
                                       'fill-current',
-                                      i < (testimonial.rating ?? 5) ? 'text-orange-400' : 'text-white/25'
+                                      i < (testimonial.rating ?? 5) ? 'text-purple-400' : 'text-white/25'
                                     )}
                                   />
                                 ))}
@@ -160,7 +160,7 @@ export function AnimatedTestimonials({
                           <div className="mt-8 flex items-center gap-3">
                             <button
                               onClick={handlePrev}
-                              className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition-all duration-200 hover:-translate-y-px hover:border-orange-200 hover:text-orange-500"
+                              className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition-all duration-200 hover:-translate-y-px hover:border-purple-200 hover:text-purple-600"
                               aria-label="Vorige testimonial"
                             >
                               <ChevronLeft size={18} className="transition-transform duration-200 group-hover:-translate-x-0.5" />
