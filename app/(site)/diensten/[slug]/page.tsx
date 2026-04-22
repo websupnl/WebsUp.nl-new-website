@@ -162,7 +162,7 @@ function WebsitesServicePage() {
             <ArrowRight size={14} />
           </Link>
           <Link
-            href="/contact?ref=ontwerp"
+            href="/gratis-ontwerp"
             className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-white/15"
           >
             Vraag gratis ontwerp aan

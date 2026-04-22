@@ -64,7 +64,7 @@ export async function getMergedSeoSettings() {
     canonical_url:       db?.canonical_url       ?? siteConfig.url,
     og_title:            db?.og_title            ?? siteConfig.seo.defaultTitle,
     og_description:      db?.og_description      ?? siteConfig.seo.defaultDescription,
-    google_analytics_id: db?.google_analytics_id ?? '',
+    google_analytics_id: db?.google_analytics_id ?? siteConfig.seo.googleAnalyticsId,
   }
 }
 

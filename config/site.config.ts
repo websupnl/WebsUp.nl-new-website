@@ -46,6 +46,7 @@ export const siteConfig = {
     defaultDescription:
       "Wij bouwen moderne websites, webshops, maatwerk apps en automatiseringen die jouw bedrijf laten groeien. Persoonlijk, technisch sterk en resultaatgericht.",
     ogImage: "/og-image.png",
+    googleAnalyticsId: "G-4MMNKRE15J",
   },
 
   // Hero sectie
@@ -55,8 +56,8 @@ export const siteConfig = {
       "Ik ben Daan — zelfstandig en persoonlijk. Ik bouw websites, webshops, apps en automatiseringen die samenwerken als één geheel. Van WordPress tot maatwerk: altijd direct contact met de persoon die bouwt.",
     ctaLabel: "Plan een kennismaking",
     ctaHref: "/contact",
-    secondaryCtaLabel: "Bekijk het werk",
-    secondaryCtaHref: "/projecten",
+    secondaryCtaLabel: "Vraag gratis ontwerp aan",
+    secondaryCtaHref: "/gratis-ontwerp",
     image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1920&q=80",
     trustBadges: [
       { value: "5+", label: "Tevreden klanten" },

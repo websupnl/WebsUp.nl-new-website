@@ -27,7 +27,7 @@ const marquee = [...logos, ...logos]
 export default function HeroSection({
   ctaLabel = siteConfig.hero.ctaLabel,
   ctaHref = siteConfig.hero.ctaHref,
-  secondaryCtaLabel = 'Vraag gratis ontwerp aan',
+  secondaryCtaLabel = siteConfig.hero.secondaryCtaLabel,
   secondaryCtaHref = siteConfig.hero.secondaryCtaHref,
 }: HeroSectionProps) {
   return (

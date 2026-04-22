@@ -3,13 +3,14 @@ export const revalidate = 3600
 import Navbar from '@/components/site/Navbar'
 import Footer from '@/components/site/Footer'
 import CookieBanner from '@/components/site/CookieBanner'
-import { getMergedSiteSettings, getNavigationItems } from '@/lib/queries/site-settings'
+import { getMergedSeoSettings, getMergedSiteSettings, getNavigationItems } from '@/lib/queries/site-settings'
 import { siteConfig } from '@/config/site.config'
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
-  const [settings, allNavItems] = await Promise.all([
+  const [settings, allNavItems, seo] = await Promise.all([
     getMergedSiteSettings(),
     getNavigationItems(),
+    getMergedSeoSettings(),
   ])
 
   // Only use DB nav if it has items — otherwise Navbar falls back to siteConfig.nav
@@ -37,7 +38,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         navItems={footerNavItems.length > 0 ? footerNavItems : headerNavItems}
         footerLinks={siteConfig.footer.links}
       />
-      <CookieBanner />
+      <CookieBanner analyticsId={seo.google_analytics_id} />
     </>
   )
 }

@@ -31,11 +31,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [testimonials, settings, allNavItems, latestArticles] = await Promise.all([
+  const [testimonials, settings, allNavItems, latestArticles, seo] = await Promise.all([
     getTestimonials(),
     getMergedSiteSettings(),
     getNavigationItems(),
     getLatestNewsArticles(3),
+    getMergedSeoSettings(),
   ])
 
   const headerNavItems = allNavItems.filter((i) => i.location === 'header')
@@ -69,7 +70,7 @@ export default async function HomePage() {
         logoUrl={settings.logo_url ?? undefined}
         footerLinks={siteConfig.footer.links}
       />
-      <CookieBanner />
+      <CookieBanner analyticsId={seo.google_analytics_id} />
     </>
   )
 }

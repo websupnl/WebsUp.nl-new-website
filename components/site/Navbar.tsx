@@ -223,7 +223,7 @@ export default function Navbar({
             {/* CTA */}
             <div className="hidden md:flex items-center gap-2">
               <Link
-                href="/contact?ref=ontwerp"
+                href="/gratis-ontwerp"
                 className="inline-flex items-center gap-1.5 font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-px shadow-lg hover:shadow-orange-500/25 text-white"
                 style={{ background: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)' }}
               >
@@ -449,7 +449,7 @@ export default function Navbar({
         {/* Drawer footer — CTA */}
         <div className="px-4 py-5 border-t border-white/8 flex-shrink-0 space-y-3">
           <Link
-            href="/contact?ref=ontwerp"
+            href="/gratis-ontwerp"
             onClick={() => setMobileOpen(false)}
             className="block text-center font-semibold text-sm px-4 py-3 rounded-full text-white transition-opacity hover:opacity-90"
             style={{ background: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)' }}
