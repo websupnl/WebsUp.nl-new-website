@@ -21,6 +21,8 @@
   /* Text */
   --on-surface:           #0b1526;
   --on-surface-muted:     #56647a;
+  --font-title:            'Genty Sans', 'GentySans', 'Genty', 'Plus Jakarta Sans', 'Arial Rounded MT Bold', system-ui, sans-serif;
+  --font-body:             var(--font-inter), 'Inter', system-ui, sans-serif;
 
   /* Shadows */
   --shadow-xs:   0 1px 2px rgba(11,21,38,0.04);
@@ -44,19 +46,48 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   color: var(--on-surface);
   background-color: var(--surface);
   -webkit-font-smoothing: antialiased;
+  font-kerning: normal;
 }
 
 /* ============================
    TYPOGRAPHY
    ============================ */
 .font-headline,
-h1, h2, h3 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
   text-wrap: balance;
+}
+
+.page-shell h1,
+.page-shell h2,
+.page-shell h3,
+.page-shell h4,
+.page-shell h5,
+.page-shell h6 {
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.page-shell :where(h1, h2, h3, h4, h5, h6)::after {
+  content: "";
+  display: inline-block;
+  width: 0.18em;
+  height: 0.18em;
+  margin-left: 0.12em;
+  border-radius: 9999px;
+  background: var(--brand-gradient);
+  vertical-align: baseline;
+  transform: translateY(-0.08em);
+  box-shadow: 0 0 0.55em rgba(236, 72, 153, 0.22);
+}
+
+.page-shell :where(h1, h2, h3, h4, h5, h6).no-heading-dot::after,
+.page-shell :where(h1, h2, h3, h4, h5, h6):empty::after {
+  content: none;
 }
 
 p {
@@ -293,9 +324,9 @@ p {
    PROSE CONTENT
    ============================ */
 .prose-content p  { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
-.prose-content h1 { font-size: 2rem; font-weight: 700; margin: 2rem 0 1rem; color: #091d2d; font-family: 'Plus Jakarta Sans', sans-serif; }
-.prose-content h2 { font-size: 1.5rem; font-weight: 600; margin: 1.75rem 0 0.75rem; color: #091d2d; font-family: 'Plus Jakarta Sans', sans-serif; }
-.prose-content h3 { font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: #1F2937; font-family: 'Plus Jakarta Sans', sans-serif; }
+.prose-content h1 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #091d2d; font-family: var(--font-title); }
+.prose-content h2 { font-size: 1.5rem; font-weight: 800; margin: 1.75rem 0 0.75rem; color: #091d2d; font-family: var(--font-title); }
+.prose-content h3 { font-size: 1.25rem; font-weight: 800; margin: 1.5rem 0 0.5rem; color: #1F2937; font-family: var(--font-title); }
 .prose-content ul { list-style-type: disc; padding-left: 1.75rem; margin-bottom: 1rem; }
 .prose-content ol { list-style-type: decimal; padding-left: 1.75rem; margin-bottom: 1rem; }
 .prose-content li { margin-bottom: 0.375rem; line-height: 1.7; }
