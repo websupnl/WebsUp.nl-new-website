@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import { Tooltip } from '@/components/ui/tooltip-card'
 
@@ -24,11 +24,17 @@ const platforms = [
 const logos = ['BP Uitgevers', 'Weso', 'Thuisbatterijen Friesland', 'Bouma Installaties', 'OtterMedia', 'Rottevalle.com']
 const marquee = [...logos, ...logos]
 
+const proofPoints = [
+  'Direct contact met de bouwer',
+  '5-sterren ervaringen van klanten',
+  'Websites, webshops en maatwerk in een lijn',
+]
+
 export default function HeroSection({
   ctaLabel = siteConfig.hero.ctaLabel,
   ctaHref = siteConfig.hero.ctaHref,
-  secondaryCtaLabel = siteConfig.hero.secondaryCtaLabel,
-  secondaryCtaHref = siteConfig.hero.secondaryCtaHref,
+  secondaryCtaLabel = 'Bekijk projecten',
+  secondaryCtaHref = '/projecten',
 }: HeroSectionProps) {
   return (
     <div>
@@ -56,16 +62,16 @@ export default function HeroSection({
         </div>
 
         <div className="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-44">
-          <div className="w-full max-w-[860px]">
+          <div className="w-full max-w-[820px]">
             <p className="mb-6 text-sm font-medium text-white/50">
-              Voor ondernemers en bedrijven die verder willen dan alleen een mooie website
+              Websites en digitale systemen voor ondernemers die serieus door willen
             </p>
 
             <h1
               className="mb-7 font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-white"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
             >
-              Een aanspreekpunt.{' '}
+              Een website die vertrouwen geeft.{' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #ec4899 45%, #a78bfa 100%)',
@@ -74,12 +80,12 @@ export default function HeroSection({
                   backgroundClip: 'text',
                 }}
               >
-                Alles digitaal geregeld
+                Een systeem dat meegroeit
               </span>
             </h1>
 
             <p className="mb-10 max-w-[56ch] text-base leading-relaxed text-white/60 md:text-lg">
-              WebsUp bouwt websites en webshops die vertrouwen geven, goed werken en klaar zijn om door te groeien. Heb je meer nodig? Dan bouwen we verder met dashboards, koppelingen, calculators of andere maatwerk oplossingen.
+              WebsUp helpt MKB&apos;ers, dienstverleners en technische bedrijven aan een sterke online basis. Eerst duidelijk en professioneel zichtbaar. Daarna uitbreidbaar met webshops, dashboards, koppelingen of automatisering als je bedrijf daarom vraagt.
             </p>
 
             <div className="mb-12 flex flex-wrap gap-3">
@@ -98,6 +104,15 @@ export default function HeroSection({
                   {secondaryCtaLabel}
                 </Link>
               )}
+            </div>
+
+            <div className="mb-7 grid gap-2.5 text-sm text-white/65 sm:grid-cols-3">
+              {proofPoints.map((point) => (
+                <div key={point} className="flex items-start gap-2">
+                  <CheckCircle size={15} className="mt-0.5 shrink-0 text-orange-400" />
+                  <span>{point}</span>
+                </div>
+              ))}
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
@@ -127,6 +142,11 @@ export default function HeroSection({
         />
 
         <ul className="marquee-track m-0 flex w-max list-none items-center gap-0 p-0">
+          <li className="flex items-center border-r border-white/6 px-10">
+            <span className="whitespace-nowrap text-xs font-semibold uppercase tracking-[0.12em] text-orange-300/70">
+              Vertrouwd door lokale bedrijven
+            </span>
+          </li>
           {marquee.map((name, i) => (
             <li
               key={`${name}-${i}`}

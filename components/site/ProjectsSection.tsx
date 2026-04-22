@@ -1,54 +1,11 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, ExternalLink } from 'lucide-react'
+import { ArrowRight, CheckCircle, ExternalLink } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
-
-export interface Project {
-  id: string
-  title: string
-  client: string
-  description: string
-  tags: string[]
-  result?: string
-  href?: string
-  color?: string
-}
-
-// Statische demo-projecten — later vervangbaar via CMS
-const DEMO_PROJECTS: Project[] = [
-  {
-    id: 'bp-uitgevers',
-    title: 'BP Uitgevers website',
-    client: 'Business Publicatie Uitgevers',
-    description:
-      'Volledige website met CMS, nieuwsbeheer, publicatiemodule en admin dashboard gebouwd op Next.js + Supabase.',
-    tags: ['Next.js', 'Supabase', 'Admin CMS', 'TypeScript'],
-    result: 'Live website met volledig beheerbaar CMS',
-    color: '#2563EB',
-  },
-  {
-    id: 'weso-narrowcasting',
-    title: 'Weso NarrowCasting platform',
-    client: 'Weso',
-    description:
-      'SaaS-platform voor digital signage beheer. Schermen, playlists en content centraal beheren via een modern dashboard.',
-    tags: ['Next.js', 'SaaS', 'Dashboard', 'Real-time'],
-    result: 'Volledig functioneel multi-tenant platform',
-    color: '#7C3AED',
-  },
-  {
-    id: 'thuisbatterijen',
-    title: 'Thuisbatterijen Friesland',
-    client: 'Thuisbatterijen Friesland',
-    description:
-      'SEO-landingspagina gericht op lokaal ranken voor thuisbatterijen, EMS en laadpalen. Gebouwd in React + Vite + Cloudflare Pages.',
-    tags: ['React', 'Vite', 'SEO', 'Cloudflare Pages'],
-    result: 'Lokale SEO-leads genereren',
-    color: '#059669',
-  },
-]
+import { defaultProjects, type PortfolioProject } from '@/lib/projects/default-projects'
 
 interface ProjectsSectionProps {
-  projects?: Project[]
+  projects?: PortfolioProject[]
   title?: string
   subtitle?: string
   showViewAll?: boolean
@@ -56,83 +13,101 @@ interface ProjectsSectionProps {
 }
 
 export default function ProjectsSection({
-  projects = DEMO_PROJECTS,
-  title = 'Recente projecten',
-  subtitle = 'Wat we al gebouwd hebben voor klanten en onszelf.',
+  projects = defaultProjects,
+  title = 'Werk dat vertrouwen geeft voordat iemand contact opneemt',
+  subtitle = 'Een paar voorbeelden van websites die duidelijk uitleggen, snel werken en passen bij de praktijk van de klant.',
   showViewAll = true,
   limit,
 }: ProjectsSectionProps) {
-  const displayed = limit ? projects.slice(0, limit) : projects
+  const source = projects.length > 0 ? projects : defaultProjects
+  const featured = source.filter((project) => project.featured)
+  const displayed = (featured.length > 0 ? featured : source).slice(0, limit ?? 3)
+
+  if (displayed.length === 0) return null
 
   return (
-    <section className="bg-gray-900 py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+    <section className="bg-slate-50 py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Reveal className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
           <div>
-            <span className="inline-block text-xs font-semibold text-blue-400 uppercase tracking-widest mb-3 bg-blue-400/10 border border-blue-400/20 px-3 py-1 rounded-full">
-              Projecten
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">{title}</h2>
-            <p className="text-gray-400 text-lg max-w-xl">{subtitle}</p>
+            <span className="overline-badge mb-4 inline-flex">Bewijs uit de praktijk</span>
+            <h2 className="max-w-2xl font-headline text-4xl font-extrabold leading-[1.06] text-slate-900 md:text-5xl">
+              {title}
+            </h2>
           </div>
-          {showViewAll && (
-            <Link
-              href="/projecten"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors flex-shrink-0"
-            >
-              Alle projecten
-              <ArrowRight size={16} />
-            </Link>
-          )}
+          <div className="lg:justify-self-end">
+            <p className="max-w-xl text-base leading-relaxed text-slate-500 md:text-lg">
+              {subtitle}
+            </p>
+            {showViewAll && (
+              <Link
+                href="/projecten"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
+              >
+                Bekijk alle projecten
+                <ArrowRight size={14} />
+              </Link>
+            )}
+          </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid gap-5 lg:grid-cols-3">
           {displayed.map((project, index) => (
-            <Reveal key={project.id} delay={index * 80}>
-              <div className="group relative flex flex-col h-full bg-gray-800/60 border border-gray-700/50 rounded-2xl p-6 hover:border-gray-600 hover:bg-gray-800 transition-all duration-300">
-                {/* Kleur accent */}
-                <div
-                  className="w-10 h-1.5 rounded-full mb-5"
-                  style={{ backgroundColor: project.color ?? '#2563EB' }}
-                />
+            <Reveal key={project.slug} delay={index * 70}>
+              <article className="group surface-card flex h-full flex-col overflow-hidden">
+                <Link href={`/projecten/${project.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-slate-100">
+                  <Image
+                    src={project.image_url || '/hero-bg.png'}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/35 via-transparent to-transparent" />
+                  <span className="absolute left-4 top-4 rounded-full border border-white/45 bg-white/90 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.08em] text-slate-700 backdrop-blur-sm">
+                    {project.category}
+                  </span>
+                </Link>
 
-                <div className="mb-1 text-xs text-gray-500 font-medium">{project.client}</div>
-                <h3 className="text-lg font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-5 flex-1">
-                  {project.description}
-                </p>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-headline text-2xl font-bold leading-tight text-slate-900 transition-colors group-hover:text-orange-500">
+                    <Link href={`/projecten/${project.slug}`}>{project.title}</Link>
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-500">
+                    {project.excerpt}
+                  </p>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-2.5 py-1 bg-gray-700/60 text-gray-300 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Resultaat */}
-                {project.result && (
-                  <div className="text-xs text-green-400 font-medium border-t border-gray-700 pt-4 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
-                    {project.result}
+                  <div className="mt-5 space-y-2.5">
+                    {project.highlights.slice(0, 2).map((highlight) => (
+                      <div key={highlight} className="flex items-start gap-2 text-sm text-slate-600">
+                        <CheckCircle size={15} className="mt-0.5 shrink-0 text-orange-500" />
+                        <span>{highlight}</span>
+                      </div>
+                    ))}
                   </div>
-                )}
 
-                {project.href && (
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity text-gray-500 hover:text-white"
-                  >
-                    <ExternalLink size={16} />
-                  </a>
-                )}
-              </div>
+                  <div className="mt-auto flex flex-wrap items-center gap-4 border-t border-slate-100 pt-5">
+                    <Link
+                      href={`/projecten/${project.slug}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition-colors hover:text-orange-500"
+                    >
+                      Bekijk case
+                      <ArrowRight size={14} />
+                    </Link>
+                    {project.website_url && (
+                      <a
+                        href={project.website_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900"
+                      >
+                        Live website
+                        <ExternalLink size={14} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
             </Reveal>
           ))}
         </div>

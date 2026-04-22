@@ -15,8 +15,8 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
-  heading = 'Benieuwd wat ik voor jou kan bouwen?',
-  subheading = 'Plan een gratis kennismaking — telefonisch of bij jou op locatie. Geen verkooppraatje, gewoon een eerlijk gesprek over wat jouw bedrijf nodig heeft.',
+  heading = 'Wil je weten wat slim is voor jouw website of digitale systeem?',
+  subheading = 'Plan een gratis kennismaking. Geen verkooppraatje, maar een concreet gesprek over je bedrijf, je huidige situatie en wat de beste volgende stap is.',
   ctaLabel = 'Plan een kennismaking',
   ctaHref = siteConfig.cta.ctaHref,
   secondaryLabel = 'Stuur een mail',

@@ -46,6 +46,12 @@
   --shadow-brand:0 4px 20px rgba(73,62,229,0.25);
   --shadow-brand-lg: 0 8px 40px rgba(73,62,229,0.35);
 
+  /* Radius Tokens */
+  --radius-sm: 0.5rem;   /* 8px */
+  --radius-md: 0.75rem;  /* 12px */
+  --radius-lg: 1rem;     /* 16px */
+  --radius-xl: 1.5rem;   /* 24px */
+
   /* Legacy compat */
   --background:           #f8f9fc;
   --foreground:           #0b1526;
@@ -190,6 +196,30 @@ p {
   border: 1px solid rgba(255,255,255,0.10);
 }
 
+/* The preferred "Liquid Glass" effect from /gratis-ontwerp */
+.liquid-glass-dark {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.liquid-glass-dark:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.liquid-glass-light {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(11, 21, 38, 0.06);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 24px rgba(11, 21, 38, 0.04);
+}
+
 .glass-nav {
   background: rgba(248, 249, 252, 0.82);
   backdrop-filter: blur(24px) saturate(180%);
@@ -201,7 +231,7 @@ p {
   background: #ffffff;
   border: 1px solid rgba(11,21,38,0.07);
   box-shadow: var(--shadow-sm);
-  border-radius: 1.25rem;
+  border-radius: var(--radius-md);
   transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
 }
 
@@ -215,7 +245,7 @@ p {
 .inset-card {
   background: rgba(248,249,252,0.8);
   border: 1px solid rgba(11,21,38,0.08);
-  border-radius: 1rem;
+  border-radius: var(--radius-md);
 }
 
 /* ============================

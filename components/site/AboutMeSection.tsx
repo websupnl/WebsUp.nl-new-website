@@ -1,7 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, MapPin } from 'lucide-react'
+import { ArrowRight, CheckCircle, MapPin } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
+
+const trustPoints = [
+  'Je schakelt direct met degene die ontwerpt en bouwt',
+  'Eerlijk advies over WordPress, Shopify of maatwerk',
+  'Technisch sterk, maar praktisch uitgelegd',
+]
 
 export default function AboutMeSection() {
   return (
@@ -38,12 +44,20 @@ export default function AboutMeSection() {
           <Reveal delay={80}>
             <span className="overline-badge mb-4 inline-flex">Over WebsUp</span>
             <h2 className="max-w-2xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
-              Geen onnodige lagen.
-              <span className="gradient-text"> Gewoon direct schakelen</span>
+              Geen bureaugedoe. Gewoon iemand die meedenkt en bouwt
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-500">
-              WebsUp is bewust persoonlijk opgezet. Je schakelt direct met degene die meedenkt, ontwerpt en bouwt. Geen ruis, geen onnodige omwegen, wel korte lijnen, eerlijk advies en een oplossing die past bij jouw bedrijf.
+              WebsUp is bewust persoonlijk opgezet. Geen doorschuiven tussen sales, accountmanagement en development, maar korte lijnen met Daan. Daardoor blijven keuzes helder, technisch kloppend en passend bij jouw bedrijf.
             </p>
+
+            <div className="mt-7 grid gap-3">
+              {trustPoints.map((point) => (
+                <div key={point} className="flex items-start gap-2.5 text-sm text-slate-600">
+                  <CheckCircle size={16} className="mt-0.5 shrink-0 text-orange-500" />
+                  <span>{point}</span>
+                </div>
+              ))}
+            </div>
 
             <div className="mt-10 border-t border-slate-200 pt-6">
               <Link

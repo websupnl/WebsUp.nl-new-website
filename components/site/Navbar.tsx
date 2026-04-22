@@ -38,7 +38,7 @@ const DIENSTEN = [
     href: '/diensten/webshops',
     icon: ShoppingCart,
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=60',
-    color: 'from-pink-400/20 to-violet-400/10',
+    color: 'from-pink-400/20 to-orange-400/10',
   },
   {
     title: 'Apps & Dashboards',
@@ -46,7 +46,7 @@ const DIENSTEN = [
     href: '/diensten/apps-dashboards',
     icon: LayoutDashboard,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=60',
-    color: 'from-violet-400/20 to-indigo-400/10',
+    color: 'from-pink-400/20 to-orange-400/10',
   },
   {
     title: 'Automatisering',
@@ -54,7 +54,7 @@ const DIENSTEN = [
     href: '/diensten/automatisering',
     icon: Zap,
     image: 'https://images.unsplash.com/photo-1518432031352-d6fc5734c3d0?auto=format&fit=crop&w=600&q=60',
-    color: 'from-indigo-400/20 to-orange-400/10',
+    color: 'from-orange-400/20 to-pink-400/10',
   },
 ]
 
@@ -103,8 +103,15 @@ export default function Navbar({
     }
   }, [])
 
-  // Close mega on route change
-  useEffect(() => { setMegaOpen(false); setMobileOpen(false) }, [pathname])
+  // Close navigation after route changes without cascading renders inside the effect.
+  useEffect(() => {
+    const id = window.setTimeout(() => {
+      setMegaOpen(false)
+      setMobileOpen(false)
+    }, 0)
+
+    return () => window.clearTimeout(id)
+  }, [pathname])
 
   // Lock body scroll when side drawer is open
   useEffect(() => {
@@ -288,7 +295,7 @@ export default function Navbar({
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <Icon size={13} className="text-slate-400 flex-shrink-0" />
-                          <span className="font-semibold text-sm text-slate-900 group-hover:text-indigo-600 transition-colors">
+                          <span className="font-semibold text-sm text-slate-900 group-hover:text-orange-500 transition-colors">
                             {dienst.title}
                           </span>
                         </div>

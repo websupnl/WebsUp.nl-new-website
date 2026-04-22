@@ -68,7 +68,7 @@ export default function GratisOntwerpPage() {
             { value: 'Binnen 1 werkdag', label: 'persoonlijke reactie' },
             { value: 'Vrijblijvend', label: 'geen verplichtingen' },
           ].map((item) => (
-            <div key={item.label} className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-sm">
+            <div key={item.label} className="liquid-glass-dark px-4 py-3">
               <div className="text-sm font-semibold text-white">{item.value}</div>
               <div className="mt-0.5 text-xs text-white/55">{item.label}</div>
             </div>
@@ -89,14 +89,14 @@ export default function GratisOntwerpPage() {
 
             <div className="mt-8 space-y-3">
               {benefits.map((benefit) => (
-                <div key={benefit} className="flex items-start gap-3 rounded-lg border border-slate-100 bg-white px-4 py-4 text-sm leading-relaxed text-slate-600">
+                <div key={benefit} className="flex items-start gap-3 rounded-xl border border-slate-100 bg-white px-4 py-4 text-sm leading-relaxed text-slate-600">
                   <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
                   <span>{benefit}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 flex items-center gap-3 rounded-lg border border-orange-100 bg-orange-50 px-4 py-4 text-sm text-orange-800">
+            <div className="mt-6 flex items-center gap-3 rounded-xl border border-orange-100 bg-orange-50 px-4 py-4 text-sm text-orange-800">
               <Clock size={17} className="flex-shrink-0" />
               Reageer ik niet inhoudelijk binnen een werkdag, dan stuur ik je in elk geval wanneer je reactie komt.
             </div>
@@ -126,7 +126,7 @@ export default function GratisOntwerpPage() {
 
               return (
                 <Reveal key={step.title} delay={index * 80}>
-                  <div className="h-full rounded-lg border border-slate-100 bg-slate-50 p-6">
+                  <div className="h-full rounded-xl border border-slate-100 bg-slate-50 p-6">
                     <GradientIcon icon={Icon} className="mb-4" />
                     <h3 className="font-headline text-xl font-bold text-slate-900">{step.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-slate-500">{step.text}</p>

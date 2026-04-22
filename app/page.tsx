@@ -8,6 +8,7 @@ import AboutMeSection from '@/components/site/AboutMeSection'
 import TestimonialsSection from '@/components/site/TestimonialsSection'
 import StarterCTASection from '@/components/site/StarterCTASection'
 import ServicesSection from '@/components/site/ServicesSection'
+import ProjectsSection from '@/components/site/ProjectsSection'
 import VoorWieSection from '@/components/site/VoorWieSection'
 import FAQSection from '@/components/site/FAQSection'
 import KennisbankPreviewSection from '@/components/site/KennisbankPreviewSection'
@@ -15,6 +16,7 @@ import CTASection from '@/components/site/CTASection'
 import CookieBanner from '@/components/site/CookieBanner'
 import { getTestimonials } from '@/lib/queries/testimonials'
 import { getLatestNewsArticles } from '@/lib/queries/news'
+import { getProjects } from '@/lib/queries/projects'
 import { getMergedSiteSettings, getMergedSeoSettings, getNavigationItems } from '@/lib/queries/site-settings'
 import { siteConfig } from '@/config/site.config'
 
@@ -31,11 +33,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [testimonials, settings, allNavItems, latestArticles, seo] = await Promise.all([
+  const [testimonials, settings, allNavItems, latestArticles, projects, seo] = await Promise.all([
     getTestimonials(),
     getMergedSiteSettings(),
     getNavigationItems(),
     getLatestNewsArticles(3),
+    getProjects(),
     getMergedSeoSettings(),
   ])
 
@@ -52,11 +55,12 @@ export default async function HomePage() {
       />
       <main className="page-shell flex-1">
         <HeroSection />
-        <AboutMeSection />
+        <ProjectsSection projects={projects} limit={3} />
         <ServicesSection />
+        <AboutMeSection />
         <VoorWieSection />
-        <StarterCTASection />
         <TestimonialsSection testimonials={testimonials} />
+        <StarterCTASection />
         <FAQSection limit={5} />
         <KennisbankPreviewSection articles={latestArticles} />
         <CTASection />

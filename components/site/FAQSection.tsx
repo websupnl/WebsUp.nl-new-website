@@ -31,10 +31,10 @@ export default function FAQSection({
               {siteConfig.faq.subheading}
             </p>
 
-            <div className="mt-8 border-l-2 border-orange-200 pl-5">
+            <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
               <div className="text-sm font-semibold text-slate-900">Staat je vraag er niet tussen?</div>
               <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                Dan is kort sparren vaak sneller dan blijven twijfelen. Eén goed gesprek maakt meestal snel duidelijk wat slim is.
+                Dan is kort sparren vaak sneller dan blijven twijfelen. Een goed gesprek maakt meestal snel duidelijk wat slim is.
               </p>
             </div>
 

@@ -6,6 +6,7 @@ import GradientIcon from '@/components/site/GradientIcon'
 interface TestimonialsSectionProps {
   testimonials: Testimonial[]
   title?: string
+  limit?: number
 }
 
 const fallbackTestimonials = [
@@ -105,10 +106,11 @@ function StarRating({ rating }: { rating: number }) {
 export default function TestimonialsSection({
   testimonials,
   title = 'Wat klanten over WebsUp zeggen',
+  limit = 5,
 }: TestimonialsSectionProps) {
   const items = testimonials.length > 0 ? testimonials : fallbackTestimonials
   const featured = items[0]
-  const secondary = items.slice(1)
+  const secondary = items.slice(1, limit)
 
   return (
     <section className="bg-white py-24 lg:py-32">
@@ -120,13 +122,13 @@ export default function TestimonialsSection({
               {title}
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-500">
-              Echte reviews van klanten die met WebsUp hebben samengewerkt.
+              Geen gelikte claims, maar ervaringen van klanten over communicatie, snelheid en het eindresultaat.
             </p>
 
-            <div className="mt-10 border-l-2 border-orange-200 pl-5">
-              <div className="text-sm font-semibold text-slate-900">Geen opgepoetste testimonials</div>
+            <div className="mt-8 inset-card p-5">
+              <div className="text-sm font-semibold text-slate-900">Waarom dit belangrijk is</div>
               <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                Gewoon ervaringen van klanten over de samenwerking, communicatie en het eindresultaat.
+                De meeste klanten zoeken geen groot traject, maar iemand die snel begrijpt wat nodig is en het netjes uitvoert.
               </p>
             </div>
           </Reveal>

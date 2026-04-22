@@ -4,22 +4,22 @@ import Reveal from '@/components/ui/Reveal'
 
 const points = [
   {
-    title: 'Voor serieuze starters',
-    text: 'Bedoeld voor ondernemers en startups die aan het begin staan, maar wel bewust en professioneel willen starten.',
+    title: 'Alleen voor serieuze plannen',
+    text: 'Voor starters die bewust willen starten en snappen dat een goede basis later veel gedoe voorkomt.',
   },
   {
-    title: 'Slimme digitale basis',
-    text: 'We kijken samen wat nodig is om goed te beginnen en ruimte te houden om later verder te bouwen.',
+    title: 'Compact, maar niet goedkoop-ogend',
+    text: 'De instap blijft professioneel: duidelijke structuur, sterke eerste indruk en technisch netjes opgezet.',
   },
   {
-    title: 'Niet te klein, niet te groot',
-    text: 'De insteek is om professioneel te starten zonder meteen vast te lopen in een te zwaar traject.',
+    title: 'Doorgroeien zonder opnieuw beginnen',
+    text: "Als je later meer nodig hebt, kan de basis door naar extra pagina's, funnels, koppelingen of maatwerk.",
   },
 ]
 
 export default function StarterCTASection() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 lg:py-28">
+    <section className="relative overflow-hidden bg-white py-20 lg:py-24">
       <div
         className="absolute inset-0"
         style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(236,72,153,0.06) 48%, rgba(167,139,250,0.08) 100%)' }}
@@ -33,10 +33,10 @@ export default function StarterCTASection() {
               Voor starters
             </div>
             <h2 className="max-w-2xl font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
-              Professioneel starten, zonder meteen te veel op te tuigen
+              Sterk starten zonder meteen een zwaar traject
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
-              Sta je aan het begin van iets moois? Voor starters en startups met een sterk idee denkt WebsUp graag mee over een slimme digitale basis. In sommige gevallen is er ruimte voor een aangepaste instap, zodat je goed kunt beginnen en later verder kunt bouwen.
+              Sta je aan het begin van een bedrijf, product of concept? Dan hoeft niet alles groot, maar het moet wel kloppen. Voor plannen met potentie is er ruimte voor een slimme eerste stap.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -74,7 +74,7 @@ export default function StarterCTASection() {
                 </div>
                 <div className="text-sm font-semibold text-slate-900">Alleen als het past</div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  Dit is geen standaard kortingstraject voor iedereen, maar bedoeld voor plannen waar echt potentie, klik en groeiruimte in zit.
+                  Dit is geen standaard kortingsactie, maar een bewuste instap voor plannen waar potentie, klik en groeiruimte in zit.
                 </p>
               </div>
             </div>

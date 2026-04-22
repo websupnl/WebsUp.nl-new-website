@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight, LucideIcon } from 'lucide-react'
+import { Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight, CheckCircle, LucideIcon } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import Reveal from '@/components/ui/Reveal'
 import GradientIcon from '@/components/site/GradientIcon'
@@ -21,25 +21,33 @@ const serviceSlug: Record<string, string> = {
   Automatisering:    'automatisering',
 }
 
+const outcomes = [
+  'Duidelijke route voor bezoekers',
+  'Sterke basis voor leads en aanvragen',
+  'Ruimte om later verder te bouwen',
+]
+
 export default function ServicesSection() {
   return (
     <section className="bg-white py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-24 items-start">
           <Reveal>
-            <span className="overline-badge mb-5 inline-flex">Wat ik voor je kan bouwen</span>
+            <span className="overline-badge mb-5 inline-flex">Kies je route</span>
             <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-6xl">
-              Van website tot <span className="gradient-text">maatwerk systeem</span>
+              Begin met wat nu nodig is. Bouw later verder
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-slate-500 max-w-xl">
-              Soms is een sterke website genoeg. Soms vraagt je bedrijf om meer: een webshop die beter verkoopt, een dashboard dat overzicht geeft of een maatwerk oplossing die werk uit handen neemt.
+              Soms is een sterke website genoeg. Soms vraagt je bedrijf om een webshop, klantportaal, dashboard of koppeling. De techniek volgt de vraag, niet andersom.
             </p>
             
-            <div className="mt-10 flex flex-col gap-5 border-l border-slate-200 pl-6">
-                <div className="text-sm font-semibold text-slate-900 italic">&ldquo;Niet de techniek, maar de oplossing voor jouw probleem staat centraal.&rdquo;</div>
-                <p className="text-sm text-slate-500 leading-relaxed">
-                    Geen standaard pakketten, maar een aanpak die past bij jouw specifieke situatie en doelen.
-                </p>
+            <div className="mt-9 grid gap-3">
+              {outcomes.map((outcome) => (
+                <div key={outcome} className="flex items-start gap-2.5 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700">
+                  <CheckCircle size={16} className="mt-0.5 shrink-0 text-orange-500" />
+                  <span>{outcome}</span>
+                </div>
+              ))}
             </div>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -67,8 +75,8 @@ export default function ServicesSection() {
               return (
                 <Reveal key={service.title} delay={i * 80}>
                   <Link
-                  href={`/diensten/${slug}`}
-                  className="group flex flex-col h-full bg-white border border-slate-100 rounded-[2rem] overflow-hidden hover:border-orange-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                    href={`/diensten/${slug}`}
+                    className="group surface-card flex h-full flex-col overflow-hidden"
                   >
                   {/* Image Header */}
                   <div className="relative h-44 overflow-hidden bg-slate-100">
@@ -92,7 +100,7 @@ export default function ServicesSection() {
                     <h3 className="font-headline text-xl font-bold text-slate-900 group-hover:text-orange-500 transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="mt-3 text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2">
+                    <p className="mt-3 text-slate-500 text-sm leading-relaxed mb-6">
                       {service.description}
                     </p>
 
