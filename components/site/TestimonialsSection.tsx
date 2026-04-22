@@ -1,6 +1,7 @@
 import type { Testimonial } from '@/types/database.types'
 import { Star, Quote } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
+import GradientIcon from '@/components/site/GradientIcon'
 
 interface TestimonialsSectionProps {
   testimonials: Testimonial[]
@@ -135,9 +136,7 @@ export default function TestimonialsSection({
               <Reveal>
                 <article className="border-b border-slate-200 pb-10">
                   <div className="mb-5 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-orange-500">
-                      <Quote size={16} />
-                    </div>
+                    <GradientIcon icon={Quote} size="sm" />
                     <StarRating rating={featured.rating} />
                   </div>
 

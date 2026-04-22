@@ -16,6 +16,7 @@ import {
 import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import CTASection from '@/components/site/CTASection'
+import GradientIcon from '@/components/site/GradientIcon'
 
 type ServiceMeta = {
   title: string
@@ -200,9 +201,7 @@ function WebsitesServicePage() {
               return (
                 <Reveal key={item.title} delay={index * 70}>
                   <div className="rounded-[1.75rem] border border-slate-100 bg-slate-50 p-6">
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-orange-500 shadow-sm">
-                      <Icon size={18} />
-                    </div>
+                    <GradientIcon icon={Icon} className="mb-4" />
                     <h3 className="font-headline text-xl font-bold text-slate-900">{item.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.text}</p>
                   </div>

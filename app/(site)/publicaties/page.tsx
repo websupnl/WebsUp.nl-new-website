@@ -7,6 +7,7 @@ import CTASection from '@/components/site/CTASection'
 import { getPublications } from '@/lib/queries/publications'
 import { BookOpen, Users, Award, TrendingUp } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
+import GradientIcon from '@/components/site/GradientIcon'
 
 export const metadata: Metadata = {
   title: 'Publicaties',
@@ -55,9 +56,7 @@ export default async function PublicatiesPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map(({ icon: Icon, value, label }) => (
               <div key={label} className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Icon size={18} className="text-white" />
-                </div>
+                <GradientIcon icon={Icon} size="sm" />
                 <div>
                   <div className="text-2xl font-bold text-white leading-none">{value}</div>
                   <div className="text-blue-200 text-xs mt-0.5">{label}</div>

@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
+import GradientIcon from '@/components/site/GradientIcon'
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -77,9 +78,7 @@ export default function ContactPage() {
             { icon: Shield, value: 'Eerlijk advies', label: 'altijd transparant' },
           ].map(({ icon: Icon, value, label }) => (
             <div key={label} className="flex items-center gap-3 rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-sm">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-orange-400">
-                <Icon size={16} />
-              </div>
+              <GradientIcon icon={Icon} size="sm" />
               <div>
                 <div className="text-sm font-semibold leading-none text-white">{value}</div>
                 <div className="mt-0.5 text-xs text-white/55">{label}</div>
@@ -122,9 +121,7 @@ export default function ContactPage() {
                     },
                   ].map(({ icon: Icon, label, value, href }) => (
                     <div key={label} className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-orange-400">
-                        <Icon size={18} />
-                      </div>
+                      <GradientIcon icon={Icon} size="sm" />
                       <div>
                         <p className="mb-0.5 text-xs font-medium uppercase tracking-wide text-white/40">
                           {label}

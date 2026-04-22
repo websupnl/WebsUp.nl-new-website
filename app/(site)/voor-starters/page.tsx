@@ -13,6 +13,7 @@ import {
 import WavePageHeader from '@/components/site/WavePageHeader'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
+import GradientIcon from '@/components/site/GradientIcon'
 
 export const metadata: Metadata = {
   title: 'Voor starters',
@@ -158,9 +159,7 @@ export default function VoorStartersPage() {
               return (
                 <Reveal key={item.title} delay={index * 70}>
                   <div className="h-full rounded-[1.75rem] border border-slate-100 bg-white p-7 shadow-[0_12px_40px_rgba(15,23,42,0.04)]">
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-50 text-orange-500">
-                      <Icon size={18} />
-                    </div>
+                    <GradientIcon icon={Icon} className="mb-4" />
                     <h3 className="font-headline text-xl font-bold text-slate-900">{item.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-slate-500">{item.text}</p>
                   </div>
@@ -208,9 +207,7 @@ export default function VoorStartersPage() {
               </div>
 
               <div className="mt-8 rounded-[1.4rem] border border-slate-200 bg-white p-5">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-orange-50 text-orange-500">
-                  <Rocket size={16} />
-                </div>
+                <GradientIcon icon={Rocket} size="sm" className="mb-3" />
                 <div className="text-sm font-semibold text-slate-900">Selectief en persoonlijk</div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">
                   Dit is bedoeld voor starters met een sterk idee, niet als algemene route voor iedereen die vooral zo goedkoop mogelijk wil beginnen.

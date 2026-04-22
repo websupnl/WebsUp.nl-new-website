@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Globe, LayoutDashboard, Tv2, Wrench, ShoppingCart, Workflow } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
+import GradientIcon from '@/components/site/GradientIcon'
 
 const cases = [
   {
@@ -180,9 +181,7 @@ export default function BentoSection() {
                   }`}
                 >
                   <div className="flex items-start justify-between">
-                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center bg-gradient-to-br ${c.accent} shadow-sm`}>
-                      <Icon size={17} className="text-white" />
-                    </div>
+                    <GradientIcon icon={Icon} size="sm" />
                     <ArrowRight
                       size={16}
                       className={`group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-200 ${

@@ -6,6 +6,7 @@ import { CheckCircle, ArrowRight, Monitor, ShoppingCart, LayoutDashboard, Zap } 
 import Reveal from '@/components/ui/Reveal'
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card'
 import { Tooltip } from '@/components/ui/tooltip-card'
+import GradientIcon from '@/components/site/GradientIcon'
 
 const solutions = [
   {
@@ -106,9 +107,9 @@ export default function SolutionsSection() {
                         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#06040c]/35 to-transparent" />
                         <CardItem
                           translateZ={52}
-                          className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-white/25 bg-white/15 backdrop-blur-sm"
+                          className="absolute left-4 top-4"
                         >
-                          <Icon size={17} className="text-white" />
+                          <GradientIcon icon={Icon} size="sm" innerClassName="bg-white/95" />
                         </CardItem>
                       </CardItem>
 

@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle, Clock, LayoutTemplate, MessageCircle, Sparkles
 import WavePageHeader from '@/components/site/WavePageHeader'
 import Reveal from '@/components/ui/Reveal'
 import FreeDesignForm from '@/components/site/FreeDesignForm'
+import GradientIcon from '@/components/site/GradientIcon'
 
 export const metadata: Metadata = {
   title: 'Gratis ontwerp aanvragen',
@@ -126,9 +127,7 @@ export default function GratisOntwerpPage() {
               return (
                 <Reveal key={step.title} delay={index * 80}>
                   <div className="h-full rounded-lg border border-slate-100 bg-slate-50 p-6">
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-white text-orange-500 shadow-sm">
-                      <Icon size={18} />
-                    </div>
+                    <GradientIcon icon={Icon} className="mb-4" />
                     <h3 className="font-headline text-xl font-bold text-slate-900">{step.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-slate-500">{step.text}</p>
                   </div>

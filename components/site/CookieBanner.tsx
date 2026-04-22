@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Script from 'next/script'
 import { Check, Cookie, X } from 'lucide-react'
+import GradientIcon from '@/components/site/GradientIcon'
 
 type CookieConsent = 'accepted' | 'declined'
 
@@ -100,9 +101,7 @@ export default function CookieBanner({ analyticsId }: { analyticsId?: string | n
             <div className="h-1 bg-[linear-gradient(135deg,#f97316_0%,#ec4899_50%,#a78bfa_100%)]" />
             <div className="flex flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:px-5">
               <div className="flex min-w-0 flex-1 gap-3">
-                <div className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-orange-500/20 bg-orange-500/10 text-orange-500">
-                  <Cookie size={19} aria-hidden="true" />
-                </div>
+                <GradientIcon icon={Cookie} size="sm" className="mt-0.5" />
                 <div className="min-w-0">
                   <p className="font-headline text-sm font-bold text-white">
                     Cookies op <span className="gradient-text">WebsUp.nl</span>

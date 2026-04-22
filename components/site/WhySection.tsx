@@ -9,6 +9,7 @@ import {
   Calculator,
 } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
+import GradientIcon from '@/components/site/GradientIcon'
 
 const services = [
   {
@@ -141,9 +142,7 @@ export default function WhySection() {
                     className="group flex h-full items-center border-b border-slate-200 py-7 first:pt-0 last:border-b-0 last:pb-0 lg:py-0"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="mt-1 flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100 text-orange-500">
-                        <Icon size={18} />
-                      </div>
+                      <GradientIcon icon={Icon} className="mt-1" />
                       <div className="flex-1">
                         <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
                           {service.eyebrow}

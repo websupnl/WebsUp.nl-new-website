@@ -1,6 +1,7 @@
 import { User, Code2, TrendingUp, Layers, LucideIcon } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import Reveal from '@/components/ui/Reveal'
+import GradientIcon from '@/components/site/GradientIcon'
 
 const iconMap: Record<string, LucideIcon> = {
   User,
@@ -54,10 +55,8 @@ export default function WhyWebsUpSection({
               const Icon = iconMap[item.icon] ?? User
               return (
                 <Reveal key={item.title} delay={index * 80}>
-                  <div className="flex gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-blue-100 hover:shadow-md transition-all duration-300">
-                    <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon size={18} className="text-blue-600" />
-                    </div>
+                  <div className="flex gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-orange-100 hover:shadow-md transition-all duration-300">
+                    <GradientIcon icon={Icon} size="sm" />
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
                       <p className="text-gray-500 text-sm leading-relaxed">{item.description}</p>

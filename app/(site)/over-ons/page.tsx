@@ -13,6 +13,7 @@ import {
 import WavePageHeader from '@/components/site/WavePageHeader'
 import CTASection from '@/components/site/CTASection'
 import Reveal from '@/components/ui/Reveal'
+import GradientIcon from '@/components/site/GradientIcon'
 import { getTestimonials } from '@/lib/queries/testimonials'
 import type { Testimonial } from '@/types/database.types'
 
@@ -284,9 +285,7 @@ export default async function OverOnsPage() {
                 <article className="h-full rounded-[2rem] bg-[#06040c] p-7 text-white shadow-[0_22px_60px_rgba(15,23,42,0.16)] lg:p-10">
                   <div className="mb-6 flex items-start justify-between gap-4">
                     <StarRating rating={featuredReview.rating} />
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-orange-400">
-                      <Quote size={16} />
-                    </div>
+                    <GradientIcon icon={Quote} />
                   </div>
                   <blockquote className="max-w-2xl font-headline text-2xl font-bold leading-[1.3] text-white md:text-[2rem]">
                     &ldquo;{featuredReview.content}&rdquo;
@@ -318,9 +317,7 @@ export default async function OverOnsPage() {
                   <article className="rounded-[1.6rem] border border-slate-100 bg-slate-50 p-6 shadow-[0_12px_40px_rgba(15,23,42,0.04)]">
                     <div className="mb-4 flex items-start justify-between gap-4">
                       <StarRating rating={testimonial.rating} />
-                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white text-orange-500 shadow-sm">
-                        <Quote size={15} />
-                      </div>
+                      <GradientIcon icon={Quote} size="sm" />
                     </div>
                     <blockquote className="text-sm leading-relaxed text-slate-600">
                       &ldquo;{testimonial.content}&rdquo;
