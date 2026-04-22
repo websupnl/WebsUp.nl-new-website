@@ -19,8 +19,13 @@ const points = [
 
 export default function StarterCTASection() {
   return (
-    <section className="bg-white py-24 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-white py-24 lg:py-28">
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(236,72,153,0.06) 48%, rgba(167,139,250,0.08) 100%)' }}
+      />
+      <div className="absolute inset-0 bg-white/72" />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="grid items-start gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">

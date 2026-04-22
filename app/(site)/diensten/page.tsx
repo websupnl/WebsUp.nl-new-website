@@ -7,6 +7,7 @@ import { siteConfig } from '@/config/site.config'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
 import { Tooltip } from '@/components/ui/tooltip-card'
+import GradientIcon from '@/components/site/GradientIcon'
 
 export const metadata: Metadata = {
   title: 'Diensten',
@@ -83,9 +84,7 @@ export default function DienstenPage() {
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                       {/* Icon badge */}
-                      <div className="absolute top-4 left-4 w-10 h-10 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center">
-                        <Icon size={17} className="text-white" />
-                      </div>
+                      <GradientIcon icon={Icon} size="sm" className="absolute left-4 top-4" innerClassName="bg-white/95" />
                     </div>
 
                     {/* Body */}

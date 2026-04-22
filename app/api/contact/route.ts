@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { isValidEmail, normalizeText, validateLength } from '@/lib/security/validation'
 import { rateLimit } from '@/lib/security/rate-limit'
+import { siteConfig } from '@/config/site.config'
 
 interface ContactBody {
   name: string
@@ -11,8 +12,8 @@ interface ContactBody {
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.BREVO_API_KEY
-  const toEmail = process.env.CONTACT_TO_EMAIL ?? process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'info@bpuitgevers.nl'
-  const toName = 'BP Uitgevers'
+  const toEmail = process.env.CONTACT_TO_EMAIL ?? process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? siteConfig.email
+  const toName = siteConfig.name
 
   if (!apiKey) {
     console.error('BREVO_API_KEY is not set')
@@ -64,7 +65,7 @@ export async function POST(req: NextRequest) {
     <div style="font-family: Inter, Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #111827;">
       <div style="background: #0F172A; padding: 32px; border-radius: 12px 12px 0 0;">
         <h1 style="color: white; margin: 0; font-size: 20px;">Nieuw contactformulier</h1>
-        <p style="color: #94a3b8; margin: 8px 0 0; font-size: 14px;">Via bpuitgevers.nl</p>
+        <p style="color: #94a3b8; margin: 8px 0 0; font-size: 14px;">Via ${escapeHtml(siteConfig.name)}</p>
       </div>
       <div style="background: #f8fafc; padding: 32px; border-radius: 0 0 12px 12px; border: 1px solid #e2e8f0; border-top: none;">
         <table style="width: 100%; border-collapse: collapse;">
@@ -106,8 +107,8 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         sender: {
-          name: `${name} via BP Uitgevers`,
-          email: 'info@bpuitgevers.nl',
+          name: `${name} via ${siteConfig.name}`,
+          email: siteConfig.email,
         },
         replyTo: {
           name,

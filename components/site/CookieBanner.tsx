@@ -64,10 +64,14 @@ export default function CookieBanner({ analyticsId }: { analyticsId?: string | n
   const measurementId = getValidAnalyticsId(analyticsId)
 
   useEffect(() => {
-    const storedConsent = readStoredConsent()
-    setConsent(storedConsent)
-    setVisible(storedConsent === null)
-    setReady(true)
+    const timer = window.setTimeout(() => {
+      const storedConsent = readStoredConsent()
+      setConsent(storedConsent)
+      setVisible(storedConsent === null)
+      setReady(true)
+    }, 0)
+
+    return () => window.clearTimeout(timer)
   }, [])
 
   const accept = () => {
