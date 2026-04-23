@@ -77,11 +77,11 @@ function TopProgressBar({ visible }: { visible: boolean }) {
       }`}
       aria-hidden={!visible}
     >
-      <div className="h-1 w-full overflow-hidden bg-blue-100/60">
-        <div className="route-progress h-full w-1/3 rounded-r-full bg-blue-600" />
+      <div className="h-1 w-full overflow-hidden bg-orange-100/70">
+        <div className="route-progress h-full w-1/3 rounded-r-full bg-orange-500" />
       </div>
       {visible && (
-        <div className="absolute right-4 top-3 flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-xs font-medium text-blue-700 shadow-sm ring-1 ring-blue-100">
+        <div className="absolute right-4 top-3 flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-xs font-medium text-orange-700 shadow-sm ring-1 ring-orange-100">
           <Loader2 size={13} className="animate-spin" />
           Laden...
         </div>

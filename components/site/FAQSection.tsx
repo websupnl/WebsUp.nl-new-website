@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import { siteConfig } from '@/config/site.config'
+import { ButtonLink, SectionLayout } from '@/components/site/design-system'
 
 interface FAQSectionProps {
   limit?: number
@@ -19,8 +19,7 @@ export default function FAQSection({
     : siteConfig.faq.items
 
   return (
-    <section className={sectionClassName}>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <SectionLayout className={sectionClassName.replace('bg-white ', '').replace('py-24 lg:py-28', '')}>
         <div className="grid items-start gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <Reveal>
             <span className="overline-badge mb-4 inline-flex">FAQ</span>
@@ -40,20 +39,14 @@ export default function FAQSection({
 
             <div className="mt-8 flex flex-wrap gap-3">
               {showPageLink && (
-                <Link
-                  href="/veelgestelde-vragen"
-                  className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
-                >
+                <ButtonLink href="/veelgestelde-vragen" variant="dark">
                   Bekijk alle vragen
                   <ArrowRight size={14} />
-                </Link>
+                </ButtonLink>
               )}
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-slate-400"
-              >
+              <ButtonLink href="/contact" variant="outline">
                 Stel een vraag
-              </Link>
+              </ButtonLink>
             </div>
           </Reveal>
 
@@ -77,7 +70,6 @@ export default function FAQSection({
             ))}
           </div>
         </div>
-      </div>
-    </section>
+    </SectionLayout>
   )
 }

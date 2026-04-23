@@ -9,13 +9,13 @@ import {
   Send,
   CheckCircle,
   MessageCircle,
-  Zap,
   Clock,
   Shield,
 } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import GradientIcon from '@/components/site/GradientIcon'
+import { Spinner } from '@/components/ui/skeleton'
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -270,10 +270,7 @@ export default function ContactPage() {
                     className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-slate-800 disabled:opacity-50"
                   >
                     {loading ? (
-                      <>
-                        <Zap size={16} className="animate-pulse" />
-                        Verzenden...
-                      </>
+                      <Spinner label="Verzenden..." />
                     ) : (
                       <>
                         Verstuur bericht

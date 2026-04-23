@@ -106,7 +106,7 @@ export default async function NieuwsDetailPage({ params }: Props) {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 ) : (
-                  <div className="aspect-[4/5] bg-gradient-to-br from-slate-800 via-slate-900 to-blue-950" />
+                  <div className="aspect-[4/5] bg-slate-900" />
                 )}
               </div>
             </div>

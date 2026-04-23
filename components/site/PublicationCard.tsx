@@ -29,8 +29,8 @@ export default function PublicationCard({ publication, badge }: PublicationCardP
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
-            <span className="text-blue-300 text-5xl font-bold">
+          <div className="absolute inset-0 bg-orange-50 flex items-center justify-center">
+            <span className="text-orange-200 text-5xl font-bold">
               {publication.title.charAt(0)}
             </span>
           </div>
@@ -38,7 +38,7 @@ export default function PublicationCard({ publication, badge }: PublicationCardP
 
         {publication.label && (
           <div className="absolute left-4 top-4">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-semibold tracking-[0.12em] uppercase shadow-sm">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-semibold tracking-[0.12em] uppercase shadow-sm">
               {publication.label}
             </span>
           </div>
@@ -68,7 +68,7 @@ export default function PublicationCard({ publication, badge }: PublicationCardP
           <span>{formatDate(publication.created_at)}</span>
         </div>
 
-        <h3 className="text-gray-900 font-semibold text-lg leading-snug mb-2 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-gray-900 font-semibold text-lg leading-snug mb-2 group-hover:text-orange-600 transition-colors">
           {publication.title}
         </h3>
 
@@ -80,7 +80,7 @@ export default function PublicationCard({ publication, badge }: PublicationCardP
 
         <Link
           href={`/publicaties/${publication.slug}`}
-          className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 text-sm font-medium mt-auto transition-colors"
+          className="inline-flex items-center gap-1.5 text-orange-600 hover:text-orange-700 text-sm font-medium mt-auto transition-colors"
         >
           Lees meer
           <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />

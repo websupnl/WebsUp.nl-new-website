@@ -4,12 +4,12 @@ import { ArrowLeft, Compass, Search } from 'lucide-react'
 export default function NotFound() {
   return (
     <main className="relative overflow-hidden bg-slate-950 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.35),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(14,165,233,0.18),_transparent_28%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(110deg,_rgba(6,4,12,0.98),_rgba(14,10,31,0.9))]" />
       <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 py-16 text-center">
-        <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-blue-950/40">
-          <Compass size={34} className="text-blue-300" />
+        <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-slate-950/40">
+          <Compass size={34} className="text-orange-200" />
         </div>
-        <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.28em] text-blue-200">
+        <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-400/20 bg-orange-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.28em] text-orange-100">
           <Search size={13} />
           Pagina niet gevonden
         </span>
@@ -22,7 +22,7 @@ export default function NotFound() {
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-500"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-500"
           >
             Naar homepage
           </Link>

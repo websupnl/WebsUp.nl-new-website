@@ -14,7 +14,7 @@ export default async function AdminTestimonialsPage() {
         </div>
         <Link
           href="/admin/testimonials/new"
-          className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl transition-colors"
         >
           <Plus size={16} />
           Nieuw
@@ -57,7 +57,7 @@ export default async function AdminTestimonialsPage() {
               </div>
               <Link
                 href={`/admin/testimonials/${t.id}`}
-                className="p-1.5 rounded-lg text-gray-400 hover:text-blue-600 hover:bg-blue-50 transition-colors flex-shrink-0"
+                className="p-1.5 rounded-lg text-gray-400 hover:text-orange-600 hover:bg-orange-50 transition-colors flex-shrink-0"
               >
                 <Pencil size={15} />
               </Link>

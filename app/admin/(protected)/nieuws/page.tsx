@@ -15,7 +15,7 @@ export default async function AdminNieuwsPage() {
         </div>
         <Link
           href="/admin/nieuws/new"
-          className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl transition-colors"
         >
           <Plus size={16} />
           Nieuw artikel
@@ -27,7 +27,7 @@ export default async function AdminNieuwsPage() {
           <p className="text-gray-400">Nog geen artikelen. Maak het eerste aan.</p>
           <Link
             href="/admin/nieuws/new"
-            className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-slate-900 text-white text-sm font-medium rounded-xl hover:bg-slate-800 transition-colors"
           >
             <Plus size={15} />
             Eerste artikel aanmaken
@@ -73,7 +73,7 @@ export default async function AdminNieuwsPage() {
                       )}
                       <Link
                         href={`/admin/nieuws/${article.id}`}
-                        className="p-1.5 rounded-lg text-gray-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                        className="p-1.5 rounded-lg text-gray-400 hover:text-orange-600 hover:bg-orange-50 transition-colors"
                         title="Bewerken"
                       >
                         <Pencil size={15} />

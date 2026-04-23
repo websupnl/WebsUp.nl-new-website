@@ -65,7 +65,7 @@ export default function CookiesPage() {
               href="https://www.consumentenbond.nl/veilig-internetten/cookies-verwijderen"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="text-orange-600 hover:underline"
             >
               consumentenbond.nl
             </a>.
@@ -77,7 +77,7 @@ export default function CookiesPage() {
           <p>
             U kunt uw toestemming voor niet-functionele cookies op elk moment intrekken door uw
             browserinstellingen aan te passen of door contact met ons op te nemen via{' '}
-            <a href="mailto:info@businesspublicatieuitgevers.nl" className="text-blue-600 hover:underline">
+            <a href="mailto:info@businesspublicatieuitgevers.nl" className="text-orange-600 hover:underline">
               info@businesspublicatieuitgevers.nl
             </a>.
           </p>
@@ -87,7 +87,7 @@ export default function CookiesPage() {
           <h2 className="text-xl font-semibold text-gray-900 mb-3">Vragen?</h2>
           <p>
             Heeft u vragen over ons cookiebeleid? Neem dan contact met ons op. Zie ook ons{' '}
-            <a href="/privacybeleid" className="text-blue-600 hover:underline">privacybeleid</a>.
+            <a href="/privacybeleid" className="text-orange-600 hover:underline">privacybeleid</a>.
           </p>
         </section>
       </div>

@@ -1,8 +1,8 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Mail, Phone } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import Reveal from '@/components/ui/Reveal'
+import { ButtonAnchor, ButtonLink } from '@/components/site/design-system'
 
 interface CTASectionProps {
   heading?: string
@@ -75,20 +75,14 @@ export default function CTASection({
                 <p className="mb-8 text-sm text-white/40">Telefonisch, online of gewoon bij jou op locatie.</p>
 
                 <div className="mb-8 flex flex-wrap gap-3">
-                  <Link
-                    href={ctaHref}
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 shadow-lg transition-all duration-150 hover:-translate-y-px hover:bg-white/90"
-                  >
+                  <ButtonLink href={ctaHref} variant="outline" className="bg-white px-7 py-3.5 text-slate-900 hover:bg-white/90">
                     {ctaLabel}
                     <ArrowRight size={14} />
-                  </Link>
-                  <a
-                    href={secondaryHref}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-px hover:border-white/30 hover:bg-white/15"
-                  >
+                  </ButtonLink>
+                  <ButtonAnchor href={secondaryHref} variant="darkGhost" className="px-6 py-3.5">
                     <Mail size={14} />
                     {secondaryLabel}
-                  </a>
+                  </ButtonAnchor>
                 </div>
 
                 <div className="flex flex-wrap gap-5 border-t border-white/8 pt-6">

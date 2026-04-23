@@ -9,6 +9,8 @@ import { Save, Trash2 } from 'lucide-react'
 import { NewsArticle } from '@/types/database.types'
 import { useToast } from '@/hooks/useToast'
 import MediaUploader from './MediaUploader'
+import { Spinner } from '@/components/ui/skeleton'
+import { adminButtonClass, adminDangerButtonClass } from '@/components/admin/AdminPageLayout'
 
 interface Props {
   article?: NewsArticle
@@ -100,7 +102,7 @@ export default function NewsForm({ article, mode }: Props) {
               type="button"
               onClick={handleDelete}
               disabled={loading}
-              className="p-2 rounded-xl text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
+              className={adminDangerButtonClass}
               title="Verwijderen"
             >
               <Trash2 size={18} />
@@ -109,10 +111,10 @@ export default function NewsForm({ article, mode }: Props) {
           <button
             type="submit"
             disabled={loading || !title || !slug}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white text-sm font-semibold rounded-xl transition-colors"
+            className={adminButtonClass}
           >
             <Save size={16} />
-            {loading ? 'Opslaan...' : 'Opslaan'}
+            {loading ? <Spinner label="Opslaan..." /> : 'Opslaan'}
           </button>
         </div>
       </div>
@@ -136,7 +138,7 @@ export default function NewsForm({ article, mode }: Props) {
                 required
                 value={title}
                 onChange={(e) => handleTitleChange(e.target.value)}
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
                 placeholder="Bijv. De 5 trends in zakelijk Nederland voor 2025"
               />
             </div>
@@ -152,7 +154,7 @@ export default function NewsForm({ article, mode }: Props) {
                   required
                   value={slug}
                   onChange={(e) => setSlug(e.target.value)}
-                  className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
                   placeholder="de-5-trends-2025"
                 />
               </div>
@@ -166,7 +168,7 @@ export default function NewsForm({ article, mode }: Props) {
                 value={excerpt}
                 onChange={(e) => setExcerpt(e.target.value)}
                 rows={3}
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all resize-none"
                 placeholder="Korte samenvatting die op de overzichtspagina getoond wordt"
               />
             </div>
@@ -219,7 +221,7 @@ export default function NewsForm({ article, mode }: Props) {
                 type="date"
                 value={publishedAt}
                 onChange={(e) => setPublishedAt(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
               />
               <p className="text-xs text-gray-500 mt-2">
                 De publicatiedatum wordt ingesteld wanneer je het artikel op &lsquo;Gepubliceerd&rsquo; zet.

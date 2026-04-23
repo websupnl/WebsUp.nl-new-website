@@ -29,7 +29,7 @@ const DIENSTEN = [
     desc: 'Snel, modern en conversiegericht. WordPress, Shopify of Next.js.',
     href: '/diensten/websites',
     icon: Monitor,
-    image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=600&q=60',
+    image: '/Projecten/goldcenterdrachten_mockup.png',
     color: 'from-orange-400/20 to-pink-400/10',
   },
   {
@@ -37,7 +37,7 @@ const DIENSTEN = [
     desc: 'WooCommerce of Shopify. iDEAL, Mollie en slimme orderverwerking.',
     href: '/diensten/webshops',
     icon: ShoppingCart,
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=60',
+    image: '/Projecten/thuisbatterijen_friesland_mockup.png',
     color: 'from-pink-400/20 to-orange-400/10',
   },
   {
@@ -45,7 +45,7 @@ const DIENSTEN = [
     desc: 'Klantportalen, interne tools en realtime dashboards op maat.',
     href: '/diensten/apps-dashboards',
     icon: LayoutDashboard,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=60',
+    image: '/Projecten/sinq_mockup.png',
     color: 'from-pink-400/20 to-orange-400/10',
   },
   {
@@ -53,7 +53,7 @@ const DIENSTEN = [
     desc: 'Koppel je tools. Elimineer handmatig werk met n8n en API-koppelingen.',
     href: '/diensten/automatisering',
     icon: Zap,
-    image: 'https://images.unsplash.com/photo-1518432031352-d6fc5734c3d0?auto=format&fit=crop&w=600&q=60',
+    image: '/Projecten/jteq_mockup.png',
     color: 'from-orange-400/20 to-pink-400/10',
   },
 ]
@@ -312,7 +312,7 @@ export default function Navbar({
               <div className="col-span-4">
                 <div className="relative h-full min-h-[200px] rounded-2xl overflow-hidden bg-[#06040c]">
                   <Image
-                    src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=600&q=60"
+                    src="/Projecten/context-care-isa_mockup.png"
                     alt="Werk van WebsUp"
                     fill
                     className="object-cover opacity-50"
@@ -329,7 +329,7 @@ export default function Navbar({
                     <Link
                       href="/contact"
                       onClick={() => setMegaOpen(false)}
-                      className="inline-flex items-center gap-1.5 bg-white text-slate-900 font-semibold text-xs px-4 py-2 rounded-full hover:bg-white/90 transition-colors self-start"
+                      className="btn-outline self-start bg-white px-4 py-2 text-xs text-slate-900 hover:bg-white/90"
                     >
                       Plan een gesprek <ArrowRight size={11} />
                     </Link>

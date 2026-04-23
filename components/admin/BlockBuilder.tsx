@@ -6,6 +6,8 @@ import { savePublicationBlocks, BlockInput } from '@/lib/actions/publications.ac
 import { Plus, Trash2, ChevronUp, ChevronDown, Save } from 'lucide-react'
 import { PublicationBlock } from '@/types/database.types'
 import { useToast } from '@/hooks/useToast'
+import { Skeleton, Spinner } from '@/components/ui/skeleton'
+import { adminButtonClass } from '@/components/admin/AdminPageLayout'
 
 interface Props {
   publicationId?: string
@@ -21,7 +23,7 @@ const TYPE_LABELS: Record<string, string> = {
 
 const TYPE_COLORS: Record<string, string> = {
   text: 'bg-gray-100 text-gray-600',
-  features: 'bg-blue-100 text-blue-700',
+  features: 'bg-orange-100 text-orange-700',
   cta: 'bg-orange-100 text-orange-700',
 }
 
@@ -119,7 +121,7 @@ export default function BlockBuilder({ publicationId, initialBlocks, onBlocksCha
   }
 
   if (loading) {
-    return <div className="py-8 text-center text-gray-400 text-sm">Blokken laden...</div>
+    return <Skeleton className="h-40 w-full" />
   }
 
   return (
@@ -181,7 +183,7 @@ export default function BlockBuilder({ publicationId, initialBlocks, onBlocksCha
                 value={block.title ?? ''}
                 onChange={(e) => updateBlock(index, 'title', e.target.value)}
                 placeholder={block.type === 'cta' ? 'Bijv. Interesse in deze publicatie?' : 'Bloktitel'}
-                className="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                className="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
               />
             </div>
             <div>
@@ -199,7 +201,7 @@ export default function BlockBuilder({ publicationId, initialBlocks, onBlocksCha
                     ? 'Beschrijving onder de CTA-kop'
                     : 'Tekstinhoud van dit blok...'
                 }
-                className="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
+                className="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all resize-none"
               />
             </div>
           </div>
@@ -228,7 +230,7 @@ export default function BlockBuilder({ publicationId, initialBlocks, onBlocksCha
                   onClick={() => addBlock(type)}
                   className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center gap-2"
                 >
-                  <span className={`w-2 h-2 rounded-full ${type === 'text' ? 'bg-gray-400' : type === 'features' ? 'bg-blue-500' : 'bg-orange-500'}`} />
+                  <span className={`w-2 h-2 rounded-full ${type === 'text' ? 'bg-gray-400' : 'bg-orange-500'}`} />
                   {TYPE_LABELS[type]}
                 </button>
               ))}
@@ -243,11 +245,11 @@ export default function BlockBuilder({ publicationId, initialBlocks, onBlocksCha
             type="button"
             onClick={handleSave}
             disabled={!publicationId || saving}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white text-sm font-semibold rounded-xl transition-colors"
+            className={adminButtonClass}
           >
             <Save size={15} />
             {saving
-              ? 'Opslaan...'
+              ? <Spinner label="Opslaan..." />
               : saved
               ? 'Opgeslagen!'
               : publicationId

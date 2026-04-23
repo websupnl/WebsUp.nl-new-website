@@ -61,7 +61,7 @@ export default async function AdminDashboardPage() {
       label: 'Projecten',
       value: projects.length,
       icon: FolderOpen,
-      color: 'bg-blue-50 text-blue-600',
+      color: 'bg-orange-50 text-orange-600',
       href: '/admin/projecten',
     },
     {
@@ -75,7 +75,7 @@ export default async function AdminDashboardPage() {
       label: 'Testimonials',
       value: testimonialCount ?? 0,
       icon: MessageSquare,
-      color: 'bg-purple-50 text-purple-600',
+      color: 'bg-orange-50 text-orange-600',
       href: '/admin/testimonials',
     },
   ]
@@ -118,14 +118,14 @@ export default async function AdminDashboardPage() {
         <div className="flex flex-wrap gap-3">
           <Link
             href="/admin/publicaties/new"
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium rounded-xl transition-colors"
           >
             <Plus size={16} />
             Nieuwe publicatie
           </Link>
           <Link
             href="/admin/nieuws/new"
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium rounded-xl transition-colors"
           >
             <Plus size={16} />
             Nieuw artikel
@@ -156,7 +156,7 @@ export default async function AdminDashboardPage() {
               <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
                 Recente publicaties
               </h2>
-              <Link href="/admin/publicaties" className="text-xs text-blue-600 hover:text-blue-700">
+              <Link href="/admin/publicaties" className="text-xs text-orange-600 hover:text-orange-700">
                 Alle bekijken →
               </Link>
             </div>
@@ -175,7 +175,7 @@ export default async function AdminDashboardPage() {
                         </span>
                       </td>
                       <td className="px-4 py-3 text-right">
-                        <Link href={`/admin/publicaties/${pub.id}`} className="text-blue-600 hover:text-blue-700 text-xs font-medium">
+                        <Link href={`/admin/publicaties/${pub.id}`} className="text-orange-600 hover:text-orange-700 text-xs font-medium">
                           Bewerken
                         </Link>
                       </td>
@@ -194,7 +194,7 @@ export default async function AdminDashboardPage() {
               <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
                 Recente artikelen
               </h2>
-              <Link href="/admin/nieuws" className="text-xs text-blue-600 hover:text-blue-700">
+              <Link href="/admin/nieuws" className="text-xs text-orange-600 hover:text-orange-700">
                 Alle bekijken →
               </Link>
             </div>
@@ -213,7 +213,7 @@ export default async function AdminDashboardPage() {
                         </span>
                       </td>
                       <td className="px-4 py-3 text-right">
-                        <Link href={`/admin/nieuws/${article.id}`} className="text-blue-600 hover:text-blue-700 text-xs font-medium">
+                        <Link href={`/admin/nieuws/${article.id}`} className="text-orange-600 hover:text-orange-700 text-xs font-medium">
                           Bewerken
                         </Link>
                       </td>
