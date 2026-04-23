@@ -2,12 +2,12 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, type HTMLMotionProps } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
-export interface BlogPostCardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface BlogPostCardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
   tag: string
   date: string
   title: string
