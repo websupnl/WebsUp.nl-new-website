@@ -17,11 +17,12 @@ export const metadata: Metadata = {
 
 const iconMap: Record<string, LucideIcon> = { Monitor, ShoppingCart, LayoutDashboard, Zap }
 
+/* Placeholder images per dienst (Unsplash) */
 const serviceImages: Record<string, string> = {
-  Websites: '/Projecten/goldcenterdrachten_mockup.png',
-  Webshops: '/Projecten/thuisbatterijen_friesland_mockup.png',
-  'Apps & dashboards': '/Projecten/sinq_mockup.png',
-  Automatisering: '/Projecten/jteq_mockup.png',
+  Websites:          'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=70',
+  Webshops:          'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=70',
+  'Apps & dashboards': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=70',
+  Automatisering:    'https://images.unsplash.com/photo-1518432031352-d6fc5734c3d0?auto=format&fit=crop&w=800&q=70',
 }
 
 const serviceSlug: Record<string, string> = {
@@ -42,7 +43,7 @@ export default function DienstenPage() {
       >
         <Link
           href="/contact"
-          className="btn-outline bg-white px-6 py-3 text-sm text-slate-900 hover:bg-white/90"
+          className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold text-sm px-6 py-3 rounded-full hover:-translate-y-px hover:bg-white/90 transition-all duration-150 shadow-sm"
         >
           Gratis kennismaking
           <ArrowRight size={14} />
@@ -68,7 +69,7 @@ export default function DienstenPage() {
                 <Reveal key={service.title} delay={i * 60}>
                   <Link
                     href={`/diensten/${slug}`}
-                    className="group surface-card flex flex-col overflow-hidden"
+                    className="group flex flex-col bg-white border border-slate-100 rounded-[1.5rem] overflow-hidden hover:border-orange-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                   >
                     {/* Image */}
                     <div className="relative h-52 overflow-hidden bg-slate-100">
@@ -89,7 +90,7 @@ export default function DienstenPage() {
                     {/* Body */}
                     <div className="p-7 flex-1 flex flex-col">
                       <div className="flex items-start justify-between mb-3">
-                        <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                        <h3 className="font-headline text-xl font-bold text-slate-900 tracking-tight">
                           {service.title}
                         </h3>
                         <ArrowRight

@@ -34,7 +34,7 @@ export default function BedrijfsinfoSection({ data, onChange }: Props) {
             value={(data[field.key] as string) ?? ''}
             onChange={(e) => onChange({ [field.key]: e.target.value })}
             placeholder={field.placeholder}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
           />
         </div>
       ))}

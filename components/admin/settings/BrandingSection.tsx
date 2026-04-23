@@ -58,7 +58,7 @@ export default function BrandingSection({ data, onChange }: Props) {
               value={data.primary_color ?? '#2563EB'}
               onChange={(e) => set('primary_color', e.target.value)}
               placeholder="#2563EB"
-              className="flex-1 px-3 py-2 border border-gray-200 rounded-xl text-sm font-mono focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all uppercase"
+              className="flex-1 px-3 py-2 border border-gray-200 rounded-xl text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all uppercase"
               maxLength={7}
             />
           </div>
@@ -80,7 +80,7 @@ export default function BrandingSection({ data, onChange }: Props) {
               value={data.secondary_color ?? '#1E293B'}
               onChange={(e) => set('secondary_color', e.target.value)}
               placeholder="#1E293B"
-              className="flex-1 px-3 py-2 border border-gray-200 rounded-xl text-sm font-mono focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all uppercase"
+              className="flex-1 px-3 py-2 border border-gray-200 rounded-xl text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all uppercase"
               maxLength={7}
             />
           </div>
@@ -111,7 +111,7 @@ export default function BrandingSection({ data, onChange }: Props) {
         <select
           value={data.font_family ?? 'Inter'}
           onChange={(e) => set('font_family', e.target.value)}
-          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
         >
           {GOOGLE_FONTS.map((font) => (
             <option key={font} value={font}>{font}</option>

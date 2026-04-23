@@ -36,7 +36,7 @@ function ToolbarButton({ onClick, active, disabled, title, children }: ToolbarBu
       title={title}
       className={`p-1.5 rounded-lg transition-colors ${
         active
-          ? 'bg-orange-100 text-orange-700'
+          ? 'bg-blue-100 text-blue-700'
           : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
       } ${disabled ? 'opacity-30 cursor-not-allowed' : ''}`}
     >
@@ -61,7 +61,7 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
       Image.configure({ inline: false }),
       Link.configure({
         openOnClick: false,
-        HTMLAttributes: { class: 'text-orange-600 underline' },
+        HTMLAttributes: { class: 'text-blue-600 underline' },
       }),
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
     ],

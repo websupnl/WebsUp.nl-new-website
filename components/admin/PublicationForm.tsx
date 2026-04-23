@@ -9,8 +9,6 @@ import { Publication } from '@/types/database.types'
 import BlockBuilder from './BlockBuilder'
 import { useToast } from '@/hooks/useToast'
 import MediaUploader from './MediaUploader'
-import { Spinner } from '@/components/ui/skeleton'
-import { adminButtonClass, adminDangerButtonClass } from '@/components/admin/AdminPageLayout'
 
 interface Props {
   publication?: Publication
@@ -112,7 +110,7 @@ export default function PublicationForm({ publication, mode }: Props) {
               type="button"
               onClick={handleDelete}
               disabled={loading}
-              className={adminDangerButtonClass}
+              className="p-2 rounded-xl text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
               title="Verwijderen"
             >
               <Trash2 size={18} />
@@ -123,10 +121,10 @@ export default function PublicationForm({ publication, mode }: Props) {
               type="button"
               onClick={handleSave}
               disabled={loading || !title || !slug}
-              className={adminButtonClass}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white text-sm font-semibold rounded-xl transition-colors"
             >
               <Save size={16} />
-              {loading ? <Spinner label="Opslaan..." /> : 'Opslaan'}
+              {loading ? 'Opslaan...' : 'Opslaan'}
             </button>
           )}
         </div>
@@ -147,7 +145,7 @@ export default function PublicationForm({ publication, mode }: Props) {
               onClick={() => setTab(key)}
               className={`flex items-center gap-2 px-5 py-3.5 text-sm font-medium transition-colors border-b-2 -mb-px ${
                 tab === key
-                  ? 'border-slate-900 text-orange-600'
+                  ? 'border-blue-600 text-blue-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }`}
             >
@@ -171,7 +169,7 @@ export default function PublicationForm({ publication, mode }: Props) {
                       required
                       value={title}
                       onChange={(e) => handleTitleChange(e.target.value)}
-                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                       placeholder="Bijv. Financiele Strategieen 2025"
                     />
                   </div>
@@ -187,7 +185,7 @@ export default function PublicationForm({ publication, mode }: Props) {
                         required
                         value={slug}
                         onChange={(e) => setSlug(e.target.value)}
-                        className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                        className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                         placeholder="financiele-strategieen-2025"
                       />
                     </div>
@@ -202,7 +200,7 @@ export default function PublicationForm({ publication, mode }: Props) {
                       onChange={(e) => setExcerpt(e.target.value)}
                       rows={3}
                       maxLength={300}
-                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all resize-none"
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
                       placeholder="Korte samenvatting die op de detailpagina getoond wordt"
                     />
                     <p className="text-xs text-gray-400 mt-1 text-right">{excerpt.length}/300</p>
@@ -216,7 +214,7 @@ export default function PublicationForm({ publication, mode }: Props) {
                       type="url"
                       value={flipUrl}
                       onChange={(e) => setFlipUrl(e.target.value)}
-                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                       placeholder="https://online.fliphtml5.com/xxxxx/xxxxx/"
                     />
                     <p className="text-xs text-gray-400 mt-1">
@@ -231,7 +229,7 @@ export default function PublicationForm({ publication, mode }: Props) {
                     <select
                       value={label}
                       onChange={(e) => setLabel(e.target.value)}
-                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                     >
                       <option value="">Geen label</option>
                       <option value="Binnenkort beschikbaar">Binnenkort beschikbaar</option>
@@ -258,7 +256,7 @@ export default function PublicationForm({ publication, mode }: Props) {
                       />
                       <div
                         className={`w-11 h-6 rounded-full transition-colors ${
-                          published ? 'bg-slate-900' : 'bg-gray-200'
+                          published ? 'bg-blue-600' : 'bg-gray-200'
                         }`}
                       >
                         <div

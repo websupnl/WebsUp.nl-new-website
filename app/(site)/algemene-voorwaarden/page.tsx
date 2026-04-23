@@ -105,7 +105,7 @@ export default function AlgemeneVoorwaardenPage() {
           <h2 className="text-xl font-semibold text-gray-900 mb-3">Contact</h2>
           <p>
             Voor vragen over deze voorwaarden kunt u contact opnemen via{' '}
-            <a href="mailto:info@businesspublicatieuitgevers.nl" className="text-orange-600 hover:underline">
+            <a href="mailto:info@businesspublicatieuitgevers.nl" className="text-blue-600 hover:underline">
               info@businesspublicatieuitgevers.nl
             </a>.
           </p>

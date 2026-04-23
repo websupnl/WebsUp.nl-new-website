@@ -6,8 +6,10 @@ import Footer from '@/components/site/Footer'
 import HeroSection from '@/components/site/HeroSection'
 import AboutMeSection from '@/components/site/AboutMeSection'
 import TestimonialsSection from '@/components/site/TestimonialsSection'
+import StarterCTASection from '@/components/site/StarterCTASection'
 import ServicesSection from '@/components/site/ServicesSection'
 import ProjectsSection from '@/components/site/ProjectsSection'
+import VoorWieSection from '@/components/site/VoorWieSection'
 import FAQSection from '@/components/site/FAQSection'
 import KennisbankPreviewSection from '@/components/site/KennisbankPreviewSection'
 import CTASection from '@/components/site/CTASection'
@@ -53,10 +55,12 @@ export default async function HomePage() {
       />
       <main className="page-shell flex-1">
         <HeroSection />
-        <ServicesSection />
         <ProjectsSection projects={projects} limit={3} />
+        <ServicesSection />
         <AboutMeSection />
+        <VoorWieSection />
         <TestimonialsSection testimonials={testimonials} />
+        <StarterCTASection />
         <FAQSection limit={5} />
         <KennisbankPreviewSection articles={latestArticles} />
         <CTASection />

@@ -35,7 +35,7 @@ export default function SeoSection({ data, onChange }: Props) {
           onChange={(e) => set('meta_title', e.target.value)}
           placeholder="Uw bedrijfsnaam — Tagline"
           maxLength={80}
-          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
         />
         <p className="text-xs text-gray-400 mt-1">Aanbevolen: max 60 tekens</p>
       </div>
@@ -52,7 +52,7 @@ export default function SeoSection({ data, onChange }: Props) {
           placeholder="Korte beschrijving van uw website voor zoekmachines..."
           rows={3}
           maxLength={200}
-          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all resize-none"
+          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
         />
         <p className="text-xs text-gray-400 mt-1">Aanbevolen: 120–160 tekens</p>
       </div>
@@ -67,7 +67,7 @@ export default function SeoSection({ data, onChange }: Props) {
           value={data.keywords ?? ''}
           onChange={(e) => set('keywords', e.target.value)}
           placeholder="zakelijke publicaties, management, financiën"
-          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
         />
         <p className="text-xs text-gray-400 mt-1">Komma-gescheiden</p>
       </div>
@@ -88,7 +88,7 @@ export default function SeoSection({ data, onChange }: Props) {
               value={data.og_title ?? ''}
               onChange={(e) => set('og_title', e.target.value)}
               placeholder="Zelfde als meta title of aangepast"
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
             />
           </div>
           <div>
@@ -100,7 +100,7 @@ export default function SeoSection({ data, onChange }: Props) {
               onChange={(e) => set('og_description', e.target.value)}
               placeholder="Beschrijving voor social media previews..."
               rows={2}
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all resize-none"
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
             />
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function SeoSection({ data, onChange }: Props) {
             value={data.google_analytics_id ?? ''}
             onChange={(e) => set('google_analytics_id', e.target.value)}
             placeholder="G-XXXXXXXXXX"
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm font-mono focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
           />
         </div>
       </div>

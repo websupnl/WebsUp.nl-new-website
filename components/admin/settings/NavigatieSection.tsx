@@ -70,7 +70,7 @@ function NavGroup({
         <button
           type="button"
           onClick={add}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-600 hover:text-orange-700 transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors"
         >
           <Plus size={13} />
           Item toevoegen
@@ -114,7 +114,7 @@ function NavGroup({
                 value={item.label}
                 onChange={(e) => update(item.id, { label: e.target.value })}
                 placeholder="Label"
-                className="w-28 px-2.5 py-1.5 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                className="w-28 px-2.5 py-1.5 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
               />
 
               {/* URL */}
@@ -123,7 +123,7 @@ function NavGroup({
                 value={item.url}
                 onChange={(e) => update(item.id, { url: e.target.value })}
                 placeholder="/pagina of https://..."
-                className="flex-1 px-2.5 py-1.5 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                className="flex-1 px-2.5 py-1.5 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
               />
 
               {/* Type toggle */}

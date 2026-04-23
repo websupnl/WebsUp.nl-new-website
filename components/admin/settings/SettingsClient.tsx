@@ -144,7 +144,7 @@ export default function SettingsClient({
               type="button"
               onClick={() => setTab(item.id)}
               className={`flex items-center gap-1.5 whitespace-nowrap rounded-xl px-3.5 py-2 text-sm font-medium transition-colors ${
-                active ? 'bg-slate-900 text-white shadow-sm' : 'text-gray-600 hover:bg-gray-100'
+                active ? 'bg-blue-600 text-white shadow-sm' : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
               <Icon size={14} />
@@ -186,7 +186,7 @@ export default function SettingsClient({
           type="button"
           onClick={handleSave}
           disabled={isPending}
-          className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-slate-800 disabled:bg-slate-300"
+          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 disabled:bg-blue-300"
         >
           <Save size={15} />
           {isPending ? 'Opslaan...' : 'Opslaan'}

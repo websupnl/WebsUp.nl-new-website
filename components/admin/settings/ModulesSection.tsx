@@ -23,8 +23,8 @@ function Toggle({ enabled, onChange }: { enabled: boolean; onChange: () => void 
       onClick={onChange}
       role="switch"
       aria-checked={enabled}
-      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 ${
-        enabled ? 'bg-slate-900' : 'bg-gray-200'
+      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+        enabled ? 'bg-blue-600' : 'bg-gray-200'
       }`}
     >
       <span
@@ -54,7 +54,7 @@ export default function ModulesSection({ modules, onChange }: Props) {
             key={mod.key}
             className={`flex items-center justify-between p-4 rounded-xl border transition-colors ${
               mod.enabled
-                ? 'bg-orange-50/50 border-orange-100'
+                ? 'bg-blue-50/50 border-blue-100'
                 : 'bg-gray-50 border-gray-100'
             }`}
           >
@@ -70,7 +70,7 @@ export default function ModulesSection({ modules, onChange }: Props) {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className={`text-xs font-medium ${mod.enabled ? 'text-orange-600' : 'text-gray-400'}`}>
+              <span className={`text-xs font-medium ${mod.enabled ? 'text-blue-600' : 'text-gray-400'}`}>
                 {mod.enabled ? 'Aan' : 'Uit'}
               </span>
               <Toggle enabled={mod.enabled} onChange={() => toggle(mod.key)} />

@@ -6,8 +6,6 @@ import { Save, Trash2, Star } from 'lucide-react'
 import { Testimonial } from '@/types/database.types'
 import { deleteTestimonial, saveTestimonial } from '@/lib/actions/testimonials.actions'
 import { useToast } from '@/hooks/useToast'
-import { Spinner } from '@/components/ui/skeleton'
-import { adminButtonClass, adminDangerButtonClass } from '@/components/admin/AdminPageLayout'
 
 interface Props {
   testimonial?: Testimonial
@@ -86,14 +84,14 @@ export default function TestimonialForm({ testimonial, mode }: Props) {
         <div className="flex items-center gap-2">
           {mode === 'edit' && (
             <button type="button" onClick={handleDelete} disabled={loading}
-              className={adminDangerButtonClass}>
+              className="p-2 rounded-xl text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors">
               <Trash2 size={18} />
             </button>
           )}
           <button type="submit" disabled={loading || !name || !content}
-            className={adminButtonClass}>
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white text-sm font-semibold rounded-xl transition-colors">
             <Save size={16} />
-            {loading ? <Spinner label="Opslaan..." /> : 'Opslaan'}
+            {loading ? 'Opslaan...' : 'Opslaan'}
           </button>
         </div>
       </div>
@@ -107,13 +105,13 @@ export default function TestimonialForm({ testimonial, mode }: Props) {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1.5">Naam *</label>
             <input type="text" required value={name} onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Jan de Vries" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1.5">Functie / bedrijf</label>
             <input type="text" value={role} onChange={(e) => setRole(e.target.value)}
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="CEO, Acme B.V." />
           </div>
         </div>
@@ -133,14 +131,14 @@ export default function TestimonialForm({ testimonial, mode }: Props) {
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1.5">Testimonial *</label>
           <textarea required value={content} onChange={(e) => setContent(e.target.value)} rows={4}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             placeholder="Wat zegt de klant over uw diensten?" />
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1.5">Avatar URL (optioneel)</label>
           <input type="url" value={avatarUrl} onChange={(e) => setAvatarUrl(e.target.value)}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="https://..." />
         </div>
 
@@ -148,7 +146,7 @@ export default function TestimonialForm({ testimonial, mode }: Props) {
           <label className="flex items-center gap-3 cursor-pointer">
             <div className="relative">
               <input type="checkbox" className="sr-only" checked={published} onChange={(e) => setPublished(e.target.checked)} />
-              <div className={`w-11 h-6 rounded-full transition-colors ${published ? 'bg-slate-900' : 'bg-gray-200'}`}>
+              <div className={`w-11 h-6 rounded-full transition-colors ${published ? 'bg-blue-600' : 'bg-gray-200'}`}>
                 <div className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${published ? 'translate-x-6' : 'translate-x-1'}`} />
               </div>
             </div>

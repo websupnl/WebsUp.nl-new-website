@@ -23,7 +23,7 @@ export default function LatestNewsSection({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <span className="inline-block text-xs font-semibold text-orange-600 uppercase tracking-widest mb-3 bg-orange-50 px-3 py-1 rounded-full">
+            <span className="inline-block text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3 bg-blue-50 px-3 py-1 rounded-full">
               Nieuws & inzichten
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{heading}</h2>
@@ -33,7 +33,7 @@ export default function LatestNewsSection({
           </div>
           <Link
             href="/nieuws"
-            className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 text-sm font-medium whitespace-nowrap transition-colors"
+            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm font-medium whitespace-nowrap transition-colors"
           >
             Alle artikelen
             <ArrowRight size={15} />

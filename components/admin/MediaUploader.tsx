@@ -75,7 +75,7 @@ export default function MediaUploader({
         onDrop={handleDrop}
         onDragOver={(e) => e.preventDefault()}
         className={`relative border-2 border-dashed rounded-xl transition-all cursor-pointer group
-          ${uploading ? 'border-orange-300 bg-orange-50' : 'border-gray-200 hover:border-orange-400 hover:bg-orange-50/30'}
+          ${uploading ? 'border-blue-300 bg-blue-50' : 'border-gray-200 hover:border-blue-400 hover:bg-blue-50/30'}
           ${value ? 'p-2' : 'p-5'}`}
       >
         <input
@@ -87,7 +87,7 @@ export default function MediaUploader({
         />
 
         {uploading ? (
-          <div className="flex flex-col items-center gap-2 py-3 text-orange-500">
+          <div className="flex flex-col items-center gap-2 py-3 text-blue-500">
             <Loader2 size={24} className="animate-spin" />
             <span className="text-xs font-medium">Uploaden...</span>
           </div>
@@ -118,11 +118,11 @@ export default function MediaUploader({
           </div>
         ) : (
           <div className="flex flex-col items-center gap-2 text-gray-400">
-            <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-orange-100 group-hover:text-orange-500 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-blue-100 group-hover:text-blue-500 transition-colors">
               <ImageIcon size={20} />
             </div>
             <div className="text-center">
-              <span className="text-xs font-semibold text-gray-600 group-hover:text-orange-600 transition-colors">
+              <span className="text-xs font-semibold text-gray-600 group-hover:text-blue-600 transition-colors">
                 Klik of sleep afbeelding hierheen
               </span>
               <p className="text-xs text-gray-400 mt-0.5">
@@ -142,7 +142,7 @@ export default function MediaUploader({
             value={value}
             onChange={(e) => onChange(e.target.value)}
             placeholder="Of plak een URL..."
-            className="w-full pl-8 pr-3 py-2 text-xs border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+            className="w-full pl-8 pr-3 py-2 text-xs border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
           />
         </div>
         {value && (

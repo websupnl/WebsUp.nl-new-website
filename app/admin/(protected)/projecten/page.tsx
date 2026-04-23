@@ -21,7 +21,7 @@ export default async function AdminProjectenPage() {
         </div>
         <Link
           href="/admin/projecten/new"
-          className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-colors"
         >
           <Plus size={16} />
           Nieuw project
@@ -78,7 +78,7 @@ export default async function AdminProjectenPage() {
                   <td className="px-5 py-4 hidden lg:table-cell">
                     <span
                       className={`inline-flex px-2.5 py-1 rounded-full text-xs font-medium ${
-                        persistedProject ? 'bg-orange-50 text-orange-600' : 'bg-amber-50 text-amber-700'
+                        persistedProject ? 'bg-blue-50 text-blue-600' : 'bg-amber-50 text-amber-700'
                       }`}
                     >
                       {persistedProject ? 'Database' : 'Standaard'}
@@ -98,7 +98,7 @@ export default async function AdminProjectenPage() {
                       )}
                       <Link
                         href={`/admin/projecten/${project.id}`}
-                        className="p-1.5 rounded-lg text-gray-400 hover:text-orange-600 hover:bg-orange-50 transition-colors"
+                        className="p-1.5 rounded-lg text-gray-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
                         title="Bewerken"
                       >
                         <Pencil size={15} />

@@ -9,8 +9,6 @@ import { useToast } from '@/hooks/useToast'
 import MediaUploader from './MediaUploader'
 import TiptapEditor from './TiptapEditor'
 import { PortfolioProject } from '@/lib/projects/default-projects'
-import { Spinner } from '@/components/ui/skeleton'
-import { adminButtonClass, adminDangerButtonClass } from '@/components/admin/AdminPageLayout'
 
 interface Props {
   project?: PortfolioProject
@@ -130,7 +128,7 @@ export default function ProjectForm({ project, mode }: Props) {
               type="button"
               onClick={handleDelete}
               disabled={loading}
-              className={adminDangerButtonClass}
+              className="p-2 rounded-xl text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
               title="Verwijderen"
             >
               <Trash2 size={18} />
@@ -139,10 +137,10 @@ export default function ProjectForm({ project, mode }: Props) {
           <button
             type="submit"
             disabled={loading || !title || !slug}
-            className={adminButtonClass}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white text-sm font-semibold rounded-xl transition-colors"
           >
             <Save size={16} />
-            {loading ? <Spinner label="Opslaan..." /> : 'Opslaan'}
+            {loading ? 'Opslaan...' : 'Opslaan'}
           </button>
         </div>
       </div>
@@ -169,7 +167,7 @@ export default function ProjectForm({ project, mode }: Props) {
                 required
                 value={title}
                 onChange={(e) => handleTitleChange(e.target.value)}
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                 placeholder="Bijv. Website voor Verkeersschool Haak"
               />
             </div>
@@ -184,7 +182,7 @@ export default function ProjectForm({ project, mode }: Props) {
                     required
                     value={slug}
                     onChange={(e) => setSlug(e.target.value)}
-                    className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                    className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                     placeholder="verkeersschool-haak"
                   />
                 </div>
@@ -196,7 +194,7 @@ export default function ProjectForm({ project, mode }: Props) {
                   type="text"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                   placeholder="Rijschool"
                 />
               </div>
@@ -208,7 +206,7 @@ export default function ProjectForm({ project, mode }: Props) {
                 value={excerpt}
                 onChange={(e) => setExcerpt(e.target.value)}
                 rows={3}
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all resize-none"
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
                 placeholder="Korte samenvatting voor op de projectenpagina"
               />
             </div>
@@ -225,7 +223,7 @@ export default function ProjectForm({ project, mode }: Props) {
               <button
                 type="button"
                 onClick={addHighlight}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
               >
                 <Plus size={14} />
                 Highlight toevoegen
@@ -239,7 +237,7 @@ export default function ProjectForm({ project, mode }: Props) {
                     type="text"
                     value={item}
                     onChange={(e) => updateHighlight(index, e.target.value)}
-                    className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                    className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                     placeholder="Bijv. Mobielvriendelijk en eenvoudig beheer"
                   />
                   <button
@@ -267,7 +265,7 @@ export default function ProjectForm({ project, mode }: Props) {
                   type="number"
                   value={sortOrder}
                   onChange={(e) => setSortOrder(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                  className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                   min={0}
                   step={10}
                 />
@@ -279,7 +277,7 @@ export default function ProjectForm({ project, mode }: Props) {
                   type="url"
                   value={websiteUrl}
                   onChange={(e) => setWebsiteUrl(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                  className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                   placeholder="https://..."
                 />
               </div>

@@ -73,7 +73,7 @@ export default function PrivacybeleidPage() {
           <h2 className="text-xl font-semibold text-gray-900 mb-3">6. Cookies</h2>
           <p>
             Wij maken gebruik van functionele en analytische cookies. Zie ons{' '}
-            <a href="/cookies" className="text-orange-600 hover:underline">cookiebeleid</a> voor
+            <a href="/cookies" className="text-blue-600 hover:underline">cookiebeleid</a> voor
             meer informatie.
           </p>
         </section>
@@ -90,7 +90,7 @@ export default function PrivacybeleidPage() {
           </ul>
           <p className="mt-3">
             Neem voor het uitoefenen van uw rechten contact op via{' '}
-            <a href="mailto:info@businesspublicatieuitgevers.nl" className="text-orange-600 hover:underline">
+            <a href="mailto:info@businesspublicatieuitgevers.nl" className="text-blue-600 hover:underline">
               info@businesspublicatieuitgevers.nl
             </a>.
           </p>

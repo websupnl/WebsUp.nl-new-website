@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle, ExternalLink } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import { defaultProjects, type PortfolioProject } from '@/lib/projects/default-projects'
-import { ButtonLink, SectionLayout, SiteCard } from '@/components/site/design-system'
 
 interface ProjectsSectionProps {
   projects?: PortfolioProject[]
@@ -27,22 +26,35 @@ export default function ProjectsSection({
   if (displayed.length === 0) return null
 
   return (
-    <SectionLayout
-      tone="surface"
-      overline="Bewijs uit de praktijk"
-      title={title}
-      description={subtitle}
-      actions={showViewAll ? (
-        <ButtonLink href="/projecten" variant="dark">
-          Bekijk alle projecten
-          <ArrowRight size={14} />
-        </ButtonLink>
-      ) : undefined}
-    >
+    <section className="bg-slate-50 py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Reveal className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+          <div>
+            <span className="overline-badge mb-4 inline-flex">Bewijs uit de praktijk</span>
+            <h2 className="max-w-2xl font-headline text-4xl font-extrabold leading-[1.06] text-slate-900 md:text-5xl">
+              {title}
+            </h2>
+          </div>
+          <div className="lg:justify-self-end">
+            <p className="max-w-xl text-base leading-relaxed text-slate-500 md:text-lg">
+              {subtitle}
+            </p>
+            {showViewAll && (
+              <Link
+                href="/projecten"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
+              >
+                Bekijk alle projecten
+                <ArrowRight size={14} />
+              </Link>
+            )}
+          </div>
+        </Reveal>
+
         <div className="grid gap-5 lg:grid-cols-3">
           {displayed.map((project, index) => (
             <Reveal key={project.slug} delay={index * 70}>
-              <SiteCard as="article" className="group flex h-full flex-col overflow-hidden">
+              <article className="group surface-card flex h-full flex-col overflow-hidden">
                 <Link href={`/projecten/${project.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-slate-100">
                   <Image
                     src={project.image_url || '/hero-bg.png'}
@@ -58,7 +70,7 @@ export default function ProjectsSection({
                 </Link>
 
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-2xl font-bold leading-tight text-slate-900 transition-colors group-hover:text-orange-500">
+                  <h3 className="font-headline text-2xl font-bold leading-tight text-slate-900 transition-colors group-hover:text-orange-500">
                     <Link href={`/projecten/${project.slug}`}>{project.title}</Link>
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-slate-500">
@@ -95,10 +107,11 @@ export default function ProjectsSection({
                     )}
                   </div>
                 </div>
-              </SiteCard>
+              </article>
             </Reveal>
           ))}
         </div>
-    </SectionLayout>
+      </div>
+    </section>
   )
 }

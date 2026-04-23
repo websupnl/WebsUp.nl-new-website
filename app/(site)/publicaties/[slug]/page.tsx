@@ -81,7 +81,7 @@ export default async function PublicatieDetailPage({ params }: Props) {
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-900 text-white">
-        <div className="absolute inset-0 bg-[linear-gradient(110deg,_rgba(6,4,12,0.98),_rgba(14,10,31,0.9))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.18),_transparent_38%),_radial-gradient(circle_at_bottom_right,_rgba(129,140,248,0.18),_transparent_32%)]" />
         <Reveal className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
             <div className="relative z-10">
@@ -116,7 +116,7 @@ export default async function PublicatieDetailPage({ params }: Props) {
                 {publication.flip_url ? (
                   <a
                     href="#viewer"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-full transition-all shadow-lg"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all shadow-lg"
                   >
                     Bekijk publicatie
                     <ArrowRight size={18} />
@@ -144,7 +144,7 @@ export default async function PublicatieDetailPage({ params }: Props) {
                   <div className="aspect-[4/5] bg-slate-800" />
                 )}
                 {publication.label && (
-                  <span className="absolute right-4 top-4 inline-flex items-center rounded-full bg-slate-900/95 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white shadow-lg shadow-slate-900/20">
+                  <span className="absolute right-4 top-4 inline-flex items-center rounded-full bg-blue-600/95 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white shadow-lg shadow-blue-900/20">
                     {publication.label}
                   </span>
                 )}
@@ -155,7 +155,7 @@ export default async function PublicatieDetailPage({ params }: Props) {
       </section>
 
       {/* Stats balk */}
-      <div className="bg-slate-900 py-8">
+      <div className="bg-blue-600 py-8">
         <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map(({ icon: Icon, value, label }) => (
@@ -163,7 +163,7 @@ export default async function PublicatieDetailPage({ params }: Props) {
                 <GradientIcon icon={Icon} size="sm" />
                 <div>
                   <div className="text-2xl font-bold text-white leading-none">{value}</div>
-                  <div className="text-orange-100 text-xs mt-0.5">{label}</div>
+                  <div className="text-blue-200 text-xs mt-0.5">{label}</div>
                 </div>
               </div>
             ))}
@@ -185,7 +185,7 @@ export default async function PublicatieDetailPage({ params }: Props) {
         <section id="viewer" className="bg-white py-16 lg:py-20">
           <Reveal className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <span className="inline-block text-xs font-semibold text-orange-600 uppercase tracking-widest mb-3 bg-orange-50 px-3 py-1 rounded-full">
+              <span className="inline-block text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3 bg-blue-50 px-3 py-1 rounded-full">
                 Online lezer
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
@@ -211,7 +211,7 @@ export default async function PublicatieDetailPage({ params }: Props) {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 w-fit px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-full transition-all hover:shadow-lg"
+                  className="inline-flex items-center gap-2 w-fit px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all hover:shadow-lg"
                 >
                   Neem contact op
                   <ArrowRight size={18} />

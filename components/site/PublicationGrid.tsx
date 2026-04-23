@@ -52,7 +52,7 @@ export default function PublicationGrid({
           <Reveal className="mt-12 text-center" delay={120}>
             <Link
               href="/publicaties"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-xl transition-all hover:shadow-md"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-all hover:shadow-md"
             >
               Alle publicaties bekijken
               <ArrowRight size={16} />

@@ -40,7 +40,7 @@ function FieldRow({
         <select
           value={field.type}
           onChange={(e) => onUpdate({ type: e.target.value as FormFieldDef['type'] })}
-          className="col-span-3 px-2 py-1.5 border border-gray-200 rounded-lg text-xs bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
+          className="col-span-3 px-2 py-1.5 border border-gray-200 rounded-lg text-xs bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           {FIELD_TYPES.map((t) => (
             <option key={t.value} value={t.value}>{t.label}</option>
@@ -52,7 +52,7 @@ function FieldRow({
           value={field.label}
           onChange={(e) => onUpdate({ label: e.target.value })}
           placeholder="Label"
-          className="col-span-4 px-2 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-orange-400"
+          className="col-span-4 px-2 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         {/* Placeholder */}
         <input
@@ -60,7 +60,7 @@ function FieldRow({
           value={field.placeholder ?? ''}
           onChange={(e) => onUpdate({ placeholder: e.target.value })}
           placeholder="Placeholder"
-          className="col-span-4 px-2 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-orange-400"
+          className="col-span-4 px-2 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         {/* Required toggle */}
         <div className="col-span-1 flex items-center justify-center">
@@ -123,7 +123,7 @@ function FormCard({
           value={form.name}
           onChange={(e) => onUpdate({ name: e.target.value })}
           placeholder="Formuliernaam"
-          className="flex-1 px-3 py-1.5 border border-gray-200 rounded-lg text-sm font-semibold bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
+          className="flex-1 px-3 py-1.5 border border-gray-200 rounded-lg text-sm font-semibold bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <div className="flex items-center gap-2">
           <button
@@ -155,7 +155,7 @@ function FormCard({
               value={form.email_to ?? ''}
               onChange={(e) => onUpdate({ email_to: e.target.value })}
               placeholder="ontvanger@bedrijf.nl"
-              className="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -182,7 +182,7 @@ function FormCard({
           <button
             type="button"
             onClick={addField}
-            className="w-full flex items-center justify-center gap-2 py-2 text-sm text-orange-600 hover:text-orange-700 border border-dashed border-orange-200 hover:border-orange-400 rounded-xl transition-colors"
+            className="w-full flex items-center justify-center gap-2 py-2 text-sm text-blue-600 hover:text-blue-700 border border-dashed border-blue-200 hover:border-blue-400 rounded-xl transition-colors"
           >
             <Plus size={14} />
             Veld toevoegen
@@ -238,7 +238,7 @@ export default function FormBuilderSection({ forms, onChange }: Props) {
       <button
         type="button"
         onClick={addForm}
-        className="w-full flex items-center justify-center gap-2 py-3 text-sm font-semibold text-orange-600 hover:text-orange-700 bg-orange-50 hover:bg-orange-100 rounded-xl transition-colors"
+        className="w-full flex items-center justify-center gap-2 py-3 text-sm font-semibold text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors"
       >
         <Plus size={15} />
         Formulier toevoegen
