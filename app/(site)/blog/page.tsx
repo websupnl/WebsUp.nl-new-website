@@ -8,6 +8,7 @@ import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import { BlogPostCard } from '@/components/ui/card-18'
+import AuthorSpotlightCard from '@/components/site/AuthorSpotlightCard'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -37,6 +38,19 @@ export default async function BlogPage() {
       {/* Articles */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Reveal className="mb-14 grid gap-8 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
+            <div>
+              <span className="overline-badge mb-4 inline-flex">Door Daan</span>
+              <h2 className="max-w-2xl font-headline text-3xl font-extrabold leading-[1.08] text-slate-900 md:text-4xl">
+                Artikelen vanuit de praktijk
+              </h2>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-500 md:text-lg">
+                Geen algemene marketingpraat, maar keuzes die ik vaak tegenkom tijdens het bouwen van websites, webshops en digitale systemen.
+              </p>
+            </div>
+            <AuthorSpotlightCard className="lg:justify-self-end" />
+          </Reveal>
+
           {articles.length === 0 ? (
             <Reveal className="text-center py-20">
               <div className="text-4xl mb-4">✍️</div>

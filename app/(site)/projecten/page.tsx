@@ -6,6 +6,7 @@ import { ArrowRight, CheckCircle, ExternalLink } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
 import WavePageHeader from '@/components/site/WavePageHeader'
+import { LinkPreview } from '@/components/ui/link-preview'
 import { getProjects } from '@/lib/queries/projects'
 
 export const metadata: Metadata = {
@@ -114,14 +115,14 @@ export default async function ProjectenPage() {
                         Bekijk project <ArrowRight size={14} />
                       </Link>
                       {project.website_url && (
-                        <a
-                          href={project.website_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <LinkPreview
+                          url={project.website_url}
+                          isStatic
+                          imageSrc={project.image_url}
                           className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900"
                         >
-                          Live website <ExternalLink size={14} />
-                        </a>
+                          Bekijk site <ExternalLink size={14} />
+                        </LinkPreview>
                       )}
                     </div>
                   </div>
@@ -173,14 +174,14 @@ export default async function ProjectenPage() {
                           Bekijk project <ArrowRight size={14} />
                         </Link>
                         {project.website_url && (
-                          <a
-                            href={project.website_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <LinkPreview
+                            url={project.website_url}
+                            isStatic
+                            imageSrc={project.image_url}
                             className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors"
                           >
-                            Live website <ExternalLink size={14} />
-                          </a>
+                            Bekijk site <ExternalLink size={14} />
+                          </LinkPreview>
                         )}
                       </div>
                     </div>

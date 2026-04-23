@@ -2,6 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, ExternalLink } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
+import { ThreeDMarquee } from '@/components/ui/3d-marquee'
+import { LinkPreview } from '@/components/ui/link-preview'
 import { defaultProjects, type PortfolioProject } from '@/lib/projects/default-projects'
 
 interface ProjectsSectionProps {
@@ -22,6 +24,10 @@ export default function ProjectsSection({
   const source = projects.length > 0 ? projects : defaultProjects
   const featured = source.filter((project) => project.featured)
   const displayed = (featured.length > 0 ? featured : source).slice(0, limit ?? 3)
+  const marqueeImages = source
+    .map((project) => project.image_url)
+    .filter(Boolean)
+    .slice(0, 16)
 
   if (displayed.length === 0) return null
 
@@ -50,6 +56,12 @@ export default function ProjectsSection({
             )}
           </div>
         </Reveal>
+
+        {marqueeImages.length >= 8 && (
+          <Reveal className="mb-10 overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 p-2 shadow-[0_18px_50px_rgba(15,23,42,0.06)]">
+            <ThreeDMarquee images={marqueeImages} className="h-[380px] rounded-[1.5rem] md:h-[440px]" />
+          </Reveal>
+        )}
 
         <div className="grid gap-5 lg:grid-cols-3">
           {displayed.map((project, index) => (
@@ -95,15 +107,15 @@ export default function ProjectsSection({
                       <ArrowRight size={14} />
                     </Link>
                     {project.website_url && (
-                      <a
-                        href={project.website_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <LinkPreview
+                        url={project.website_url}
+                        isStatic
+                        imageSrc={project.image_url || '/hero-bg.png'}
                         className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900"
                       >
-                        Live website
+                        Bekijk site
                         <ExternalLink size={14} />
-                      </a>
+                      </LinkPreview>
                     )}
                   </div>
                 </div>
