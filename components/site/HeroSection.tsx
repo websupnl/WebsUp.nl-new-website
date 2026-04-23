@@ -61,71 +61,69 @@ export default function HeroSection({
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#06040c] to-transparent" />
         </div>
 
-        <div className="relative flex flex-1 px-3 pb-4 pt-28 sm:px-4 sm:pb-5 sm:pt-32 lg:px-5 lg:pb-6 lg:pt-36">
-          <div className="hero-glass-panel flex min-h-[calc(100vh-8rem)] w-full items-center px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12 xl:px-12">
-            <div className="w-full max-w-[820px]">
-              <p className="mb-6 text-sm font-medium text-white/50">
-                Websites en digitale systemen voor ondernemers die serieus door willen
-              </p>
+        <div className="relative flex flex-1 items-center px-6 pb-20 pt-32 sm:px-8 lg:px-10 lg:pb-24 lg:pt-40 xl:px-12">
+          <div className="w-full max-w-[820px]">
+            <p className="mb-6 text-sm font-medium text-white/50">
+              Websites en digitale systemen voor ondernemers die serieus door willen
+            </p>
 
-              <h1
-                className="mb-7 font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-white"
-                style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
+            <h1
+              className="mb-7 font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-white"
+              style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
+            >
+              Een website die vertrouwen geeft.{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #f97316 0%, #ec4899 45%, #a78bfa 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
               >
-                Een website die vertrouwen geeft.{' '}
-                <span
-                  style={{
-                    background: 'linear-gradient(135deg, #f97316 0%, #ec4899 45%, #a78bfa 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  Een systeem dat meegroeit
-                </span>
-              </h1>
+                Een systeem dat meegroeit
+              </span>
+            </h1>
 
-              <p className="mb-10 max-w-[56ch] text-base leading-relaxed text-white/60 md:text-lg">
-                WebsUp helpt MKB&apos;ers, dienstverleners en technische bedrijven aan een sterke online basis. Eerst duidelijk en professioneel zichtbaar. Daarna uitbreidbaar met webshops, dashboards, koppelingen of automatisering als je bedrijf daarom vraagt.
-              </p>
+            <p className="mb-10 max-w-[56ch] text-base leading-relaxed text-white/60 md:text-lg">
+              WebsUp helpt MKB&apos;ers, dienstverleners en technische bedrijven aan een sterke online basis. Eerst duidelijk en professioneel zichtbaar. Daarna uitbreidbaar met webshops, dashboards, koppelingen of automatisering als je bedrijf daarom vraagt.
+            </p>
 
-              <div className="mb-12 flex flex-wrap gap-3">
+            <div className="mb-12 flex flex-wrap gap-3">
+              <Link
+                href={ctaHref}
+                className="inline-flex items-center gap-2 rounded-full border border-white bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 transition-colors duration-150 hover:bg-slate-100"
+              >
+                {ctaLabel}
+                <ArrowRight size={14} />
+              </Link>
+              {secondaryCtaLabel && secondaryCtaHref && (
                 <Link
-                  href={ctaHref}
-                  className="inline-flex items-center gap-2 rounded-full border border-white bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 transition-colors duration-150 hover:bg-slate-100"
+                  href={secondaryCtaHref}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-black/25 px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-black/35 hover:border-white/22"
                 >
-                  {ctaLabel}
-                  <ArrowRight size={14} />
+                  {secondaryCtaLabel}
                 </Link>
-                {secondaryCtaLabel && secondaryCtaHref && (
-                  <Link
-                    href={secondaryCtaHref}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-black/25 px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-black/35 hover:border-white/22"
-                  >
-                    {secondaryCtaLabel}
-                  </Link>
-                )}
-              </div>
+              )}
+            </div>
 
-              <div className="mb-7 grid max-w-[760px] gap-2.5 text-sm text-white/65 sm:grid-cols-3">
-                {proofPoints.map((point) => (
-                  <div key={point} className="flex items-start gap-2">
-                    <CheckCircle size={15} className="mt-0.5 shrink-0 text-orange-400" />
-                    <span>{point}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="mb-7 grid max-w-[760px] gap-2.5 text-sm text-white/65 sm:grid-cols-3">
+              {proofPoints.map((point) => (
+                <div key={point} className="flex items-start gap-2">
+                  <CheckCircle size={15} className="mt-0.5 shrink-0 text-orange-400" />
+                  <span>{point}</span>
+                </div>
+              ))}
+            </div>
 
-              <div className="flex max-w-[760px] flex-wrap items-center gap-2">
-                {platforms.map((platform) => (
-                  <Tooltip key={platform.name} content={platform.tip} containerClassName="text-white/60">
-                    <span className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-white/12 bg-white/8 px-2.5 py-1 text-xs font-semibold text-white/60 transition-colors hover:bg-white/12 hover:text-white/80">
-                      <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: platform.dot }} />
-                      {platform.name}
-                    </span>
-                  </Tooltip>
-                ))}
-              </div>
+            <div className="flex max-w-[760px] flex-wrap items-center gap-2">
+              {platforms.map((platform) => (
+                <Tooltip key={platform.name} content={platform.tip} containerClassName="text-white/60">
+                  <span className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-white/12 bg-white/8 px-2.5 py-1 text-xs font-semibold text-white/60 transition-colors hover:bg-white/12 hover:text-white/80">
+                    <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: platform.dot }} />
+                    {platform.name}
+                  </span>
+                </Tooltip>
+              ))}
             </div>
           </div>
         </div>
