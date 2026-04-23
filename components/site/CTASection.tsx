@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ArrowRight, Mail, Phone } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import Reveal from '@/components/ui/Reveal'
+import { NoiseBackground } from '@/components/ui/noise-background'
 
 interface CTASectionProps {
   heading?: string
@@ -48,8 +49,8 @@ export default function CTASection({
               />
             </div>
 
-            <div className="relative z-10 mx-auto w-full max-w-7xl px-10 py-16 md:px-16">
-              <div className="max-w-xl">
+            <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-8 md:px-10 md:py-10">
+              <div className="liquid-glass-dark max-w-2xl p-6 shadow-[0_24px_80px_rgba(0,0,0,0.20)] sm:p-8">
                 <span
                   className="mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.08em]"
                   style={{
@@ -75,19 +76,30 @@ export default function CTASection({
                 <p className="mb-8 text-sm text-white/40">Telefonisch, online of gewoon bij jou op locatie.</p>
 
                 <div className="mb-8 flex flex-wrap gap-3">
-                  <Link
-                    href={ctaHref}
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 shadow-lg transition-all duration-150 hover:-translate-y-px hover:bg-white/90"
+                  <NoiseBackground
+                    containerClassName="w-fit rounded-full p-1.5 bg-white/15"
+                    gradientColors={[
+                      'rgb(249, 115, 22)',
+                      'rgb(236, 72, 153)',
+                      'rgb(167, 139, 250)',
+                    ]}
+                    noiseIntensity={0.12}
+                    speed={0.06}
                   >
-                    {ctaLabel}
-                    <ArrowRight size={14} />
-                  </Link>
+                    <Link
+                      href={ctaHref}
+                      className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 shadow-lg transition-all duration-150 hover:-translate-y-px hover:bg-white/90"
+                    >
+                      {ctaLabel}
+                      <ArrowRight size={14} />
+                    </Link>
+                  </NoiseBackground>
                   <a
                     href={secondaryHref}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-px hover:border-white/30 hover:bg-white/15"
+                    className="btn-glass-dark inline-flex items-center gap-2 px-6 py-3.5 text-sm"
                   >
                     <Mail size={14} />
-                    {secondaryLabel}
+                    <span>{secondaryLabel}</span>
                   </a>
                 </div>
 

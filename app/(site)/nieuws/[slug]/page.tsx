@@ -145,4 +145,3 @@ export default async function NieuwsDetailPage({ params }: Props) {
     </article>
   )
 }
-

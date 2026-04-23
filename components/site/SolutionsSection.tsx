@@ -52,7 +52,7 @@ const solutions = [
     id: 'automatisering',
     overline: 'Automatisering',
     icon: Zap,
-    title: 'Stop met kopieren en plakken. Laat het systeem het doen.',
+    title: 'Laat het systeem het terugkerende werk doen.',
     tooltips: [
       { label: 'Typische winst', content: 'Minder fouten, snellere opvolging en minder tijd kwijt aan terugkerend handmatig werk.' },
       { label: 'Tools', content: 'n8n, API-koppelingen, CRM-syncs, formulieren en automatische meldingen tussen je systemen.' },

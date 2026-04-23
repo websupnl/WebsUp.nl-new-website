@@ -44,7 +44,7 @@ export default function AboutMeSection() {
           <Reveal delay={80}>
             <span className="overline-badge mb-4 inline-flex">Over WebsUp</span>
             <h2 className="max-w-2xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
-              Geen bureaugedoe. Gewoon iemand die meedenkt en bouwt
+              Direct contact met de bouwer
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-500">
               WebsUp is bewust persoonlijk opgezet. Geen doorschuiven tussen sales, accountmanagement en development, maar korte lijnen met Daan. Daardoor blijven keuzes helder, technisch kloppend en passend bij jouw bedrijf.

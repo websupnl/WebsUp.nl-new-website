@@ -51,7 +51,7 @@ export const siteConfig = {
 
   // Hero sectie
   hero: {
-    heading: "Jouw complete digitale systeem. Eén aanspreekpunt.",
+    heading: "Digitale basis die meegroeit",
     subheading:
       "Ik ben Daan — zelfstandig en persoonlijk. Ik bouw websites, webshops, apps en automatiseringen die samenwerken als één geheel. Van WordPress tot maatwerk: altijd direct contact met de persoon die bouwt.",
     ctaLabel: "Plan een kennismaking",
@@ -147,7 +147,7 @@ export const siteConfig = {
   // Why WebsUp USPs
   whyWebsUp: {
     badge: "Waarom WebsUp?",
-    heading: "Geen bureau. Een digitale partner.",
+    heading: "Digitale partner zonder bureaugedoe",
     subheading:
       "Wij combineren de persoonlijke aanpak van een zelfstandige met de technische kracht van een modern development team.",
     items: [

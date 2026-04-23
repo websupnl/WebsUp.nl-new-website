@@ -55,11 +55,11 @@ export default async function HomePage() {
       />
       <main className="page-shell flex-1">
         <HeroSection />
-        <ProjectsSection projects={projects} limit={3} />
         <ServicesSection />
         <AboutMeSection />
         <VoorWieSection />
         <TestimonialsSection testimonials={testimonials} />
+        <ProjectsSection projects={projects} limit={3} />
         <StarterCTASection />
         <FAQSection limit={5} />
         <KennisbankPreviewSection articles={latestArticles} />

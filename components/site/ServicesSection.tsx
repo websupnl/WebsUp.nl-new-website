@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight, CheckCircle, LucideIcon } from 'lucide-react'
+import { Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight, CheckCircle, MessageCircle, LucideIcon } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import Reveal from '@/components/ui/Reveal'
 import GradientIcon from '@/components/site/GradientIcon'
@@ -35,10 +35,10 @@ export default function ServicesSection() {
           <Reveal>
             <span className="overline-badge mb-5 inline-flex">Kies je route</span>
             <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-6xl">
-              Begin met wat nu nodig is. Bouw later verder
+              Wat wil je laten bouwen?
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-slate-500 max-w-xl">
-              Soms is een sterke website genoeg. Soms vraagt je bedrijf om een webshop, klantportaal, dashboard of koppeling. De techniek volgt de vraag, niet andersom.
+              Kies de oplossing die past bij je vraag. Een website, webshop, app of automatisering kan prima op zichzelf staan.
             </p>
             
             <div className="mt-9 grid gap-3">
@@ -114,6 +114,23 @@ export default function ServicesSection() {
                   </Link>                </Reveal>
               )
             })}
+
+            <Reveal delay={360} className="sm:col-span-2">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-6">
+                <p className="max-w-xl text-sm leading-relaxed text-slate-500">
+                  Zoek je iets anders, of weet je nog niet precies welke oplossing past? Stuur mij kort een berichtje, dan denk ik met je mee.
+                </p>
+                <a
+                  href="https://wa.me/31682202148?text=Hoi%20Daan%2C%20ik%20heb%20een%20vraag%20over%20een%20digitale%20oplossing."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-orange-200 hover:text-orange-500"
+                >
+                  <MessageCircle size={15} />
+                  Stuur een berichtje
+                </a>
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>

@@ -76,7 +76,7 @@ export default function WhySection() {
           <Reveal>
             <div className="max-w-xl">
               <div className="text-xs font-bold uppercase tracking-[0.18em] text-orange-500">
-                Geen standaard pakket. Wel een aanpak die past.
+                Een aanpak die past
               </div>
               <p className="mt-5 text-lg leading-relaxed text-slate-600">
                 Niet ieder bedrijf heeft hetzelfde nodig. Daarom kijk ik niet vanuit een vast stramien, maar vanuit jouw situatie. Soms is een website de juiste stap. Soms zit de winst juist in een koppeling, calculator, portaal of intern systeem.

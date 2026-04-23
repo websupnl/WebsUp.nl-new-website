@@ -27,25 +27,25 @@ type ServiceMeta = {
 const SERVICE_META: Record<string, ServiceMeta> = {
   websites: {
     title: 'Websites',
-    headline: 'Een website die werkt als een sterke basis voor je bedrijf.',
+    headline: 'Een sterke basis voor je bedrijf',
     description:
       'Een goede website moet meer doen dan er netjes uitzien. WebsUp bouwt websites die professioneel overkomen, duidelijk vertellen wat je doet en gericht zijn op contact, aanvragen en groei. Snel, logisch opgebouwd en afgestemd op jouw bedrijf.',
   },
   webshops: {
     title: 'Webshops',
-    headline: 'Een webshop die verkoop makkelijker maakt.',
+    headline: 'Een webshop die verkoop makkelijker maakt',
     description:
       'Voor bedrijven die online willen verkopen met een sterke shop, slimme flow en ruimte om verder door te groeien.',
   },
   'apps-dashboards': {
     title: 'Apps & Dashboards',
-    headline: 'Overzicht en grip met een systeem dat past.',
+    headline: 'Overzicht en grip met een systeem dat past',
     description:
       'Voor bedrijven die vastlopen in losse tools, handmatig werk of gebrek aan overzicht.',
   },
   automatisering: {
     title: 'Automatisering',
-    headline: 'Minder handmatig werk. Meer rust en overzicht.',
+    headline: 'Minder handmatig werk, meer overzicht',
     description:
       'Slimme koppelingen en automatiseringen voor processen die sneller, duidelijker en betrouwbaarder kunnen.',
   },
@@ -151,7 +151,7 @@ function WebsitesServicePage() {
     <div>
       <WavePageHeader
         badge="Diensten"
-        title="Een website die werkt als een sterke basis voor je bedrijf."
+        title="Een sterke basis voor je bedrijf"
         subtitle="Een goede website moet meer doen dan er netjes uitzien. WebsUp bouwt websites die professioneel overkomen, duidelijk vertellen wat je doet en gericht zijn op contact, aanvragen en groei. Snel, logisch opgebouwd en afgestemd op jouw bedrijf."
       >
         <div className="flex flex-wrap items-center gap-3">
@@ -187,7 +187,7 @@ function WebsitesServicePage() {
           <Reveal>
             <span className="overline-badge mb-4 inline-flex">Waarom een goede website telt</span>
             <h2 className="max-w-xl font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-              Je website moet niet alleen mooi zijn. Hij moet duidelijk werken
+              Een website die duidelijk werkt
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-500">
               Voor veel bedrijven is de website de eerste echte indruk. Dan moet direct duidelijk zijn wie je bent, wat je doet en waarom iemand voor jou zou kiezen. Daarom bouwen we websites die vertrouwen geven, logisch zijn opgebouwd en gericht zijn op resultaat, zonder onnodige poespas.
@@ -347,7 +347,7 @@ function WebsitesServicePage() {
               <div className="p-7 text-white lg:p-10">
                 <div className="text-sm font-semibold text-white/88">Daarna eventueel verder bouwen</div>
                 <h3 className="mt-5 font-headline text-2xl font-bold text-white">
-            Soms begint het met een website. Daarna bouw je verder
+            Van website naar digitaal systeem
                 </h3>
                 <p className="mt-4 max-w-lg text-base leading-relaxed text-white/62">
                   Heeft je bedrijf later meer nodig, dan kan WebsUp ook verder helpen met webshops, dashboards, portals, koppelingen en automatisering. Geen losse tools als het slimmer als geheel kan.

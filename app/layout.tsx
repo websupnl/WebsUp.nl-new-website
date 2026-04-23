@@ -4,6 +4,7 @@ import './globals.css'
 import { siteConfig } from '@/config/site.config'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { AppFeedbackProvider } from '@/components/ui/AppFeedbackProvider'
+import FreeDesignModalProvider from '@/components/site/FreeDesignModalProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -99,6 +100,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col antialiased" suppressHydrationWarning>
         <AppFeedbackProvider>
           {children}
+          <FreeDesignModalProvider />
           <SpeedInsights />
         </AppFeedbackProvider>
       </body>

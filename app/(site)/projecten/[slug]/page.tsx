@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, CheckCircle, ExternalLink } from 'lucide-react'
 import CTASection from '@/components/site/CTASection'
 import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
+import { LinkPreview } from '@/components/ui/link-preview'
 import { getAllProjectSlugs, getProjectBySlug } from '@/lib/queries/projects'
 
 interface Props {
@@ -67,14 +68,14 @@ export default async function ProjectDetailPage({ params }: Props) {
             Alle projecten
           </Link>
           {project.website_url && (
-            <a
-              href={project.website_url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <LinkPreview
+              url={project.website_url}
+              isStatic
+              imageSrc={project.image_url}
               className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-slate-900 text-sm font-semibold hover:bg-white/90 transition-colors"
             >
-              Bekijk website <ExternalLink size={14} />
-            </a>
+              Bekijk site <ExternalLink size={14} />
+            </LinkPreview>
           )}
         </div>
       </WavePageHeader>

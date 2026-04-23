@@ -7,6 +7,7 @@ import { ArrowLeft, Calendar, Clock } from 'lucide-react'
 import { getNewsArticleBySlug, getAllNewsSlugs } from '@/lib/queries/news'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
+import AuthorSpotlightCard from '@/components/site/AuthorSpotlightCard'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -102,6 +103,10 @@ export default async function BlogArticlePage({ params }: Props) {
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
         )}
+
+        <Reveal className="mt-14 border-t border-slate-100 pt-10">
+          <AuthorSpotlightCard compact className="mx-auto" />
+        </Reveal>
       </article>
 
       <CTASection />

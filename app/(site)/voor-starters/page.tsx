@@ -70,7 +70,7 @@ export default function VoorStartersPage() {
       <WavePageHeader
         badge="Voor starters"
         title="Een sterk idee verdient"
-        titleHighlight="een goede start."
+        titleHighlight="een goede start"
         subtitle="Sta je aan het begin van een nieuw bedrijf, product of concept? Dan hoeft niet alles meteen groots en ingewikkeld te zijn. Soms is een slimme eerste stap juist het belangrijkst. WebsUp helpt starters en startups met een sterke basis waarmee je professioneel kunt beginnen en later kunt doorgroeien."
       >
         <div className="flex flex-wrap items-center gap-3">
@@ -189,7 +189,7 @@ export default function VoorStartersPage() {
             <Reveal className="rounded-[2rem] border border-slate-100 bg-slate-50 p-7 lg:p-10">
               <span className="overline-badge mb-4 inline-flex">Hoe het werkt</span>
               <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-                Eerst duidelijkheid. Daarna pas bouwen
+                Eerst duidelijkheid, dan bouwen
               </h2>
 
               <div className="mt-8 space-y-5">
