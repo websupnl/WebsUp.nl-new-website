@@ -48,8 +48,8 @@ export default function CTASection({
               />
             </div>
 
-            <div className="relative z-10 mx-auto w-full max-w-7xl px-10 py-16 md:px-16">
-              <div className="max-w-xl">
+            <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-8 md:px-10 md:py-10">
+              <div className="liquid-glass-dark max-w-2xl p-6 shadow-[0_24px_80px_rgba(0,0,0,0.20)] sm:p-8">
                 <span
                   className="mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.08em]"
                   style={{
@@ -84,10 +84,10 @@ export default function CTASection({
                   </Link>
                   <a
                     href={secondaryHref}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-px hover:border-white/30 hover:bg-white/15"
+                    className="btn-glass-dark inline-flex items-center gap-2 px-6 py-3.5 text-sm"
                   >
                     <Mail size={14} />
-                    {secondaryLabel}
+                    <span>{secondaryLabel}</span>
                   </a>
                 </div>
 

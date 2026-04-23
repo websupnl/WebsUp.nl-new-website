@@ -62,7 +62,7 @@ export default function HeroSection({
         </div>
 
         <div className="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-44">
-          <div className="w-full max-w-[820px]">
+          <div className="liquid-glass-dark w-full max-w-[860px] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-8 lg:p-10">
             <p className="mb-6 text-sm font-medium text-white/50">
               Websites en digitale systemen voor ondernemers die serieus door willen
             </p>
@@ -85,7 +85,7 @@ export default function HeroSection({
             </h1>
 
             <p className="mb-10 max-w-[56ch] text-base leading-relaxed text-white/60 md:text-lg">
-              WebsUp helpt MKB&apos;ers, dienstverleners en technische bedrijven aan een sterke online basis. Eerst duidelijk en professioneel zichtbaar. Daarna uitbreidbaar met webshops, dashboards, koppelingen of automatisering als je bedrijf daarom vraagt.
+              WebsUp bouwt websites, webshops, apps en automatiseringen voor MKB&apos;ers, dienstverleners en technische bedrijven. Los wanneer dat genoeg is, gekoppeld wanneer dat slimmer werkt.
             </p>
 
             <div className="mb-12 flex flex-wrap gap-3">
@@ -99,9 +99,9 @@ export default function HeroSection({
               {secondaryCtaLabel && secondaryCtaHref && (
                 <Link
                   href={secondaryCtaHref}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-150 hover:-translate-y-px hover:border-white/30 hover:bg-white/15"
+                  className="btn-glass-dark inline-flex items-center gap-2 px-6 py-3.5 text-sm"
                 >
-                  {secondaryCtaLabel}
+                  <span>{secondaryCtaLabel}</span>
                 </Link>
               )}
             </div>
