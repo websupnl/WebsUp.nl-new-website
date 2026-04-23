@@ -71,7 +71,7 @@ export default function HeroSection({
               className="mb-7 font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-white"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
             >
-              Een website die vertrouwen geeft.{' '}
+              Websites die{' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #ec4899 45%, #a78bfa 100%)',
@@ -80,7 +80,7 @@ export default function HeroSection({
                   backgroundClip: 'text',
                 }}
               >
-                Een systeem dat meegroeit
+                vertrouwen geven
               </span>
             </h1>
 

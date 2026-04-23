@@ -35,7 +35,7 @@ export default function ServicesSection() {
           <Reveal>
             <span className="overline-badge mb-5 inline-flex">Kies je route</span>
             <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-6xl">
-              Begin met wat nu nodig is. Bouw later verder
+              Begin met wat nu nodig is
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-slate-500 max-w-xl">
               Soms is een sterke website genoeg. Soms vraagt je bedrijf om een webshop, klantportaal, dashboard of koppeling. De techniek volgt de vraag, niet andersom.
