@@ -15,11 +15,6 @@ export const metadata: Metadata = {
   description: 'Praktische artikelen, tips en handleidingen over webdevelopment, SEO, automatisering en digitale groei.',
 }
 
-function readingTime(content?: string | null): number {
-  if (!content) return 3
-  return Math.max(1, Math.round(content.split(' ').length / 200))
-}
-
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString('nl-NL', {
     day: 'numeric',
@@ -49,19 +44,29 @@ export default async function KennisbankPage() {
         subtitle="Artikelen, handleidingen en tips over websites, online vindbaarheid, automatisering en digitale groei."
       />
 
-      <div className="bg-white py-10">
+      <div className="bg-slate-50 py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-4 max-w-2xl">
+          <div className="mb-6 grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+            <div className="max-w-2xl">
             <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">Populaire onderwerpen</div>
             <p className="mt-2 text-sm leading-relaxed text-slate-500">
               Niet technisch ingestoken, maar gewoon in duidelijke taal. Dit zijn de onderwerpen waar ondernemers meestal mee zitten.
             </p>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-3">
-            {categories.map((cat) => (
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {categories.slice(0, 4).map((cat, index) => (
               <Tooltip key={cat.label} content={cat.tip}>
-                <span className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-600 transition-colors hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600">
+                <span className="liquid-glass-light block min-h-[132px] cursor-default p-5 transition-transform hover:-translate-y-1">
+                  <span className="mb-3 block text-xs font-bold uppercase tracking-[0.12em] text-slate-400">
+                    0{index + 1}
+                  </span>
+                  <span className="block text-base font-bold leading-tight text-slate-900">
                   {cat.label}
+                  </span>
+                  <span className="mt-3 block text-sm leading-relaxed text-slate-500">
+                    {cat.tip}
+                  </span>
                 </span>
               </Tooltip>
             ))}

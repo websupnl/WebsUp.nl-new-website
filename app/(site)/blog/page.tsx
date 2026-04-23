@@ -14,11 +14,6 @@ export const metadata: Metadata = {
   description: 'Inzichten, tips en updates over webdevelopment, automatisering en digitale groei.',
 }
 
-function readingTime(content?: string | null): number {
-  if (!content) return 2
-  return Math.max(1, Math.round(content.split(' ').length / 200))
-}
-
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString('nl-NL', {
     day: 'numeric',

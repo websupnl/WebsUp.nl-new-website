@@ -60,40 +60,45 @@ export default async function ProjectenPage() {
 
       <section className="bg-white py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <Reveal className="mb-14">
-            <span className="overline-badge mb-4 inline-flex">Uitgelichte projecten</span>
-            <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-slate-900 tracking-[-0.02em] leading-[1.08]">
-                      Werk dat past bij de praktijk
+          <Reveal className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+            <div>
+              <span className="overline-badge mb-4 inline-flex">Uitgelichte projecten</span>
+              <h2 className="font-headline max-w-2xl text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.08]">
+                Werk dat past bij de praktijk
             </h2>
+            </div>
+            <p className="max-w-xl text-base leading-relaxed text-slate-500 md:text-lg lg:justify-self-end">
+              Dezelfde strakke kaartstijl als op de homepage, maar met meer ruimte om projecten naast elkaar te vergelijken.
+            </p>
           </Reveal>
 
-          <div className="space-y-16">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {featured.map((project, index) => (
               <Reveal key={project.slug} delay={index * 50}>
-                <article className={`grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-                  <div className="relative">
-                    <div className="absolute -inset-4 rounded-[2rem] bg-slate-100/70 blur-2xl" />
-                    <div className="relative rounded-[1.75rem] overflow-hidden border border-slate-200 bg-slate-50">
-                      <img
-                        src={project.image_url}
-                        alt={project.title}
-                        className="w-full aspect-[16/10] object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
+                <article className="group feature-card flex h-full flex-col overflow-hidden">
+                  <Link href={`/projecten/${project.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-slate-100">
+                    <img
+                      src={project.image_url}
+                      alt={project.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/35 via-transparent to-transparent" />
+                    <span className="absolute left-4 top-4 rounded-full border border-white/45 bg-white/90 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.08em] text-slate-700 backdrop-blur-sm">
+                      {project.category}
+                    </span>
+                  </Link>
 
-                  <div>
-                    <span className="overline-badge mb-4 inline-flex">{project.category}</span>
-                    <h3 className="font-headline text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-                      {project.title}
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="text-xl font-bold leading-tight text-slate-900 transition-colors group-hover:text-orange-500">
+                      <Link href={`/projecten/${project.slug}`}>{project.title}</Link>
                     </h3>
-                    <p className="text-slate-500 leading-relaxed text-base md:text-lg mb-6">
+                    <p className="mt-3 text-sm leading-relaxed text-slate-500">
                       {project.excerpt}
                     </p>
 
-                    <div className="space-y-2.5 mb-8">
-                      {project.highlights.slice(0, 3).map((highlight) => (
+                    <div className="mt-5 space-y-2.5">
+                      {project.highlights.slice(0, 2).map((highlight) => (
                         <div key={highlight} className="flex items-start gap-2.5 text-sm text-slate-600">
                           <CheckCircle size={16} className="mt-0.5 text-orange-500 flex-shrink-0" />
                           <span>{highlight}</span>
@@ -101,10 +106,10 @@ export default async function ProjectenPage() {
                       ))}
                     </div>
 
-                    <div className="flex flex-wrap gap-3">
+                    <div className="mt-auto flex flex-wrap items-center gap-4 border-t border-slate-100 pt-5">
                       <Link
                         href={`/projecten/${project.slug}`}
-                        className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition-colors hover:text-orange-500"
                       >
                         Bekijk project <ArrowRight size={14} />
                       </Link>
@@ -113,9 +118,9 @@ export default async function ProjectenPage() {
                           href={project.website_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-slate-200 text-slate-700 text-sm font-semibold hover:bg-slate-50 transition-colors"
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900"
                         >
-                          Bekijk website <ExternalLink size={14} />
+                          Live website <ExternalLink size={14} />
                         </a>
                       )}
                     </div>
@@ -139,7 +144,7 @@ export default async function ProjectenPage() {
             <div className="grid md:grid-cols-2 gap-6">
               {rest.map((project, index) => (
                 <Reveal key={project.slug} delay={index * 40}>
-                  <article className="h-full rounded-[1.5rem] border border-slate-200 bg-white overflow-hidden">
+                  <article className="feature-card h-full overflow-hidden">
                     <img
                       src={project.image_url}
                       alt={project.title}
@@ -148,7 +153,7 @@ export default async function ProjectenPage() {
                     />
                     <div className="p-7">
                       <span className="overline-badge mb-4 inline-flex">{project.category}</span>
-                      <h3 className="font-headline text-2xl font-bold text-slate-900 mb-3">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3">
                         {project.title}
                       </h3>
                       <p className="text-slate-500 text-sm leading-relaxed mb-5">{project.excerpt}</p>

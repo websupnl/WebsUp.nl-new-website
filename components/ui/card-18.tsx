@@ -1,110 +1,97 @@
-import * as React from 'react';
-import Link from 'next/link';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+'use client'
 
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import * as React from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 
-// CVA for card variants
-const cardVariants = cva(
-  'group relative flex flex-col overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300 ease-in-out hover:shadow-md',
-  {
-    variants: {
-      variant: {
-        default: 'p-6',
-        featured: 'flex-col md:flex-row',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
-);
+import { cn } from '@/lib/utils'
 
-// Interface for component props
-export interface BlogPostCardProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardVariants> {
-  tag: string;
-  date: string;
-  title: string;
-  description: string;
-  imageUrl?: string;
-  href: string;
-  readMoreText?: string;
+export interface BlogPostCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  tag: string
+  date: string
+  title: string
+  description: string
+  imageUrl?: string
+  href: string
+  readMoreText?: string
+  variant?: 'default' | 'featured'
 }
 
+const fallbackImage = '/hero-bg.png'
+
 const BlogPostCard = React.forwardRef<HTMLDivElement, BlogPostCardProps>(
-  ({ className, variant, tag, date, title, description, imageUrl, href, readMoreText = 'Lees het volledige artikel', ...props }, ref) => {
-    
-    // Animation variants for framer-motion
-    const cardHover = {
-      hover: {
-        y: -5,
-        transition: {
-          duration: 0.2,
-          ease: [0.22, 1, 0.36, 1] as const,
-        },
-      },
-    };
-    
-    const content = (
-      <>
-        {variant === 'featured' && imageUrl && (
-          <div className="relative w-full overflow-hidden md:w-1/2 lg:w-3/5">
-            <img
-              src={imageUrl}
-              alt={title}
-              className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-            />
-          </div>
-        )}
-
-        <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
-          <div>
-            <div className="mb-4 flex items-center gap-4 text-xs font-semibold uppercase text-muted-foreground">
-              <span className="rounded-full bg-primary/10 px-3 py-1 text-primary">{tag}</span>
-              <span>{date}</span>
-            </div>
-
-            <h3 className="mb-3 text-xl font-bold leading-tight text-foreground lg:text-2xl">
-              <span className="bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 group-hover:bg-[length:100%_2px]">
-                {title}
-              </span>
-            </h3>
-            
-            <p className="text-muted-foreground">{description}</p>
-          </div>
-
-          {variant === 'featured' && (
-            <div className="mt-8">
-                <Button variant="default" className="group/button">
-                    {readMoreText}
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
-                </Button>
-            </div>
-          )}
-        </div>
-      </>
-    );
+  (
+    {
+      className,
+      variant = 'default',
+      tag,
+      date,
+      title,
+      description,
+      imageUrl,
+      href,
+      readMoreText = 'Lees meer',
+      ...props
+    },
+    ref
+  ) => {
+    const isFeatured = variant === 'featured'
 
     return (
       <motion.div
         ref={ref}
-        className={cn(cardVariants({ variant, className }))}
-        variants={cardHover as any}
-        whileHover="hover"
-        {...(props as any)}
+        whileHover={{ y: -4 }}
+        transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        className={cn(
+          'group feature-card relative flex h-full overflow-hidden',
+          isFeatured ? 'min-h-[360px] flex-col md:flex-row' : 'flex-col',
+          className
+        )}
+        {...props}
       >
         <Link href={href} className="absolute inset-0 z-10" aria-label={`Lees meer over ${title}`}>
           <span className="sr-only">Lees meer</span>
         </Link>
-        <div className="relative z-0 flex h-full w-full flex-col md:flex-row">{content}</div>
+
+        <div className={cn('relative overflow-hidden bg-slate-100', isFeatured ? 'min-h-[260px] md:w-[46%]' : 'aspect-[16/10]')}>
+          <img
+            src={imageUrl || fallbackImage}
+            alt={title}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading={isFeatured ? 'eager' : 'lazy'}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/35 via-transparent to-transparent" />
+          <span className="absolute left-4 top-4 rounded-full border border-white/45 bg-white/90 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.08em] text-slate-700 backdrop-blur-sm">
+            {tag}
+          </span>
+        </div>
+
+        <div className={cn('flex flex-1 flex-col', isFeatured ? 'p-8 lg:p-10' : 'p-6')}>
+          <div className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
+            {date}
+          </div>
+
+          <h3 className={cn('font-bold leading-tight text-slate-900 transition-colors group-hover:text-orange-500', isFeatured ? 'text-3xl md:text-4xl' : 'text-xl')}>
+            {title}
+          </h3>
+
+          <p className={cn('mt-3 leading-relaxed text-slate-500', isFeatured ? 'text-base md:text-lg' : 'text-sm')}>
+            {description}
+          </p>
+
+          <div className="mt-auto pt-6">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition-colors group-hover:text-orange-500">
+              {readMoreText}
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </span>
+          </div>
+        </div>
       </motion.div>
-    );
+    )
   }
-);
+)
 
-BlogPostCard.displayName = 'BlogPostCard';
+BlogPostCard.displayName = 'BlogPostCard'
 
-export { BlogPostCard };
+export { BlogPostCard }
