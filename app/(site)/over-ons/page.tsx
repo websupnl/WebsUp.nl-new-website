@@ -14,6 +14,7 @@ import WavePageHeader from '@/components/site/WavePageHeader'
 import CTASection from '@/components/site/CTASection'
 import Reveal from '@/components/ui/Reveal'
 import GradientIcon from '@/components/site/GradientIcon'
+import GlassStatGrid from '@/components/site/GlassStatGrid'
 import { getTestimonials } from '@/lib/queries/testimonials'
 import type { Testimonial } from '@/types/database.types'
 
@@ -100,23 +101,20 @@ export default async function OverOnsPage() {
           </Link>
         </div>
 
-        <div className="mt-7 flex flex-wrap gap-2">
-          {['Direct contact', 'Korte lijnen', 'Persoonlijk en professioneel'].map((item) => (
-            <span
-              key={item}
-              className="inline-flex rounded-full border border-white/12 bg-white/8 px-3 py-1 text-xs font-semibold text-white/70"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
+        <GlassStatGrid
+          items={[
+            { value: 'Direct contact', label: 'geen tussenlagen' },
+            { value: 'Korte lijnen', label: 'snel schakelen' },
+            { value: 'Persoonlijk', label: 'maar wel professioneel' },
+          ]}
+        />
       </WavePageHeader>
 
       <section className="bg-white py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <Reveal className="overflow-hidden rounded-[2rem] border border-slate-100 bg-slate-50 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
-            <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-              <div className="relative min-h-[26rem]">
+          <div className="grid items-start gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
+            <Reveal className="relative min-h-[26rem] overflow-hidden rounded-lg bg-slate-100">
+              <div className="absolute inset-0">
                 <Image
                   src="/Daan Koolhaas.jpg"
                   alt="Daan Koolhaas van WebsUp"
@@ -124,14 +122,16 @@ export default async function OverOnsPage() {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 45vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/70 via-[#06040c]/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <div className="text-lg font-semibold">Daan Koolhaas</div>
-                  <div className="mt-1 text-sm text-white/72">Direct aanspreekpunt voor jouw project</div>
-                </div>
               </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/70 via-[#06040c]/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <div className="text-lg font-semibold">Daan Koolhaas</div>
+                <div className="mt-1 text-sm text-white/72">Direct aanspreekpunt voor jouw project</div>
+              </div>
+            </Reveal>
 
-              <div className="p-7 lg:p-10">
+            <Reveal>
+              <div>
                 <span className="overline-badge mb-4 inline-flex">Wie er achter WebsUp zit</span>
                 <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
                   Hoi, ik ben Daan
@@ -145,12 +145,12 @@ export default async function OverOnsPage() {
                   </p>
                 </div>
 
-                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-500">
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-slate-500">
                   <MapPin size={14} className="text-orange-500" />
                   Gebaseerd in Friesland, werk voor klanten door heel Nederland.
                 </div>
 
-                <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                <div className="mt-8 space-y-4">
                   {[
                     'Direct contact met degene die bouwt',
                     'Eerlijk advies over wat wel en niet nodig is',
@@ -159,7 +159,7 @@ export default async function OverOnsPage() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className="flex items-start gap-3 rounded-[1.15rem] border border-slate-100 bg-white px-4 py-4 text-sm leading-relaxed text-slate-600"
+                      className="flex items-start gap-3 text-sm leading-relaxed text-slate-600"
                     >
                       <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
                       <span>{item}</span>
@@ -167,16 +167,16 @@ export default async function OverOnsPage() {
                   ))}
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       <section className="bg-white pb-20 lg:pb-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <Reveal className="overflow-hidden rounded-[2rem] border border-slate-100 bg-white shadow-[0_16px_40px_rgba(15,23,42,0.04)]">
-            <div className="grid gap-0 lg:grid-cols-[1.2fr_0.8fr]">
-              <div className="p-7 lg:p-10">
+          <div className="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14 lg:pt-12">
+            <Reveal>
+              <div>
                 <span className="overline-badge mb-4 inline-flex">Waarom dit anders werkt</span>
                 <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
                   Persoonlijk samenwerken, zonder het groter te maken dan het is
@@ -193,8 +193,10 @@ export default async function OverOnsPage() {
                   </p>
                 </div>
               </div>
+            </Reveal>
 
-              <div className="border-t border-slate-100 bg-slate-50 p-7 lg:border-l lg:border-t-0 lg:p-10">
+            <Reveal>
+              <div className="border-t border-slate-200 pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
                 <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
                   In de praktijk
                 </div>
@@ -220,29 +222,31 @@ export default async function OverOnsPage() {
                   ))}
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       <section className="bg-slate-50 py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <Reveal className="rounded-[2rem] bg-[#06040c] p-7 text-white lg:p-10">
-              <span className="overline-badge mb-4 inline-flex">Samenwerken</span>
-              <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] md:text-4xl">
-                Geen ruis, wel duidelijke lijnen
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-white/66">
-                Ik geloof niet in onnodig ingewikkelde trajecten. Het begint meestal gewoon met een gesprek: waar loop je tegenaan, wat wil je neerzetten en wat is daarin de slimste stap?
-              </p>
-              <p className="mt-4 text-lg leading-relaxed text-white/66">
-                Of het nu gaat om een website, webshop of maatwerk digitale oplossing, het doel is altijd hetzelfde. Iets maken dat klopt, goed werkt en waar je op verder kunt bouwen.
-              </p>
+            <Reveal>
+              <div>
+                <span className="overline-badge mb-4 inline-flex">Samenwerken</span>
+                <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
+                  Geen ruis, wel duidelijke lijnen
+                </h2>
+                <p className="mt-5 text-lg leading-relaxed text-slate-500">
+                  Ik geloof niet in onnodig ingewikkelde trajecten. Het begint meestal gewoon met een gesprek: waar loop je tegenaan, wat wil je neerzetten en wat is daarin de slimste stap?
+                </p>
+                <p className="mt-4 text-lg leading-relaxed text-slate-500">
+                  Of het nu gaat om een website, webshop of maatwerk digitale oplossing, het doel is altijd hetzelfde. Iets maken dat klopt, goed werkt en waar je op verder kunt bouwen.
+                </p>
+              </div>
             </Reveal>
 
-            <Reveal className="rounded-[2rem] border border-slate-100 bg-white p-7 lg:p-10">
-              <div className="space-y-5">
+            <Reveal>
+              <div className="space-y-5 border-t border-slate-200 pt-6 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0">
                 {collaborationSteps.map((step, index) => (
                   <div key={step} className="flex items-start gap-4">
                     <div
@@ -256,7 +260,7 @@ export default async function OverOnsPage() {
                 ))}
               </div>
 
-              <div className="mt-8 border-t border-slate-100 pt-6">
+              <div className="mt-8 border-t border-slate-200 pt-6">
                 <div className="text-sm font-semibold text-slate-900">Wat dat in de praktijk betekent</div>
                 <p className="mt-3 text-base leading-relaxed text-slate-500">
                   Geen accountmanager ertussen, geen onnodige vertraging en geen voorstel dat groter wordt gemaakt dan nodig. Wel een traject waarin ontwerp, techniek en logica goed op elkaar aansluiten.
@@ -279,18 +283,18 @@ export default async function OverOnsPage() {
             </p>
           </Reveal>
 
-          <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
             {featuredReview && (
               <Reveal>
-                <article className="h-full rounded-[2rem] bg-[#06040c] p-7 text-white shadow-[0_22px_60px_rgba(15,23,42,0.16)] lg:p-10">
+                <article className="h-full border-t border-slate-200 pt-8">
                   <div className="mb-6 flex items-start justify-between gap-4">
                     <StarRating rating={featuredReview.rating} />
                     <GradientIcon icon={Quote} />
                   </div>
-                  <blockquote className="max-w-2xl font-headline text-2xl font-bold leading-[1.3] text-white md:text-[2rem]">
+                  <blockquote className="max-w-2xl font-headline text-2xl font-bold leading-[1.3] text-slate-900 md:text-[2rem]">
                     &ldquo;{featuredReview.content}&rdquo;
                   </blockquote>
-                  <div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-6">
+                  <div className="mt-8 flex items-center gap-3 border-t border-slate-200 pt-6">
                     <div
                       className="flex h-12 w-12 items-center justify-center rounded-full text-sm font-bold text-white"
                       style={{ background: 'linear-gradient(135deg,#f97316 0%,#ec4899 55%,#a78bfa 100%)' }}
@@ -303,18 +307,18 @@ export default async function OverOnsPage() {
                         .toUpperCase()}
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-white">{featuredReview.name}</div>
-                      <div className="text-xs text-white/45">{featuredReview.role || 'Klant van WebsUp'}</div>
+                      <div className="text-sm font-semibold text-slate-900">{featuredReview.name}</div>
+                      <div className="text-xs text-slate-400">{featuredReview.role || 'Klant van WebsUp'}</div>
                     </div>
                   </div>
                 </article>
               </Reveal>
             )}
 
-            <div className="grid gap-5">
+            <div className="border-t border-slate-200">
               {sideReviews.map((testimonial, index) => (
                 <Reveal key={testimonial.id} delay={index * 80}>
-                  <article className="rounded-[1.6rem] border border-slate-100 bg-slate-50 p-6 shadow-[0_12px_40px_rgba(15,23,42,0.04)]">
+                  <article className="border-b border-slate-200 py-6 last:border-b-0">
                     <div className="mb-4 flex items-start justify-between gap-4">
                       <StarRating rating={testimonial.rating} />
                       <GradientIcon icon={Quote} size="sm" />

@@ -1,18 +1,22 @@
 'use client'
 
+import { siteConfig } from '@/config/site.config'
+import { createWhatsAppHref } from '@/lib/utils'
+
 export default function WhatsAppButton() {
+  const whatsappHref = createWhatsAppHref(
+    siteConfig.phone,
+    'Hoi Daan, ik heb een vraag over mijn website of digitale systeem.'
+  )
+
   return (
     <a
-      href="https://wa.me/316XXXXXXXX"
+      href={whatsappHref}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contact via WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-200 group"
+      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-white/85 bg-[#25D366] shadow-[0_16px_40px_rgba(17,24,39,0.18)] transition-transform duration-200 hover:scale-105 active:scale-95"
     >
-      {/* Subtle pulse ring */}
-      <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping" style={{ animationDuration: '2.5s' }} />
-
-      {/* WhatsApp icon */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 32 32"

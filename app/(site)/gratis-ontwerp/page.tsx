@@ -5,6 +5,7 @@ import WavePageHeader from '@/components/site/WavePageHeader'
 import Reveal from '@/components/ui/Reveal'
 import FreeDesignForm from '@/components/site/FreeDesignForm'
 import GradientIcon from '@/components/site/GradientIcon'
+import GlassStatGrid from '@/components/site/GlassStatGrid'
 
 export const metadata: Metadata = {
   title: 'Gratis ontwerp aanvragen',
@@ -62,18 +63,13 @@ export default function GratisOntwerpPage() {
           </Link>
         </div>
 
-        <div className="mt-7 grid gap-3 sm:grid-cols-3">
-          {[
-            { value: 'Gratis', label: 'eerste richting' },
-            { value: 'Binnen 1 werkdag', label: 'persoonlijke reactie' },
-            { value: 'Vrijblijvend', label: 'geen verplichtingen' },
-          ].map((item) => (
-            <div key={item.label} className="liquid-glass-dark px-4 py-3">
-              <div className="text-sm font-semibold text-white">{item.value}</div>
-              <div className="mt-0.5 text-xs text-white/55">{item.label}</div>
-            </div>
-          ))}
-        </div>
+        <GlassStatGrid
+          items={[
+            { icon: Sparkles, value: 'Gratis', label: 'eerste richting' },
+            { icon: Clock, value: 'Binnen 1 werkdag', label: 'persoonlijke reactie' },
+            { icon: MessageCircle, value: 'Vrijblijvend', label: 'geen verplichtingen' },
+          ]}
+        />
       </WavePageHeader>
 
       <section id="aanvragen" className="bg-slate-50 py-16 lg:py-24">
@@ -87,16 +83,16 @@ export default function GratisOntwerpPage() {
               Een gratis ontwerp is bedoeld om snel helder te krijgen wat visueel en inhoudelijk logisch is. Soms is dat een homepage richting, soms juist advies over structuur, aanbod of techniek.
             </p>
 
-            <div className="mt-8 space-y-3">
+            <div className="mt-8 border-y border-slate-200">
               {benefits.map((benefit) => (
-                <div key={benefit} className="flex items-start gap-3 rounded-xl border border-slate-100 bg-white px-4 py-4 text-sm leading-relaxed text-slate-600">
+                <div key={benefit} className="flex items-start gap-3 border-b border-slate-200 py-4 text-sm leading-relaxed text-slate-600 last:border-b-0">
                   <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
                   <span>{benefit}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 flex items-center gap-3 rounded-xl border border-orange-100 bg-orange-50 px-4 py-4 text-sm text-orange-800">
+            <div className="mt-6 flex items-center gap-3 border-t border-slate-200 pt-6 text-sm text-slate-600">
               <Clock size={17} className="flex-shrink-0" />
               Reageer ik niet inhoudelijk binnen een werkdag, dan stuur ik je in elk geval wanneer je reactie komt.
             </div>
@@ -120,16 +116,18 @@ export default function GratisOntwerpPage() {
             </p>
           </Reveal>
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="border-t border-slate-200">
             {steps.map((step, index) => {
               const Icon = step.icon
 
               return (
                 <Reveal key={step.title} delay={index * 80}>
-                  <div className="h-full rounded-xl border border-slate-100 bg-slate-50 p-6">
-                    <GradientIcon icon={Icon} className="mb-4" />
-                    <h3 className="font-headline text-xl font-bold text-slate-900">{step.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-500">{step.text}</p>
+                  <div className="grid gap-4 border-b border-slate-200 py-6 lg:grid-cols-[14rem_1fr] lg:items-start">
+                    <div className="flex items-center gap-4">
+                      <GradientIcon icon={Icon} size="sm" />
+                      <h3 className="font-headline text-xl font-bold text-slate-900">{step.title}</h3>
+                    </div>
+                    <p className="text-sm leading-relaxed text-slate-500">{step.text}</p>
                   </div>
                 </Reveal>
               )

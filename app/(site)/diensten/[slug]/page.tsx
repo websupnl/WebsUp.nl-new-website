@@ -17,6 +17,7 @@ import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import CTASection from '@/components/site/CTASection'
 import GradientIcon from '@/components/site/GradientIcon'
+import GlassStatGrid from '@/components/site/GlassStatGrid'
 
 type ServiceMeta = {
   title: string
@@ -170,16 +171,13 @@ function WebsitesServicePage() {
           </Link>
         </div>
 
-        <div className="mt-7 flex flex-wrap gap-2">
-          {['Professionele uitstraling', 'Duidelijke structuur', 'Klaar om op door te bouwen'].map((item) => (
-            <span
-              key={item}
-              className="inline-flex rounded-full border border-white/12 bg-white/8 px-3 py-1 text-xs font-semibold text-white/70"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
+        <GlassStatGrid
+          items={[
+            { value: 'Professionele uitstraling', label: 'sterke eerste indruk' },
+            { value: 'Duidelijke structuur', label: 'snel helder voor bezoekers' },
+            { value: 'Door te bouwen', label: 'klaar voor later' },
+          ]}
+        />
       </WavePageHeader>
 
       <section className="bg-white py-20 lg:py-24">
@@ -194,16 +192,18 @@ function WebsitesServicePage() {
             </p>
           </Reveal>
 
-          <div className="grid gap-4">
+          <div className="border-t border-slate-200">
             {websiteResults.map((item, index) => {
               const Icon = item.icon
 
               return (
                 <Reveal key={item.title} delay={index * 70}>
-                  <div className="rounded-[1.75rem] border border-slate-100 bg-slate-50 p-6">
-                    <GradientIcon icon={Icon} className="mb-4" />
-                    <h3 className="font-headline text-xl font-bold text-slate-900">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.text}</p>
+                  <div className="flex items-start gap-4 border-b border-slate-200 py-6 last:border-b-0">
+                    <GradientIcon icon={Icon} size="sm" />
+                    <div>
+                      <h3 className="font-headline text-xl font-bold text-slate-900">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.text}</p>
+                    </div>
                   </div>
                 </Reveal>
               )
@@ -224,9 +224,8 @@ function WebsitesServicePage() {
             </p>
           </Reveal>
 
-          <div className="overflow-hidden rounded-[2rem] border border-slate-100 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.06)]">
-            <div className="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]">
-              <div className="relative min-h-[22rem]">
+          <div className="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14 lg:pt-12">
+            <div className="relative min-h-[22rem] overflow-hidden rounded-lg bg-slate-100">
                 <Image
                   src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=80"
                   alt="Webdesign en websites op maat"
@@ -236,16 +235,16 @@ function WebsitesServicePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/82 via-[#06040c]/24 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
-                  <div className="inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white/80 backdrop-blur-sm">
+                  <div className="inline-flex text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
                     Sterke basis
                   </div>
                   <p className="mt-4 max-w-lg text-base leading-relaxed text-white/72">
                     Professioneel ontwerp, sterke structuur en een website die klaar is om later verder op uit te bouwen.
                   </p>
                 </div>
-              </div>
+            </div>
 
-              <div className="p-7 lg:p-8">
+            <div>
                 <div className="mb-5">
                   <div className="font-headline text-2xl font-bold text-slate-900">Inbegrepen waar nodig</div>
                   <div className="mt-2 text-sm leading-relaxed text-slate-400">
@@ -253,15 +252,14 @@ function WebsitesServicePage() {
                   </div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="border-y border-slate-200">
                   {websiteIncludes.map((item) => (
-                    <div key={item} className="flex items-start gap-3 rounded-[1.1rem] border border-slate-100 bg-slate-50 px-4 py-3">
+                    <div key={item} className="flex items-start gap-3 border-b border-slate-200 py-4 last:border-b-0">
                       <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
                       <span className="text-sm leading-relaxed text-slate-600">{item}</span>
                     </div>
                   ))}
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -279,25 +277,24 @@ function WebsitesServicePage() {
             </p>
           </Reveal>
 
-          <div className="overflow-hidden rounded-[2rem] border border-slate-100 bg-slate-50 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
-            <div className="grid gap-0 lg:grid-cols-[0.86fr_1.14fr]">
-              <div className="border-b border-slate-100 p-7 lg:border-b-0 lg:border-r lg:p-10">
-                <div className="inline-flex rounded-full border border-orange-100 bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-600">
+          <div className="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-[0.86fr_1.14fr] lg:gap-14 lg:pt-12">
+            <div>
+                <div className="inline-flex text-xs font-semibold uppercase tracking-[0.14em] text-orange-500">
                   Stap voor stap
                 </div>
                 <h3 className="mt-5 font-headline text-2xl font-bold text-slate-900 md:text-[2rem]">
-                Geen ingewikkeld traject, wel een duidelijke route
+                  Geen ingewikkeld traject, wel een duidelijke route
                 </h3>
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-500">
                   Je hoeft vooraf niet alles al uitgewerkt te hebben. We brengen eerst scherp in kaart wat de website moet doen, waarna ontwerp, inhoud en techniek logisch op elkaar aansluiten.
                 </p>
-              </div>
+            </div>
 
-              <div className="p-7 lg:p-10">
+            <div className="border-t border-slate-200 pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
                 <div className="space-y-5">
                   {websiteSteps.map((step, index) => (
                     <Reveal key={step.title} delay={index * 70}>
-                      <div className="flex items-start gap-4 border-b border-slate-100 pb-5 last:border-b-0 last:pb-0">
+                      <div className="flex items-start gap-4 border-b border-slate-200 pb-5 last:border-b-0 last:pb-0">
                         <div
                           className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl text-sm font-bold text-white"
                           style={{ background: 'linear-gradient(135deg,#f97316 0%,#ec4899 55%,#a78bfa 100%)' }}
@@ -312,20 +309,19 @@ function WebsitesServicePage() {
                     </Reveal>
                   ))}
                 </div>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-24">
+      <section className="bg-[#06040c] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <Reveal className="overflow-hidden rounded-[2rem] bg-[#06040c] shadow-[0_22px_60px_rgba(15,23,42,0.18)]">
-            <div className="grid gap-0 lg:grid-cols-[1.08fr_0.92fr]">
-              <div className="border-b border-white/10 p-7 text-white lg:border-b-0 lg:border-r lg:p-10">
+          <Reveal>
+            <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
+              <div className="text-white">
                 <span className="overline-badge mb-4 inline-flex">Waarom WebsUp</span>
                 <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] md:text-4xl">
-                Persoonlijk contact, technisch sterk en praktisch ingestoken
+                  Persoonlijk contact, technisch sterk en praktisch ingestoken
                 </h2>
                 <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/64">
                   Je schakelt direct met degene die meedenkt en bouwt. Geen ruis, geen onnodige lagen en geen traject dat ingewikkelder wordt gemaakt dan nodig. Wel een website die past bij jouw bedrijf en ruimte laat om verder te bouwen als dat later nodig is.
@@ -344,22 +340,22 @@ function WebsitesServicePage() {
                 </div>
               </div>
 
-              <div className="p-7 text-white lg:p-10">
+              <div className="border-t border-white/10 pt-6 text-white lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
                 <div className="text-sm font-semibold text-white/88">Daarna eventueel verder bouwen</div>
                 <h3 className="mt-5 font-headline text-2xl font-bold text-white">
-            Van website naar digitaal systeem
+                  Van website naar digitaal systeem
                 </h3>
                 <p className="mt-4 max-w-lg text-base leading-relaxed text-white/62">
                   Heeft je bedrijf later meer nodig, dan kan WebsUp ook verder helpen met webshops, dashboards, portals, koppelingen en automatisering. Geen losse tools als het slimmer als geheel kan.
                 </p>
 
-                <div className="mt-8 divide-y divide-white/10 rounded-[1.5rem] border border-white/10 bg-white/5">
+                <div className="mt-8 divide-y divide-white/10 border-y border-white/10">
                   {serviceProgression.map((service) => {
                     return (
                       <Link
                         key={service.slug}
                         href={`/diensten/${service.slug}`}
-                        className="group flex items-center justify-between px-5 py-4 transition-colors hover:bg-white/5"
+                        className="group flex items-center justify-between py-4 transition-colors hover:text-orange-300"
                       >
                         <div className="pr-4">
                           <div className="text-sm font-semibold text-white">{service.title}</div>
@@ -430,18 +426,20 @@ function GenericServicePage({ slug, service }: { slug: string; service: ServiceM
           <Reveal className="mb-8">
             <h2 className="font-headline text-2xl font-bold text-slate-900">Andere diensten</h2>
           </Reveal>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="border-t border-slate-200">
             {otherServices.map(([key, item]) => (
               <Link
                 key={key}
                 href={`/diensten/${key}`}
-                className="group rounded-[1.5rem] border border-slate-100 bg-white p-6 transition-all hover:border-orange-200 hover:shadow-sm"
+                className="group flex items-start justify-between gap-6 border-b border-slate-200 py-5 transition-colors hover:text-orange-500"
               >
-                <div className="font-headline text-xl font-bold text-slate-900 transition-colors group-hover:text-orange-500">
-                  {item.title}
+                <div>
+                  <div className="font-headline text-xl font-bold text-slate-900 transition-colors group-hover:text-orange-500">
+                    {item.title}
+                  </div>
+                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-500">{item.description}</p>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-slate-500">{item.description}</p>
-                <div className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-orange-500">
+                <div className="inline-flex items-center gap-1 self-center text-sm font-semibold text-orange-500">
                   Meer info <ArrowRight size={13} />
                 </div>
               </Link>

@@ -5,7 +5,6 @@ import { Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight, CheckCircle, L
 import { siteConfig } from '@/config/site.config'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
-import { Tooltip } from '@/components/ui/tooltip-card'
 import GradientIcon from '@/components/site/GradientIcon'
 
 export const metadata: Metadata = {
@@ -66,11 +65,12 @@ export default function DienstenPage() {
               </h2>
             </div>
             <p className="max-w-xl text-base leading-relaxed text-slate-500 md:text-lg lg:justify-self-end">
-              Vier routes naast elkaar. Rustig genoeg om te scannen, met dezelfde glass- en gradient-accenten als de gratis ontwerp pagina.
+              Vier heldere richtingen voor bedrijven die professioneel zichtbaar willen zijn, online willen verkopen of slimmer willen werken.
             </p>
           </Reveal>
 
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="border-t border-slate-200">
+            <div className="grid gap-0 xl:grid-cols-4">
             {siteConfig.services.map((service, i) => {
               const Icon = iconMap[service.icon] ?? Zap
               const slug = serviceSlug[service.title] ?? 'websites'
@@ -79,14 +79,14 @@ export default function DienstenPage() {
                 <Reveal key={service.title} delay={i * 60}>
                   <Link
                     href={`/diensten/${slug}`}
-                    className="group liquid-glass-light flex min-h-[360px] flex-col p-6 transition-transform duration-300 hover:-translate-y-1"
+                    className="group flex h-full flex-col border-b border-slate-200 py-7 xl:min-h-[24rem] xl:px-6 xl:first:pl-0 xl:last:pr-0 xl:[&:not(:first-child)]:border-l xl:[&:not(:first-child)]:border-slate-200"
                   >
                     <div className="flex flex-1 flex-col">
                       <div className="mb-6 flex items-start justify-between gap-4">
-                        <GradientIcon icon={Icon} size="md" innerClassName="bg-white/90" />
+                        <GradientIcon icon={Icon} size="md" />
                         <ArrowRight
                           size={16}
-                          className="mt-2 flex-shrink-0 text-slate-400 transition-all duration-200 group-hover:translate-x-1 group-hover:text-orange-500"
+                          className="mt-2 flex-shrink-0 text-slate-300 transition-all duration-200 group-hover:translate-x-1 group-hover:text-orange-500"
                         />
                       </div>
 
@@ -103,7 +103,7 @@ export default function DienstenPage() {
                         {service.description}
                       </p>
 
-                      <ul className="space-y-2 border-t border-white/70 pt-5">
+                      <ul className="space-y-2 border-t border-slate-200 pt-5">
                         {service.bullets.map((bullet) => (
                           <li key={bullet} className="flex items-start gap-2 text-sm text-slate-600">
                             <CheckCircle size={13} className="mt-0.5 flex-shrink-0 text-orange-400" />
@@ -117,21 +117,32 @@ export default function DienstenPage() {
               )
             })}
           </div>
+          </div>
         </div>
       </section>
 
       <section className="bg-slate-50 py-14 lg:py-20 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Reveal>
-            <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Tech stack - hover voor uitleg</p>
-            <div className="flex flex-wrap gap-3">
-              {techStack.map((tech) => (
-                <Tooltip key={tech.name} content={tech.tip}>
-                  <span className="px-4 py-2 rounded-full text-sm font-semibold bg-white border border-slate-200 text-slate-700 cursor-default hover:border-orange-200 hover:text-orange-600 hover:shadow-sm transition-all">
-                    {tech.name}
-                  </span>
-                </Tooltip>
-              ))}
+            <div className="mb-8 max-w-3xl">
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-400">Tech stack</p>
+              <p className="text-sm leading-relaxed text-slate-500">
+                De techniek is nooit het doel op zich. Wel belangrijk is dat de keuze past bij hoe jij werkt, wat je zelf wilt beheren en waar je later nog naartoe wilt kunnen groeien.
+              </p>
+            </div>
+
+            <div className="border-t border-slate-200">
+              <div className="grid gap-0 md:grid-cols-2 xl:grid-cols-3">
+                {techStack.map((tech) => (
+                  <div
+                    key={tech.name}
+                    className="border-b border-slate-200 py-4 md:pr-6 xl:[&:not(:nth-child(3n+1))]:pl-6 xl:[&:not(:nth-child(3n+1))]:border-l xl:[&:not(:nth-child(3n+1))]:border-slate-200"
+                  >
+                    <div className="text-sm font-semibold text-slate-900">{tech.name}</div>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-500">{tech.tip}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>

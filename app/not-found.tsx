@@ -9,7 +9,7 @@ export default function NotFound() {
         <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-blue-950/40">
           <Compass size={34} className="text-blue-300" />
         </div>
-        <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.28em] text-blue-200">
+        <span className="overline-badge overline-badge-dark mb-4 inline-flex items-center gap-2">
           <Search size={13} />
           Pagina niet gevonden
         </span>

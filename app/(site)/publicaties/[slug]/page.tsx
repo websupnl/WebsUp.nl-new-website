@@ -144,7 +144,7 @@ export default async function PublicatieDetailPage({ params }: Props) {
                   <div className="aspect-[4/5] bg-slate-800" />
                 )}
                 {publication.label && (
-                  <span className="absolute right-4 top-4 inline-flex items-center rounded-full bg-blue-600/95 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white shadow-lg shadow-blue-900/20">
+                  <span className="overline-badge overline-badge-dark absolute right-4 top-4">
                     {publication.label}
                   </span>
                 )}
@@ -185,7 +185,7 @@ export default async function PublicatieDetailPage({ params }: Props) {
         <section id="viewer" className="bg-white py-16 lg:py-20">
           <Reveal className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <span className="inline-block text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3 bg-blue-50 px-3 py-1 rounded-full">
+              <span className="overline-badge mb-3 inline-flex">
                 Online lezer
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">

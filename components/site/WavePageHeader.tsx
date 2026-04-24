@@ -59,7 +59,7 @@ export default function WavePageHeader({
       {/* Inhoud */}
       <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 pt-36 pb-14 lg:pt-44 lg:pb-16">
         {badge && (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[0.68rem] font-bold uppercase tracking-[0.08em] text-white/60 border border-white/15 bg-white/5 mb-5">
+          <span className="overline-badge overline-badge-dark mb-5">
             {badge}
           </span>
         )}

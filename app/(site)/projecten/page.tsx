@@ -85,12 +85,13 @@ export default async function ProjectenPage() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/35 via-transparent to-transparent" />
-                    <span className="absolute left-4 top-4 rounded-full border border-white/45 bg-white/90 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.08em] text-slate-700 backdrop-blur-sm">
-                      {project.category}
-                    </span>
                   </Link>
 
                   <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-3 inline-flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-slate-400">
+                      <span className="h-2 w-2 rounded-full bg-orange-500" />
+                      {project.category}
+                    </div>
                     <h3 className="text-xl font-bold leading-tight text-slate-900 transition-colors group-hover:text-orange-500">
                       <Link href={`/projecten/${project.slug}`}>{project.title}</Link>
                     </h3>
@@ -153,7 +154,10 @@ export default async function ProjectenPage() {
                       loading="lazy"
                     />
                     <div className="p-7">
-                      <span className="overline-badge mb-4 inline-flex">{project.category}</span>
+                      <div className="mb-4 inline-flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-slate-400">
+                        <span className="h-2 w-2 rounded-full bg-orange-500" />
+                        {project.category}
+                      </div>
                       <h3 className="text-2xl font-bold text-slate-900 mb-3">
                         {project.title}
                       </h3>

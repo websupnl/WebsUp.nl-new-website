@@ -38,7 +38,7 @@ export default async function PublicatiesPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/30" />
         <Reveal className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4 bg-blue-400/10 border border-blue-400/20 px-3 py-1 rounded-full">
+          <span className="overline-badge overline-badge-dark mb-4 inline-flex">
             Onze publicaties
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-3xl">

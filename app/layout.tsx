@@ -5,6 +5,7 @@ import { siteConfig } from '@/config/site.config'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { AppFeedbackProvider } from '@/components/ui/AppFeedbackProvider'
 import FreeDesignModalProvider from '@/components/site/FreeDesignModalProvider'
+import WhatsAppButton from '@/components/site/WhatsAppButton'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -101,6 +102,7 @@ export default function RootLayout({
         <AppFeedbackProvider>
           {children}
           <FreeDesignModalProvider />
+          <WhatsAppButton />
           <SpeedInsights />
         </AppFeedbackProvider>
       </body>
