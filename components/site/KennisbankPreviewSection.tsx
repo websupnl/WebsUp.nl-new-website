@@ -20,9 +20,9 @@ export default function KennisbankPreviewSection({
   if (articles.length === 0) return null
 
   return (
-    <section className="bg-slate-50 py-24 lg:py-28">
+    <section className="bg-slate-50 py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-start gap-14 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
+        <div className="grid items-start gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
           <Reveal>
             <span className="overline-badge mb-4 inline-flex">Kennisbank</span>
             <h2 className="max-w-xl font-headline text-4xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-5xl">

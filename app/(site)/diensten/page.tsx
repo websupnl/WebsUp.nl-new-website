@@ -75,9 +75,9 @@ export default function DienstenPage() {
       </WavePageHeader>
 
       {/* Service cards — zelfde stijl als homepage */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-white py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-start">
+          <Reveal className="mb-8 grid gap-8 lg:grid-cols-2 lg:items-start">
             <div>
               <span className="overline-badge mb-4 inline-flex">Wat ik bouw</span>
               <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.08]">
@@ -155,9 +155,9 @@ export default function DienstenPage() {
       </section>
 
       {/* Tech stack */}
-      <section className="bg-white py-16 lg:py-24 border-t border-slate-100">
+      <section className="bg-white py-12 lg:py-16 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end">
+          <Reveal className="mb-8 grid gap-8 lg:grid-cols-2 lg:items-end">
             <div>
               <span className="overline-badge mb-4 inline-flex">Tech stack</span>
               <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-slate-900 leading-[1.08] tracking-[-0.02em]">

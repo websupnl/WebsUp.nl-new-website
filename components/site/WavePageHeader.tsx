@@ -57,7 +57,7 @@ export default function WavePageHeader({
       </div>
 
       {/* Inhoud */}
-      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 pt-36 pb-14 lg:pt-44 lg:pb-16">
+      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-10 lg:pt-36 lg:pb-12">
         {badge && (
           <span className="overline-badge overline-badge-dark mb-5">
             {badge}

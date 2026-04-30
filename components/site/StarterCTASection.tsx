@@ -23,11 +23,11 @@ const points = [
 
 export default function StarterCTASection() {
   return (
-    <section className="bg-[#06040c] py-20 lg:py-28">
+    <section className="bg-[#06040c] py-14 lg:py-20">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Header */}
-        <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-start">
+        <Reveal className="mb-8 grid gap-8 lg:grid-cols-2 lg:items-start">
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-3 py-1 text-xs font-semibold text-white/70">
               <Sparkles size={12} className="text-orange-400" />

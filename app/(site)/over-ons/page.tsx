@@ -110,7 +110,7 @@ export default async function OverOnsPage() {
         />
       </WavePageHeader>
 
-      <section className="bg-white py-20 lg:py-24">
+      <section className="bg-white py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-start gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
             <Reveal className="relative min-h-[26rem] overflow-hidden rounded-lg bg-slate-100">
@@ -172,7 +172,7 @@ export default async function OverOnsPage() {
         </div>
       </section>
 
-      <section className="bg-white pb-20 lg:pb-24">
+      <section className="bg-white pb-14 lg:pb-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14 lg:pt-12">
             <Reveal>
@@ -227,7 +227,7 @@ export default async function OverOnsPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20 lg:py-24">
+      <section className="bg-slate-50 py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <Reveal>
@@ -271,7 +271,7 @@ export default async function OverOnsPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-24">
+      <section className="bg-white py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-3xl">
             <span className="overline-badge mb-4 inline-flex">Reviews</span>

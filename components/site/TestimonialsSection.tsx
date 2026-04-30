@@ -101,11 +101,11 @@ export default function TestimonialsSection({
   const grid = items.slice(1, limit)
 
   return (
-    <section className="bg-[#06040c] py-24 lg:py-32">
+    <section className="bg-[#06040c] py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Header */}
-        <Reveal className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <Reveal className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="overline-badge mb-4 inline-flex">Reviews</span>
             <h2 className="font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-white md:text-5xl">

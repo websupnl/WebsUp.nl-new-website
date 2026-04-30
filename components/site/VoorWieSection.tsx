@@ -33,9 +33,9 @@ const descriptions: Record<string, string> = {
 
 export default function VoorWieSection() {
   return (
-    <section className="bg-slate-50 py-24 lg:py-28">
+    <section className="bg-slate-50 py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-start">
+        <Reveal className="mb-8 grid gap-8 lg:grid-cols-2 lg:items-start">
           <div>
             <span className="overline-badge mb-4 inline-flex">Voor wie</span>
             <h2 className="font-headline text-4xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-5xl">

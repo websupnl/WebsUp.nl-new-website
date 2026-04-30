@@ -25,7 +25,7 @@ export default function CTASection({
   className = '',
 }: CTASectionProps) {
   return (
-    <section className={`px-6 py-20 lg:px-8 ${className}`}>
+    <section className={`px-6 py-12 lg:px-8 ${className}`}>
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="relative flex min-h-[340px] items-center overflow-hidden rounded-[2rem] bg-[#06040c]">

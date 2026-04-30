@@ -29,9 +29,9 @@ export default function ServicesSection() {
   )
 
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="bg-white py-14 lg:py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-start">
+        <Reveal className="mb-8 grid gap-8 lg:grid-cols-2 lg:items-start">
           <div>
             <span className="overline-badge mb-5 inline-flex">Kies je route</span>
             <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-5xl">
@@ -57,7 +57,7 @@ export default function ServicesSection() {
           </div>
         </Reveal>
 
-        <div className="mt-16 grid gap-5 xl:grid-cols-4">
+        <div className="mt-10 grid gap-5 xl:grid-cols-4">
           {siteConfig.services.map((service, i) => {
             const Icon = iconMap[service.icon] ?? Zap
             const slug = serviceSlug[service.title] ?? 'websites'

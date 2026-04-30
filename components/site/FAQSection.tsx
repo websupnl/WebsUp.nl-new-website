@@ -12,16 +12,14 @@ interface FAQSectionProps {
 export default function FAQSection({
   limit,
   showPageLink = true,
-  sectionClassName = 'bg-white py-24 lg:py-28',
+  sectionClassName = 'bg-white py-14 lg:py-20',
 }: FAQSectionProps) {
-  const items = typeof limit === 'number'
-    ? siteConfig.faq.items.slice(0, limit)
-    : siteConfig.faq.items
+  const items = typeof limit === 'number' ? siteConfig.faq.items.slice(0, limit) : siteConfig.faq.items
 
   return (
     <section className={sectionClassName}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-start gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
           <Reveal>
             <span className="overline-badge mb-4 inline-flex">FAQ</span>
             <h2 className="max-w-xl font-headline text-4xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-5xl">

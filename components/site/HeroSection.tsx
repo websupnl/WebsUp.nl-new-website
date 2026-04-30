@@ -61,7 +61,7 @@ export default function HeroSection({
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#06040c] to-transparent" />
         </div>
 
-        <div className="relative flex flex-1 items-center px-6 pb-20 pt-32 sm:px-8 lg:px-10 lg:pb-24 lg:pt-40 xl:px-12">
+        <div className="relative flex flex-1 items-center px-6 pb-12 pt-24 sm:px-8 lg:px-10 lg:pb-16 lg:pt-32 xl:px-12">
           <div className="w-full max-w-[820px]">
             <p className="mb-6 text-sm font-medium text-white/50">
               Websites en digitale systemen voor ondernemers die serieus door willen
@@ -69,7 +69,7 @@ export default function HeroSection({
 
             <h1
               className="mb-7 font-headline font-extrabold leading-[1.08] tracking-[-0.03em] text-white"
-              style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}
+              style={{ fontSize: 'clamp(2.1rem, 4.2vw, 3.4rem)' }}
             >
               Sterk online.{' '}
               <span

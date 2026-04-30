@@ -27,9 +27,9 @@ export default function ProjectsSection({
   if (displayed.length === 0) return null
 
   return (
-    <section className="bg-slate-50 py-20 lg:py-28">
+    <section className="bg-slate-50 py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <Reveal className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+        <Reveal className="mb-8 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
           <div>
             <span className="overline-badge mb-4 inline-flex">Bewijs uit de praktijk</span>
             <h2 className="max-w-2xl font-headline text-4xl font-extrabold leading-[1.06] text-slate-900 md:text-5xl">
