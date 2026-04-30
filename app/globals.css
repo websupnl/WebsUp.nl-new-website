@@ -82,17 +82,23 @@ body {
 h1,
 h2,
 h1.font-headline,
-h2.font-headline {
+h2.font-headline,
+h3.font-headline,
+h4.font-headline {
   font-family: var(--font-title);
   text-wrap: balance;
 }
 
-.font-headline,
 h3,
 h4,
 h5,
 h6 {
   font-family: var(--font-body);
+  text-wrap: balance;
+}
+
+.font-headline {
+  font-family: var(--font-title);
   text-wrap: balance;
 }
 

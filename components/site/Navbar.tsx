@@ -155,7 +155,7 @@ export default function Navbar({
             : 'bg-transparent'
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-6 lg:px-8">
+        <nav className="max-w-screen-2xl mx-auto px-6 lg:px-10">
           <div className="flex min-h-[6.25rem] items-center justify-between">
 
             {/* Logo */}
@@ -266,7 +266,7 @@ export default function Navbar({
         <div className="border-t border-slate-900/6" />
 
         <div className="bg-white/98 backdrop-blur-2xl shadow-2xl shadow-slate-900/10">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
+          <div className="max-w-screen-2xl mx-auto px-6 lg:px-10 py-8">
             <div className="grid grid-cols-12 gap-6">
 
               {/* Left: service cards — 8 cols */}

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight, CheckCircle, MessageCircle, LucideIcon } from 'lucide-react'
+import { Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight, CheckCircle, LucideIcon } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import Reveal from '@/components/ui/Reveal'
 import GradientIcon from '@/components/site/GradientIcon'
@@ -22,12 +22,6 @@ const serviceSlug: Record<string, string> = {
   Automatisering:    'automatisering',
 }
 
-const outcomes = [
-  'Duidelijke route voor bezoekers',
-  'Sterke basis voor leads en aanvragen',
-  'Ruimte om later verder te bouwen',
-]
-
 export default function ServicesSection() {
   const whatsappHref = createWhatsAppHref(
     siteConfig.phone,
@@ -37,39 +31,29 @@ export default function ServicesSection() {
   return (
     <section className="bg-white py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <Reveal>
-          <div className="max-w-3xl">
+        <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end">
+          <div>
             <span className="overline-badge mb-5 inline-flex">Kies je route</span>
-            <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-6xl">
+            <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-5xl">
               Wat wil je laten bouwen?
             </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-500">
+            <p className="mt-6 text-lg leading-relaxed text-slate-500">
               Kies de oplossing die past bij je vraag. Een website, webshop, app of automatisering kan prima op zichzelf staan.
             </p>
-
-            <div className="mt-9 flex flex-wrap gap-3">
-              {outcomes.map((outcome) => (
-                <div key={outcome} className="flex items-start gap-2.5 rounded-full border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700">
-                  <CheckCircle size={16} className="mt-0.5 shrink-0 text-orange-500" />
-                  <span>{outcome}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="btn-brand px-7 py-3.5 text-sm"
-              >
-                Plan een kennismaking
-              </Link>
-              <Link
-                href="/diensten"
-                className="btn-ghost px-7 py-3.5 text-sm"
-              >
-                Alle diensten
-              </Link>
-            </div>
+          </div>
+          <div className="flex flex-wrap gap-4 lg:justify-end lg:pb-1">
+            <Link
+              href="/contact"
+              className="btn-brand px-7 py-3.5 text-sm"
+            >
+              Plan een kennismaking
+            </Link>
+            <Link
+              href="/diensten"
+              className="btn-ghost px-7 py-3.5 text-sm"
+            >
+              Alle diensten
+            </Link>
           </div>
         </Reveal>
 
@@ -113,17 +97,14 @@ export default function ServicesSection() {
                       {service.description}
                     </p>
 
-                    <div className="mt-6 grid gap-2">
+                    <ul className="mt-5 space-y-2">
                       {service.bullets.map((bullet) => (
-                        <div
-                          key={bullet}
-                          className="flex items-start gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
-                        >
-                          <CheckCircle size={15} className="mt-0.5 shrink-0 text-orange-500" />
+                        <li key={bullet} className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-600">
+                          <CheckCircle size={14} className="mt-0.5 shrink-0 text-orange-500" />
                           <span>{bullet}</span>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </Link>
               </Reveal>
@@ -139,9 +120,12 @@ export default function ServicesSection() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-orange-200 hover:text-orange-500"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
               >
-                <MessageCircle size={15} />
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.857L.057 23.882a.75.75 0 0 0 .914.964l6.29-1.65A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 0 1-4.964-1.362l-.357-.21-3.706.972.988-3.61-.232-.373A9.713 9.713 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+                </svg>
                 Stuur een berichtje
               </a>
             </div>
