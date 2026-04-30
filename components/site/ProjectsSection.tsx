@@ -23,9 +23,6 @@ export default function ProjectsSection({
   const source = projects.length > 0 ? projects : defaultProjects
   const featured = source.filter((project) => project.featured)
   const displayed = (featured.length > 0 ? featured : source).slice(0, limit ?? 3)
-  const marqueeImages = source
-    .filter((project) => Boolean(project.image_url))
-    .slice(0, 4)
 
   if (displayed.length === 0) return null
 
@@ -54,41 +51,6 @@ export default function ProjectsSection({
             )}
           </div>
         </Reveal>
-
-        {marqueeImages.length > 0 && (
-          <Reveal className="mb-10 overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 p-3 shadow-[0_18px_50px_rgba(15,23,42,0.06)]">
-            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-              {marqueeImages.map((project) => (
-                <Link
-                  key={project.slug}
-                  href={`/projecten/${project.slug}`}
-                  className="group relative block overflow-hidden rounded-[1.4rem] bg-slate-100"
-                >
-                  <div className="relative aspect-[16/11]">
-                    <Image
-                      src={project.image_url || '/hero-bg.png'}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/55 via-[#06040c]/10 to-transparent" />
-                  </div>
-
-                  <div className="absolute inset-x-0 bottom-0 p-4">
-                    <div className="inline-flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-white/75">
-                      <span className="h-2 w-2 rounded-full bg-orange-400" />
-                      {project.category}
-                    </div>
-                    <div className="mt-2 text-base font-bold leading-tight text-white">
-                      {project.title}
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </Reveal>
-        )}
 
         <div className="grid gap-5 lg:grid-cols-3">
           {displayed.map((project, index) => (

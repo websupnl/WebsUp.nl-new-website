@@ -1,7 +1,6 @@
 import type { Testimonial } from '@/types/database.types'
-import { Star, Quote } from 'lucide-react'
+import { Star } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
-import GradientIcon from '@/components/site/GradientIcon'
 
 interface TestimonialsSectionProps {
   testimonials: Testimonial[]
@@ -53,50 +52,39 @@ const fallbackTestimonials = [
     rating: 5,
   },
   {
-    id: 'fallback-jan-de-haan',
-    name: 'jan de Haan',
-    role: 'Google review',
-    content: 'Daan heeft een leuke site gemaakt duidelijk, eenvoudig, vlot echt een aanrader, bedankt Daan!!',
-    rating: 5,
-  },
-  {
-    id: 'fallback-ronald',
-    name: 'Ronald',
-    role: 'Google review',
-    content: 'Goed contact met Daan gehad. Na het maken van een voorbeeld, hier en daar nog wat dingen aan laten passen en het resultaat is een perfecte website! Zeer tevreden mee!!',
-    rating: 5,
-  },
-  {
-    id: 'fallback-johannes-rondaan',
-    name: 'Johannes Rondaan',
-    role: 'Google review',
-    content: 'Hele mooie website laten maken. Ben blij met het resultaat! Thankyou!',
-    rating: 5,
-  },
-  {
     id: 'fallback-greate-buorren',
     name: 'Buurtvereniging Greate Buorren',
     role: 'Google review',
     content: 'Daan van WebsUp heeft een geweldige job gedaan met onze nieuwe website! De service was ongelooflijk snel en hij dacht echt goed met ons mee. Ik zou hem zeker aanraden aan iedereen die op zoek is naar een professionele en betrouwbare website-ontwikkelaar.',
     rating: 5,
   },
-  {
-    id: 'fallback-hans-veenstra',
-    name: 'Hans “Flyingdutchman #66” Veenstra',
-    role: 'Google review',
-    content: 'Zeer goed werk verricht, thanks ben blij met m’n nieuwe website.',
-    rating: 5,
-  },
 ] satisfies Array<Pick<Testimonial, 'id' | 'name' | 'role' | 'content' | 'rating'>>
 
-function StarRating({ rating }: { rating: number }) {
+function Avatar({ name }: { name: string }) {
+  const initials = name
+    .split(' ')
+    .map((p) => p.charAt(0))
+    .join('')
+    .slice(0, 2)
+    .toUpperCase()
   return (
-    <div className="flex items-center gap-1">
+    <div
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
+      style={{ background: 'linear-gradient(135deg,#f97316 0%,#ec4899 55%,#a78bfa 100%)' }}
+    >
+      {initials}
+    </div>
+  )
+}
+
+function Stars({ rating, size = 14 }: { rating: number; size?: number }) {
+  return (
+    <div className="flex items-center gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
-          size={14}
-          className={i < rating ? 'fill-orange-400 text-orange-400' : 'fill-slate-200 text-slate-200'}
+          size={size}
+          className={i < rating ? 'fill-orange-400 text-orange-400' : 'fill-white/10 text-white/10'}
         />
       ))}
     </div>
@@ -106,85 +94,94 @@ function StarRating({ rating }: { rating: number }) {
 export default function TestimonialsSection({
   testimonials,
   title = 'Wat klanten over WebsUp zeggen',
-  limit = 5,
+  limit = 7,
 }: TestimonialsSectionProps) {
   const items = testimonials.length > 0 ? testimonials : fallbackTestimonials
   const featured = items[0]
-  const secondary = items.slice(1, limit)
+  const grid = items.slice(1, limit)
 
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="bg-[#06040c] py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-14 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
-          <Reveal>
+
+        {/* Header */}
+        <Reveal className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
             <span className="overline-badge mb-4 inline-flex">Reviews</span>
-            <h2 className="max-w-3xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
+            <h2 className="font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-white md:text-5xl">
               {title}
             </h2>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-500">
+            <p className="mt-4 max-w-lg text-base leading-relaxed text-white/50">
               Geen gelikte claims, maar ervaringen van klanten over communicatie, snelheid en het eindresultaat.
             </p>
-
-            <div className="mt-8 inset-card p-5">
-              <div className="text-sm font-semibold text-slate-900">Waarom dit belangrijk is</div>
-              <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                De meeste klanten zoeken geen groot traject, maar iemand die snel begrijpt wat nodig is en het netjes uitvoert.
-              </p>
-            </div>
-          </Reveal>
-
-          <div>
-            {featured && (
-              <Reveal>
-                <article className="border-b border-slate-200 pb-10">
-                  <div className="mb-5 flex items-center gap-3">
-                    <GradientIcon icon={Quote} size="sm" />
-                    <StarRating rating={featured.rating} />
-                  </div>
-
-                  <blockquote className="max-w-3xl font-headline text-2xl font-bold leading-[1.35] text-slate-900 md:text-[2rem]">
-                    &ldquo;{featured.content}&rdquo;
-                  </blockquote>
-
-                  <div className="mt-6 flex items-center gap-3">
-                    <div
-                      className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold text-white"
-                      style={{ background: 'linear-gradient(135deg,#f97316 0%,#ec4899 55%,#a78bfa 100%)' }}
-                    >
-                      {featured.name
-                        .split(' ')
-                        .map((part) => part.charAt(0))
-                        .join('')
-                        .slice(0, 2)
-                        .toUpperCase()}
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900">{featured.name}</p>
-                      <p className="text-xs text-slate-400">{featured.role || 'Klant van WebsUp'}</p>
-                    </div>
-                  </div>
-                </article>
-              </Reveal>
-            )}
-
-            <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
-              {secondary.map((testimonial, index) => (
-                <Reveal key={testimonial.id} delay={index * 70}>
-                  <article className="border-t border-slate-200 pt-6">
-                    <StarRating rating={testimonial.rating} />
-                    <blockquote className="mt-4 text-sm leading-relaxed text-slate-600">
-                      &ldquo;{testimonial.content}&rdquo;
-                    </blockquote>
-                    <div className="mt-5">
-                      <p className="text-sm font-semibold text-slate-900">{testimonial.name}</p>
-                      <p className="text-xs text-slate-400">{testimonial.role || 'Klant van WebsUp'}</p>
-                    </div>
-                  </article>
-                </Reveal>
+          </div>
+          <div className="shrink-0 rounded-2xl border border-white/8 bg-white/4 px-6 py-4 text-center">
+            <div className="flex justify-center gap-0.5 mb-2">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} size={16} className="fill-orange-400 text-orange-400" />
               ))}
             </div>
+            <div className="text-2xl font-bold text-white">5.0</div>
+            <div className="mt-0.5 text-xs text-white/40">{items.length}+ Google reviews</div>
           </div>
+        </Reveal>
+
+        {/* Featured review */}
+        {featured && (
+          <Reveal>
+            <article
+              className="relative mb-5 overflow-hidden rounded-2xl border border-white/8 p-8 lg:p-12"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(249,115,22,0.07) 0%, rgba(236,72,153,0.05) 50%, rgba(167,139,250,0.07) 100%)',
+              }}
+            >
+              {/* Decorative large quote mark */}
+              <div
+                className="pointer-events-none absolute right-6 top-0 select-none font-headline text-[9rem] font-extrabold leading-none text-white/[0.04] lg:right-10 lg:text-[13rem]"
+                aria-hidden
+              >
+                &ldquo;
+              </div>
+
+              <Stars rating={featured.rating} size={16} />
+
+              <blockquote className="relative mt-6 max-w-4xl font-headline text-2xl font-bold leading-[1.45] text-white lg:text-[1.85rem]">
+                &ldquo;{featured.content}&rdquo;
+              </blockquote>
+
+              <div className="mt-8 flex items-center gap-3 border-t border-white/8 pt-6">
+                <Avatar name={featured.name} />
+                <div>
+                  <p className="text-sm font-semibold text-white">{featured.name}</p>
+                  <p className="text-xs text-white/40">{featured.role || 'Klant van WebsUp'}</p>
+                </div>
+              </div>
+            </article>
+          </Reveal>
+        )}
+
+        {/* Card grid */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {grid.map((t, index) => (
+            <Reveal key={t.id} delay={index * 55}>
+              <article className="flex h-full flex-col rounded-xl border border-white/8 bg-white/[0.03] p-6 transition-colors hover:bg-white/[0.06]">
+                <Stars rating={t.rating} />
+                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-white/65">
+                  &ldquo;{t.content}&rdquo;
+                </blockquote>
+                <div className="mt-6 flex items-center gap-3 border-t border-white/8 pt-5">
+                  <Avatar name={t.name} />
+                  <div>
+                    <p className="text-sm font-semibold text-white">{t.name}</p>
+                    <p className="text-xs text-white/40">{t.role || 'Klant van WebsUp'}</p>
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
+
       </div>
     </section>
   )
