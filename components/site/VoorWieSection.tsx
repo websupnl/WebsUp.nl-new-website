@@ -31,64 +31,50 @@ const descriptions: Record<string, string> = {
   'Lokale ondernemers': 'Voor ondernemers die lokaal beter gevonden willen worden en online sterker voor de dag willen komen.',
 }
 
-const fitSignals = [
-  'Je wilt professioneel overkomen en meer vertrouwen wekken',
-  'Je zoekt korte lijnen in plaats van een groot bureauproces',
-  'Je wilt nu goed starten, maar later kunnen uitbreiden',
-]
-
 export default function VoorWieSection() {
   return (
     <section className="bg-slate-50 py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-start gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
-          <Reveal>
+        <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-start">
+          <div>
             <span className="overline-badge mb-4 inline-flex">Voor wie</span>
-            <h2 className="max-w-xl font-headline text-4xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-5xl">
+            <h2 className="font-headline text-4xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-5xl">
               Vooral voor bedrijven die duidelijkheid en korte lijnen zoeken
             </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-500">
+            <p className="mt-5 text-lg leading-relaxed text-slate-500">
               {siteConfig.useCases.subheading} WebsUp past vooral bij ondernemers die een sterke digitale basis willen zonder dat het traject groter wordt gemaakt dan nodig.
             </p>
-
-            <div className="mt-8 grid gap-3">
-              {fitSignals.map((signal) => (
-                <div key={signal} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700">
-                  {signal}
-                </div>
-              ))}
-            </div>
-
-            <Link
-              href="/diensten"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition-colors hover:text-orange-500"
-            >
-              Bekijk diensten
-              <ArrowRight size={14} />
-            </Link>
-          </Reveal>
-
-          <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
-            {siteConfig.useCases.items.map((item, index) => {
-              const Icon = iconMap[item.label] ?? Building2
-
-              return (
-                <Reveal key={item.label} delay={index * 60}>
-                  <div className="group flex items-start gap-5">
-                    <GradientIcon icon={Icon} size="lg" />
-                    <div>
-                      <h3 className="font-headline text-xl font-bold text-slate-900 group-hover:text-orange-500 transition-colors">
-                        {item.label}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                        {descriptions[item.label] ?? 'Voor bedrijven die een duidelijke, sterke en praktische digitale basis zoeken.'}
-                      </p>
-                    </div>
-                  </div>
-                </Reveal>
-              )
-            })}
           </div>
+          <div className="flex flex-wrap gap-4 lg:justify-end lg:pt-10">
+            <Link href="/contact" className="btn-brand px-7 py-3.5 text-sm">
+              Plan een kennismaking
+            </Link>
+            <Link href="/diensten" className="btn-ghost px-7 py-3.5 text-sm">
+              Bekijk diensten
+            </Link>
+          </div>
+        </Reveal>
+
+        <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {siteConfig.useCases.items.map((item, index) => {
+            const Icon = iconMap[item.label] ?? Building2
+
+            return (
+              <Reveal key={item.label} delay={index * 60}>
+                <div className="group flex items-start gap-5">
+                  <GradientIcon icon={Icon} size="lg" />
+                  <div>
+                    <h3 className="font-headline text-xl font-bold text-slate-900 transition-colors group-hover:text-orange-500">
+                      {item.label}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                      {descriptions[item.label] ?? 'Voor bedrijven die een duidelijke, sterke en praktische digitale basis zoeken.'}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>

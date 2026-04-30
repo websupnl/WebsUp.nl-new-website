@@ -31,7 +31,7 @@ export default function ServicesSection() {
   return (
     <section className="bg-white py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end">
+        <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-start">
           <div>
             <span className="overline-badge mb-5 inline-flex">Kies je route</span>
             <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-5xl">
@@ -41,7 +41,7 @@ export default function ServicesSection() {
               Kies de oplossing die past bij je vraag. Een website, webshop, app of automatisering kan prima op zichzelf staan.
             </p>
           </div>
-          <div className="flex flex-wrap gap-4 lg:justify-end lg:pb-1">
+          <div className="flex flex-wrap gap-4 lg:justify-end lg:pt-10">
             <Link
               href="/contact"
               className="btn-brand px-7 py-3.5 text-sm"
@@ -114,7 +114,7 @@ export default function ServicesSection() {
           <Reveal delay={320} className="xl:col-span-4">
             <div className="flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-6">
               <p className="max-w-xl text-sm leading-relaxed text-slate-500">
-                Zoek je iets anders, of weet je nog niet precies welke oplossing past? Stuur mij kort een berichtje, dan denk ik met je mee.
+                Ik ben Daan, de man achter WebsUp. Zoek je iets anders, of weet je nog niet precies welke oplossing past? Stuur mij een berichtje, dan denk ik met je mee.
               </p>
               <a
                 href={whatsappHref}
