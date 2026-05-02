@@ -59,11 +59,11 @@ insert into site_settings (
   '00000000-0000-0000-0000-000000000001',
   'WebsUp.nl',
   'Websites, apps en systemen die groeien.',
-  '#2563EB',
+  '#F97316',
   'info@websup.nl',
-  '+31 6 12345678',
+  '06 82202148',
   'Friesland, Nederland',
-  'https://linkedin.com/company/websup'
+  'https://www.linkedin.com/in/daan-koolhaas-903b76258/'
 )
 on conflict (tenant_id) do update set
   site_name    = excluded.site_name,

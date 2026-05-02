@@ -141,6 +141,7 @@ export interface Database {
           rating: number
           avatar_url: string | null
           published: boolean
+          project_id: string | null
           created_at: string
         }
         Insert: {
@@ -152,6 +153,7 @@ export interface Database {
           rating?: number
           avatar_url?: string | null
           published?: boolean
+          project_id?: string | null
           created_at?: string
         }
         Update: {
@@ -163,6 +165,7 @@ export interface Database {
           rating?: number
           avatar_url?: string | null
           published?: boolean
+          project_id?: string | null
         }
         Relationships: []
       }

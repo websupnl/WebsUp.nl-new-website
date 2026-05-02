@@ -11,6 +11,7 @@ type ActionResult = { success: true; id?: string } | { success: false; error: st
 
 function revalidateTestimonialPaths() {
   revalidatePath('/', 'layout')
+  revalidatePath('/projecten', 'layout')
   revalidatePath('/admin')
   revalidatePath('/admin/testimonials')
 }
@@ -23,6 +24,7 @@ export async function saveTestimonial(data: {
   rating: number
   avatar_url?: string | null
   published?: boolean
+  project_id?: string | null
 }): Promise<ActionResult> {
   try {
     await requireAuthenticatedUser()
@@ -48,6 +50,7 @@ export async function saveTestimonial(data: {
       role: role || null,
       content,
       avatar_url: normalizeText(data.avatar_url) || null,
+      project_id: data.project_id || null,
       tenant_id: tenantId,
     }
 

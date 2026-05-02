@@ -24,19 +24,26 @@ export const siteConfig = {
     { label: "Contact", href: "/contact" },
   ],
 
-  // Branding
+  // Branding — oranje is de enige accentkleur
   brand: {
-    primary: "#2563EB",
-    primaryHover: "#1D4ED8",
-    primaryLight: "#EFF6FF",
+    primary: "#F97316",
+    primaryHover: "#EA6C0A",
+    primaryLight: "rgba(249,115,22,0.10)",
     primaryText: "#FFFFFF",
   },
 
+  // KvK
+  kvk: "95524061",
+
+  // WhatsApp (zonder + en spaties — gebruikt in wa.me link)
+  whatsapp: "31682202148",
+
   // Social media
   social: {
-    linkedin: "https://linkedin.com/company/websup",
+    linkedin: "https://www.linkedin.com/in/daan-koolhaas-903b76258/",
+    instagram: "https://www.instagram.com/websup_nl/",
+    facebook: "https://www.facebook.com/WebsUp.nl",
     twitter: "",
-    facebook: "",
   },
 
   // SEO defaults

@@ -1,68 +1,42 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import {
-  ArrowRight,
-  CheckCircle,
-  Lightbulb,
-  MessageCircle,
-  Rocket,
-  Sparkles,
-  Store,
-  Wrench,
-} from 'lucide-react'
+import { ArrowRight, CheckCircle, X, Sparkles, Layers, ShieldCheck } from 'lucide-react'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
-import GradientIcon from '@/components/site/GradientIcon'
-import GlassStatGrid from '@/components/site/GlassStatGrid'
+import { GlassCard } from '@/components/site/GlassCard'
 
 export const metadata: Metadata = {
   title: 'Voor starters',
   description:
-    'Voor starters, startups en ondernemers met een sterk idee die professioneel willen beginnen met een website, webshop of digitale basis die later kan meegroeien.',
+    'Serieus starten met een solide digitale basis. Compact maar professioneel — zonder dat je over een half jaar opnieuw moet bouwen.',
 }
 
-const starterFit = [
-  'Je hebt een duidelijk idee en wilt daar serieus iets van maken',
-  'Je wilt professioneel beginnen in plaats van blijven hangen in proefballonnen',
-  'Je zoekt iemand die eerlijk meedenkt over de slimste eerste stap',
-  'Je wilt iets neerzetten waar later op doorgebouwd kan worden',
+const forYouIf = [
+  'Je een concreet plan hebt maar nog geen website, webshop of digitale aanwezigheid',
+  'Je begrijpt dat goedkoop nu duur kan zijn later',
+  'Je serieus wil starten en niet elke zes maanden alles opnieuw wil bouwen',
+  'Je iemand wil die eerlijk advies geeft over wat je nu nodig hebt — en wat niet',
 ]
 
-const supportAreas = [
-  {
-    title: 'Eerste website of landingspagina',
-    text: 'Een sterke eerste online basis waarmee je professioneel naar buiten kunt treden en helder kunt laten zien wat je doet.',
-    icon: Lightbulb,
-  },
-  {
-    title: 'Concept of visuele richting',
-    text: 'Soms is het slim om eerst scherp te krijgen hoe je merk, aanbod of homepage het beste neergezet moet worden.',
-    icon: Sparkles,
-  },
-  {
-    title: 'Webshop of merkstart',
-    text: 'Voor starters die direct iets willen verkopen en een shop nodig hebben die goed voelt, duidelijk werkt en later kan meegroeien.',
-    icon: Store,
-  },
-  {
-    title: 'Maatwerk als het idee daarom vraagt',
-    text: 'Soms zit de kern juist in een dashboard, portaal, calculator of andere slimme module. Dan kijken we ook daarnaar.',
-    icon: Wrench,
-  },
+const youGet = [
+  'Een professionele website of webshop die past bij je plan en je doelgroep',
+  'Duidelijke structuur die later uitbreidbaar is',
+  'Basis SEO en technische fundering',
+  'Eerlijk advies over wat nu slim is en wat later kan',
+]
+
+const iDont = [
+  "Standaard thema's over je bedrijf heen plakken",
+  'Functies verkopen die je nu niet nodig hebt',
+  'Een traject groter maken dan het moet zijn',
 ]
 
 const steps = [
-  'Jij vertelt je idee, je fase en waar je nu tegenaan loopt.',
-  'We kijken samen wat slim is als eerste stap en wat nog niet nodig is.',
-  'Ik geef eerlijk aan of dit past en welke opzet logisch voelt voor jouw situatie.',
-  'Als er een goede match is, maken we een plan voor een professionele start waar je later op kunt doorgroeien.',
-]
-
-const sparPoints = [
-  'Plan een kennismaking als je wilt sparren over de beste opzet',
-  'Stuur je idee door als je eerst kort wilt toetsen of het past',
-  'Geen verkooppraatje, wel een eerlijk gesprek over wat slim voelt',
+  { title: 'We beginnen met een gesprek', text: 'Ik wil begrijpen wat je gaat doen, voor wie en wat je website of webshop voor je moet doen.' },
+  { title: 'Eerlijk voorstel', text: 'Je krijgt een voorstel dat past bij je fase. Niet te groot, niet te klein. Met duidelijke prijs en planning.' },
+  { title: 'We bouwen het samen', text: 'Met jouw input en mijn technische kennis bouwen we iets dat nu goed werkt en later verder kan meegroeien.' },
+  { title: 'Na oplevering', text: 'Je staat er niet alleen voor. Als je later wil uitbreiden, is de basis er al.' },
 ]
 
 export default function VoorStartersPage() {
@@ -70,206 +44,134 @@ export default function VoorStartersPage() {
     <div>
       <WavePageHeader
         badge="Voor starters"
-        title="Een sterk idee verdient"
-        titleHighlight="een goede start"
-        subtitle="Sta je aan het begin van een nieuw bedrijf, product of concept? Dan hoeft niet alles meteen groots en ingewikkeld te zijn. Soms is een slimme eerste stap juist het belangrijkst. WebsUp helpt starters en startups met een sterke basis waarmee je professioneel kunt beginnen en later kunt doorgroeien."
+        title="Serieus starten met"
+        titleHighlight="een solide digitale basis."
+        subtitle="Sta je aan het begin van een bedrijf of concept? Dan hoeft niet alles groot, maar het moet wel kloppen. Ik help starters die bewust willen beginnen en snappen dat een goede basis later veel gedoe voorkomt."
       >
         <div className="flex flex-wrap items-center gap-3">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-all hover:-translate-y-px hover:bg-white/90"
-          >
+          <Link href="/contact" className="btn-brand-gradient">
             Plan een kennismaking
             <ArrowRight size={14} />
           </Link>
           <Link
-            href="/contact?ref=starter"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-white/15"
+            href="/gratis-ontwerp"
+            className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/22 hover:bg-white/10"
           >
-            Vertel je idee
+            Vraag gratis ontwerp aan
           </Link>
         </div>
 
-        <GlassStatGrid
-          items={[
-            { value: 'Sterk idee', label: 'serieuze ambitie' },
-            { value: 'Professionele start', label: 'zonder direct te groot' },
-            { value: 'Door te groeien', label: 'later verder uit te bouwen' },
-          ]}
-        />
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          {[
+            { icon: ShieldCheck, label: 'Alleen voor serieuze plannen', color: 'text-orange-400' },
+            { icon: Sparkles, label: 'Compact maar professioneel', color: 'text-pink-400' },
+            { icon: Layers, label: 'Doorgroeien zonder opnieuw beginnen', color: 'text-violet-300' },
+          ].map(({ icon: Icon, label, color }) => (
+            <GlassCard key={label} padding="px-4 py-3" className="flex items-center gap-2.5">
+              <Icon size={16} className={`flex-shrink-0 ${color}`} />
+              <span className="text-sm text-white/85 font-medium">{label}</span>
+            </GlassCard>
+          ))}
+        </div>
       </WavePageHeader>
 
-      <section className="bg-white py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pt-12">
-            <Reveal>
-              <div>
-                <span className="overline-badge mb-4 inline-flex">Wat dit is</span>
-                <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-                  Geen algemene kortingsactie, maar een passende instap
-                </h2>
-                <p className="mt-5 text-lg leading-relaxed text-slate-500">
-                  Niet iedere starter heeft direct een compleet traject nodig. Soms is een slimme, haalbare eerste stap veel sterker dan te groot beginnen en onderweg vastlopen.
-                </p>
-                <p className="mt-4 text-lg leading-relaxed text-slate-500">
-                  Daarom kijk ik in sommige gevallen naar een passende eerste opzet of een aangepast instaptarief. Niet voor iedereen, maar voor starters met een sterk idee en serieuze ambitie.
-                </p>
-              </div>
-            </Reveal>
+      {/* Voor wie */}
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <Reveal>
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Voor wie</span>
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+              Niet voor iedereen. Wel voor jou als…
+            </h2>
 
-            <Reveal>
-              <div className="border-t border-slate-200 pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-                <div className="inline-flex text-xs font-semibold uppercase tracking-[0.14em] text-orange-500">
-                  Voor wie dit bedoeld is
-                </div>
-                <p className="mt-5 text-base leading-relaxed text-slate-500">
-                  Dit past het best bij starters en ondernemers die niet klein denken, maar wel slim willen beginnen.
-                </p>
+            <ul className="mt-8 space-y-4">
+              {forYouIf.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-base leading-relaxed text-slate-700">
+                  <ArrowRight size={18} className="mt-1 flex-shrink-0 text-orange-500" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
 
-                <div className="mt-6 border-y border-slate-200">
-                  {starterFit.map((item) => (
-                    <div key={item} className="flex items-start gap-3 border-b border-slate-200 py-4 text-sm leading-relaxed text-slate-600 last:border-b-0">
-                      <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          </div>
+            <p className="mt-8 text-lg leading-relaxed text-slate-600">
+              Dit is geen kortingsactie voor goedkope sites. Het is een bewuste instap voor plannen met potentie.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20 lg:py-24">
+      {/* Wat ik bied */}
+      <section className="bg-slate-50 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <Reveal className="mb-12 max-w-3xl">
-            <span className="overline-badge mb-4 inline-flex">Waar ik mee kan helpen</span>
-            <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-              De slimste eerste stap hangt af van je idee
+          <Reveal className="mb-12 max-w-2xl">
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Wat ik bied</span>
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl">
+              Compact maar niet goedkoop-ogend
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-500">
-              Soms begint dat met een website. Soms met een homepage concept, webshop of eerste maatwerk oplossing. Het doel is niet om direct alles te bouwen, maar om goed te beginnen.
+              Een starterstraject bij WebsUp is geen afgeslankte versie van iets groters. Het is een bewust compacte aanpak die nu het juiste neerzet en later ruimte laat om door te bouwen.
             </p>
           </Reveal>
 
-          <div className="border-t border-slate-200">
-            {supportAreas.map((item, index) => {
-              const Icon = item.icon
-
-              return (
-                <Reveal key={item.title} delay={index * 70}>
-                  <div className="grid gap-4 border-b border-slate-200 py-6 lg:grid-cols-[14rem_1fr] lg:items-start">
-                    <div className="flex items-center gap-4">
-                      <GradientIcon icon={Icon} size="sm" />
-                      <h3 className="font-headline text-xl font-bold text-slate-900">{item.title}</h3>
-                    </div>
-                    <p className="text-sm leading-relaxed text-slate-500">{item.text}</p>
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+            <div>
+              <h3 className="font-headline text-xl font-bold text-slate-900">Wat je krijgt</h3>
+              <div className="mt-5 space-y-3">
+                {youGet.map((item) => (
+                  <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+                    <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
+                    <span className="text-sm leading-relaxed text-slate-700">{item}</span>
                   </div>
-                </Reveal>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
-            <Reveal>
-              <div>
-                <span className="overline-badge mb-4 inline-flex">Waarom ik dit doe</span>
-                <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-                  Goede ideeen vroeg helpen opbouwen is juist interessant
-                </h2>
-                <p className="mt-5 text-lg leading-relaxed text-slate-500">
-                  Niet omdat het goedkoop moet zijn, maar omdat je in een vroege fase vaak nog de beste keuzes kunt maken in opzet, structuur en richting. Daar zit vaak juist de winst.
-                </p>
-                <p className="mt-4 text-lg leading-relaxed text-slate-500">
-                  Ik vind het leuk om mee te denken met ideeen waar potentie in zit. Om samen te kijken wat echt nodig is om professioneel te starten, zonder meteen onnodig groot te bouwen.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal>
-              <div className="border-t border-slate-200 pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-                <span className="overline-badge mb-4 inline-flex">Hoe het werkt</span>
-                <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
-                  Eerst duidelijkheid, dan bouwen
-                </h2>
-
-                <div className="mt-8 space-y-5">
-                  {steps.map((step, index) => (
-                    <div key={step} className="flex items-start gap-4 border-b border-slate-200 pb-5 last:border-b-0 last:pb-0">
-                      <div
-                        className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl text-sm font-bold text-white"
-                        style={{ background: 'linear-gradient(135deg,#f97316 0%,#ec4899 55%,#a78bfa 100%)' }}
-                      >
-                        {index + 1}
-                      </div>
-                      <p className="pt-1 text-base leading-relaxed text-slate-600">{step}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 border-t border-slate-200 pt-6">
-                  <GradientIcon icon={Rocket} size="sm" className="mb-3" />
-                  <div className="text-sm font-semibold text-slate-900">Selectief en persoonlijk</div>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                    Dit is bedoeld voor starters met een sterk idee, niet als algemene route voor iedereen die vooral zo goedkoop mogelijk wil beginnen.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#06040c] py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <Reveal>
-            <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
-              <div className="text-white">
-                <span className="overline-badge mb-4 inline-flex">Klaar om te sparren</span>
-                <h2 className="font-headline text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] md:text-4xl">
-                  Heb je een sterk idee en zoek je iemand die met je meedenkt?
-                </h2>
-                <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/64">
-                  Dan kijk ik graag met je mee naar de slimste eerste stap. Soms is dat kleiner dan je dacht, soms juist iets anders dan je vooraf in je hoofd had. Als de basis maar klopt.
-                </p>
-              </div>
-
-              <div className="border-t border-white/10 pt-6 text-white lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-                <div className="border-y border-white/10">
-                  {sparPoints.map((item) => (
-                    <div key={item} className="flex items-start gap-3 border-b border-white/10 py-4 text-sm leading-relaxed text-white/72 last:border-b-0">
-                      <MessageCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-400" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-all hover:-translate-y-px hover:bg-white/90"
-                  >
-                    Plan een kennismaking
-                    <ArrowRight size={14} />
-                  </Link>
-                  <Link
-                    href="/contact?ref=starter"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-white/15"
-                  >
-                    Vertel je idee
-                  </Link>
-                </div>
+                ))}
               </div>
             </div>
-          </Reveal>
+            <div>
+              <h3 className="font-headline text-xl font-bold text-slate-900">Wat ik niet doe</h3>
+              <div className="mt-5 space-y-3">
+                {iDont.map((item) => (
+                  <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+                    <X size={16} className="mt-0.5 flex-shrink-0 text-slate-400" />
+                    <span className="text-sm leading-relaxed text-slate-600">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <CTASection />
+      {/* Werkwijze */}
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <Reveal className="mb-12 max-w-2xl">
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Werkwijze</span>
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+              Hoe het werkt voor starters
+            </h2>
+          </Reveal>
+
+          <ol className="space-y-7">
+            {steps.map((step, i) => (
+              <Reveal key={step.title} delay={i * 70}>
+                <li className="flex items-start gap-5">
+                  <span className="font-headline flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2 border-orange-500 text-base font-bold text-orange-500">
+                    {i + 1}
+                  </span>
+                  <div className="pt-1">
+                    <h3 className="font-headline text-xl font-bold text-slate-900">{step.title}</h3>
+                    <p className="mt-2 text-base leading-relaxed text-slate-600">{step.text}</p>
+                  </div>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <CTASection
+        heading="Klaar om serieus te starten?"
+        subheading="Plan een vrijblijvend gesprek. Ik kijk eerlijk mee naar jouw situatie en vertel je wat slim is als eerste stap."
+      />
     </div>
   )
 }

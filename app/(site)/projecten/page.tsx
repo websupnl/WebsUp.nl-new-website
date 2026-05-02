@@ -14,6 +14,51 @@ export const metadata: Metadata = {
   description: 'Bekijk projecten van WebsUp: websites, webshops, portalen en maatwerkoplossingen die praktisch werken.',
 }
 
+// Per-project copy overrides — vervangen de generieke excerpts uit de DB.
+// Match op slug; valt terug op de DB-excerpt als er geen override is.
+const projectExcerptOverrides: Record<string, string> = {
+  'verkeerschool-haak':
+    'Een overzichtelijke website die het lesaanbod en de pakketten helder presenteert. Gebouwd op een manier die de rijschool zelf eenvoudig kan bijhouden.',
+  'rottevalle': 'Een dorpswebsite die inwoners en bezoekers informeert over nieuws, evenementen en verenigingen. Beheerbaar door vrijwilligers, fijn voor iedereen.',
+  'rottevalle-com': 'Een dorpswebsite die inwoners en bezoekers informeert over nieuws, evenementen en verenigingen. Beheerbaar door vrijwilligers, fijn voor iedereen.',
+  'context-care-isa':
+    'Een rustige, toegankelijke website voor een specialistische zorgpraktijk. Het vertrouwen dat deze doelgroep nodig heeft, vertaald naar design en tekst.',
+  'dansschool-feel-the-move':
+    'Een energieke website die past bij de sfeer van de dansschool. Het lesaanbod overzichtelijk, de energie voelbaar.',
+  'rondom-verlies':
+    'Een warme, betekenisvolle website voor een bijzondere dienst. Rust en empathie als uitgangspunt voor elke ontwerpkeuze.',
+  'azie': 'Een overzichtelijke website voor een Aziatisch afhaalrestaurant. Menu snel vindbaar, contact makkelijk, mobiel perfect.',
+  'azie-drachten': 'Een overzichtelijke website voor een Aziatisch afhaalrestaurant. Menu snel vindbaar, contact makkelijk, mobiel perfect.',
+  'peter-kalsbeek-coaching':
+    'Een persoonlijke website voor een coachingspraktijk gericht op jeugd en gezin. Toegankelijk, warm en gericht op vertrouwen.',
+  'goldcenterdrachten':
+    'Een website die de belofte van eerlijk advies en kwaliteit goed vangt. Clubfitting centraal, assortiment overzichtelijk.',
+  'golfcenter-drachten':
+    'Een website die de belofte van eerlijk advies en kwaliteit goed vangt. Clubfitting centraal, assortiment overzichtelijk.',
+  'thuisbatterijen-friesland':
+    'Een lokale SEO-landingspagina gericht op zichtbaarheid en aanvragen rondom thuisbatterijen, EMS en laadpalen in Friesland.',
+  'bigband-drachten':
+    'Een website waar sfeer, optredens en praktische informatie samenkomen. Voor bezoekers én bandleden.',
+  'camperhulp':
+    'Een duidelijke website voor een servicebedrijf. Diensten direct helder, contact makkelijk, mobiel sterk.',
+  'de-kapper-drachten':
+    'Een frisse website die behandelingen en sfeer overzichtelijk laat zien. Vertrouwen uitstralen zonder poespas.',
+  'gemar-schuttingen':
+    'Een praktische website die projecten, diensten en aanvragen overzichtelijk samenbrengt.',
+  'jteq':
+    'Een strakke zakelijke website voor een technisch bedrijf. Dienstverlening en betrouwbaarheid helder gepresenteerd.',
+  'kloppenburg-vloerreiniging':
+    'Een website die diensten en werkwijze duidelijk maakt voor particuliere en zakelijke aanvragen.',
+  'mce':
+    'Een compacte zakelijke website met heldere structuur en professionele uitstraling.',
+  'sinq':
+    'Een moderne zakelijke website die professionaliteit uitstraalt en de dienstverlening in duidelijke taal presenteert.',
+}
+
+function projectCopy(slug: string, fallback: string) {
+  return projectExcerptOverrides[slug] ?? fallback
+}
+
 export default async function ProjectenPage() {
   const projects = await getProjects()
   const featuredSource = projects.filter((project) => project.featured)
@@ -22,24 +67,21 @@ export default async function ProjectenPage() {
   const rest = projects.filter((project) => !featuredSlugs.has(project.slug))
 
   const stats = [
-    { value: `${projects.length}+`, label: 'Projecten' },
-    { value: 'Maatwerk', label: 'Geen standaard pakket' },
-    { value: 'Korte lijnen', label: 'Direct schakelen' },
-    { value: 'Mobiel sterk', label: 'Gebouwd voor dagelijks gebruik' },
+    { value: `${projects.length}+`, label: 'Projecten opgeleverd' },
+    { value: 'Heel Nederland', label: 'Werkgebied' },
+    { value: 'Persoonlijk', label: 'Direct contact' },
+    { value: 'Mobiel sterk', label: 'Klaar voor dagelijks gebruik' },
   ]
 
   return (
     <div>
       <WavePageHeader
-        badge="Portfolio"
-        title="Projecten die"
-        titleHighlight="laten zien hoe het werkt."
-        subtitle="Van websites en webshops tot portalen en praktische maatwerkoplossingen. Geen losse demo's, maar werk dat echt gebruikt wordt."
+        badge="Projecten"
+        title="Werk dat"
+        titleHighlight="voor zichzelf spreekt."
+        subtitle="Van lokale ondernemers tot technische bedrijven en zorgpraktijken. Elk project begint met een goed gesprek en eindigt met iets dat echt werkt."
       >
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold text-sm px-6 py-3 rounded-full hover:-translate-y-px hover:bg-white/90 transition-all shadow-sm"
-        >
+        <Link href="/contact" className="btn-brand-gradient">
           Project bespreken <ArrowRight size={14} />
         </Link>
       </WavePageHeader>
@@ -63,13 +105,15 @@ export default async function ProjectenPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Reveal className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
             <div>
-              <span className="overline-badge mb-4 inline-flex">Uitgelichte projecten</span>
-              <h2 className="font-headline max-w-2xl text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.08]">
+              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+                Uitgelichte projecten
+              </span>
+              <h2 className="mt-3 font-headline max-w-2xl text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.08] tracking-[-0.02em]">
                 Werk dat past bij de praktijk
-            </h2>
+              </h2>
             </div>
             <p className="max-w-xl text-base leading-relaxed text-slate-500 md:text-lg lg:justify-self-end">
-              Dezelfde strakke kaartstijl als op de homepage, maar met meer ruimte om projecten naast elkaar te vergelijken.
+              Echt werk dat dagelijks gebruikt wordt. Geen demo's, geen geleende screenshots — wel projecten waar mensen mee verder kunnen.
             </p>
           </Reveal>
 
@@ -96,7 +140,7 @@ export default async function ProjectenPage() {
                       <Link href={`/projecten/${project.slug}`}>{project.title}</Link>
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-slate-500">
-                      {project.excerpt}
+                      {projectCopy(project.slug, project.excerpt)}
                     </p>
 
                     <div className="mt-5 space-y-2.5">
@@ -161,7 +205,7 @@ export default async function ProjectenPage() {
                       <h3 className="text-2xl font-bold text-slate-900 mb-3">
                         {project.title}
                       </h3>
-                      <p className="text-slate-500 text-sm leading-relaxed mb-5">{project.excerpt}</p>
+                      <p className="text-slate-500 text-sm leading-relaxed mb-5">{projectCopy(project.slug, project.excerpt)}</p>
                       <div className="space-y-2 mb-6">
                         {project.highlights.slice(0, 2).map((highlight) => (
                           <div key={highlight} className="flex items-start gap-2 text-sm text-slate-600">

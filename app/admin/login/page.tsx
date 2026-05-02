@@ -132,8 +132,8 @@ export default function AdminLoginPage() {
           {/* Logo — always visible on right side */}
           <div className="flex justify-start mb-8">
             <Image
-              src="/BP Uitgevers logo.png"
-              alt="BP Uitgevers"
+              src="/WebsUp.nl logo zwart.png"
+              alt="WebsUp.nl"
               width={160}
               height={52}
               className="object-contain"

@@ -3,6 +3,7 @@ import { createAdminSupabaseClient } from '@/lib/supabase/server'
 import TestimonialForm from '@/components/admin/TestimonialForm'
 import { getTenantId } from '@/lib/tenant'
 import { isMissingColumnError } from '@/lib/supabase/schema-helpers'
+import { getAllProjectsAdmin } from '@/lib/queries/projects'
 
 interface Props {
   params: Promise<{ id: string }>
@@ -11,6 +12,9 @@ interface Props {
 export default async function BewerkenTestimonialPage({ params }: Props) {
   const { id } = await params
   const supabase = await createAdminSupabaseClient()
+
+  const projects = await getAllProjectsAdmin()
+  const projectOptions = projects.map((p) => ({ id: p.id, title: p.title }))
 
   const { data: testimonial, error } = await supabase
     .from('testimonials')
@@ -28,10 +32,10 @@ export default async function BewerkenTestimonialPage({ params }: Props) {
 
     if (fallback.error || !fallback.data) notFound()
 
-    return <TestimonialForm testimonial={fallback.data} mode="edit" />
+    return <TestimonialForm testimonial={fallback.data} mode="edit" projects={projectOptions} />
   }
 
   if (error || !testimonial) notFound()
 
-  return <TestimonialForm testimonial={testimonial} mode="edit" />
+  return <TestimonialForm testimonial={testimonial} mode="edit" projects={projectOptions} />
 }

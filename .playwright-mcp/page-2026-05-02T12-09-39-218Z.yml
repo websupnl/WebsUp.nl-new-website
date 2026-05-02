@@ -1,0 +1,110 @@
+- generic [active] [ref=e1]:
+  - dialog "Beheer Cookie toestemming" [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: Beheer Cookie toestemming
+      - button "Dialoogvenster sluiten" [ref=e5] [cursor=pointer]:
+        - img [ref=e6]
+    - generic [ref=e9]: Wij gebruiken technologieën zoals cookies om informatie over je apparaat op te slaan en/of te raadplegen. We doen dit met als doel om de beste ervaring te bieden en om gepersonaliseerde advertenties te tonen. Door in te stemmen met deze technologieën kunnen wij gegevens zoals surfgedrag of unieke ID's op deze site verwerken. Als je geen toestemming geeft of jouw toestemming intrekt, kan dit een nadelige invloed hebben op bepaalde functies en mogelijkheden.
+    - generic [ref=e10]:
+      - button "Accepteren" [ref=e11] [cursor=pointer]
+      - button "Weigeren" [ref=e12] [cursor=pointer]
+      - button "Voorkeuren bekijken" [ref=e13] [cursor=pointer]
+    - list [ref=e15]:
+      - listitem [ref=e16]:
+        - link "Cookiebeleid" [ref=e17] [cursor=pointer]:
+          - /url: https://flexxmusicwoldhoorn.com/cookiebeleid-eu/
+      - listitem [ref=e18]:
+        - link "Privacyverklaring" [ref=e19] [cursor=pointer]:
+          - /url: https://flexxmusicwoldhoorn.com/privacyverklaring/
+      - listitem
+  - generic [ref=e21]:
+    - banner [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e25]:
+          - img "1935206_1635122413422169_7877342549075830757_n" [ref=e29]
+          - generic [ref=e33]:
+            - navigation [ref=e35]:
+              - list [ref=e36]:
+                - listitem [ref=e37]:
+                  - link "Home" [ref=e38] [cursor=pointer]:
+                    - /url: https://flexxmusicwoldhoorn.com/
+                - listitem [ref=e39]:
+                  - link "Vacatures" [ref=e40] [cursor=pointer]:
+                    - /url: https://flexxmusicwoldhoorn.com/vacatures/
+                - listitem [ref=e41]:
+                  - link "Foto’s" [ref=e42] [cursor=pointer]:
+                    - /url: https://flexxmusicwoldhoorn.com/fotos/
+                - listitem [ref=e43]:
+                  - link "Agenda" [ref=e44] [cursor=pointer]:
+                    - /url: https://flexxmusicwoldhoorn.com/actualiteit/
+                - listitem [ref=e45]:
+                  - link "Contact" [ref=e46] [cursor=pointer]:
+                    - /url: https://flexxmusicwoldhoorn.com/contact/
+            - text: a
+          - link "contact " [ref=e49] [cursor=pointer]:
+            - /url: /contact
+        - text: a
+    - generic [ref=e50]:
+      - article [ref=e52]:
+        - generic [ref=e55]:
+          - generic [ref=e61]:
+            - heading "Flexx Music Woldhoorn" [level=1] [ref=e64]
+            - paragraph [ref=e68]:
+              - strong [ref=e69]: Flexx Music Woldhoorn biedt u een blazersensemble en een bigband aan. Wij voegen graag net dat stukje extra sfeer toe aan uw project. Neem contact met ons op voor de mogelijkheden of kijk in de agenda voor het volgende event!
+          - generic [ref=e70]:
+            - heading "Over ons" [level=1] [ref=e75]
+            - generic [ref=e77]:
+              - generic [ref=e80]:
+                - paragraph [ref=e81]: Flexx Music Woldhoorn biedt u een blazersensemble en bigband. We werken projectmatig en kunnen daarom goed aansluiten op uw event.
+                - paragraph [ref=e82]: Het blazersensemble speelt eigentijdse en oudere muziek in alle soorten en maten. Bijvoorbeeld volksmuziek of licht klassieke muziek. Alle instrumenten zijn welkom, van trompet tot klarinet, bas tot contrabas en van saxofoon tot piano.
+                - paragraph [ref=e83]: De bigband neemt het programma met lichte muziek voor haar rekening. De band speelt lekker swingende muziek zoals Jazz, Funk, Rock en Pop.
+                - paragraph [ref=e84]: Wij voegen graag net dat stukje extra sfeer toe aan uw project. Neem contact met ons op voor de mogelijkheden of kijk in de agenda voor het volgende event!
+              - link "I" [ref=e91] [cursor=pointer]:
+                - /url: "#"
+            - link "bigband flexx music leek westerkwartier zuidhorn groningen roden" [ref=e95] [cursor=pointer]:
+              - /url: https://www.podiumnienoordleek.nl/agenda/BigBand/
+              - img "bigband flexx music leek westerkwartier zuidhorn groningen roden" [ref=e97]
+            - link "leek bigband" [ref=e102] [cursor=pointer]:
+              - /url: https://www.midzomerfeestoostindie.nl/
+              - img "leek bigband" [ref=e104]
+      - contentinfo [ref=e105]:
+        - generic [ref=e107]:
+          - paragraph [ref=e112]: Flexx Music Woldhoorn
+          - generic [ref=e113]:
+            - generic [ref=e114]:
+              - paragraph [ref=e117]: Informatie
+              - paragraph [ref=e120] [cursor=pointer]:
+                - link "Cookie beleid" [ref=e121]:
+                  - /url: /cookiebeleid-eu
+              - paragraph [ref=e124] [cursor=pointer]:
+                - link "Privacyverklaring" [ref=e125]:
+                  - /url: /privacyverklaring
+            - generic [ref=e126]:
+              - paragraph [ref=e129]: Contactgegevens
+              - paragraph [ref=e132] [cursor=pointer]:
+                - strong [ref=e133]: Anjelien Schievink
+                - link "06 27486542" [ref=e134]:
+                  - /url: tel:0627486542
+                - link "Info@flexxmusicwoldhoorn.com" [ref=e135]:
+                  - /url: mailto:Info@flexxmusicwoldhoorn.com
+            - generic [ref=e136]:
+              - paragraph [ref=e139]: Repetitielocatie
+              - generic [ref=e141]:
+                - strong [ref=e142]: Dorpshuis de Vrijborg
+                - link "Nieuweweg 80 9364PE Nuis" [ref=e143] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/wjPdhzuLGeFtDnmC9
+                  - text: Nieuweweg 80
+                  - text: 9364PE Nuis
+            - generic [ref=e144]:
+              - paragraph [ref=e147]: Volg ons
+              - list [ref=e148]:
+                - listitem [ref=e149]:
+                  - link "" [ref=e150] [cursor=pointer]:
+                    - /url: https://www.facebook.com/p/Flexx-Music-Woldhoorn-Tolbert-100063636395083/
+          - paragraph [ref=e155]:
+            - text: Website gemaakt door
+            - link "WebsUp.nl" [ref=e156] [cursor=pointer]:
+              - /url: https://websup.nl/
+              - emphasis [ref=e158]:
+                - strong [ref=e159]: WebsUp.nl
+  - text: "2"

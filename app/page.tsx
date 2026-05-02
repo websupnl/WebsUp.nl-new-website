@@ -5,7 +5,7 @@ import Navbar from '@/components/site/Navbar'
 import Footer from '@/components/site/Footer'
 import HeroSection from '@/components/site/HeroSection'
 import AboutMeSection from '@/components/site/AboutMeSection'
-import TestimonialsSection from '@/components/site/TestimonialsSection'
+import ReviewsSection from '@/components/site/ReviewsSection'
 import StarterCTASection from '@/components/site/StarterCTASection'
 import ServicesSection from '@/components/site/ServicesSection'
 import ProjectsSection from '@/components/site/ProjectsSection'
@@ -14,8 +14,8 @@ import FAQSection from '@/components/site/FAQSection'
 import KennisbankPreviewSection from '@/components/site/KennisbankPreviewSection'
 import CTASection from '@/components/site/CTASection'
 import CookieBanner from '@/components/site/CookieBanner'
-import { getTestimonials } from '@/lib/queries/testimonials'
 import { getLatestNewsArticles } from '@/lib/queries/news'
+import { getTestimonials } from '@/lib/queries/testimonials'
 import { getProjects } from '@/lib/queries/projects'
 import { getMergedSiteSettings, getMergedSeoSettings, getNavigationItems } from '@/lib/queries/site-settings'
 import { siteConfig } from '@/config/site.config'
@@ -33,13 +33,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [testimonials, settings, allNavItems, latestArticles, projects, seo] = await Promise.all([
-    getTestimonials(),
+  const [settings, allNavItems, latestArticles, projects, seo, testimonials] = await Promise.all([
     getMergedSiteSettings(),
     getNavigationItems(),
     getLatestNewsArticles(3),
     getProjects(),
     getMergedSeoSettings(),
+    getTestimonials(),
   ])
 
   const headerNavItems = allNavItems.filter((i) => i.location === 'header')
@@ -58,7 +58,7 @@ export default async function HomePage() {
         <ServicesSection />
         <AboutMeSection />
         <VoorWieSection />
-        <TestimonialsSection testimonials={testimonials} />
+        <ReviewsSection testimonials={testimonials} />
         <ProjectsSection projects={projects} limit={3} />
         <StarterCTASection />
         <FAQSection limit={5} />

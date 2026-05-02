@@ -1,0 +1,660 @@
+- generic [active] [ref=e1]:
+  - alertdialog "Cookietoestemming" [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - heading "Cookietoestemming" [level=2] [ref=e5]
+        - paragraph [ref=e6]:
+          - text: Wij gebruiken cookies alleen met jouw toestemming voor een betere ervaring, advertenties en analyses.
+          - link "Privacybeleid" [ref=e7] [cursor=pointer]:
+            - /url: https://primeanimalz.myshopify.com/policies/privacy-policy
+      - generic [ref=e8]:
+        - button "Voorkeuren beheren" [ref=e9] [cursor=pointer]
+        - button "Accepteren" [ref=e10] [cursor=pointer]
+        - button "Afwijzen" [ref=e11] [cursor=pointer]
+  - link "Ga direct naar de inhoud" [ref=e12] [cursor=pointer]:
+    - /url: "#MainContent"
+  - generic [ref=e13]:
+    - banner [ref=e16]:
+      - generic [ref=e20]:
+        - list [ref=e22]:
+          - listitem [ref=e23]:
+            - link "Instagram" [ref=e24] [cursor=pointer]:
+              - /url: https://www.instagram.com/primeanimalz/
+              - img [ref=e25]
+              - generic [ref=e29]: Instagram
+          - listitem [ref=e30]:
+            - link "Facebook" [ref=e31] [cursor=pointer]:
+              - /url: https://www.facebook.com/people/Prime-AnimalZ/61583551990661/
+              - img [ref=e32]
+              - generic [ref=e34]: Facebook
+          - listitem [ref=e35]:
+            - link "TikTok" [ref=e36] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@primeanimalz
+              - img [ref=e37]
+              - generic [ref=e40]: TikTok
+          - listitem [ref=e41]:
+            - link "Linkedin" [ref=e42] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/jeremy-palsma/
+              - img [ref=e43]
+              - generic [ref=e46]: Linkedin
+        - generic [ref=e49]:
+          - heading "Valuta" [level=2] [ref=e50]
+          - button "EUR €" [ref=e52] [cursor=pointer]:
+            - generic [ref=e53]: EUR €
+      - generic [ref=e56]:
+        - link [ref=e59] [cursor=pointer]:
+          - /url: /
+          - figure [ref=e60]:
+            - img "Prime AnimalZ" [ref=e61]
+        - navigation [ref=e63]:
+          - button "Kattenbakken" [ref=e64]:
+            - link "Kattenbakken" [ref=e65] [cursor=pointer]:
+              - /url: /collections/kattenbakken
+              - generic [ref=e66]: Kattenbakken
+          - button "Voerbakken" [ref=e67]:
+            - link "Voerbakken" [ref=e68] [cursor=pointer]:
+              - /url: /collections/voerbakken
+              - generic [ref=e69]: Voerbakken
+          - button "Ballenwerpers" [ref=e70]:
+            - link "Ballenwerpers" [ref=e71] [cursor=pointer]:
+              - /url: /collections/ballenwerpers
+              - generic [ref=e72]: Ballenwerpers
+          - link "Drinkfonteinen" [ref=e74] [cursor=pointer]:
+            - /url: /collections/drinkfonteinen
+            - generic [ref=e75]: Drinkfonteinen
+          - link "Stoomborstels" [ref=e77] [cursor=pointer]:
+            - /url: /collections/stoomborstels
+            - generic [ref=e78]: Stoomborstels
+          - link "Blogs" [ref=e80] [cursor=pointer]:
+            - /url: /blogs/blogs
+            - generic [ref=e81]: Blogs
+          - link "Over ons" [ref=e83] [cursor=pointer]:
+            - /url: /pages/over-ons
+            - generic [ref=e84]: Over ons
+          - link "Contact" [ref=e86] [cursor=pointer]:
+            - /url: /pages/contact
+            - generic [ref=e87]: Contact
+        - generic [ref=e89]:
+          - 'link "Translation missing: nl.layout.header.account" [ref=e91] [cursor=pointer]':
+            - /url: /account
+            - img [ref=e92]
+            - generic [ref=e95]: "Translation missing: nl.layout.header.account"
+          - group [ref=e98]:
+            - generic "Zoeken" [ref=e99] [cursor=pointer]:
+              - img [ref=e100]
+              - generic [ref=e103]: Zoeken
+          - link "Winkelwagen" [ref=e105] [cursor=pointer]:
+            - /url: /cart
+            - generic [ref=e106]:
+              - generic [ref=e107]: Winkelwagen
+              - img [ref=e109]
+    - main [ref=e111]:
+      - generic [ref=e114]:
+        - img "Dia-afbeelding" [ref=e120]
+        - generic [ref=e124]:
+          - link "Bekijk alles voor katten" [ref=e126] [cursor=pointer]:
+            - /url: /collections/katten
+            - generic [ref=e127]: Bekijk alles voor katten
+            - img [ref=e128]
+          - link "Bekijk alles voor honden" [ref=e131] [cursor=pointer]:
+            - /url: /collections/honden
+            - generic [ref=e132]: Bekijk alles voor honden
+            - img [ref=e133]
+      - generic [ref=e138]:
+        - generic [ref=e141]:
+          - img [ref=e143]
+          - heading "Slimme producten voor dagelijks gemak" [level=2] [ref=e147]
+        - generic [ref=e150]:
+          - img [ref=e152]
+          - heading "Ontworpen met zorg voor huisdieren" [level=2] [ref=e155]
+        - generic [ref=e158]:
+          - img [ref=e160]
+          - heading "Snelle levering in Nederland & België" [level=2] [ref=e165]
+        - generic [ref=e168]:
+          - img [ref=e170]
+          - heading "Persoonlijke service & support" [level=2] [ref=e175]
+      - generic [ref=e178]:
+        - generic [ref=e179]:
+          - heading "Meest gekozen door huisdierbaasjes." [level=2] [ref=e181]
+          - link "Bekijk alle bestsellers" [ref=e183] [cursor=pointer]:
+            - /url: /collections/bestsellers
+            - generic [ref=e184]: Bekijk alle bestsellers
+            - img [ref=e185]
+        - generic [ref=e189]:
+          - generic [ref=e190]:
+            - generic [ref=e191]:
+              - generic [ref=e192]:
+                - link "Automatische Kattenbak XXL - 72L - met camera" [ref=e193] [cursor=pointer]:
+                  - /url: /products/prime-animalz-automatische-kattenbak-xxl-72l
+                  - figure [ref=e195]:
+                    - img "Prime AnimalZ automatische kattenbak XXL zelfreinigend met kat in gebruik" [ref=e196]
+                  - figure [ref=e200]:
+                    - img "Prime AnimalZ automatische kattenbak XXL 72L met slimme sensoren, app bediening en fluisterstille werking" [ref=e201]
+                - button "Toevoegen aan winkelwagen" [ref=e204] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - link "Automatische Kattenbak XXL - 72L - met camera €399,95" [ref=e207] [cursor=pointer]:
+                - /url: /products/prime-animalz-automatische-kattenbak-xxl-72l
+                - paragraph [ref=e208]: Automatische Kattenbak XXL - 72L - met camera
+                - generic [ref=e211]: €399,95
+            - generic [ref=e212]:
+              - generic [ref=e213]:
+                - link "Ballenwerper Premium XL Grijs - incl. 5 ETPU ballen" [ref=e214] [cursor=pointer]:
+                  - /url: /products/prime-animalz-automatische-ballenwerper-honden
+                  - figure [ref=e216]:
+                    - img "Prime AnimalZ automatische ballenwerper L10MAX grijs voor honden" [ref=e217]
+                  - figure [ref=e221]:
+                    - img "prime-animalz-automatische-ballenwerper-l10max-grijs-features" [ref=e222]
+                - button "Toevoegen aan winkelwagen" [ref=e225] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - generic [ref=e227]:
+                - link "Ballenwerper Premium XL Grijs - incl. 5 ETPU ballen Cutline €199,95" [ref=e228] [cursor=pointer]:
+                  - /url: /products/prime-animalz-automatische-ballenwerper-honden
+                  - paragraph [ref=e229]: Ballenwerper Premium XL Grijs - incl. 5 ETPU ballen
+                  - generic [ref=e230]:
+                    - generic [ref=e231]: Cutline
+                    - generic [ref=e233]: €199,95
+                - generic [ref=e236]:
+                  - figure [ref=e239] [cursor=pointer]:
+                    - img "prime-animalz-automatische-ballenwerper-l10max-groen-front" [ref=e240]
+                  - generic [ref=e241] [cursor=pointer]:
+                    - generic:
+                      - figure:
+                        - img "Prime AnimalZ automatische ballenwerper L10MAX grijs voor honden"
+            - generic [ref=e242]:
+              - generic [ref=e243]:
+                - link "Automatische Voerbak Kat & Hond 7L Upgraded" [ref=e244] [cursor=pointer]:
+                  - /url: /products/prime-animalz-automatische-voerbak-kat-hond-7l-upgraded-nl
+                  - figure [ref=e246]:
+                    - img "Prime AnimalZ automatische voerbak premium upgraded 7 liter model ECC zwart met camera en automatische voerfunctie" [ref=e247]
+                  - figure [ref=e251]:
+                    - img "Belangrijkste functies van de Prime AnimalZ automatische voerbak premium upgraded 7 liter model ECC zwart" [ref=e252]
+                - button "Toevoegen aan winkelwagen" [ref=e255] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - generic [ref=e257]:
+                - link "Automatische Voerbak Kat & Hond 7L Upgraded €159,95" [ref=e258] [cursor=pointer]:
+                  - /url: /products/prime-animalz-automatische-voerbak-kat-hond-7l-upgraded-nl
+                  - paragraph [ref=e259]: Automatische Voerbak Kat & Hond 7L Upgraded
+                  - generic [ref=e262]: €159,95
+                - generic [ref=e265]:
+                  - generic [ref=e266] [cursor=pointer]:
+                    - generic:
+                      - figure:
+                        - img "Prime AnimalZ automatische voerbak premium upgraded 7 liter model ECC zwart met camera en automatische voerfunctie"
+                  - figure [ref=e269] [cursor=pointer]:
+                    - img "Prime AnimalZ automatische voerbak premium upgraded 7 liter model ECC wit met slimme voerplanning via de app" [ref=e270]
+                  - figure [ref=e273] [cursor=pointer]:
+                    - img "Prime AnimalZ automatische voerbak standaard upgraded 6 liter model ECC wit met slimme voerinstellingen via de app" [ref=e274]
+            - generic [ref=e275]:
+              - generic [ref=e276]:
+                - link "Automatische Voerbak dubbel Premium 7L Wit" [ref=e277] [cursor=pointer]:
+                  - /url: /products/automatische-voerbak-dubbel-premium-7l-zwart-kopie
+                  - figure [ref=e279]:
+                    - img "prime-animalz-automatische-voerbak-premium-7l-dubbel-f700eca-wit-front-b" [ref=e280]
+                  - figure [ref=e284]:
+                    - img "Belangrijkste functies van de Prime AnimalZ automatische voerbak premium 7 liter dubbel F700ECA wit" [ref=e285]
+                - button "Toevoegen aan winkelwagen" [ref=e288] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - link "Automatische Voerbak dubbel Premium 7L Wit €149,95" [ref=e291] [cursor=pointer]:
+                - /url: /products/automatische-voerbak-dubbel-premium-7l-zwart-kopie
+                - paragraph [ref=e292]: Automatische Voerbak dubbel Premium 7L Wit
+                - generic [ref=e295]: €149,95
+            - generic [ref=e296]:
+              - generic [ref=e297]:
+                - link "Automatische Voerbak Kat & Hond Premium 7L enkel Zwart" [ref=e298] [cursor=pointer]:
+                  - /url: /products/automatische-voerbak-kat-hond-premium-7l-enkel
+                  - figure [ref=e300]:
+                    - img "Prime AnimalZ automatische voerbak 7 liter zwart premium met app bediening" [ref=e301]
+                  - figure [ref=e305]:
+                    - img "Prime AnimalZ automatische voerbak 7 liter zwart premium enkel met slimme functies" [ref=e306]
+                - button "Toevoegen aan winkelwagen" [ref=e309] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - generic [ref=e311]:
+                - link "Automatische Voerbak Kat & Hond Premium 7L enkel Zwart €139,95" [ref=e312] [cursor=pointer]:
+                  - /url: /products/automatische-voerbak-kat-hond-premium-7l-enkel
+                  - paragraph [ref=e313]: Automatische Voerbak Kat & Hond Premium 7L enkel Zwart
+                  - generic [ref=e316]: €139,95
+                - generic [ref=e319]:
+                  - generic [ref=e320] [cursor=pointer]:
+                    - generic:
+                      - figure:
+                        - img "Prime AnimalZ automatische voerbak 7 liter zwart premium met app bediening"
+                  - figure [ref=e323] [cursor=pointer]:
+                    - img "Prime AnimalZ automatische voerbak F700ECA wit met app bediening voor honden en katten" [ref=e324]
+            - generic [ref=e325]:
+              - generic [ref=e326]:
+                - link "Automatische voerbak Standaard 6 liter dubbel Zwart" [ref=e327] [cursor=pointer]:
+                  - /url: /products/automatische-voerbak-standaard-6-liter-dubbel-zwart
+                  - figure [ref=e329]:
+                    - img "Prime AnimalZ automatische voerbak 6 liter enkel F600ECA zwart productfoto zonder iconen op witte achtergrond" [ref=e330]
+                  - figure [ref=e334]:
+                    - img "Details van de Prime AnimalZ automatische voerbak 6 liter enkel F600ECA zwart" [ref=e335]
+                - button "Toevoegen aan winkelwagen" [ref=e338] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - generic [ref=e340]:
+                - link "Automatische voerbak Standaard 6 liter dubbel Zwart €129,95" [ref=e341] [cursor=pointer]:
+                  - /url: /products/automatische-voerbak-standaard-6-liter-dubbel-zwart
+                  - paragraph [ref=e342]: Automatische voerbak Standaard 6 liter dubbel Zwart
+                  - generic [ref=e345]: €129,95
+                - generic [ref=e348]:
+                  - generic [ref=e349] [cursor=pointer]:
+                    - generic:
+                      - figure:
+                        - img "Prime AnimalZ automatische voerbak 6 liter enkel F600ECA zwart productfoto zonder iconen op witte achtergrond"
+                  - figure [ref=e352] [cursor=pointer]:
+                    - img "Prime AnimalZ automatische voerbak 6 liter wit F600DCA upgraded met app bediening" [ref=e353]
+            - generic [ref=e354]:
+              - generic [ref=e355]:
+                - link "Automatische voerbak Standaard 4 Liter enkel Zwart" [ref=e356] [cursor=pointer]:
+                  - /url: /products/automatische-voerbak-standaard-4-liter-enkel-zwart
+                  - figure [ref=e358]:
+                    - img "Prime AnimalZ automatische voerbak 4 liter enkel F400ECA zwart met app bediening" [ref=e359]
+                  - figure [ref=e363]:
+                    - img "Prime AnimalZ automatische voerbak 4 liter enkel F400ECA zwart met overzicht van slimme functies" [ref=e364]
+                - button "Toevoegen aan winkelwagen" [ref=e367] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - link "Automatische voerbak Standaard 4 Liter enkel Zwart €119,95" [ref=e370] [cursor=pointer]:
+                - /url: /products/automatische-voerbak-standaard-4-liter-enkel-zwart
+                - paragraph [ref=e371]: Automatische voerbak Standaard 4 Liter enkel Zwart
+                - generic [ref=e374]: €119,95
+            - generic [ref=e375]:
+              - generic [ref=e376]:
+                - link "Automatische voerbak Standaard 4 Liter dubbel Zwart" [ref=e377] [cursor=pointer]:
+                  - /url: /products/automatische-voerbak-standaard-4-liter-dubbel-zwart
+                  - figure [ref=e379]:
+                    - img "prime-animalz-automatische-voerbak-4l-dubbel-f400dca-zwart-front-a" [ref=e380]
+                  - figure [ref=e384]:
+                    - img "prime-animalz-automatische-voerbak-4l-dubbel-f400dca-zwart-features" [ref=e385]
+                - button "Toevoegen aan winkelwagen" [ref=e388] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - link "Automatische voerbak Standaard 4 Liter dubbel Zwart €119,95" [ref=e391] [cursor=pointer]:
+                - /url: /products/automatische-voerbak-standaard-4-liter-dubbel-zwart
+                - paragraph [ref=e392]: Automatische voerbak Standaard 4 Liter dubbel Zwart
+                - generic [ref=e395]: €119,95
+            - generic [ref=e396]:
+              - generic [ref=e397]:
+                - link "Automatische voerbak Compact 4L Zwart" [ref=e398] [cursor=pointer]:
+                  - /url: /products/automatische-voerbak-compact-4l-zwart
+                  - figure [ref=e400]:
+                    - img "prime-animalz-automatische-voerbak-compact-f400ecb-zwart-front" [ref=e401]
+                  - figure [ref=e405]:
+                    - img "prime-animalz-automatische-voerbak-compact-f400ecb-zwart-features" [ref=e406]
+                - button "Toevoegen aan winkelwagen" [ref=e409] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - link "Automatische voerbak Compact 4L Zwart €119,95" [ref=e412] [cursor=pointer]:
+                - /url: /products/automatische-voerbak-compact-4l-zwart
+                - paragraph [ref=e413]: Automatische voerbak Compact 4L Zwart
+                - generic [ref=e416]: €119,95
+            - generic [ref=e417]:
+              - link "Automatische kattenbak Geurpads 12 stuks" [ref=e419] [cursor=pointer]:
+                - /url: /products/automatische-kattenbak-geurpads-12-stuks
+                - figure [ref=e421]:
+                  - img "Dia-afbeelding" [ref=e422]
+              - link "Automatische kattenbak Geurpads 12 stuks Uitverkocht" [ref=e426] [cursor=pointer]:
+                - /url: /products/automatische-kattenbak-geurpads-12-stuks
+                - paragraph [ref=e427]: Automatische kattenbak Geurpads 12 stuks
+                - generic [ref=e430]: Uitverkocht
+            - generic [ref=e431]:
+              - generic [ref=e432]:
+                - link "Stoomborstel S900A voor katten en honden.- Premium" [ref=e433] [cursor=pointer]:
+                  - /url: /products/stoomborstel-s900a-voor-katten-en-honden
+                  - figure [ref=e435]:
+                    - img "Prime AnimalZ stoomborstel S900A met zelfreinigende functie voor honden en katten" [ref=e436]
+                  - figure [ref=e440]:
+                    - img "Voordelen van de Prime AnimalZ stoomborstel S900A voor honden en katten" [ref=e441]
+                - button "Toevoegen aan winkelwagen" [ref=e444] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - link "Stoomborstel S900A voor katten en honden.- Premium €34,95" [ref=e447] [cursor=pointer]:
+                - /url: /products/stoomborstel-s900a-voor-katten-en-honden
+                - paragraph [ref=e448]: Stoomborstel S900A voor katten en honden.- Premium
+                - generic [ref=e451]: €34,95
+            - generic [ref=e452]:
+              - link "Afvalzakken automatische kattenbak 10 stuks" [ref=e454] [cursor=pointer]:
+                - /url: /products/afvalzakken-automatische-kattenbak-10-stuks
+                - figure [ref=e456]:
+                  - img "Dia-afbeelding" [ref=e457]
+                - figure [ref=e461]:
+                  - img "Afvalzakken automatische kattenbak 10 stuks" [ref=e462]
+              - link "Afvalzakken automatische kattenbak 10 stuks Uitverkocht" [ref=e466] [cursor=pointer]:
+                - /url: /products/afvalzakken-automatische-kattenbak-10-stuks
+                - paragraph [ref=e467]: Afvalzakken automatische kattenbak 10 stuks
+                - generic [ref=e470]: Uitverkocht
+            - generic [ref=e471]:
+              - generic [ref=e472]:
+                - link "Vershoudzakjes voor de Automatische Voerbak 12 stuks - Navulling" [ref=e473] [cursor=pointer]:
+                  - /url: /products/vershoudzakjes-voor-de-automatische-voerbak-12-stuks-navulling
+                  - figure [ref=e475]:
+                    - img "Prime AnimalZ vershoudzakjes voor automatische voerbak 12 stuks voorkant verpakking" [ref=e476]
+                  - figure [ref=e480]:
+                    - img "Voordelen van de Prime AnimalZ vershoudzakjes voor automatische voerbakken" [ref=e481]
+                - button "Toevoegen aan winkelwagen" [ref=e484] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - link "Vershoudzakjes voor de Automatische Voerbak 12 stuks - Navulling €29,95" [ref=e487] [cursor=pointer]:
+                - /url: /products/vershoudzakjes-voor-de-automatische-voerbak-12-stuks-navulling
+                - paragraph [ref=e488]: Vershoudzakjes voor de Automatische Voerbak 12 stuks - Navulling
+                - generic [ref=e491]: €29,95
+            - generic [ref=e492]:
+              - generic [ref=e493]:
+                - link "Stoomborstel S800A voor katten en honden. Wit" [ref=e494] [cursor=pointer]:
+                  - /url: /products/stoomborstel-s800a-voor-katten-en-honden-wit
+                  - figure [ref=e496]:
+                    - img "Prime AnimalZ stoomborstel S800A wit voor honden en katten" [ref=e497]
+                  - figure [ref=e501]:
+                    - img "Prime AnimalZ stoomborstel S800A wit zelfreinigende stoomborstel voor honden en katten" [ref=e502]
+                - button "Toevoegen aan winkelwagen" [ref=e505] [cursor=pointer]:
+                  - generic: Toevoegen aan winkelwagen
+                  - generic:
+                    - img
+              - link "Stoomborstel S800A voor katten en honden. Wit €29,95" [ref=e508] [cursor=pointer]:
+                - /url: /products/stoomborstel-s800a-voor-katten-en-honden-wit
+                - paragraph [ref=e509]: Stoomborstel S800A voor katten en honden. Wit
+                - generic [ref=e512]: €29,95
+          - button "Volgende" [ref=e513] [cursor=pointer]
+      - generic [ref=e517]:
+        - generic [ref=e518]:
+          - generic [ref=e519]: "18.642"
+          - generic [ref=e520]: Tevreden Prime AnimalZ klanten
+        - generic [ref=e521]:
+          - generic [ref=e522]: 22.000+
+          - generic [ref=e523]: Dagelijkse routines makkelijker gemaakt
+        - generic [ref=e524]:
+          - generic [ref=e525]: 80,000+
+          - generic [ref=e526]: Uren bespaard voor baasjes
+      - generic [ref=e530]:
+        - heading "Shop per categorie voor jouw huisdier." [level=2] [ref=e531]
+        - paragraph [ref=e533]: Voor honden en katten, ontworpen voor comfort, gemak en betrouwbaarheid.
+      - generic [ref=e539]:
+        - link "Kattenbakken" [ref=e541] [cursor=pointer]:
+          - /url: /collections/kattenbakken
+          - figure [ref=e545]:
+            - img "Dia-afbeelding" [ref=e546]
+          - generic [ref=e547]: Slimme kattenbakken
+        - link "Automatische Voerbakken" [ref=e549] [cursor=pointer]:
+          - /url: /collections/voerbakken
+          - figure [ref=e553]:
+            - img "Dia-afbeelding" [ref=e554]
+          - generic [ref=e555]: Slimme voerbakken
+        - link "Ballenwerpers" [ref=e557] [cursor=pointer]:
+          - /url: /collections/ballenwerpers
+          - figure [ref=e561]:
+            - img "Dia-afbeelding" [ref=e562]
+          - generic [ref=e563]: Ballenwerpers
+        - link "Drinkfonteinen" [ref=e565] [cursor=pointer]:
+          - /url: /collections/drinkfonteinen
+          - figure [ref=e569]:
+            - img "Dia-afbeelding" [ref=e570]
+          - generic [ref=e571]: Drinkfonteinen
+        - link "Stoomborstels" [ref=e573] [cursor=pointer]:
+          - /url: /collections/stoomborstels
+          - figure [ref=e577]:
+            - img "Prime AnimalZ stoomborstel S800A wit voor honden en katten" [ref=e578]
+          - generic [ref=e579]: Stoomborstels
+      - generic [ref=e587]:
+        - generic [ref=e588]:
+          - generic [ref=e590]: •
+          - paragraph [ref=e593]:
+            - strong [ref=e594]: Gratis verzending
+          - generic [ref=e596]: •
+          - paragraph [ref=e599]:
+            - strong [ref=e600]: Bezorging in Nederland & België
+          - generic [ref=e602]: •
+          - paragraph [ref=e605]:
+            - strong [ref=e606]: 30 Dagen retourneren
+        - generic [ref=e607]:
+          - generic [ref=e609]: •
+          - paragraph [ref=e612]:
+            - strong [ref=e613]: Gratis verzending
+          - generic [ref=e615]: •
+          - paragraph [ref=e618]:
+            - strong [ref=e619]: Bezorging in Nederland & België
+          - generic [ref=e621]: •
+          - paragraph [ref=e624]:
+            - strong [ref=e625]: 30 Dagen retourneren
+        - generic [ref=e626]:
+          - generic [ref=e628]: •
+          - paragraph [ref=e631]:
+            - strong [ref=e632]: Gratis verzending
+          - generic [ref=e634]: •
+          - paragraph [ref=e637]:
+            - strong [ref=e638]: Bezorging in Nederland & België
+          - generic [ref=e640]: •
+          - paragraph [ref=e643]:
+            - strong [ref=e644]: 30 Dagen retourneren
+      - generic [ref=e648]:
+        - generic [ref=e649]:
+          - heading "Maak het leven van je huisdier makkelijker" [level=2] [ref=e650]
+          - link "Shop automatische voerbakken" [ref=e651] [cursor=pointer]:
+            - /url: /collections/voerbakken
+            - generic [ref=e652]: Shop automatische voerbakken
+            - img [ref=e653]
+        - img [ref=e656]
+      - generic [ref=e659]:
+        - heading "Partner van" [level=2] [ref=e660]
+        - generic [ref=e662]:
+          - button "Naar logo scrollen" [ref=e664] [cursor=pointer]:
+            - figure [ref=e667]:
+              - img "Amazon partner logo waar Prime AnimalZ producten beschikbaar zijn" [ref=e668]
+          - button "Naar logo scrollen" [ref=e670] [cursor=pointer]:
+            - figure [ref=e673]:
+              - img "Bol.com partner logo waar Prime AnimalZ producten online verkrijgbaar zijn" [ref=e674]
+          - button "Naar logo scrollen" [ref=e676] [cursor=pointer]:
+            - figure [ref=e679]:
+              - img "Dia-afbeelding" [ref=e680]
+        - generic [ref=e685]: Onze producten worden verkocht via betrouwbare platforms zoals Bol.com, Amazon en Ebay
+      - generic [ref=e688]:
+        - img "Dia-afbeelding" [ref=e694]
+        - generic [ref=e697]:
+          - paragraph [ref=e698]: Over ons
+          - heading "Ons verhaal achter Prime AnimalZ." [level=2] [ref=e699]
+          - generic [ref=e700]:
+            - paragraph [ref=e701]:
+              - strong [ref=e702]: Prime AnimalZ
+              - text: is ontstaan vanuit een simpele gedachte. Huisdieren verdienen producten die het dagelijks leven makkelijker maken en die je met vertrouwen in huis haalt.
+            - paragraph [ref=e703]: Wij selecteren en ontwikkelen premium producten voor honden en katten, met focus op gemak, veiligheid en kwaliteit. Denk aan slimme oplossingen voor voeren, drinken, verzorging en spelen. Ook voor dagelijkse basics zoals een kattenbak kiezen we bewust voor comfort en gebruiksgemak, zodat jij én je huisdier er direct voordeel van hebben.
+          - link "Lees meer over ons" [ref=e705] [cursor=pointer]:
+            - /url: "#!"
+            - generic [ref=e706]: Lees meer over ons
+            - img [ref=e707]
+      - generic [ref=e712]:
+        - heading "Alles wat je wilt weten over slimme huisdierproducten." [level=2] [ref=e713]
+        - paragraph [ref=e715]: Praktische tips, inzichten en inspiratie over slimme producten voor honden en katten. Ontdek hoe je het leven van je huisdier comfortabeler en makkelijker maakt.
+        - link "Bekijk alle berichten" [ref=e717] [cursor=pointer]:
+          - /url: /blogs/blogs
+          - generic [ref=e718]: Bekijk alle berichten
+          - img [ref=e719]
+      - article [ref=e725]:
+        - link "Waarom een automatische kattenbak kopen" [ref=e728] [cursor=pointer]:
+          - /url: /blogs/blogs/waarom-een-automatische-kattenbak-kopen
+          - figure [ref=e729]:
+            - img "Waarom een automatische kattenbak kopen" [ref=e730]
+        - generic [ref=e731]:
+          - heading "Waarom een automatische kattenbak kopen" [level=2] [ref=e732]:
+            - link "Waarom een automatische kattenbak kopen" [ref=e733] [cursor=pointer]:
+              - /url: /blogs/blogs/waarom-een-automatische-kattenbak-kopen
+          - paragraph [ref=e734]:
+            - time [ref=e735]: 02 maart 2026•
+            - generic [ref=e736]: Door Daan Koolhaas
+          - paragraph [ref=e737]: Niemand neemt een kat in huis omdat je zo graag schept. Toch is de kattenbak vaak het enige onderdeel van kattenbezit dat elke dag terugkomt. En als je druk bent,...
+          - link "Lees meer" [ref=e739] [cursor=pointer]:
+            - /url: /blogs/blogs/waarom-een-automatische-kattenbak-kopen
+            - generic [ref=e740]: Lees meer
+      - generic [ref=e744]:
+        - heading "Veelgestelde vragen." [level=2] [ref=e745]
+        - paragraph [ref=e747]: Hier vind je antwoorden op de meest gestelde vragen over onze producten, levering, retourneren en service. Staat je vraag er niet tussen? Neem gerust contact met ons op.
+      - generic [ref=e752]:
+        - group [ref=e753]:
+          - generic "Levering en verzending" [ref=e754] [cursor=pointer]:
+            - text: Levering en verzending
+            - img
+        - group [ref=e755]:
+          - generic "30 dagen proberen zonder zorgen" [ref=e756] [cursor=pointer]:
+            - text: 30 dagen proberen zonder zorgen
+            - img
+        - group [ref=e757]:
+          - generic "Persoonlijke service, je bent geen nummertje" [ref=e758] [cursor=pointer]:
+            - text: Persoonlijke service, je bent geen nummertje
+            - img
+        - group [ref=e759]:
+          - generic "Premium kwaliteit voor jouw trouwe familielid - Prime AnimalZ" [ref=e760] [cursor=pointer]:
+            - text: Premium kwaliteit voor jouw trouwe familielid - Prime AnimalZ
+            - img
+      - generic [ref=e764]:
+        - generic [ref=e767]:
+          - img [ref=e769]
+          - generic [ref=e772]:
+            - heading "Slimme producten voor dagelijks gemak" [level=2] [ref=e773]
+            - paragraph [ref=e775]: Innovatieve oplossingen die het leven van jou én je huisdier makkelijker maken.
+        - generic [ref=e778]:
+          - img [ref=e780]
+          - generic [ref=e782]:
+            - heading "Ontworpen met zorg voor huisdieren" [level=2] [ref=e783]
+            - paragraph [ref=e785]: Veilig, comfortabel en afgestemd op de natuurlijke behoeften van honden en katten.
+        - generic [ref=e788]:
+          - img [ref=e790]
+          - generic [ref=e794]:
+            - heading "Snelle levering in Nederland & België" [level=2] [ref=e795]
+            - paragraph [ref=e797]: Vandaag besteld, snel in huis – zonder gedoe.
+        - generic [ref=e800]:
+          - img [ref=e802]
+          - generic [ref=e805]:
+            - heading "Persoonlijke service & support" [level=2] [ref=e806]
+            - paragraph [ref=e808]: Vragen of advies nodig? Wij denken graag met je mee.
+  - contentinfo [ref=e809]:
+    - contentinfo [ref=e811]:
+      - generic [ref=e812]:
+        - link "Logo in voettekst" [ref=e814] [cursor=pointer]:
+          - /url: /
+          - figure [ref=e815]:
+            - img "Prime AnimalZ" [ref=e816]
+        - generic [ref=e818]:
+          - group [ref=e819]:
+            - generic "Over PrimeAnimalZ"
+            - generic [ref=e821]:
+              - paragraph [ref=e823]: Slimme producten voor huisdieren die het leven van baasjes én dieren makkelijker maken.
+              - list [ref=e824]:
+                - listitem [ref=e825]:
+                  - link "Instagram" [ref=e826] [cursor=pointer]:
+                    - /url: https://www.instagram.com/primeanimalz/
+                    - img [ref=e827]
+                    - generic [ref=e831]: Instagram
+                - listitem [ref=e832]:
+                  - link "Facebook" [ref=e833] [cursor=pointer]:
+                    - /url: https://www.facebook.com/people/Prime-AnimalZ/61583551990661/
+                    - img [ref=e834]
+                    - generic [ref=e836]: Facebook
+                - listitem [ref=e837]:
+                  - link "TikTok" [ref=e838] [cursor=pointer]:
+                    - /url: https://www.tiktok.com/@primeanimalz
+                    - img [ref=e839]
+                    - generic [ref=e842]: TikTok
+                - listitem [ref=e843]:
+                  - link "Linkedin" [ref=e844] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/in/jeremy-palsma/
+                    - img [ref=e845]
+                    - generic [ref=e848]: Linkedin
+          - group [ref=e849]:
+            - generic "Info & hulp"
+            - list [ref=e851]:
+              - listitem [ref=e852]:
+                - link "Contact" [ref=e853] [cursor=pointer]:
+                  - /url: /pages/contact
+              - listitem [ref=e854]:
+                - link "Retourneren" [ref=e855] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e856]:
+                - link "Verzending" [ref=e857] [cursor=pointer]:
+                  - /url: /
+          - group [ref=e858]:
+            - generic "Voorwaarden & beleid"
+            - list [ref=e860]:
+              - listitem [ref=e861]:
+                - link "Privacy beleid" [ref=e862] [cursor=pointer]:
+                  - /url: /policies/privacy-policy
+              - listitem [ref=e863]:
+                - link "Retourbeleid" [ref=e864] [cursor=pointer]:
+                  - /url: /policies/refund-policy
+              - listitem [ref=e865]:
+                - link "Verzendbeleid" [ref=e866] [cursor=pointer]:
+                  - /url: /policies/shipping-policy
+              - listitem [ref=e867]:
+                - link "Algemene voorwaarden" [ref=e868] [cursor=pointer]:
+                  - /url: /policies/terms-of-service
+          - group [ref=e869]:
+            - generic "Winkel"
+            - list [ref=e871]:
+              - listitem [ref=e872]:
+                - link "Automatische Voerbakken" [ref=e873] [cursor=pointer]:
+                  - /url: /collections/voerbakken
+              - listitem [ref=e874]:
+                - link "Ballenwerpers" [ref=e875] [cursor=pointer]:
+                  - /url: /collections/ballenwerpers
+              - listitem [ref=e876]:
+                - link "Kattenbakken" [ref=e877] [cursor=pointer]:
+                  - /url: /collections/kattenbakken
+              - listitem [ref=e878]:
+                - link "Drinkfonteinen" [ref=e879] [cursor=pointer]:
+                  - /url: /collections/drinkfonteinen
+              - listitem [ref=e880]:
+                - link "Stoomborstels" [ref=e881] [cursor=pointer]:
+                  - /url: /collections/stoomborstels
+              - listitem [ref=e882]:
+                - link "Accessoires" [ref=e883] [cursor=pointer]:
+                  - /url: /collections/accessoires
+              - listitem [ref=e884]:
+                - link "Bestsellers" [ref=e885] [cursor=pointer]:
+                  - /url: /collections/bestsellers
+    - generic [ref=e888]:
+      - generic [ref=e891]:
+        - heading "Valuta" [level=2] [ref=e892]
+        - button "Nederland Nederland (EUR €)" [ref=e894] [cursor=pointer]:
+          - generic [ref=e895]:
+            - img "Nederland" [ref=e896]
+            - text: Nederland (EUR €)
+          - img [ref=e897]
+      - list [ref=e900]:
+        - listitem [ref=e901]:
+          - link "© Prime AnimalZ 2026" [ref=e902] [cursor=pointer]:
+            - /url: https://primeanimalz.com
+        - listitem [ref=e903]:
+          - link "Webdesign door APKMedia" [ref=e904] [cursor=pointer]:
+            - /url: https://apkmedia.nl
+      - list [ref=e906]:
+        - listitem [ref=e907]:
+          - img "American Express" [ref=e908]
+        - listitem [ref=e917]:
+          - img "Apple Pay" [ref=e918]
+        - listitem [ref=e929]:
+          - img "Bancontact" [ref=e930]
+        - listitem [ref=e937]:
+          - img "Google Pay" [ref=e938]
+        - listitem [ref=e946]:
+          - img "Klarna" [ref=e947]
+        - listitem [ref=e951]:
+          - img "Maestro" [ref=e952]
+        - listitem [ref=e958]:
+          - img "Mastercard" [ref=e959]
+        - listitem [ref=e965]:
+          - img "Shop Pay" [ref=e966]
+        - listitem [ref=e970]:
+          - img "Visa" [ref=e971]

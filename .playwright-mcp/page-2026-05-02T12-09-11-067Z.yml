@@ -1,0 +1,136 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e7]:
+        - link "1-e1728150137905" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img "1-e1728150137905" [ref=e12]
+        - generic [ref=e16]:
+          - navigation [ref=e18]:
+            - list [ref=e19]:
+              - listitem [ref=e20]:
+                - link "Home" [ref=e21] [cursor=pointer]:
+                  - /url: https://gevelmontage-dejong.nl/
+              - listitem [ref=e22]:
+                - link "Over ons" [ref=e23] [cursor=pointer]:
+                  - /url: /over-ons
+              - listitem [ref=e24]:
+                - link "Diensten" [ref=e25] [cursor=pointer]:
+                  - /url: /diensten
+              - listitem [ref=e26]:
+                - link "Projecten" [ref=e27] [cursor=pointer]:
+                  - /url: /projecten
+              - listitem [ref=e28]:
+                - link "Contact" [ref=e29] [cursor=pointer]:
+                  - /url: /contact
+          - text: a
+        - link "Offerte aanvragen $" [ref=e32] [cursor=pointer]:
+          - /url: /contact
+      - text: a
+  - generic [ref=e33]:
+    - article [ref=e35]:
+      - generic [ref=e38]:
+        - generic [ref=e43]:
+          - heading "Uw Specialist in Gevelmontage en Renovatie." [level=1] [ref=e46]:
+            - generic [ref=e47]: Uw Specialist in Gevelmontage en Renovatie.
+          - paragraph [ref=e50]: Bij Gevelmontage De Jong combineren we meer dan 25 jaar vakmanschap met een passie voor kwaliteit. We bieden innovatieve, duurzame en esthetische geveloplossingen die voldoen aan de hoogste eisen.
+          - link "Offerte aanvragen $" [ref=e52] [cursor=pointer]:
+            - /url: /contact
+          - link "Onze projecten $" [ref=e54] [cursor=pointer]:
+            - /url: /projecten
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - paragraph [ref=e61]: Onze werkzaamheden
+              - heading "Onze geveloplossingen op maat." [level=3] [ref=e66]:
+                - generic [ref=e67]: Onze geveloplossingen op maat.
+            - paragraph [ref=e71]: "Bij Gevelmontage De Jong bieden we een breed scala aan geveloplossingen die passen bij de behoeften van moderne architectuur en bouwkunde. Met meer dan 25 jaar ervaring zorgen we voor maatwerkoplossingen die niet alleen esthetisch zijn, maar ook functioneel en duurzaam. Hieronder vindt u een overzicht van onze specialisaties:"
+          - generic [ref=e72]:
+            - heading "Vliesgevels" [level=4] [ref=e77] [cursor=pointer]:
+              - link "Vliesgevels" [ref=e78]:
+                - /url: https://gevelmontage-dejong.nl/dienst/vliesgevels/
+            - heading "Geventileerde gevels" [level=4] [ref=e83] [cursor=pointer]:
+              - link "Geventileerde gevels" [ref=e84]:
+                - /url: https://gevelmontage-dejong.nl/dienst/open-geventileerde-gevels-duurzaam-efficient-en-esthetisch/
+            - heading "Dichte gevels" [level=4] [ref=e89]:
+              - link "Dichte gevels" [ref=e90] [cursor=pointer]:
+                - /url: https://gevelmontage-dejong.nl/dienst/dichte-gevels-kracht-bescherming-en-esthetiek-voor-moderne-gebouwen/
+        - generic [ref=e92]:
+          - generic [ref=e95]:
+            - heading "Klaar om uw gevelproject te starten?" [level=2] [ref=e96]
+            - paragraph [ref=e97]: Vraag vrijblijvend een offerte aan en ontdek hoe wij uw gevelwensen kunnen realiseren met vakmanschap en kwaliteit.
+          - link "Offerte aanvragen $" [ref=e100] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - paragraph [ref=e106]: Over ons
+            - heading "Een stukje over ons." [level=3] [ref=e109]:
+              - generic [ref=e110]: Een stukje over ons.
+            - paragraph [ref=e113]: Bij Gevelmontage De Jong combineren we meer dan 25 jaar vakmanschap met een passie voor kwaliteit. Hoewel de ontwerpen van architecten vaak perfect op papier staan, weten wij als geen ander dat de praktijk vaak anders is.
+            - generic [ref=e115]:
+              - paragraph [ref=e116]:
+                - generic [ref=e117]:
+                  - text: Gevels moeten niet alleen mooi zijn, maar ook functioneel en stevig. En soms betekent dat dat er in het werkproces snel moet worden ingesprongen op onverwachte situaties.
+                  - text: Wij vinden altijd een praktische oplossing, zelfs als dingen niet precies volgens plan verlopen.
+              - paragraph [ref=e118]:
+                - generic [ref=e119]: Met oog voor detail en een flinke dosis vindingrijkheid weten wij complexe gevelprojecten tot een goed einde te brengen, zonder concessies te doen aan kwaliteit. “In de praktijk zijn er altijd oplossingen”.
+            - link "Meer lezen over ons $" [ref=e121] [cursor=pointer]:
+              - /url: /over-ons
+          - img "IMG-20240930-WA0017" [ref=e125]
+        - generic [ref=e126]:
+          - generic [ref=e128]:
+            - paragraph [ref=e131]: Projecten
+            - heading "Recente Projecten." [level=2] [ref=e134]
+          - generic [ref=e136]:
+            - generic [ref=e141]:
+              - figure [ref=e143]:
+                - generic [ref=e145]:
+                  - link "Open image":
+                    - /url: https://gevelmontage-dejong.nl/wp-content/uploads/2024/11/IMG-20240930-WA0016.jpg
+              - figure [ref=e148]:
+                - generic [ref=e150]:
+                  - link "Open image":
+                    - /url: https://gevelmontage-dejong.nl/wp-content/uploads/2024/11/Afbeelding-van-WhatsApp-op-2024-11-13-om-14.39.01_cdafaf5e-1.jpg
+              - figure [ref=e153]:
+                - generic [ref=e155]:
+                  - link "Open image":
+                    - /url: https://gevelmontage-dejong.nl/wp-content/uploads/2024/11/IMG-20240930-WA0011-1.jpg
+            - link "Bekijk alles $" [ref=e158] [cursor=pointer]:
+              - /url: /projecten
+    - contentinfo [ref=e159]:
+      - generic [ref=e161]:
+        - paragraph [ref=e166]:
+          - text: Bouwen met
+          - emphasis [ref=e168]:
+            - strong [ref=e169]: passie & vakmanschap.
+        - generic [ref=e170]:
+          - img "2" [ref=e174]
+          - generic [ref=e175]:
+            - paragraph [ref=e178]: Pagina’s
+            - paragraph [ref=e181] [cursor=pointer]:
+              - link "Home" [ref=e182]:
+                - /url: /
+              - link "Over ons" [ref=e183]:
+                - /url: /over-ons
+              - link "Diensten" [ref=e184]:
+                - /url: /diensten
+              - link "Projecten" [ref=e185]:
+                - /url: /projecten
+              - link "Contact" [ref=e186]:
+                - /url: /contact
+          - generic [ref=e187]:
+            - paragraph [ref=e190]: Privacy & AVG
+            - paragraph [ref=e193] [cursor=pointer]: Privacy voorwaarden
+            - paragraph [ref=e196]: Volg ons
+            - list [ref=e197]:
+              - listitem [ref=e198]:
+                - link "" [ref=e199] [cursor=pointer]:
+                  - /url: https://www.instagram.com/gevelmontage_de_jong/
+        - generic [ref=e203]:
+          - paragraph [ref=e204]:
+            - text: © 2024 | Gevel Montage de Jong. | Website gemaakt door
+            - emphasis [ref=e206]:
+              - strong [ref=e207]:
+                - link "WebsUp.nl" [ref=e208] [cursor=pointer]:
+                  - /url: https://www.websup.nl
+          - paragraph [ref=e209]

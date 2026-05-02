@@ -1,0 +1,249 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "WebsUp.nl" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "WebsUp.nl" [ref=e6]
+        - generic [ref=e7]:
+          - button "Diensten" [ref=e9]:
+            - text: Diensten
+            - img [ref=e10]
+          - link "Projecten" [ref=e12] [cursor=pointer]:
+            - /url: /projecten
+          - link "Kennisbank" [ref=e13] [cursor=pointer]:
+            - /url: /kennisbank
+          - link "Over mij" [ref=e14] [cursor=pointer]:
+            - /url: /over-ons
+          - link "Contact" [ref=e15] [cursor=pointer]:
+            - /url: /contact
+        - link "Gratis ontwerp" [ref=e17] [cursor=pointer]:
+          - /url: /gratis-ontwerp
+  - generic:
+    - generic:
+      - generic:
+        - generic: Wat wil je laten bouwen?
+        - generic:
+          - link "Websites Snel, modern, conversiegericht.":
+            - /url: /diensten/websites
+            - img
+            - generic:
+              - generic:
+                - generic: Websites
+                - img
+              - paragraph: Snel, modern, conversiegericht.
+          - link "Webshops WooCommerce of Shopify. iDEAL en Mollie.":
+            - /url: /diensten/webshops
+            - img
+            - generic:
+              - generic:
+                - generic: Webshops
+                - img
+              - paragraph: WooCommerce of Shopify. iDEAL en Mollie.
+          - link "Apps & Dashboards Portalen en interne tools op maat.":
+            - /url: /diensten/apps-dashboards
+            - img
+            - generic:
+              - generic:
+                - generic: Apps & Dashboards
+                - img
+              - paragraph: Portalen en interne tools op maat.
+          - link "Automatisering Workflows, n8n en API-koppelingen.":
+            - /url: /diensten/automatisering
+            - img
+            - generic:
+              - generic:
+                - generic: Automatisering
+                - img
+              - paragraph: Workflows, n8n en API-koppelingen.
+        - link "Niet zeker welke dienst past bij jouw situatie? Ik adviseer eerlijk. Plan een gesprek":
+          - /url: /contact
+          - generic:
+            - generic:
+              - paragraph: Niet zeker welke dienst past bij jouw situatie?
+              - paragraph: Ik adviseer eerlijk.
+            - generic:
+              - text: Plan een gesprek
+              - img
+        - generic:
+          - link "Bekijk alle diensten":
+            - /url: /diensten
+            - text: Bekijk alle diensten
+            - img
+          - generic: Persoonlijk advies · Heel Nederland
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e24]:
+        - generic [ref=e25]: Contact
+        - heading "Laten we kennismaken" [level=1] [ref=e26]
+        - paragraph [ref=e27]: Vertel kort waar je mee bezig bent of waar je op vastloopt. Ik reageer binnen een werkdag met een eerlijk en vrijblijvend antwoord.
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - img [ref=e31]
+            - generic [ref=e34]: Binnen 1 werkdag
+          - generic [ref=e35]:
+            - img [ref=e36]
+            - generic [ref=e38]: Vrijblijvend sparren
+          - generic [ref=e39]:
+            - img [ref=e40]
+            - generic [ref=e42]: Eerlijk advies
+      - generic [ref=e45]:
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: Waar gaat het ongeveer over?
+            - generic [ref=e50]:
+              - button "Website" [ref=e51]
+              - button "Webshop" [ref=e52]
+              - button "App / Dashboard" [ref=e53]
+              - button "Automatisering" [ref=e54]
+              - button "Nog niet helemaal zeker" [ref=e55]
+          - generic [ref=e56]:
+            - generic [ref=e57]:
+              - generic [ref=e58]: Naam *
+              - textbox "Naam *" [ref=e59]:
+                - /placeholder: Jouw naam
+            - generic [ref=e60]:
+              - generic [ref=e61]: E-mail *
+              - textbox "E-mail *" [ref=e62]:
+                - /placeholder: jouw@email.nl
+          - generic [ref=e63]:
+            - generic [ref=e64]: Onderwerp
+            - textbox "Onderwerp" [ref=e65]:
+              - /placeholder: Bijv. website voor mijn installatiebedrijf
+          - generic [ref=e66]:
+            - generic [ref=e67]: Vertel kort wat er speelt *
+            - textbox "Vertel kort wat er speelt *" [ref=e68]:
+              - /placeholder: Wat wil je maken, waar loop je nu tegenaan of waar wil je graag even over sparren?
+          - button "Stuur vrijblijvend een bericht" [ref=e69]:
+            - text: Stuur vrijblijvend een bericht
+            - img [ref=e70]
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - img [ref=e75]
+            - generic [ref=e77]: Binnen 1 werkdag reactietijd
+          - generic [ref=e78]:
+            - img [ref=e79]
+            - generic [ref=e81]: Vrijblijvend sparren — geen verplichtingen
+          - generic [ref=e82]:
+            - img [ref=e83]
+            - generic [ref=e86]: Eerlijk advies — altijd transparant
+          - generic [ref=e87]:
+            - link "WhatsApp" [ref=e88] [cursor=pointer]:
+              - /url: https://wa.me/31682202148?text=Hoi%2C%20ik%20wil%20graag%20even%20vrijblijvend%20sparren%20over%20mijn%20website%20of%20digitale%20systeem.
+              - img [ref=e89]
+              - generic [ref=e91]: WhatsApp
+            - link "info@websup.nl" [ref=e92] [cursor=pointer]:
+              - /url: mailto:info@websup.nl
+              - img [ref=e93]
+              - generic [ref=e96]: info@websup.nl
+            - link "06 82202148" [ref=e97] [cursor=pointer]:
+              - /url: tel:0682202148
+              - img [ref=e98]
+              - generic [ref=e100]: 06 82202148
+            - generic [ref=e101]:
+              - img [ref=e102]
+              - generic [ref=e105]: Friesland, Nederland
+          - generic [ref=e106]:
+            - heading "Wat kun je verwachten?" [level=3] [ref=e107]
+            - list [ref=e108]:
+              - listitem [ref=e109]:
+                - img [ref=e110]
+                - text: Vrijblijvend eerste gesprek of appcontact
+              - listitem [ref=e113]:
+                - img [ref=e114]
+                - text: Eerlijke inschatting van wat slim is
+              - listitem [ref=e117]:
+                - img [ref=e118]
+                - text: Ook prima als je nog niet precies weet wat je nodig hebt
+              - listitem [ref=e121]:
+                - img [ref=e122]
+                - text: Direct persoonlijk contact
+  - contentinfo [ref=e125]:
+    - generic [ref=e126]:
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - link "WebsUp.nl" [ref=e129] [cursor=pointer]:
+            - /url: /
+            - img "WebsUp.nl" [ref=e130]
+          - paragraph [ref=e131]: Samen bouwen aan jouw bedrijf.
+          - paragraph [ref=e132]: Persoonlijk. Technisch. Eén aanspreekpunt.
+          - generic [ref=e133]:
+            - link "info@websup.nl" [ref=e134] [cursor=pointer]:
+              - /url: mailto:info@websup.nl
+              - img [ref=e135]
+              - text: info@websup.nl
+            - link "06 82202148" [ref=e138] [cursor=pointer]:
+              - /url: tel:0682202148
+              - img [ref=e139]
+              - text: 06 82202148
+            - generic [ref=e141]:
+              - img [ref=e142]
+              - text: Friesland, Nederland
+        - generic [ref=e145]:
+          - heading "Diensten" [level=6] [ref=e146]
+          - list [ref=e147]:
+            - listitem [ref=e148]:
+              - link "Websites" [ref=e149] [cursor=pointer]:
+                - /url: /diensten/websites
+            - listitem [ref=e150]:
+              - link "Webshops" [ref=e151] [cursor=pointer]:
+                - /url: /diensten/webshops
+            - listitem [ref=e152]:
+              - link "Apps & Dashboards" [ref=e153] [cursor=pointer]:
+                - /url: /diensten/apps-dashboards
+            - listitem [ref=e154]:
+              - link "Automatisering" [ref=e155] [cursor=pointer]:
+                - /url: /diensten/automatisering
+        - generic [ref=e156]:
+          - heading "Informatie" [level=6] [ref=e157]
+          - list [ref=e158]:
+            - listitem [ref=e159]:
+              - link "Over mij" [ref=e160] [cursor=pointer]:
+                - /url: /over-ons
+            - listitem [ref=e161]:
+              - link "Kennisbank" [ref=e162] [cursor=pointer]:
+                - /url: /kennisbank
+            - listitem [ref=e163]:
+              - link "Veelgestelde vragen" [ref=e164] [cursor=pointer]:
+                - /url: /veelgestelde-vragen
+            - listitem [ref=e165]:
+              - link "Projecten" [ref=e166] [cursor=pointer]:
+                - /url: /projecten
+        - generic [ref=e167]:
+          - heading "Contact" [level=6] [ref=e168]
+          - list [ref=e169]:
+            - listitem [ref=e170]:
+              - link "Contact opnemen" [ref=e171] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e172]:
+              - link "Gratis ontwerp aanvragen" [ref=e173] [cursor=pointer]:
+                - /url: /gratis-ontwerp
+        - generic [ref=e174]:
+          - heading "Juridisch" [level=6] [ref=e175]
+          - list [ref=e176]:
+            - listitem [ref=e177]:
+              - link "Privacybeleid" [ref=e178] [cursor=pointer]:
+                - /url: /privacybeleid
+            - listitem [ref=e179]:
+              - link "Cookiebeleid" [ref=e180] [cursor=pointer]:
+                - /url: /cookies
+            - listitem [ref=e181]:
+              - link "Algemene voorwaarden" [ref=e182] [cursor=pointer]:
+                - /url: /algemene-voorwaarden
+      - generic [ref=e183]:
+        - generic [ref=e184]: © 2026 WebsUp.nl — KVK 95524061
+        - generic [ref=e185]:
+          - link "LinkedIn" [ref=e186] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/daan-koolhaas-903b76258/
+            - img [ref=e187]
+          - link "Instagram" [ref=e189] [cursor=pointer]:
+            - /url: https://www.instagram.com/websup_nl/
+            - img [ref=e190]
+          - link "Facebook" [ref=e193] [cursor=pointer]:
+            - /url: https://www.facebook.com/WebsUp.nl
+            - img [ref=e194]
+  - link "Contact via WhatsApp" [ref=e196] [cursor=pointer]:
+    - /url: https://wa.me/31682202148?text=Hoi%20Daan%2C%20ik%20heb%20een%20vraag%20over%20mijn%20website%20of%20digitale%20systeem.
+    - img [ref=e197]
+  - button "Open Next.js Dev Tools" [ref=e204] [cursor=pointer]:
+    - img [ref=e205]

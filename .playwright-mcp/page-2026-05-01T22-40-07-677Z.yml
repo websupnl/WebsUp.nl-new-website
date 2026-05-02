@@ -1,0 +1,600 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "WebsUp.nl" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "WebsUp.nl" [ref=e6]
+        - generic [ref=e7]:
+          - button "Diensten" [ref=e9]:
+            - text: Diensten
+            - img [ref=e10]
+          - link "Projecten" [ref=e12] [cursor=pointer]:
+            - /url: /projecten
+          - link "Kennisbank" [ref=e13] [cursor=pointer]:
+            - /url: /kennisbank
+          - link "Over mij" [ref=e14] [cursor=pointer]:
+            - /url: /over-ons
+          - link "Contact" [ref=e15] [cursor=pointer]:
+            - /url: /contact
+        - link "Gratis ontwerp" [ref=e17] [cursor=pointer]:
+          - /url: /gratis-ontwerp
+  - generic:
+    - generic:
+      - generic:
+        - generic: Wat wil je laten bouwen?
+        - generic:
+          - link "Websites Snel, modern, conversiegericht.":
+            - /url: /diensten/websites
+            - img
+            - generic:
+              - generic:
+                - generic: Websites
+                - img
+              - paragraph: Snel, modern, conversiegericht.
+          - link "Webshops WooCommerce of Shopify. iDEAL en Mollie.":
+            - /url: /diensten/webshops
+            - img
+            - generic:
+              - generic:
+                - generic: Webshops
+                - img
+              - paragraph: WooCommerce of Shopify. iDEAL en Mollie.
+          - link "Apps & Dashboards Portalen en interne tools op maat.":
+            - /url: /diensten/apps-dashboards
+            - img
+            - generic:
+              - generic:
+                - generic: Apps & Dashboards
+                - img
+              - paragraph: Portalen en interne tools op maat.
+          - link "Automatisering Workflows, n8n en API-koppelingen.":
+            - /url: /diensten/automatisering
+            - img
+            - generic:
+              - generic:
+                - generic: Automatisering
+                - img
+              - paragraph: Workflows, n8n en API-koppelingen.
+        - link "Niet zeker welke dienst past bij jouw situatie? Ik adviseer eerlijk. Plan een gesprek":
+          - /url: /contact
+          - generic:
+            - generic:
+              - paragraph: Niet zeker welke dienst past bij jouw situatie?
+              - paragraph: Ik adviseer eerlijk.
+            - generic:
+              - text: Plan een gesprek
+              - img
+        - generic:
+          - link "Bekijk alle diensten":
+            - /url: /diensten
+            - text: Bekijk alle diensten
+            - img
+          - generic: Persoonlijk advies · Heel Nederland
+  - main [ref=e18]:
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]: Direct persoonlijk contact met de bouwer
+        - heading "Maatwerk websites en digitale systemen die écht werken." [level=1] [ref=e28]
+        - paragraph [ref=e29]: Geen bureau, geen account manager — direct contact met degene die jouw website bouwt, denkt en oplevert.
+        - generic [ref=e30]:
+          - link "Plan een kennismaking" [ref=e31] [cursor=pointer]:
+            - /url: /contact
+            - text: Plan een kennismaking
+            - img [ref=e32]
+          - link "Bekijk projecten" [ref=e34] [cursor=pointer]:
+            - /url: /projecten
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - generic [ref=e37]: ✓
+            - text: Direct persoonlijk contact
+            - generic [ref=e38]: ·
+          - generic [ref=e39]:
+            - generic [ref=e40]: ✓
+            - text: 5-sterren reviews
+            - generic [ref=e41]: ·
+          - generic [ref=e42]:
+            - generic [ref=e43]: ✓
+            - text: Heel Nederland
+      - generic [ref=e45]:
+        - img "Daan Koolhaas — WebsUp" [ref=e47]
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - img [ref=e50]
+            - img [ref=e52]
+            - img [ref=e54]
+            - img [ref=e56]
+            - img [ref=e58]
+          - generic [ref=e60]: 5.0 · 7+ tevreden klanten
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - generic [ref=e65]: Kies je route
+          - heading "Wat wil je laten bouwen?" [level=2] [ref=e66]
+          - paragraph [ref=e67]: Kies de oplossing die past bij je vraag. Een website, webshop, app of automatisering kan prima op zichzelf staan.
+        - generic [ref=e68]:
+          - link "Plan een kennismaking" [ref=e69] [cursor=pointer]:
+            - /url: /contact
+          - link "Alle diensten" [ref=e70] [cursor=pointer]:
+            - /url: /diensten
+      - generic [ref=e71]:
+        - link "Websites Websites Moderne, snelle websites die niet alleen mooi zijn, maar ook gericht op resultaat en conversie. Gebouwd met Next.js voor topprestaties. Conversiegerichte designs Razendsnel door Next.js Zoekmachine geoptimaliseerd Mobiel-first & responsief" [ref=e73] [cursor=pointer]:
+          - /url: /diensten/websites
+          - generic [ref=e74]:
+            - img "Websites" [ref=e75]
+            - img [ref=e79]
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - heading "Websites" [level=3] [ref=e83]
+              - img [ref=e85]
+            - paragraph [ref=e87]: Moderne, snelle websites die niet alleen mooi zijn, maar ook gericht op resultaat en conversie. Gebouwd met Next.js voor topprestaties.
+            - list [ref=e88]:
+              - listitem [ref=e89]:
+                - img [ref=e90]
+                - generic [ref=e93]: Conversiegerichte designs
+              - listitem [ref=e94]:
+                - img [ref=e95]
+                - generic [ref=e98]: Razendsnel door Next.js
+              - listitem [ref=e99]:
+                - img [ref=e100]
+                - generic [ref=e103]: Zoekmachine geoptimaliseerd
+              - listitem [ref=e104]:
+                - img [ref=e105]
+                - generic [ref=e108]: Mobiel-first & responsief
+        - link "Webshops Webshops Gebruiksvriendelijke webshops die verkopen, met slimme functies en optimale gebruikerservaring. Optimale checkout flow Koppeling met betaalsystemen Voorraadbeheer & orders Upsell & cross-sell logica" [ref=e110] [cursor=pointer]:
+          - /url: /diensten/webshops
+          - generic [ref=e111]:
+            - img "Webshops" [ref=e112]
+            - img [ref=e116]
+          - generic [ref=e120]:
+            - generic [ref=e121]:
+              - heading "Webshops" [level=3] [ref=e122]
+              - img [ref=e124]
+            - paragraph [ref=e126]: Gebruiksvriendelijke webshops die verkopen, met slimme functies en optimale gebruikerservaring.
+            - list [ref=e127]:
+              - listitem [ref=e128]:
+                - img [ref=e129]
+                - generic [ref=e132]: Optimale checkout flow
+              - listitem [ref=e133]:
+                - img [ref=e134]
+                - generic [ref=e137]: Koppeling met betaalsystemen
+              - listitem [ref=e138]:
+                - img [ref=e139]
+                - generic [ref=e142]: Voorraadbeheer & orders
+              - listitem [ref=e143]:
+                - img [ref=e144]
+                - generic [ref=e147]: Upsell & cross-sell logica
+        - link "Apps & dashboards Apps & dashboards Maatwerk tools, klantportalen en dashboards die processen automatiseren en realtime inzicht geven. Klantportalen op maat Interne management tools Realtime data dashboards Rolgebaseerde toegang" [ref=e149] [cursor=pointer]:
+          - /url: /diensten/apps-dashboards
+          - generic [ref=e150]:
+            - img "Apps & dashboards" [ref=e151]
+            - img [ref=e155]
+          - generic [ref=e160]:
+            - generic [ref=e161]:
+              - heading "Apps & dashboards" [level=3] [ref=e162]
+              - img [ref=e164]
+            - paragraph [ref=e166]: Maatwerk tools, klantportalen en dashboards die processen automatiseren en realtime inzicht geven.
+            - list [ref=e167]:
+              - listitem [ref=e168]:
+                - img [ref=e169]
+                - generic [ref=e172]: Klantportalen op maat
+              - listitem [ref=e173]:
+                - img [ref=e174]
+                - generic [ref=e177]: Interne management tools
+              - listitem [ref=e178]:
+                - img [ref=e179]
+                - generic [ref=e182]: Realtime data dashboards
+              - listitem [ref=e183]:
+                - img [ref=e184]
+                - generic [ref=e187]: Rolgebaseerde toegang
+        - link "Automatisering Automatisering Koppelingen en slimme systemen die handmatig werk verminderen en jouw bedrijf efficiënter maken. API-koppelingen Workflow automatisering CRM & email integraties Data synchronisatie" [ref=e189] [cursor=pointer]:
+          - /url: /diensten/automatisering
+          - generic [ref=e190]:
+            - img "Automatisering" [ref=e191]
+            - img [ref=e195]
+          - generic [ref=e197]:
+            - generic [ref=e198]:
+              - heading "Automatisering" [level=3] [ref=e199]
+              - img [ref=e201]
+            - paragraph [ref=e203]: Koppelingen en slimme systemen die handmatig werk verminderen en jouw bedrijf efficiënter maken.
+            - list [ref=e204]:
+              - listitem [ref=e205]:
+                - img [ref=e206]
+                - generic [ref=e209]: API-koppelingen
+              - listitem [ref=e210]:
+                - img [ref=e211]
+                - generic [ref=e214]: Workflow automatisering
+              - listitem [ref=e215]:
+                - img [ref=e216]
+                - generic [ref=e219]: CRM & email integraties
+              - listitem [ref=e220]:
+                - img [ref=e221]
+                - generic [ref=e224]: Data synchronisatie
+        - generic [ref=e226]:
+          - paragraph [ref=e227]: Ik ben Daan, de man achter WebsUp. Zoek je iets anders, of weet je nog niet precies welke oplossing past? Stuur mij een berichtje, dan denk ik met je mee.
+          - link "Stuur een berichtje" [ref=e228] [cursor=pointer]:
+            - /url: https://wa.me/31682202148?text=Hoi%20Daan%2C%20ik%20heb%20een%20vraag%20over%20welke%20digitale%20oplossing%20het%20best%20past%20bij%20mijn%20bedrijf.
+            - img [ref=e229]
+            - text: Stuur een berichtje
+    - generic [ref=e234]:
+      - generic [ref=e236]:
+        - generic [ref=e237]: Over WebsUp
+        - generic [ref=e238]:
+          - img "Daan Koolhaas" [ref=e239]
+          - generic [ref=e241]:
+            - img [ref=e243]
+            - generic [ref=e246]:
+              - generic [ref=e247]: Daan Koolhaas
+              - generic [ref=e248]: Direct aanspreekpunt voor jouw project
+      - generic [ref=e249]:
+        - generic [ref=e250]: Over WebsUp
+        - heading "Direct persoonlijk contact" [level=2] [ref=e251]
+        - paragraph [ref=e252]: WebsUp is bewust persoonlijk opgezet. Geen doorschuiven tussen sales, accountmanagement en development, maar korte lijnen met de persoon die jouw project bouwt. Daardoor blijven keuzes helder, technisch kloppend en passend bij jouw bedrijf.
+        - generic [ref=e253]:
+          - generic [ref=e254]:
+            - img [ref=e255]
+            - generic [ref=e258]: Je schakelt direct met degene die ontwerpt en bouwt
+          - generic [ref=e259]:
+            - img [ref=e260]
+            - generic [ref=e263]: Eerlijk advies over WordPress, Shopify of maatwerk
+          - generic [ref=e264]:
+            - img [ref=e265]
+            - generic [ref=e268]: Technisch sterk, maar praktisch uitgelegd
+        - link "Meer over mij" [ref=e270] [cursor=pointer]:
+          - /url: /over-ons
+          - text: Meer over mij
+          - img [ref=e271]
+    - generic [ref=e274]:
+      - generic [ref=e275]:
+        - generic [ref=e276]:
+          - generic [ref=e277]: Voor wie
+          - heading "Vooral voor bedrijven die duidelijkheid en korte lijnen zoeken" [level=2] [ref=e278]
+          - paragraph [ref=e279]: Van lokale MKB tot groeiende webshops. WebsUp past vooral bij ondernemers die een sterke digitale basis willen zonder dat het traject groter wordt gemaakt dan nodig.
+        - generic [ref=e280]:
+          - link "Plan een kennismaking" [ref=e281] [cursor=pointer]:
+            - /url: /contact
+          - link "Bekijk diensten" [ref=e282] [cursor=pointer]:
+            - /url: /diensten
+      - generic [ref=e283]:
+        - generic [ref=e285]:
+          - img [ref=e288]
+          - generic [ref=e292]:
+            - heading "MKB & ZZP'ers" [level=3] [ref=e293]
+            - paragraph [ref=e294]: Voor bedrijven die professioneel zichtbaar willen zijn en een site zoeken die gewoon duidelijk werkt.
+        - generic [ref=e296]:
+          - img [ref=e299]
+          - generic [ref=e302]:
+            - heading "Webshops" [level=3] [ref=e303]
+            - paragraph [ref=e304]: Voor ondernemers die online willen verkopen zonder gedoe in checkout, beheer of koppelingen.
+        - generic [ref=e306]:
+          - img [ref=e309]
+          - generic [ref=e313]:
+            - heading "Installatiebedrijven" [level=3] [ref=e314]
+            - paragraph [ref=e315]: Voor technische bedrijven die betrouwbaarheid, duidelijkheid en aanvragen online beter willen neerzetten.
+        - generic [ref=e317]:
+          - img [ref=e320]
+          - generic [ref=e325]:
+            - heading "Dienstverleners" [level=3] [ref=e326]
+            - paragraph [ref=e327]: Voor bedrijven waar vertrouwen, uitleg en een sterke eerste indruk direct verschil maken.
+        - generic [ref=e329]:
+          - img [ref=e332]
+          - generic [ref=e337]:
+            - heading "Startups" [level=3] [ref=e338]
+            - paragraph [ref=e339]: Voor plannen die goed moeten starten, maar ook ruimte nodig hebben om later door te groeien.
+        - generic [ref=e341]:
+          - img [ref=e344]
+          - generic [ref=e348]:
+            - heading "Lokale ondernemers" [level=3] [ref=e349]
+            - paragraph [ref=e350]: Voor ondernemers die lokaal beter gevonden willen worden en online sterker voor de dag willen komen.
+    - generic [ref=e352]:
+      - generic [ref=e354]:
+        - generic [ref=e355]:
+          - text: Reviews
+          - heading "Wat klanten over WebsUp zeggen" [level=2] [ref=e356]
+          - paragraph [ref=e357]: Echte ervaringen. Geen gelikte claims.
+        - generic [ref=e358]:
+          - generic [ref=e359]:
+            - img [ref=e360]
+            - img [ref=e362]
+            - img [ref=e364]
+            - img [ref=e366]
+            - img [ref=e368]
+          - generic [ref=e370]: 5.0 — 7+ Google reviews
+      - generic [ref=e372]:
+        - paragraph [ref=e373]: “Daan heeft voor ons in no time, binnen 2 weken, een complete professionele website gebouwd. Hij denkt creatief mee, komt met slimme ideeën en regelt alles snel en duidelijk. Qua kwaliteit en uitstraling komt het resultaat verrassend dicht in de buurt van veel duurdere agencies.”
+        - generic [ref=e374]:
+          - generic [ref=e375]: — Jeremy Palsma
+          - generic [ref=e376]:
+            - img [ref=e377]
+            - img [ref=e379]
+            - img [ref=e381]
+            - img [ref=e383]
+            - img [ref=e385]
+      - generic [ref=e387]:
+        - generic [ref=e389]:
+          - generic [ref=e390]:
+            - img [ref=e391]
+            - img [ref=e393]
+            - img [ref=e395]
+            - img [ref=e397]
+            - img [ref=e399]
+          - paragraph [ref=e401]: “Gewoon top. Geduldig en het meedenken voor een mooie website. Ik heb voor WebsUp gekozen voor betrouwbaarheid, professionaliteit en persoonlijke communicatie.”
+          - paragraph [ref=e402]: — R. Haak
+        - generic [ref=e404]:
+          - generic [ref=e405]:
+            - img [ref=e406]
+            - img [ref=e408]
+            - img [ref=e410]
+            - img [ref=e412]
+            - img [ref=e414]
+          - paragraph [ref=e416]: “Wij zijn super tevreden met onze nieuwe website. Het contact was fijn en snel, er werd goed geluisterd naar onze wensen en het resultaat is precies zoals we hoopten.”
+          - paragraph [ref=e417]: — Nynke
+        - generic [ref=e419]:
+          - generic [ref=e420]:
+            - img [ref=e421]
+            - img [ref=e423]
+            - img [ref=e425]
+            - img [ref=e427]
+            - img [ref=e429]
+          - paragraph [ref=e431]: “Super tevreden over de website. Snelle service, makkelijk bereikbaar, reageert vlot en biedt ruimte voor eigen invulling.”
+          - paragraph [ref=e432]: — Ineke Bouws
+    - generic [ref=e434]:
+      - generic [ref=e435]:
+        - generic [ref=e436]:
+          - generic [ref=e437]: Bewijs uit de praktijk
+          - heading "Werk dat vertrouwen geeft voordat iemand contact opneemt" [level=2] [ref=e438]
+        - generic [ref=e439]:
+          - paragraph [ref=e440]: Een paar voorbeelden van websites die duidelijk uitleggen, snel werken en passen bij de praktijk van de klant.
+          - link "Bekijk alle projecten" [ref=e441] [cursor=pointer]:
+            - /url: /projecten
+            - text: Bekijk alle projecten
+            - img [ref=e442]
+      - generic [ref=e444]:
+        - article [ref=e446]:
+          - link "Website voor Verkeersschool Haak" [ref=e447] [cursor=pointer]:
+            - /url: /projecten/verkeersschool-haak
+            - img "Website voor Verkeersschool Haak" [ref=e448]
+          - generic [ref=e450]:
+            - generic [ref=e451]: Rijschool
+            - heading "Website voor Verkeersschool Haak" [level=3] [ref=e453]:
+              - link "Website voor Verkeersschool Haak" [ref=e454] [cursor=pointer]:
+                - /url: /projecten/verkeersschool-haak
+            - paragraph [ref=e455]: Een professionele en overzichtelijke website die perfect aansluit bij de betrouwbaarheid en persoonlijke aanpak van de rijschool.
+            - generic [ref=e456]:
+              - generic [ref=e457]:
+                - img [ref=e458]
+                - generic [ref=e461]: Duidelijke rijlessen en pakketten
+              - generic [ref=e462]:
+                - img [ref=e463]
+                - generic [ref=e466]: Mobielvriendelijk en eenvoudig beheer
+            - link "Bekijk case" [ref=e468] [cursor=pointer]:
+              - /url: /projecten/verkeersschool-haak
+              - text: Bekijk case
+              - img [ref=e469]
+        - article [ref=e472]:
+          - link "Website voor Dorp Rottevalle" [ref=e473] [cursor=pointer]:
+            - /url: /projecten/rottevalle
+            - img "Website voor Dorp Rottevalle" [ref=e474]
+          - generic [ref=e476]:
+            - generic [ref=e477]: Dorpswebsite
+            - heading "Website voor Dorp Rottevalle" [level=3] [ref=e479]:
+              - link "Website voor Dorp Rottevalle" [ref=e480] [cursor=pointer]:
+                - /url: /projecten/rottevalle
+            - paragraph [ref=e481]: Een toegankelijke dorpswebsite waar inwoners en bezoekers terechtkunnen voor lokaal nieuws, evenementen en verenigingsinformatie.
+            - generic [ref=e482]:
+              - generic [ref=e483]:
+                - img [ref=e484]
+                - generic [ref=e487]: Gebruiksvriendelijk voor jong en oud
+              - generic [ref=e488]:
+                - img [ref=e489]
+                - generic [ref=e492]: Actueel dorpsnieuws en agenda
+            - link "Bekijk case" [ref=e494] [cursor=pointer]:
+              - /url: /projecten/rottevalle
+              - text: Bekijk case
+              - img [ref=e495]
+        - article [ref=e498]:
+          - link "Behandeling op maat voor kind en gezin" [ref=e499] [cursor=pointer]:
+            - /url: /projecten/contextcareisa
+            - img "Behandeling op maat voor kind en gezin" [ref=e500]
+          - generic [ref=e502]:
+            - generic [ref=e503]: Specialistische zorg
+            - heading "Behandeling op maat voor kind en gezin" [level=3] [ref=e505]:
+              - link "Behandeling op maat voor kind en gezin" [ref=e506] [cursor=pointer]:
+                - /url: /projecten/contextcareisa
+            - paragraph [ref=e507]: Een rustige en toegankelijke website die vertrouwen uitstraalt en de werkwijze van intensieve systeembehandeling zichtbaar maakt.
+            - generic [ref=e508]:
+              - generic [ref=e509]:
+                - img [ref=e510]
+                - generic [ref=e513]: Empathisch en helder design
+              - generic [ref=e514]:
+                - img [ref=e515]
+                - generic [ref=e518]: Gericht op doelgroepcommunicatie
+            - link "Bekijk case" [ref=e520] [cursor=pointer]:
+              - /url: /projecten/contextcareisa
+              - text: Bekijk case
+              - img [ref=e521]
+    - generic [ref=e524]:
+      - generic [ref=e525]:
+        - generic [ref=e526]:
+          - generic [ref=e527]:
+            - img [ref=e528]
+            - text: Voor starters
+          - heading "Sterk starten zonder meteen een zwaar traject" [level=2] [ref=e531]
+          - paragraph [ref=e532]: Sta je aan het begin van een bedrijf, product of concept? Dan hoeft niet alles groot, maar het moet wel kloppen. Voor plannen met potentie is er ruimte voor een slimme eerste stap.
+        - generic [ref=e533]:
+          - link "Bekijk starterstraject" [ref=e534] [cursor=pointer]:
+            - /url: /voor-starters
+            - text: Bekijk starterstraject
+            - img [ref=e535]
+          - link "Plan een kennismaking" [ref=e537] [cursor=pointer]:
+            - /url: /contact
+      - generic [ref=e538]:
+        - generic [ref=e540]:
+          - generic [ref=e541]: "1"
+          - generic [ref=e542]:
+            - generic [ref=e543]: Alleen voor serieuze plannen
+            - paragraph [ref=e544]: Voor starters die bewust willen starten en snappen dat een goede basis later veel gedoe voorkomt.
+        - generic [ref=e546]:
+          - generic [ref=e547]: "2"
+          - generic [ref=e548]:
+            - generic [ref=e549]: Compact, maar niet goedkoop-ogend
+            - paragraph [ref=e550]: "De instap blijft professioneel: duidelijke structuur, sterke eerste indruk en technisch netjes opgezet."
+        - generic [ref=e552]:
+          - generic [ref=e553]: "3"
+          - generic [ref=e554]:
+            - generic [ref=e555]: Doorgroeien zonder opnieuw beginnen
+            - paragraph [ref=e556]: Als je later meer nodig hebt, kan de basis door naar extra pagina's, funnels, koppelingen of maatwerk.
+        - generic [ref=e558]:
+          - generic [ref=e559]: "4"
+          - generic [ref=e560]:
+            - generic [ref=e561]: Alleen als het past
+            - paragraph [ref=e562]: Dit is geen standaard kortingsactie, maar een bewuste instap voor plannen waar potentie, klik en groeiruimte in zit.
+    - generic [ref=e565]:
+      - generic [ref=e566]:
+        - text: FAQ
+        - heading "Veelgestelde vragen" [level=2] [ref=e567]
+        - paragraph [ref=e568]: Korte antwoorden op vragen die vaak terugkomen over websites, webshops, maatwerk en samenwerking.
+        - generic [ref=e569]:
+          - generic [ref=e570]: Staat je vraag er niet tussen?
+          - paragraph [ref=e571]: Dan is kort sparren vaak sneller dan blijven twijfelen. Een goed gesprek maakt meestal snel duidelijk wat slim is.
+        - generic [ref=e572]:
+          - link "Bekijk alle vragen" [ref=e573] [cursor=pointer]:
+            - /url: /veelgestelde-vragen
+            - text: Bekijk alle vragen
+            - img [ref=e574]
+          - link "Stel een vraag" [ref=e576] [cursor=pointer]:
+            - /url: /contact
+      - generic [ref=e577]:
+        - group [ref=e579]:
+          - generic "Wat kost een website of webshop?" [ref=e580] [cursor=pointer]:
+            - generic [ref=e581]: Wat kost een website of webshop?
+            - img [ref=e582]
+        - group [ref=e584]:
+          - generic "Werk je alleen in Friesland?" [ref=e585] [cursor=pointer]:
+            - generic [ref=e586]: Werk je alleen in Friesland?
+            - img [ref=e587]
+        - group [ref=e589]:
+          - generic "Werk je met WordPress of juist maatwerk?" [ref=e590] [cursor=pointer]:
+            - generic [ref=e591]: Werk je met WordPress of juist maatwerk?
+            - img [ref=e592]
+        - group [ref=e594]:
+          - generic "Kan ik later verder uitbreiden?" [ref=e595] [cursor=pointer]:
+            - generic [ref=e596]: Kan ik later verder uitbreiden?
+            - img [ref=e597]
+        - group [ref=e599]:
+          - generic "Kan ik mijn website daarna zelf beheren?" [ref=e600] [cursor=pointer]:
+            - generic [ref=e601]: Kan ik mijn website daarna zelf beheren?
+            - img [ref=e602]
+    - generic [ref=e610]:
+      - generic [ref=e611]:
+        - generic [ref=e612]: Vrijblijvend kennismaken
+        - heading "Wil je even sparren over wat slim is voor je website of digitale systeem?" [level=2] [ref=e613]
+        - paragraph [ref=e614]: Stuur gerust een bericht. Dan kijk ik vrijblijvend met je mee naar wat past bij je bedrijf, je planning en de volgende logische stap. Telefonisch, online of gewoon bij jou op locatie.
+        - generic [ref=e615]:
+          - link "Plan vrijblijvend een kennismaking" [ref=e616] [cursor=pointer]:
+            - /url: /contact
+            - text: Plan vrijblijvend een kennismaking
+            - img [ref=e617]
+          - link "WhatsApp" [ref=e619] [cursor=pointer]:
+            - /url: https://wa.me/31682202148?text=Hoi%2C%20ik%20wil%20graag%20even%20vrijblijvend%20sparren%20over%20mijn%20website%20of%20digitale%20systeem.
+            - img [ref=e620]
+            - text: WhatsApp
+      - generic [ref=e622]:
+        - generic [ref=e623]:
+          - img [ref=e624]
+          - generic [ref=e626]: Binnen 1 werkdag reactietijd
+        - generic [ref=e627]:
+          - img [ref=e628]
+          - generic [ref=e630]: Vrijblijvend sparren — geen verplichtingen
+        - generic [ref=e631]:
+          - img [ref=e632]
+          - generic [ref=e634]: Eerlijk advies — altijd transparant
+  - contentinfo [ref=e635]:
+    - generic [ref=e636]:
+      - generic [ref=e637]:
+        - generic [ref=e638]:
+          - link "WebsUp.nl" [ref=e639] [cursor=pointer]:
+            - /url: /
+            - img "WebsUp.nl" [ref=e640]
+          - paragraph [ref=e641]: Samen bouwen aan jouw bedrijf.
+          - paragraph [ref=e642]: Persoonlijk. Technisch. Eén aanspreekpunt.
+          - generic [ref=e643]:
+            - link "info@websup.nl" [ref=e644] [cursor=pointer]:
+              - /url: mailto:info@websup.nl
+              - img [ref=e645]
+              - text: info@websup.nl
+            - link "06 82202148" [ref=e648] [cursor=pointer]:
+              - /url: tel:0682202148
+              - img [ref=e649]
+              - text: 06 82202148
+            - generic [ref=e651]:
+              - img [ref=e652]
+              - text: Friesland, Nederland
+        - generic [ref=e655]:
+          - heading "Diensten" [level=6] [ref=e656]
+          - list [ref=e657]:
+            - listitem [ref=e658]:
+              - link "Websites" [ref=e659] [cursor=pointer]:
+                - /url: /diensten/websites
+            - listitem [ref=e660]:
+              - link "Webshops" [ref=e661] [cursor=pointer]:
+                - /url: /diensten/webshops
+            - listitem [ref=e662]:
+              - link "Apps & Dashboards" [ref=e663] [cursor=pointer]:
+                - /url: /diensten/apps-dashboards
+            - listitem [ref=e664]:
+              - link "Automatisering" [ref=e665] [cursor=pointer]:
+                - /url: /diensten/automatisering
+        - generic [ref=e666]:
+          - heading "Informatie" [level=6] [ref=e667]
+          - list [ref=e668]:
+            - listitem [ref=e669]:
+              - link "Over mij" [ref=e670] [cursor=pointer]:
+                - /url: /over-ons
+            - listitem [ref=e671]:
+              - link "Kennisbank" [ref=e672] [cursor=pointer]:
+                - /url: /kennisbank
+            - listitem [ref=e673]:
+              - link "Veelgestelde vragen" [ref=e674] [cursor=pointer]:
+                - /url: /veelgestelde-vragen
+            - listitem [ref=e675]:
+              - link "Projecten" [ref=e676] [cursor=pointer]:
+                - /url: /projecten
+        - generic [ref=e677]:
+          - heading "Contact" [level=6] [ref=e678]
+          - list [ref=e679]:
+            - listitem [ref=e680]:
+              - link "Contact opnemen" [ref=e681] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e682]:
+              - link "Gratis ontwerp aanvragen" [ref=e683] [cursor=pointer]:
+                - /url: /gratis-ontwerp
+        - generic [ref=e684]:
+          - heading "Juridisch" [level=6] [ref=e685]
+          - list [ref=e686]:
+            - listitem [ref=e687]:
+              - link "Privacybeleid" [ref=e688] [cursor=pointer]:
+                - /url: /privacybeleid
+            - listitem [ref=e689]:
+              - link "Cookiebeleid" [ref=e690] [cursor=pointer]:
+                - /url: /cookies
+            - listitem [ref=e691]:
+              - link "Algemene voorwaarden" [ref=e692] [cursor=pointer]:
+                - /url: /algemene-voorwaarden
+      - generic [ref=e693]:
+        - generic [ref=e694]: © 2026 WebsUp.nl — KVK 95524061
+        - generic [ref=e695]:
+          - link "LinkedIn" [ref=e696] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/daan-koolhaas-903b76258/
+            - img [ref=e697]
+          - link "Instagram" [ref=e699] [cursor=pointer]:
+            - /url: https://www.instagram.com/websup_nl/
+            - img [ref=e700]
+          - link "Facebook" [ref=e703] [cursor=pointer]:
+            - /url: https://www.facebook.com/WebsUp.nl
+            - img [ref=e704]
+  - link "Contact via WhatsApp" [ref=e706] [cursor=pointer]:
+    - /url: https://wa.me/31682202148?text=Hoi%20Daan%2C%20ik%20heb%20een%20vraag%20over%20mijn%20website%20of%20digitale%20systeem.
+    - img [ref=e707]
+  - button "Open Next.js Dev Tools" [ref=e714] [cursor=pointer]:
+    - img [ref=e715]

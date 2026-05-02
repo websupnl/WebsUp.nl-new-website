@@ -15,27 +15,35 @@ const config: Config = {
         body: ['var(--font-body)', 'system-ui', 'sans-serif'],
       },
       colors: {
-        // WebsUp brand (Stitch design)
+        // WebsUp brand — oranje is de enige accentkleur
         brand: {
-          50:  '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#493ee5', // primary
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
+          50:  '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316', // primary accent
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+        },
+        // Dark section helpers (hero, CTA, dark backgrounds)
+        ink: {
+          DEFAULT: '#0A0F1A',
+          surface: '#111827',
+          'surface-2': '#1F2937',
         },
       },
       boxShadow: {
         'ambient': '0 20px 50px rgba(9, 29, 45, 0.05)',
-        'card-hover': '0 20px 50px rgba(73, 62, 229, 0.12)',
+        'card-hover': '0 20px 50px rgba(249, 115, 22, 0.14)',
         'glass': '0 8px 32px rgba(9, 29, 45, 0.08)',
+        'orange-glow': '0 0 80px rgba(249, 115, 22, 0.18)',
       },
       backgroundImage: {
-        'gradient-brand': 'linear-gradient(135deg, #493ee5 0%, #502cfb 100%)',
+        'gradient-brand': 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)',
+        'gradient-warm': 'linear-gradient(135deg, #f97316 0%, #ec4899 100%)',
       },
     },
   },

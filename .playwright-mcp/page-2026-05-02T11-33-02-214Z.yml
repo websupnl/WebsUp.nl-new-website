@@ -1,0 +1,269 @@
+- generic "Google Maps" [ref=e2]:
+  - generic [ref=e3]:
+    - application "Kaart·Met de pijltoetsen kun je de kaart meedraaien.·Krijg informatie over een plaats door op de bijbehorende cijfertoets te drukken." [ref=e8]
+    - search [ref=e14]:
+      - generic [ref=e15]:
+        - combobox [ref=e17]: Website laten maken Drachten - WebsUp
+        - button "Zoeken" [ref=e19] [cursor=pointer]:
+          - generic [ref=e20]: 
+        - button "Sluiten" [ref=e22] [cursor=pointer]:
+          - generic [ref=e23]: 
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - list [ref=e27]:
+          - listitem [ref=e28]:
+            - button "Menu" [ref=e29] [cursor=pointer]:
+              - generic [ref=e31]: 
+          - listitem [ref=e32]:
+            - button "Opgeslagen" [ref=e33] [cursor=pointer]:
+              - generic [ref=e35]: 
+              - generic [ref=e37]: Opgeslagen
+          - listitem [ref=e38]:
+            - button "Recent" [disabled] [ref=e39]:
+              - generic [ref=e41]: 
+              - generic [ref=e43]: Recent
+          - listitem [ref=e45]:
+            - button "App downloaden" [ref=e46] [cursor=pointer]:
+              - generic [ref=e48]: 
+              - generic [ref=e50]: App downloaden
+        - main "Website laten maken Drachten - WebsUp" [ref=e55]:
+          - generic [ref=e56]:
+            - button "Foto van Website laten maken Drachten - WebsUp" [active] [ref=e58] [cursor=pointer]:
+              - img [ref=e59]
+            - button "Foto's bekijken" [ref=e60] [cursor=pointer]:
+              - generic [ref=e61]: 
+              - generic [ref=e62]: Foto's bekijken
+          - generic [ref=e65]:
+            - heading "Website laten maken Drachten - WebsUp" [level=1] [ref=e67]: Website laten maken Drachten - WebsUp
+            - generic [ref=e69]:
+              - generic [ref=e70]:
+                - generic [ref=e71]:
+                  - generic [ref=e72]:
+                    - text: 5,0
+                    - img "5,0 sterren" [ref=e73]
+                  - img "16 reviews" [ref=e81]: (16)
+                - button "Meer informatie over juridische kennisgeving voor openbare reviews op Google Maps." [ref=e87]:
+                  - generic [ref=e91]: 
+              - button "Webdesign" [ref=e95]
+          - tablist [ref=e98]:
+            - tab "Overzicht van Website laten maken Drachten - WebsUp" [selected] [ref=e99]:
+              - generic [ref=e101]: Overzicht
+            - tab "Reviews voor Website laten maken Drachten - WebsUp" [ref=e103]:
+              - generic [ref=e105]: Reviews
+            - tab "Over Website laten maken Drachten - WebsUp" [ref=e107]:
+              - generic [ref=e109]: Over
+          - region "Acties voor Website laten maken Drachten - WebsUp" [ref=e111]:
+            - button "Opslaan" [ref=e113] [cursor=pointer]:
+              - generic [ref=e115]: 
+              - generic [ref=e116]: Opslaan
+            - button "Naar telefoon verzenden" [ref=e118] [cursor=pointer]:
+              - generic [ref=e120]: 
+              - generic [ref=e121]: Naar telefoon verzenden
+            - button "Delen" [ref=e123] [cursor=pointer]:
+              - generic [ref=e125]: 
+              - generic [ref=e126]: Delen
+          - region "Informatie voor Website laten maken Drachten - WebsUp" [ref=e129]:
+            - button "Openingstijden Geopend ⋅ Sluit om 17:00 Openingstijden gedurende de week tonen" [ref=e131] [cursor=pointer]:
+              - img "Openingstijden" [ref=e132]: 
+              - generic [ref=e134]:
+                - generic [ref=e136]: Geopend ⋅ Sluit om 17:00
+                - img "Openingstijden gedurende de week tonen" [ref=e137]: 
+            - generic [ref=e138]:
+              - link "websup.nl" [ref=e139] [cursor=pointer]:
+                - /url: https://websup.nl/offerte-aanvragen
+                - generic [ref=e140]:
+                  - generic [ref=e142]: 
+                  - generic [ref=e144]: websup.nl
+              - link "Boekingslink openen" [ref=e147] [cursor=pointer]:
+                - /url: https://websup.nl/offerte-aanvragen
+                - generic [ref=e149]: 
+            - generic [ref=e150]:
+              - 'link "Website: websup.nl" [ref=e151] [cursor=pointer]':
+                - /url: https://www.websup.nl/
+                - generic [ref=e152]:
+                  - generic [ref=e154]: 
+                  - generic [ref=e156]: websup.nl
+              - generic [ref=e157]:
+                - link "Website openen" [ref=e159] [cursor=pointer]:
+                  - /url: https://www.websup.nl/
+                  - generic [ref=e161]: 
+                - button "Website kopiëren" [ref=e163] [cursor=pointer]:
+                  - generic [ref=e165]: 
+            - generic [ref=e166]:
+              - 'button "Telefoon: 06 82202148" [ref=e167] [cursor=pointer]':
+                - generic [ref=e168]:
+                  - generic [ref=e170]: 
+                  - generic [ref=e172]: 06 82202148
+              - generic [ref=e173]:
+                - button "Telefoonnummer kopiëren" [ref=e175] [cursor=pointer]:
+                  - generic [ref=e177]: 
+                - link "Telefoonnummer bellen" [ref=e179] [cursor=pointer]:
+                  - /url: tel:0682202148
+                  - generic [ref=e181]: 
+          - button "Bewerking voorstellen" [ref=e185] [cursor=pointer]:
+            - generic [ref=e186]:
+              - generic [ref=e187]: 
+              - generic [ref=e188]: Bewerking voorstellen
+          - generic [ref=e191]:
+            - heading "Foto's en video's" [level=2] [ref=e193]
+            - region "Foto's van Website laten maken Drachten - WebsUp" [ref=e194]:
+              - generic [ref=e197]:
+                - generic [ref=e198] [cursor=pointer]:
+                  - button "Alle" [ref=e199]
+                  - generic:
+                    - generic: Alle
+                - generic [ref=e200] [cursor=pointer]:
+                  - button "Van eigenaar" [ref=e201]
+                  - generic:
+                    - generic: Van eigenaar
+          - button "Foto's en video's toevoegen" [ref=e206] [cursor=pointer]:
+            - generic [ref=e207]:
+              - generic [ref=e208]: 
+              - generic [ref=e209]: Foto's en video's toevoegen
+          - heading "Reviewoverzicht" [level=2] [ref=e213]
+          - generic [ref=e215] [cursor=pointer]:
+            - table [ref=e217]:
+              - rowgroup [ref=e218]:
+                - img "5 sterren,16 reviews" [ref=e219]: "5"
+                - img "4 sterren,0 reviews" [ref=e222]: "4"
+                - img "3 sterren,0 reviews" [ref=e225]: "3"
+                - img "2 sterren,0 reviews" [ref=e228]: "2"
+                - img "1 sterren,0 reviews" [ref=e231]: "1"
+            - generic [ref=e234]:
+              - generic [ref=e235]: 5,0
+              - img "5,0 sterren" [ref=e236]
+              - button "16 reviews" [ref=e242]:
+                - generic [ref=e244]: 16 reviews
+          - generic [ref=e246]:
+            - generic [ref=e247]: Reviews zijn niet geverifieerd
+            - button "Meer informatie over juridische kennisgeving voor openbare reviews op Google Maps." [ref=e251]:
+              - generic [ref=e255]: 
+          - button "Een review schrijven" [ref=e259] [cursor=pointer]:
+            - generic [ref=e260]:
+              - generic [ref=e261]: 
+              - generic [ref=e262]: Een review schrijven
+          - generic [ref=e265]:
+            - generic [ref=e267]:
+              - heading "Reviews" [level=2] [ref=e270]
+              - button "Zoeken in reviews" [ref=e273] [cursor=pointer]:
+                - generic [ref=e275]: 
+            - button "Reviews sorteren" [ref=e277] [cursor=pointer]:
+              - generic [ref=e278]:
+                - generic [ref=e279]: 
+                - generic [ref=e280]: Sorteren
+          - radiogroup "Reviews verfijnen" [ref=e281]:
+            - radio "Alle reviews" [checked] [ref=e283] [cursor=pointer]:
+              - generic [ref=e284]:
+                - generic [ref=e285]: 
+                - generic [ref=e286]: Alle
+            - radio "tevreden, vermeld in twee reviews" [ref=e288] [cursor=pointer]:
+              - generic [ref=e289]:
+                - generic [ref=e290]: tevreden
+                - generic [ref=e291]: "2"
+            - radio "communicatie, vermeld in twee reviews" [ref=e293] [cursor=pointer]:
+              - generic [ref=e294]:
+                - generic [ref=e295]: communicatie
+                - generic [ref=e296]: "2"
+          - generic "R. Haak" [ref=e297]:
+            - generic [ref=e299]:
+              - button "Foto van R. Haak" [ref=e300]
+              - generic [ref=e302]:
+                - button "R. Haak 15 reviews · 4 foto's" [ref=e304]:
+                  - generic [ref=e305]: R. Haak
+                  - generic [ref=e306]: 15 reviews · 4 foto's
+                - button "Acties voor de review van R. Haak" [ref=e307] [cursor=pointer]:
+                  - generic [ref=e309]: 
+              - generic [ref=e310]:
+                - generic [ref=e311]:
+                  - img "5 sterren" [ref=e312]:
+                    - generic [ref=e313]: 
+                    - generic [ref=e314]: 
+                    - generic [ref=e315]: 
+                    - generic [ref=e316]: 
+                    - generic [ref=e317]: 
+                  - generic [ref=e318]: 3 maanden geleden
+                - generic [ref=e320]: Gewoon top! Geduldig en het meedenken voor een mooie website! Ik heb voor WebsUp gekozen voor betrouwbaarheid, professionaliteit en persoonlijke communicatie! Bedankt Daan
+                - generic [ref=e321]:
+                  - button "Liken" [ref=e322]:
+                    - generic [ref=e323] [cursor=pointer]:
+                      - generic [ref=e324]: 
+                      - generic [ref=e326]: Een like geven
+                  - button "Review van R. Haak delen." [ref=e327]:
+                    - generic [ref=e328] [cursor=pointer]:
+                      - generic [ref=e329]: 
+                      - generic [ref=e330]: Delen
+          - generic "Nynke" [ref=e334]:
+            - generic [ref=e336]:
+              - button "Foto van Nynke" [ref=e337]
+              - generic [ref=e339]:
+                - button "Nynke 1 review" [ref=e341]:
+                  - generic [ref=e342]: Nynke
+                  - generic [ref=e343]: 1 review
+                - button "Acties voor de review van Nynke" [ref=e344] [cursor=pointer]:
+                  - generic [ref=e346]: 
+              - generic [ref=e347]:
+                - generic [ref=e348]:
+                  - img "5 sterren" [ref=e349]:
+                    - generic [ref=e350]: 
+                    - generic [ref=e351]: 
+                    - generic [ref=e352]: 
+                    - generic [ref=e353]: 
+                    - generic [ref=e354]: 
+                  - generic [ref=e355]: 8 maanden geleden
+                - generic [ref=e357]: Wij zijn super tevreden met onze nieuwe website! Het contact was fijn en snel, er werd goed geluisterd naar onze wensen en het resultaat is precies zoals we hoopten. Zeker een aanrader!
+                - generic [ref=e358]:
+                  - button "Liken" [ref=e359]:
+                    - generic [ref=e360] [cursor=pointer]:
+                      - generic [ref=e361]: 
+                      - generic [ref=e363]: Een like geven
+                  - button "Review van Nynke delen." [ref=e364]:
+                    - generic [ref=e365] [cursor=pointer]:
+                      - generic [ref=e366]: 
+                      - generic [ref=e367]: Delen
+                - generic [ref=e368]:
+                  - generic [ref=e369]: Reactie van de eigenaar 3 maanden geleden
+                  - generic [ref=e370]: Bedankt voor de mooie woorden! Fantastisch om te horen dat jullie tevreden zijn met de nieuwe website en dat het proces soepel verliep. Veel succes ermee, en we zijn er altijd als jullie ons nodig hebben!
+          - generic "Robin van der Heide" [ref=e374]:
+            - generic [ref=e376]:
+              - button "Foto van Robin van der Heide" [ref=e377]
+              - generic [ref=e379]:
+                - button "Robin van der Heide 4 reviews · 6 foto's" [ref=e381]:
+                  - generic [ref=e382]: Robin van der Heide
+                  - generic [ref=e383]: 4 reviews · 6 foto's
+                - button "Acties voor de review van Robin van der Heide" [ref=e384] [cursor=pointer]:
+                  - generic [ref=e386]: 
+              - generic [ref=e387]:
+                - generic [ref=e388]:
+                  - img "5 sterren" [ref=e389]:
+                    - generic [ref=e390]: 
+                    - generic [ref=e391]: 
+                    - generic [ref=e392]: 
+                    - generic [ref=e393]: 
+                    - generic [ref=e394]: 
+                  - generic [ref=e395]: 3 maanden geleden
+                - generic [ref=e397]: Daan heeft voor mij een website gemaakt en het ziet er keurig uit! Zeker een aanrader!!
+                - generic [ref=e398]:
+                  - button "Liken" [ref=e399]:
+                    - generic [ref=e400] [cursor=pointer]:
+                      - generic [ref=e401]: 
+                      - generic [ref=e403]: Een like geven
+                  - button "Review van Robin van der Heide delen." [ref=e404]:
+                    - generic [ref=e405] [cursor=pointer]:
+                      - generic [ref=e406]: 
+                      - generic [ref=e407]: Delen
+                - generic [ref=e408]:
+                  - generic [ref=e409]: Reactie van de eigenaar 3 maanden geleden
+                  - generic [ref=e410]: Bedankt voor je positieve feedback! We zijn blij dat je tevreden bent met de website.
+          - button "Meer reviews (13)" [ref=e414]:
+            - generic [ref=e416] [cursor=pointer]: Meer reviews (13)
+          - heading "Webresultaten" [level=2] [ref=e420]
+          - region [ref=e423]
+          - link "Over deze gegevens" [ref=e462] [cursor=pointer]:
+            - /url: https://support.google.com/local-listings?p=how_google_sources&authuser=0&hl=nl
+            - generic [ref=e464]: Over deze gegevens
+          - heading "Haal alles uit Google Maps Inloggen" [level=2] [ref=e468]:
+            - generic [ref=e469]: Haal alles uit Google Maps
+            - button "Inloggen" [ref=e472] [cursor=pointer]:
+              - generic [ref=e474]: Inloggen
+      - button "Zijvenster samenvouwen" [ref=e476] [cursor=pointer]:
+        - generic [ref=e477]: 

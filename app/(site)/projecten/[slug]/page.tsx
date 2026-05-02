@@ -3,12 +3,13 @@ export const revalidate = 3600
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, CheckCircle, ExternalLink } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CheckCircle, ExternalLink, Star } from 'lucide-react'
 import CTASection from '@/components/site/CTASection'
 import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import { LinkPreview } from '@/components/ui/link-preview'
 import { getAllProjectSlugs, getProjectBySlug } from '@/lib/queries/projects'
+import { getTestimonialByProjectId } from '@/lib/queries/testimonials'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -40,11 +41,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+function getInitials(name: string) {
+  return name
+    .split(/\s+/)
+    .map((p) => p[0] ?? '')
+    .filter(Boolean)
+    .slice(0, 2)
+    .join('')
+    .toUpperCase()
+}
+
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params
   const project = await getProjectBySlug(slug)
 
   if (!project) notFound()
+
+  const testimonial = project.id ? await getTestimonialByProjectId(project.id) : null
 
   const plainParagraphs = project.content
     .split(/\n{2,}/)
@@ -157,6 +170,57 @@ export default async function ProjectDetailPage({ params }: Props) {
           </Reveal>
         </div>
       </section>
+
+      {testimonial && (
+        <section className="bg-white py-16 lg:py-20">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+            <Reveal>
+              <div className="rounded-2xl border border-slate-200 border-l-[3px] border-l-orange-500 bg-white p-8 shadow-sm md:p-10">
+                <div className="mb-4 flex items-center gap-2">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+                    Wat de klant zegt
+                  </span>
+                  <div className="flex items-center gap-0.5 ml-auto">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star
+                        key={i}
+                        size={14}
+                        className={i < (testimonial.rating ?? 5) ? 'fill-orange-400 text-orange-400' : 'fill-slate-200 text-slate-200'}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-lg leading-relaxed text-slate-700 md:text-xl">
+                  &ldquo;{testimonial.content}&rdquo;
+                </p>
+                <div className="mt-6 flex items-center gap-3">
+                  {testimonial.avatar_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={testimonial.avatar_url}
+                      alt={testimonial.name}
+                      className="h-11 w-11 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div
+                      className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold text-white"
+                      style={{ background: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)' }}
+                    >
+                      {getInitials(testimonial.name)}
+                    </div>
+                  )}
+                  <div>
+                    <div className="font-semibold text-slate-900">{testimonial.name}</div>
+                    {testimonial.role && (
+                      <div className="text-xs text-slate-400">{testimonial.role}</div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       <CTASection />
     </div>

@@ -1,39 +1,36 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle, Clock, LayoutTemplate, MessageCircle, Sparkles } from 'lucide-react'
+import { ArrowRight, CheckCircle, Clock, MessageCircle, Sparkles } from 'lucide-react'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import Reveal from '@/components/ui/Reveal'
 import FreeDesignForm from '@/components/site/FreeDesignForm'
-import GradientIcon from '@/components/site/GradientIcon'
-import GlassStatGrid from '@/components/site/GlassStatGrid'
+import { GlassCard } from '@/components/site/GlassCard'
 
 export const metadata: Metadata = {
   title: 'Gratis ontwerp aanvragen',
   description:
-    'Vraag een gratis ontwerp of eerste visuele richting aan voor je website, webshop of digitale oplossing van WebsUp.nl.',
+    'Gratis voorbeeldontwerp op maat voor je website binnen 48 uur. Persoonlijk, vrijblijvend en zonder verkooppraat.',
 }
 
-const benefits = [
-  'Een concrete eerste richting voor je website, webshop of digitale systeem',
-  'Eerlijk advies over wat wel en niet nodig is',
-  'Direct contact met Daan, zonder saleslaag ertussen',
+const youGet = [
+  'Een concrete visuele richting voor je website',
+  'Eerlijk advies over structuur en aanpak',
+  'Direct contact met mij — geen tussenpersoon',
+  'Reactie binnen 48 uur, gegarandeerd',
 ]
 
 const steps = [
   {
-    title: 'Jij deelt je vraag',
-    text: 'Je vult kort in wat je wilt bereiken, wat er nu staat en waar je nieuwe ontwerp bij moet helpen.',
-    icon: MessageCircle,
+    title: 'Jij vult kort in',
+    text: 'Wat voor bedrijf, wat je wil bereiken en wat je nu hebt (of niet hebt).',
   },
   {
-    title: 'Ik kijk inhoudelijk mee',
-    text: 'Ik beoordeel je situatie en vertaal dat naar een logische richting voor structuur, uitstraling en vervolgstap.',
-    icon: LayoutTemplate,
+    title: 'Ik kijk mee',
+    text: 'Ik beoordeel je situatie en maak een eerste visuele richting op maat.',
   },
   {
-    title: 'Je krijgt een eerste richting',
-    text: 'Binnen een werkdag reageer ik met vragen, advies of een voorstel voor de beste aanpak.',
-    icon: Sparkles,
+    title: 'Je krijgt het binnen 48 uur',
+    text: 'Een concreet voorbeeld en eerlijk advies over de vervolgstap. Geen verkooppraat.',
   },
 ]
 
@@ -41,98 +38,109 @@ export default function GratisOntwerpPage() {
   return (
     <div>
       <WavePageHeader
-        badge="Gratis ontwerp"
-        title="Vraag een gratis"
-        titleHighlight="ontwerp aan."
-        subtitle="Wil je weten hoe jouw website, webshop of digitale oplossing sterker kan worden neergezet? Deel kort je idee en ik denk mee over een passende eerste richting."
+        badge="Gratis voorbeeldontwerp"
+        title="Zie binnen 48 uur hoe jouw website"
+        titleHighlight="eruit kan zien."
+        subtitle="Ik maak een gratis voorbeeldontwerp op maat — afgestemd op jouw bedrijf, stijl en doelgroep. Geen verplichtingen. Geen standaard template. Gewoon laten zien wat er mogelijk is."
         heightClass="min-h-[64vh]"
       >
         <div className="flex flex-wrap items-center gap-3">
-          <a
-            href="#aanvragen"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-all hover:-translate-y-px hover:bg-white/90"
-          >
+          <a href="#aanvragen" className="btn-brand-gradient">
             Start aanvraag
             <ArrowRight size={14} />
           </a>
           <Link
             href="/projecten"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-white/15"
+            className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/22 hover:bg-white/10"
           >
             Bekijk werk
           </Link>
         </div>
 
-        <GlassStatGrid
-          items={[
-            { icon: Sparkles, value: 'Gratis', label: 'eerste richting' },
-            { icon: Clock, value: 'Binnen 1 werkdag', label: 'persoonlijke reactie' },
-            { icon: MessageCircle, value: 'Vrijblijvend', label: 'geen verplichtingen' },
-          ]}
-        />
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          <GlassCard padding="px-4 py-3" className="flex items-center gap-2">
+            <Sparkles size={16} className="text-orange-400" />
+            <span className="text-sm text-white/85">Persoonlijk op maat</span>
+          </GlassCard>
+          <GlassCard padding="px-4 py-3" className="flex items-center gap-2">
+            <Clock size={16} className="text-orange-400" />
+            <span className="text-sm text-white/85">Binnen 48 uur</span>
+          </GlassCard>
+          <GlassCard padding="px-4 py-3" className="flex items-center gap-2">
+            <MessageCircle size={16} className="text-orange-400" />
+            <span className="text-sm text-white/85">Geen verplichtingen</span>
+          </GlassCard>
+        </div>
       </WavePageHeader>
 
-      <section id="aanvragen" className="bg-slate-50 py-16 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8">
+      <section id="aanvragen" className="bg-slate-50 py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8">
           <Reveal className="lg:sticky lg:top-32 lg:self-start">
-            <span className="overline-badge mb-4 inline-flex">Wat je krijgt</span>
-            <h2 className="font-headline text-3xl font-extrabold leading-[1.08] text-slate-900 md:text-4xl">
-              Geen standaard template, maar een richting die past bij jouw bedrijf
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+              Wat je krijgt
+            </span>
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl">
+              Geen template. Een echte eerste richting voor jouw situatie.
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-slate-500">
-              Een gratis ontwerp is bedoeld om snel helder te krijgen wat visueel en inhoudelijk logisch is. Soms is dat een homepage richting, soms juist advies over structuur, aanbod of techniek.
+            <p className="mt-5 text-lg leading-relaxed text-slate-600">
+              Een gratis voorbeeldontwerp is bedoeld om snel helder te krijgen of we een goede match zijn. Ik kijk naar jouw bedrijf, je doelgroep en wat je website moet doen — en vertaal dat naar een concrete eerste richting.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-slate-500">
+              Geen verkoopgesprek. Geen verplichting. Gewoon een eerlijk beeld van wat mogelijk is.
             </p>
 
-            <div className="mt-8 border-y border-slate-200">
-              {benefits.map((benefit) => (
-                <div key={benefit} className="flex items-start gap-3 border-b border-slate-200 py-4 text-sm leading-relaxed text-slate-600 last:border-b-0">
+            <div className="mt-8 space-y-3">
+              {youGet.map((b) => (
+                <div key={b} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
                   <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
-                  <span>{benefit}</span>
+                  <span className="text-sm leading-relaxed text-slate-700">{b}</span>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-6 flex items-center gap-3 border-t border-slate-200 pt-6 text-sm text-slate-600">
-              <Clock size={17} className="flex-shrink-0" />
-              Reageer ik niet inhoudelijk binnen een werkdag, dan stuur ik je in elk geval wanneer je reactie komt.
             </div>
           </Reveal>
 
           <Reveal>
-            <FreeDesignForm />
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+              <h3 className="font-headline text-2xl font-bold text-slate-900">
+                Vertel kort wat je wilt bouwen
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                Geen uitgebreid briefing-document nodig. Een paar regels over je bedrijf en wat je wil bereiken is genoeg om mee te beginnen.
+              </p>
+              <div className="mt-6">
+                <FreeDesignForm />
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-white py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <Reveal className="mb-10 max-w-3xl">
-            <span className="overline-badge mb-4 inline-flex">Werkwijze</span>
-            <h2 className="font-headline text-3xl font-extrabold leading-[1.08] text-slate-900 md:text-4xl">
-              Snel duidelijkheid over de juiste richting
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <Reveal className="mb-12 max-w-2xl">
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+              Hoe het werkt
+            </span>
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+              Drie stappen, geen omwegen
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-slate-500">
-              De aanvraag is bewust laagdrempelig. Het doel is niet om direct alles vast te zetten, maar om de eerste slimme keuzes helder te krijgen.
-            </p>
           </Reveal>
 
-          <div className="border-t border-slate-200">
-            {steps.map((step, index) => {
-              const Icon = step.icon
-
-              return (
-                <Reveal key={step.title} delay={index * 80}>
-                  <div className="grid gap-4 border-b border-slate-200 py-6 lg:grid-cols-[14rem_1fr] lg:items-start">
-                    <div className="flex items-center gap-4">
-                      <GradientIcon icon={Icon} size="sm" />
-                      <h3 className="font-headline text-xl font-bold text-slate-900">{step.title}</h3>
-                    </div>
-                    <p className="text-sm leading-relaxed text-slate-500">{step.text}</p>
+          <ol className="space-y-7">
+            {steps.map((step, i) => (
+              <Reveal key={step.title} delay={i * 70}>
+                <li className="flex items-start gap-5">
+                  <span className="font-headline flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2 border-orange-500 text-base font-bold text-orange-500">
+                    {i + 1}
+                  </span>
+                  <div className="pt-1">
+                    <h3 className="font-headline text-xl font-bold text-slate-900">{step.title}</h3>
+                    <p className="mt-2 text-base leading-relaxed text-slate-600">{step.text}</p>
                   </div>
-                </Reveal>
-              )
-            })}
-          </div>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
         </div>
       </section>
     </div>

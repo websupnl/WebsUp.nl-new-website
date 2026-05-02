@@ -7,12 +7,18 @@ import { Testimonial } from '@/types/database.types'
 import { deleteTestimonial, saveTestimonial } from '@/lib/actions/testimonials.actions'
 import { useToast } from '@/hooks/useToast'
 
+interface ProjectOption {
+  id: string
+  title: string
+}
+
 interface Props {
   testimonial?: Testimonial
   mode: 'create' | 'edit'
+  projects?: ProjectOption[]
 }
 
-export default function TestimonialForm({ testimonial, mode }: Props) {
+export default function TestimonialForm({ testimonial, mode, projects = [] }: Props) {
   const router = useRouter()
   const { show, startNavigation } = useToast()
 
@@ -22,6 +28,7 @@ export default function TestimonialForm({ testimonial, mode }: Props) {
   const [rating, setRating] = useState(testimonial?.rating ?? 5)
   const [avatarUrl, setAvatarUrl] = useState(testimonial?.avatar_url ?? '')
   const [published, setPublished] = useState(testimonial?.published ?? false)
+  const [projectId, setProjectId] = useState(testimonial?.project_id ?? '')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -37,6 +44,7 @@ export default function TestimonialForm({ testimonial, mode }: Props) {
       rating,
       avatar_url: avatarUrl.trim() || null,
       published,
+      project_id: projectId || null,
     }
 
     const result = await saveTestimonial({
@@ -78,79 +86,98 @@ export default function TestimonialForm({ testimonial, mode }: Props) {
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold text-slate-900">
           {mode === 'create' ? 'Nieuwe testimonial' : 'Testimonial bewerken'}
         </h1>
         <div className="flex items-center gap-2">
           {mode === 'edit' && (
             <button type="button" onClick={handleDelete} disabled={loading}
-              className="p-2 rounded-xl text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors">
+              className="p-2 rounded-xl text-slate-400 hover:text-orange-600 hover:bg-orange-50 transition-colors">
               <Trash2 size={18} />
             </button>
           )}
           <button type="submit" disabled={loading || !name || !content}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white text-sm font-semibold rounded-xl transition-colors">
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white text-sm font-semibold rounded-xl transition-colors">
             <Save size={16} />
-            {loading ? 'Opslaan...' : 'Opslaan'}
+            {loading ? 'Opslaan…' : 'Opslaan'}
           </button>
         </div>
       </div>
 
       {error && (
-        <div className="bg-red-50 border border-red-100 rounded-xl px-4 py-3 text-red-600 text-sm">{error}</div>
+        <div className="bg-orange-50 border border-orange-100 rounded-xl px-4 py-3 text-orange-700 text-sm">{error}</div>
       )}
 
       <div className="bg-white rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)] space-y-5">
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Naam *</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1.5">Naam *</label>
             <input type="text" required value={name} onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
               placeholder="Jan de Vries" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Functie / bedrijf</label>
-            <input type="text" value={role} onChange={(e) => setRole(e.target.value)}
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="CEO, Acme B.V." />
+            <label className="block text-sm font-medium text-slate-700 mb-1.5">Functie / bedrijf</label>
+            <input type="text" value={role ?? ''} onChange={(e) => setRole(e.target.value)}
+              className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+              placeholder="Google review" />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1.5">Beoordeling *</label>
+          <label className="block text-sm font-medium text-slate-700 mb-1.5">Beoordeling *</label>
           <div className="flex items-center gap-1">
             {[1, 2, 3, 4, 5].map((star) => (
               <button key={star} type="button" onClick={() => setRating(star)}>
-                <Star size={24} className={star <= rating ? 'text-amber-400 fill-amber-400' : 'text-gray-200 fill-gray-200'} />
+                <Star size={24} className={star <= rating ? 'text-orange-400 fill-orange-400' : 'text-slate-200 fill-slate-200'} />
               </button>
             ))}
-            <span className="ml-2 text-sm text-gray-500">{rating}/5</span>
+            <span className="ml-2 text-sm text-slate-500">{rating}/5</span>
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1.5">Testimonial *</label>
-          <textarea required value={content} onChange={(e) => setContent(e.target.value)} rows={4}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-            placeholder="Wat zegt de klant over uw diensten?" />
+          <label className="block text-sm font-medium text-slate-700 mb-1.5">Testimonial *</label>
+          <textarea required value={content} onChange={(e) => setContent(e.target.value)} rows={5}
+            className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
+            placeholder="Wat zegt de klant over je werk?" />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1.5">Avatar URL (optioneel)</label>
-          <input type="url" value={avatarUrl} onChange={(e) => setAvatarUrl(e.target.value)}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="https://..." />
+          <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            Gekoppeld project <span className="text-slate-400 font-normal">(optioneel)</span>
+          </label>
+          <select
+            value={projectId ?? ''}
+            onChange={(e) => setProjectId(e.target.value)}
+            className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
+          >
+            <option value="">— Geen koppeling —</option>
+            {projects.map((p) => (
+              <option key={p.id} value={p.id}>{p.title}</option>
+            ))}
+          </select>
+          <p className="mt-1.5 text-xs text-slate-400">
+            Wanneer gekoppeld, verschijnt deze review op de project-detailpagina.
+          </p>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-700 mb-1.5">Avatar URL (optioneel)</label>
+          <input type="url" value={avatarUrl ?? ''} onChange={(e) => setAvatarUrl(e.target.value)}
+            className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder="https://lh3.googleusercontent.com/…" />
         </div>
 
         <div>
           <label className="flex items-center gap-3 cursor-pointer">
             <div className="relative">
               <input type="checkbox" className="sr-only" checked={published} onChange={(e) => setPublished(e.target.checked)} />
-              <div className={`w-11 h-6 rounded-full transition-colors ${published ? 'bg-blue-600' : 'bg-gray-200'}`}>
+              <div className={`w-11 h-6 rounded-full transition-colors ${published ? 'bg-orange-500' : 'bg-slate-200'}`}>
                 <div className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${published ? 'translate-x-6' : 'translate-x-1'}`} />
               </div>
             </div>
-            <span className="text-sm text-gray-700">{published ? 'Gepubliceerd' : 'Concept'}</span>
+            <span className="text-sm text-slate-700">{published ? 'Gepubliceerd' : 'Concept'}</span>
           </label>
         </div>
       </div>

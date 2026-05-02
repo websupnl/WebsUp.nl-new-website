@@ -1,0 +1,90 @@
+- generic [active] [ref=e1]:
+  - link "Ga naar de inhoud" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - generic [ref=e5]:
+    - list [ref=e10]:
+      - listitem [ref=e11]:
+        - link "info@vdh-bestratingen.nl" [ref=e12] [cursor=pointer]:
+          - /url: mailto:info@vdh-bestratingen.nl
+          - generic [ref=e13]: info@vdh-bestratingen.nl
+      - listitem [ref=e14]:
+        - link "+31 6 30408538" [ref=e15] [cursor=pointer]:
+          - /url: tel:+0630408538
+          - generic [ref=e16]: +31 6 30408538
+    - generic [ref=e18]:
+      - link [ref=e21] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e22]:
+        - navigation [ref=e25]:
+          - text: 
+          - list [ref=e27]:
+            - listitem [ref=e28]:
+              - link "Home" [ref=e29] [cursor=pointer]:
+                - /url: https://vdh-bestratingen.nl/
+            - listitem [ref=e30]:
+              - link "Over ons" [ref=e31] [cursor=pointer]:
+                - /url: /over-ons
+            - listitem [ref=e32]:
+              - link "Diensten" [ref=e33] [cursor=pointer]:
+                - /url: /diensten
+            - listitem [ref=e34]:
+              - link "Inspiratie & voorbeelden" [ref=e35] [cursor=pointer]:
+                - /url: /Inspiratie-voorbeelden
+            - listitem [ref=e36]:
+              - link "Contact" [ref=e37] [cursor=pointer]:
+                - /url: /contact
+        - link "Offerte aanvragen" [ref=e41] [cursor=pointer]:
+          - /url: /contact
+  - generic [ref=e42]:
+    - generic [ref=e45]:
+      - generic [ref=e48]:
+        - heading "Kwaliteit in elke steen ." [level=1] [ref=e49]:
+          - text: Kwaliteit in elke steen
+          - generic [ref=e50]: .
+        - paragraph [ref=e52]: VDH Bestratingen levert vakwerk in bestrating, grondwerk en sierbestrating. Betrouwbaar, netjes en altijd met oog voor detail.
+      - link "Offerte aanvragen" [ref=e56] [cursor=pointer]:
+        - /url: /contact
+      - generic [ref=e62]:
+        - group "1 / 2" [ref=e63]:
+          - 'generic "Title #1" [ref=e65]'
+        - group "2 / 2" [ref=e67]:
+          - 'generic "Title #2" [ref=e69]'
+    - generic [ref=e76]:
+      - button "Over ons" [ref=e78]:
+        - generic [ref=e80]: Over ons
+      - generic [ref=e83]:
+        - heading "Vakmanschap op de eerste plaats ." [level=2] [ref=e84]:
+          - text: Vakmanschap op de eerste plaats
+          - generic [ref=e85]: .
+        - paragraph [ref=e87]:
+          - text: Wij zijn VDH Bestratingen — een jong en gedreven bedrijf met passie voor straatwerk.
+          - text: "Of het nu gaat om een oprit, tuinpad of complete erfverharding: wij zorgen voor een strak en duurzaam resultaat."
+          - text: Heldere afspraken, persoonlijk contact en tevreden klanten staan bij ons centraal.
+      - link "Meer lezen over ons" [ref=e91] [cursor=pointer]:
+        - /url: /over-ons
+    - generic [ref=e93]:
+      - figure [ref=e95]:
+        - generic [ref=e97]:
+          - link "Open image":
+            - /url: https://vdh-bestratingen.nl/wp-content/uploads/2025/11/IMG-20251028-WA0016.jpg
+        - link "Open image" [ref=e99] [cursor=pointer]:
+          - /url: https://vdh-bestratingen.nl/wp-content/uploads/2025/11/IMG-20251028-WA0016.jpg
+      - figure [ref=e101]:
+        - generic [ref=e103]:
+          - link "Open image":
+            - /url: https://vdh-bestratingen.nl/wp-content/uploads/2025/11/IMG-20251028-WA0015.jpg
+        - link "Open image" [ref=e105] [cursor=pointer]:
+          - /url: https://vdh-bestratingen.nl/wp-content/uploads/2025/11/IMG-20251028-WA0015.jpg
+      - figure [ref=e107]:
+        - generic [ref=e109]:
+          - link "Open image":
+            - /url: https://vdh-bestratingen.nl/wp-content/uploads/2025/11/IMG-20251028-WA0017.jpg
+        - link "Open image" [ref=e111] [cursor=pointer]:
+          - /url: https://vdh-bestratingen.nl/wp-content/uploads/2025/11/IMG-20251028-WA0017.jpg
+      - figure [ref=e113]:
+        - generic [ref=e115]:
+          - link "Open image":
+            - /url: https://vdh-bestratingen.nl/wp-content/uploads/2025/11/IMG-20251028-WA0010.jpg
+        - link "Open image" [ref=e117] [cursor=pointer]:
+          - /url: https://vdh-bestratingen.nl/wp-content/uploads/2025/11/IMG-20251028-WA0010.jpg
+  - generic [ref=e120]: desktop

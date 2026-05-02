@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Plus_Jakarta_Sans, Nunito } from 'next/font/google'
 import './globals.css'
 import { siteConfig } from '@/config/site.config'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -7,9 +7,17 @@ import { AppFeedbackProvider } from '@/components/ui/AppFeedbackProvider'
 import FreeDesignModalProvider from '@/components/site/FreeDesignModalProvider'
 import WhatsAppButton from '@/components/site/WhatsAppButton'
 
-const inter = Inter({
+const headlineFont = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['600', '700', '800'],
+  variable: '--font-headline',
+  display: 'swap',
+})
+
+const bodyFont = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body-sans',
   display: 'swap',
 })
 
@@ -91,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="nl" className={`${inter.variable} h-full`}>
+    <html lang="nl" className={`${headlineFont.variable} ${bodyFont.variable} h-full`}>
       <head>
         <script
           type="application/ld+json"

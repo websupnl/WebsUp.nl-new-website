@@ -1,106 +1,99 @@
 import type { Metadata } from 'next'
 import Reveal from '@/components/ui/Reveal'
+import { siteConfig } from '@/config/site.config'
 
 export const metadata: Metadata = {
   title: 'Privacybeleid',
-  description: 'Lees ons privacybeleid en hoe wij omgaan met uw persoonsgegevens.',
+  description: 'Lees het privacybeleid van WebsUp.nl en hoe wordt omgegaan met persoonsgegevens.',
 }
 
 export default function PrivacybeleidPage() {
   return (
-    <Reveal className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacybeleid</h1>
-      <p className="text-gray-400 text-sm mb-10">Laatst bijgewerkt: januari 2025</p>
+    <Reveal className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <h1 className="font-headline text-4xl font-extrabold text-slate-900 mb-2">Privacybeleid</h1>
+      <p className="text-slate-400 text-sm mb-10">Laatst bijgewerkt: januari 2026</p>
 
-      <div className="prose-content space-y-8 text-gray-700">
+      <div className="prose-content space-y-8 text-slate-700">
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">1. Wie zijn wij?</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-3">1. Wie ben ik?</h2>
           <p>
-            Business Publicatie Uitgevers is een zakelijke uitgeverij gespecialiseerd in hoogwaardige
-            publicaties voor de zakelijke markt. Wij zijn verantwoordelijk voor de verwerking van uw
-            persoonsgegevens zoals beschreven in dit privacybeleid.
+            WebsUp.nl is een eenmanszaak van Daan Koolhaas, gevestigd in Friesland. Ik ben verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in dit privacybeleid.
           </p>
           <p className="mt-2">
             <strong>Contactgegevens:</strong><br />
-            Business Publicatie Uitgevers<br />
-            Zakenstraat 10, 1234 AB Amsterdam<br />
-            info@businesspublicatieuitgevers.nl
+            WebsUp.nl<br />
+            {siteConfig.address}<br />
+            {siteConfig.email}{siteConfig.kvk ? <> · KVK {siteConfig.kvk}</> : null}
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">2. Welke gegevens verzamelen wij?</h2>
-          <p>Wij kunnen de volgende persoonsgegevens verwerken:</p>
+          <h2 className="text-xl font-bold text-slate-900 mb-3">2. Welke gegevens verzamel ik?</h2>
+          <p>De volgende persoonsgegevens kunnen verwerkt worden:</p>
           <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>Naam en voornaam</li>
+            <li>Naam</li>
             <li>E-mailadres</li>
             <li>Telefoonnummer</li>
             <li>Bedrijfsnaam</li>
-            <li>IP-adres en browsergegevens (via cookies)</li>
+            <li>IP-adres en browsergegevens (via cookies en analytics)</li>
           </ul>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">3. Waarom verwerken wij uw gegevens?</h2>
-          <p>Wij verwerken uw persoonsgegevens voor de volgende doeleinden:</p>
+          <h2 className="text-xl font-bold text-slate-900 mb-3">3. Waarom verwerk ik gegevens?</h2>
           <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>Het afhandelen van contactverzoeken</li>
-            <li>Het versturen van gevraagde informatie</li>
-            <li>Het verbeteren van onze website en dienstverlening</li>
-            <li>Het voldoen aan wettelijke verplichtingen</li>
+            <li>Afhandelen van contactverzoeken en aanvragen</li>
+            <li>Versturen van gevraagde informatie of offertes</li>
+            <li>Uitvoeren van overeenkomsten en projecten</li>
+            <li>Verbeteren van de website en dienstverlening</li>
+            <li>Voldoen aan wettelijke verplichtingen</li>
           </ul>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">4. Bewaartermijn</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-3">4. Bewaartermijn</h2>
           <p>
-            Wij bewaren uw persoonsgegevens niet langer dan strikt noodzakelijk voor de doeleinden
-            waarvoor ze zijn verzameld. Contactgegevens worden maximaal 2 jaar bewaard, tenzij u
-            eerder verzoekt om verwijdering.
+            Persoonsgegevens worden niet langer bewaard dan nodig voor de doeleinden waarvoor ze zijn verzameld. Contactgegevens worden maximaal 2 jaar bewaard, tenzij eerder verzocht om verwijdering of zolang fiscale bewaarplicht het vereist.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">5. Delen met derden</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-3">5. Delen met derden</h2>
           <p>
-            Wij verkopen uw gegevens niet aan derden. Wij kunnen gegevens delen met verwerkers die
-            namens ons diensten verlenen (zoals hosting), uitsluitend op basis van een
-            verwerkersovereenkomst.
+            Gegevens worden niet verkocht aan derden. Wel kunnen gegevens worden gedeeld met verwerkers die diensten leveren (zoals hosting, e-mail of analytics), uitsluitend op basis van een verwerkersovereenkomst.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">6. Cookies</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-3">6. Cookies</h2>
           <p>
-            Wij maken gebruik van functionele en analytische cookies. Zie ons{' '}
-            <a href="/cookies" className="text-blue-600 hover:underline">cookiebeleid</a> voor
-            meer informatie.
+            De website gebruikt functionele en analytische cookies. Zie het{' '}
+            <a href="/cookies" className="text-orange-500 hover:underline">cookiebeleid</a> voor meer informatie.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">7. Uw rechten</h2>
-          <p>U heeft het recht om:</p>
+          <h2 className="text-xl font-bold text-slate-900 mb-3">7. Jouw rechten</h2>
+          <p>Je hebt het recht om:</p>
           <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>Inzage te vragen in uw persoonsgegevens</li>
+            <li>Inzage te vragen in jouw persoonsgegevens</li>
             <li>Onjuiste gegevens te laten corrigeren</li>
-            <li>Uw gegevens te laten verwijderen</li>
+            <li>Jouw gegevens te laten verwijderen</li>
             <li>Bezwaar te maken tegen de verwerking</li>
             <li>Een klacht in te dienen bij de Autoriteit Persoonsgegevens</li>
           </ul>
           <p className="mt-3">
-            Neem voor het uitoefenen van uw rechten contact op via{' '}
-            <a href="mailto:info@businesspublicatieuitgevers.nl" className="text-blue-600 hover:underline">
-              info@businesspublicatieuitgevers.nl
+            Neem voor het uitoefenen van deze rechten contact op via{' '}
+            <a href={`mailto:${siteConfig.email}`} className="text-orange-500 hover:underline">
+              {siteConfig.email}
             </a>.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">8. Beveiliging</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-3">8. Beveiliging</h2>
           <p>
-            Wij nemen passende technische en organisatorische maatregelen om uw persoonsgegevens
-            te beschermen tegen ongeautoriseerde toegang, verlies of misbruik.
+            Er worden passende technische en organisatorische maatregelen genomen om persoonsgegevens te beschermen tegen ongeautoriseerde toegang, verlies of misbruik.
           </p>
         </section>
       </div>

@@ -19,7 +19,7 @@ export default function VeelgesteldeVragenPage() {
         subtitle="Antwoorden op vragen die vaak terugkomen over websites, webshops, maatwerk, planning en samenwerking."
       />
 
-      <FAQSection showPageLink={false} />
+      <FAQSection showPageLink={false} hideHeading sectionClassName="bg-white py-20 lg:py-28" />
       <CTASection />
     </div>
   )

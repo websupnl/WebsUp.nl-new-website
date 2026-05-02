@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { Menu, X, ChevronDown, Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight } from 'lucide-react'
@@ -26,35 +25,27 @@ const FALLBACK_NAV = siteConfig.nav.map((item) => ({
 const DIENSTEN = [
   {
     title: 'Websites',
-    desc: 'Snel, modern en conversiegericht. WordPress, Shopify of Next.js.',
+    desc: 'Snel, modern, conversiegericht.',
     href: '/diensten/websites',
     icon: Monitor,
-    image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=600&q=60',
-    color: 'from-orange-400/20 to-pink-400/10',
   },
   {
     title: 'Webshops',
-    desc: 'WooCommerce of Shopify. iDEAL, Mollie en slimme orderverwerking.',
+    desc: 'WooCommerce of Shopify. iDEAL en Mollie.',
     href: '/diensten/webshops',
     icon: ShoppingCart,
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=60',
-    color: 'from-pink-400/20 to-orange-400/10',
   },
   {
     title: 'Apps & Dashboards',
-    desc: 'Klantportalen, interne tools en realtime dashboards op maat.',
+    desc: 'Portalen en interne tools op maat.',
     href: '/diensten/apps-dashboards',
     icon: LayoutDashboard,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=60',
-    color: 'from-pink-400/20 to-orange-400/10',
   },
   {
     title: 'Automatisering',
-    desc: 'Koppel je tools. Elimineer handmatig werk met n8n en API-koppelingen.',
+    desc: 'Workflows, n8n en API-koppelingen.',
     href: '/diensten/automatisering',
     icon: Zap,
-    image: 'https://images.unsplash.com/photo-1518432031352-d6fc5734c3d0?auto=format&fit=crop&w=600&q=60',
-    color: 'from-orange-400/20 to-pink-400/10',
   },
 ]
 
@@ -161,7 +152,7 @@ export default function Navbar({
             {/* Logo */}
             <Link href="/" className="flex items-center flex-shrink-0">
               {logoUrl ? (
-                <img src={logoUrl} alt={siteName} className="h-30 w-auto" />
+                <img src={logoUrl} alt={siteName} className="h-24 w-auto" />
               ) : (
                 <img
                   src={scrolled || megaOpen ? '/WebsUp.nl logo zwart.png' : '/WebsUp.nl logo wit.png'}
@@ -262,85 +253,70 @@ export default function Navbar({
         }`}
         style={{ top: `${headerHeight}px`, willChange: 'opacity, transform' }}
       >
-        {/* Backdrop blur border */}
-        <div className="border-t border-slate-900/6" />
+        <div className="bg-white border-t border-slate-100 shadow-2xl shadow-slate-900/10">
+          <div className="max-w-screen-xl mx-auto px-6 lg:px-10 py-8">
 
-        <div className="bg-white/98 backdrop-blur-2xl shadow-2xl shadow-slate-900/10">
-          <div className="max-w-screen-2xl mx-auto px-6 lg:px-10 py-8">
-            <div className="grid grid-cols-12 gap-6">
-
-              {/* Left: service cards — 8 cols */}
-              <div className="col-span-8 grid grid-cols-2 gap-3">
-                {DIENSTEN.map((dienst) => {
-                  const Icon = dienst.icon
-                  return (
-                    <Link
-                      key={dienst.href}
-                      href={dienst.href}
-                      onClick={() => setMegaOpen(false)}
-                      className="group flex gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all duration-200"
-                    >
-                      {/* Thumbnail */}
-                      <div className="relative w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
-                        <Image
-                          src={dienst.image}
-                          alt={dienst.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          sizes="80px"
-                        />
-                        <div className={`absolute inset-0 bg-gradient-to-br ${dienst.color}`} />
-                      </div>
-                      {/* Text */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <Icon size={13} className="text-slate-400 flex-shrink-0" />
-                          <span className="font-semibold text-sm text-slate-900 group-hover:text-orange-500 transition-colors">
-                            {dienst.title}
-                          </span>
-                        </div>
-                        <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
-                          {dienst.desc}
-                        </p>
-                      </div>
-                    </Link>
-                  )
-                })}
-              </div>
-
-              {/* Right: featured highlight — 4 cols */}
-              <div className="col-span-4">
-                <div className="relative h-full min-h-[200px] rounded-2xl overflow-hidden bg-[#06040c]">
-                  <Image
-                    src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=600&q=60"
-                    alt="Werk van WebsUp"
-                    fill
-                    className="object-cover opacity-50"
-                    sizes="300px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#06040c] via-[#06040c]/40 to-transparent" />
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                    <span className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-2">
-                      Gratis kennismaking
-                    </span>
-                    <p className="text-white font-bold text-base leading-snug mb-4">
-                      Niet zeker welke dienst past?<br />Ik adviseer eerlijk.
-                    </p>
-                    <Link
-                      href="/contact"
-                      onClick={() => setMegaOpen(false)}
-                      className="inline-flex items-center gap-1.5 bg-white text-slate-900 font-semibold text-xs px-4 py-2 rounded-full hover:bg-white/90 transition-colors self-start"
-                    >
-                      Plan een gesprek <ArrowRight size={11} />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
+            {/* Section header */}
+            <div className="mb-5">
+              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+                Wat wil je laten bouwen?
+              </span>
             </div>
 
+            {/* 2x2 grid */}
+            <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+              {DIENSTEN.map((dienst) => {
+                const Icon = dienst.icon
+                return (
+                  <Link
+                    key={dienst.href}
+                    href={dienst.href}
+                    onClick={() => setMegaOpen(false)}
+                    className="group flex items-start gap-3 px-4 py-4 rounded-xl border-l-2 border-transparent hover:border-orange-500 hover:bg-slate-50/80 transition-all duration-200"
+                  >
+                    <Icon size={18} className="mt-0.5 text-orange-500 flex-shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <span className="font-semibold text-[15px] text-slate-900">
+                          {dienst.title}
+                        </span>
+                        <ArrowRight size={13} className="text-slate-400 group-hover:text-orange-500 group-hover:translate-x-0.5 transition-all duration-200" />
+                      </div>
+                      <p className="text-[13px] text-slate-500 leading-relaxed">
+                        {dienst.desc}
+                      </p>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+
+            {/* Divider */}
+            <div className="my-5 border-t border-slate-100" />
+
+            {/* Orange GlassCard CTA */}
+            <Link
+              href="/contact"
+              onClick={() => setMegaOpen(false)}
+              className="block rounded-2xl border border-orange-500/25 bg-orange-500/[0.06] backdrop-blur-md px-5 py-4 hover:bg-orange-500/[0.10] transition-colors"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="font-semibold text-sm text-slate-900">
+                    Niet zeker welke dienst past bij jouw situatie?
+                  </p>
+                  <p className="text-[13px] text-slate-600 mt-0.5">
+                    Ik adviseer eerlijk.
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-600 whitespace-nowrap">
+                  Plan een gesprek <ArrowRight size={14} />
+                </span>
+              </div>
+            </Link>
+
             {/* Bottom: alle diensten link */}
-            <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div className="mt-4 flex items-center justify-between">
               <Link
                 href="/diensten"
                 onClick={() => setMegaOpen(false)}
@@ -350,7 +326,7 @@ export default function Navbar({
                 <ArrowRight size={14} />
               </Link>
               <span className="text-xs text-slate-400">
-                Persoonlijk advies · Direct contact met Daan · Friesland
+                Persoonlijk advies · Heel Nederland
               </span>
             </div>
           </div>
@@ -464,7 +440,7 @@ export default function Navbar({
             Gratis ontwerp
           </Link>
           <p className="text-center text-xs text-white/25">
-            Persoonlijk advies · Direct contact met Daan
+            Persoonlijk advies · Heel Nederland
           </p>
         </div>
       </div>
