@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
+import GrainOverlay from '@/components/ui/GrainOverlay'
 import { finalTrustItems } from '@/lib/homepage-content'
 
 interface CTASectionProps {
@@ -47,13 +48,17 @@ export default function CTASection({
                 }}
               />
             </div>
+            <GrainOverlay opacity={0.04} />
 
             <div className="relative z-10 grid gap-10 px-6 py-10 md:px-12 md:py-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div>
                 <span className="overline-badge overline-badge-dark mb-6">
                   Vrijblijvend kennismaken
                 </span>
-                <h2 className="max-w-3xl font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-white md:text-5xl">
+                <h2
+                  className="max-w-3xl font-headline font-extrabold leading-[1.08] tracking-[-0.03em] text-white"
+                  style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4rem)' }}
+                >
                   {heading}
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/64 md:text-lg">
