@@ -2,13 +2,23 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, CheckCircle, MessageCircle, Sparkles } from 'lucide-react'
+import GrainOverlay from '@/components/ui/GrainOverlay'
 
 const trustItems = ['Direct contact met Daan', 'Persoonlijke aanpak', 'Maatwerk voor groei']
 
 export default function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+  const photoY = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
+
   return (
-    <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#06040c]">
+    <section ref={sectionRef} className="relative flex min-h-screen flex-col overflow-hidden bg-[#06040c]">
       <div className="absolute inset-0 overflow-hidden">
         <div className="hero-wave-bg absolute inset-[-8%]">
           <Image
@@ -31,6 +41,8 @@ export default function HeroSection() {
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#06040c] to-transparent" />
       </div>
 
+      <GrainOverlay opacity={0.035} />
+
       <div className="relative flex flex-1 items-center px-6 pb-14 pt-28 sm:px-8 lg:px-10 lg:pb-20 lg:pt-32 xl:px-12">
         <div className="mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
@@ -40,15 +52,15 @@ export default function HeroSection() {
             </span>
 
             <h1
-              className="max-w-4xl font-headline font-extrabold leading-[1.04] tracking-[-0.03em] text-white"
-              style={{ fontSize: 'clamp(2.35rem, 5vw, 4.35rem)' }}
+              className="max-w-4xl font-headline font-extrabold leading-[1.03] tracking-[-0.035em] text-white"
+              style={{ fontSize: 'clamp(2.6rem, 5.5vw, 5rem)' }}
             >
-              Websites en digitale systemen die{' '}
-              <span className="gradient-text">echt voor je werken.</span>
+              Een website die vertrouwen wekt{' '}
+              <span className="gradient-text">en klanten oplevert.</span>
             </h1>
 
             <p className="mt-7 max-w-[58ch] text-base leading-relaxed text-white/66 md:text-lg">
-              Geen standaard website of los systeem, maar een digitale oplossing die past bij jouw bedrijf. Van een sterke website tot een slim dashboard, webshop of maatwerk app.
+              Geen standaard template, maar een digitale oplossing die direct duidelijk maakt wat je doet, voor wie en waarom klanten voor jou moeten kiezen.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -82,16 +94,28 @@ export default function HeroSection() {
                   background: 'radial-gradient(closest-side, rgba(236,72,153,0.18), rgba(236,72,153,0) 70%)',
                 }}
               />
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-white/5 shadow-2xl shadow-black/40">
-                <Image
-                  src="/Daan Koolhaas.jpg"
-                  alt="Daan Koolhaas, eigenaar WebsUp.nl"
-                  width={720}
-                  height={900}
-                  priority
-                  className="h-auto w-full object-cover"
-                  sizes="(max-width: 1024px) 80vw, 480px"
-                />
+              <motion.div
+                className="relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-white/5 shadow-2xl shadow-black/40"
+                style={{ y: photoY }}
+              >
+                <div className="relative overflow-hidden">
+                  <Image
+                    src="/Daan Koolhaas.jpg"
+                    alt="Daan Koolhaas, eigenaar WebsUp.nl"
+                    width={720}
+                    height={900}
+                    priority
+                    className="h-auto w-full object-cover"
+                    sizes="(max-width: 1024px) 80vw, 480px"
+                  />
+                  <GrainOverlay opacity={0.07} />
+                  <div
+                    className="pointer-events-none absolute inset-0"
+                    style={{
+                      background: 'linear-gradient(to right, rgba(6,4,12,0.55) 0%, transparent 45%)',
+                    }}
+                  />
+                </div>
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#06040c]/86 via-[#06040c]/35 to-transparent p-6 pt-20">
                   <div className="flex items-end justify-between gap-4">
                     <div>
@@ -106,7 +130,7 @@ export default function HeroSection() {
                     Persoonlijk contact vanaf het eerste idee tot de oplevering.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
