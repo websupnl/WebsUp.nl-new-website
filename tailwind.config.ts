@@ -34,6 +34,20 @@ const config: Config = {
           surface: '#111827',
           'surface-2': '#1F2937',
         },
+        // Lila/paars accent — secondary kleur uit het logo
+        accent: {
+          DEFAULT: '#ba79df',
+          50: '#f7f0fb',
+          100: '#ede0f7',
+          200: '#dec0ef',
+          300: '#cda1e7',
+          400: '#ba79df', // base
+          500: '#a25ed4',
+          600: '#8a45c2',
+          700: '#6f3699',
+          800: '#542770',
+          900: '#391851',
+        },
       },
       boxShadow: {
         'ambient': '0 20px 50px rgba(9, 29, 45, 0.05)',

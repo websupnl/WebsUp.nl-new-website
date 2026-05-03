@@ -32,7 +32,7 @@ export default function PrivacybeleidPage() {
           <p>De volgende persoonsgegevens kunnen verwerkt worden:</p>
           <ul className="list-disc pl-5 mt-2 space-y-1">
             <li>Naam</li>
-            <li>E-mailadres</li>
+            <li>Emailadres</li>
             <li>Telefoonnummer</li>
             <li>Bedrijfsnaam</li>
             <li>IP-adres en browsergegevens (via cookies en analytics)</li>
@@ -60,7 +60,7 @@ export default function PrivacybeleidPage() {
         <section>
           <h2 className="text-xl font-bold text-slate-900 mb-3">5. Delen met derden</h2>
           <p>
-            Gegevens worden niet verkocht aan derden. Wel kunnen gegevens worden gedeeld met verwerkers die diensten leveren (zoals hosting, e-mail of analytics), uitsluitend op basis van een verwerkersovereenkomst.
+            Gegevens worden niet verkocht aan derden. Wel kunnen gegevens worden gedeeld met verwerkers die diensten leveren (zoals hosting, email of analytics), uitsluitend op basis van een verwerkersovereenkomst.
           </p>
         </section>
 

@@ -26,10 +26,10 @@ const services: ServiceItem[] = [
     slug: 'websites',
     icon: Monitor,
     intro:
-      'Moderne, snelle websites die professioneel overkomen en gericht zijn op resultaat. WordPress, Next.js of Shopify — het platform volgt de vraag.',
+      'Moderne, snelle websites die professioneel overkomen en gericht zijn op resultaat. WordPress, Next.js of Shopify, het platform volgt de vraag.',
     bullets: [
       'Conversiegerichte opbouw',
-      'Mobiel-first & razendsnel',
+      'Mobiel eerst & razendsnel',
       'Basis SEO en technische fundering',
       'Beheerbaar en uitbreidbaar',
     ],
@@ -65,9 +65,9 @@ const services: ServiceItem[] = [
     slug: 'automatisering',
     icon: Zap,
     intro:
-      'Koppelingen en slimme workflows die handmatig werk elimineren. Van n8n-automatiseringen tot volledige API-koppelingen tussen je systemen.',
+      'Koppelingen en slimme workflows die handmatig werk elimineren. Van n8n-automatiseringen tot volledige API koppelingen tussen je systemen.',
     bullets: [
-      'API-koppelingen',
+      'API koppelingen',
       'Workflow automatisering',
       'CRM & email integraties',
       'n8n en maatwerk scripts',
@@ -91,7 +91,7 @@ export default function DienstenPage() {
           </Link>
           <Link
             href="/gratis-ontwerp"
-            className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/22 hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/20"
           >
             Vraag gratis ontwerp aan
           </Link>
@@ -99,8 +99,8 @@ export default function DienstenPage() {
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           {[
-            { icon: Settings, label: 'Maatwerk — geen pakketten', color: 'text-orange-400' },
-            { icon: MessageCircle, label: 'Direct persoonlijk contact', color: 'text-pink-400' },
+            { icon: Settings, label: 'Maatwerk, geen pakketten', color: 'text-orange-400' },
+            { icon: MessageCircle, label: 'Direct persoonlijk contact', color: 'text-accent-400' },
             { icon: MapPin, label: 'Werk voor heel Nederland', color: 'text-violet-300' },
           ].map(({ icon: Icon, label, color }) => (
             <GlassCard key={label} padding="px-4 py-3" className="flex items-center gap-2.5">
@@ -115,7 +115,7 @@ export default function DienstenPage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal className="mb-14 max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
               Wat ik bouw
             </span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
@@ -133,13 +133,16 @@ export default function DienstenPage() {
                 <Reveal key={service.slug} delay={i * 70}>
                   <Link
                     href={`/diensten/${service.slug}`}
-                    className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl hover:shadow-slate-900/5"
+                    className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent-200 hover:shadow-xl hover:shadow-slate-900/5"
                   >
                     <div className="mb-5 flex items-center gap-4">
-                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-500">
+                      <span
+                        className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-md"
+                        style={{ background: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)' }}
+                      >
                         <Icon size={22} strokeWidth={1.8} />
                       </span>
-                      <h3 className="font-headline text-2xl font-bold text-slate-900 transition-colors group-hover:text-orange-500">
+                      <h3 className="font-headline text-2xl font-bold text-slate-900 transition-colors group-hover:text-accent-600">
                         {service.title}
                       </h3>
                     </div>
@@ -157,7 +160,7 @@ export default function DienstenPage() {
                       ))}
                     </ul>
 
-                    <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-orange-500">
+                    <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600">
                       Meer over {service.title.toLowerCase()}
                       <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
                     </span>
@@ -175,13 +178,13 @@ export default function DienstenPage() {
           <Reveal>
             <div className="mb-5 flex items-center justify-center gap-1">
               {[0, 1, 2, 3, 4].map((i) => (
-                <Star key={i} size={18} className="fill-orange-400 text-orange-400" />
+                <Star key={i} size={18} className="fill-accent-400 text-accent-400" />
               ))}
             </div>
             <blockquote className="font-headline text-2xl font-bold leading-snug tracking-[-0.01em] text-slate-900 md:text-3xl lg:text-4xl">
               &ldquo;Daan heeft voor ons in no time, binnen 2 weken, een complete professionele website gebouwd. Qua kwaliteit komt het resultaat verrassend dicht in de buurt van veel duurdere agencies.&rdquo;
             </blockquote>
-            <p className="mt-6 text-sm font-semibold text-slate-500">— Jeremy Palsma</p>
+            <p className="mt-6 text-sm font-semibold text-slate-500">Jeremy Palsma</p>
           </Reveal>
         </div>
       </section>

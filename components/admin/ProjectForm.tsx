@@ -8,7 +8,7 @@ import { deleteProject, saveProject } from '@/lib/actions/projects.actions'
 import { useToast } from '@/hooks/useToast'
 import MediaUploader from './MediaUploader'
 import TiptapEditor from './TiptapEditor'
-import { PortfolioProject } from '@/lib/projects/default-projects'
+import type { PortfolioProject } from '@/lib/queries/projects'
 
 interface Props {
   project?: PortfolioProject

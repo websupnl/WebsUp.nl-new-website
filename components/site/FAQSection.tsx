@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Plus } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
-import { siteConfig } from '@/config/site.config'
+import { homepageFaq } from '@/lib/homepage-content'
 
 interface FAQSectionProps {
   limit?: number
@@ -12,27 +12,24 @@ interface FAQSectionProps {
 
 export default function FAQSection({
   limit,
-  showPageLink = true,
-  sectionClassName = 'bg-white py-14 lg:py-20',
+  showPageLink = false,
+  sectionClassName = 'bg-white py-16 lg:py-24',
   hideHeading = false,
 }: FAQSectionProps) {
-  const items = typeof limit === 'number' ? siteConfig.faq.items.slice(0, limit) : siteConfig.faq.items
+  const items = typeof limit === 'number' ? homepageFaq.slice(0, limit) : homepageFaq
 
   if (hideHeading) {
     return (
       <section className={sectionClassName}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 space-y-3">
+        <div className="mx-auto max-w-3xl space-y-3 px-6 lg:px-8">
           {items.map((item, index) => (
             <Reveal key={item.question} delay={index * 30}>
-              <details className="group rounded-2xl border border-slate-200 bg-white open:border-l-[3px] open:border-l-orange-500 transition-colors">
+              <details className="group rounded-2xl border border-slate-200 bg-white transition-colors open:border-slate-300">
                 <summary className="flex cursor-pointer list-none items-start justify-between gap-4 px-6 py-5 text-left">
                   <span className="font-headline text-base font-bold leading-tight text-slate-900 md:text-lg">
                     {item.question}
                   </span>
-                  <Plus
-                    size={18}
-                    className="mt-1 flex-shrink-0 text-slate-400 transition-all duration-200 group-open:rotate-45 group-open:text-orange-500"
-                  />
+                  <Plus size={18} className="mt-1 shrink-0 text-slate-400 transition-transform group-open:rotate-45" />
                 </summary>
                 <p className="px-6 pb-5 pt-0 text-base leading-relaxed text-slate-600">
                   {item.answer}
@@ -48,54 +45,44 @@ export default function FAQSection({
   return (
     <section className={sectionClassName}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+        <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <Reveal>
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">FAQ</span>
-            <h2 className="mt-3 max-w-xl font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
-              {siteConfig.faq.heading}
+            <span className="overline-badge mb-5 inline-flex">FAQ</span>
+            <h2 className="max-w-xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
+              Veelgestelde vragen
             </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-500">
-              {siteConfig.faq.subheading}
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-500 md:text-lg">
+              Twijfel je nog of WebsUp bij je past? Hieronder beantwoord ik alvast een paar vragen die vaak terugkomen.
             </p>
 
-            <div className="mt-8 rounded-2xl border border-orange-500/20 bg-orange-500/[0.06] p-5">
-              <div className="text-sm font-semibold text-slate-900">Staat je vraag er niet tussen?</div>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                Dan is kort sparren vaak sneller dan blijven twijfelen. Een goed gesprek maakt meestal snel duidelijk wat slim is.
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div className="text-sm font-semibold text-slate-900">Staat jouw vraag er niet tussen?</div>
+              <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                Stuur hem gerust door. Vaak is kort sparren sneller dan blijven zoeken.
               </p>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              {showPageLink && (
-                <Link
-                  href="/veelgestelde-vragen"
-                  className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-orange-600"
-                >
-                  Bekijk alle vragen
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800">
+                  Stel je vraag
                   <ArrowRight size={14} />
                 </Link>
-              )}
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-slate-400"
-              >
-                Stel een vraag
-              </Link>
+                {showPageLink && (
+                  <Link href="/veelgestelde-vragen" className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-slate-400">
+                    Alle vragen
+                  </Link>
+                )}
+              </div>
             </div>
           </Reveal>
 
           <div className="space-y-3">
             {items.map((item, index) => (
               <Reveal key={item.question} delay={index * 45}>
-                <details className="group rounded-2xl border border-slate-200 bg-white open:border-l-[3px] open:border-l-orange-500 transition-colors">
+                <details className="group rounded-2xl border border-slate-200 bg-white transition-colors open:border-slate-300">
                   <summary className="flex cursor-pointer list-none items-start justify-between gap-4 px-6 py-5 text-left">
                     <span className="font-headline text-base font-bold leading-tight text-slate-900 md:text-lg">
                       {item.question}
                     </span>
-                    <Plus
-                      size={18}
-                      className="mt-1 flex-shrink-0 text-slate-400 transition-all duration-200 group-open:rotate-45 group-open:text-orange-500"
-                    />
+                    <Plus size={18} className="mt-1 shrink-0 text-slate-400 transition-transform group-open:rotate-45" />
                   </summary>
                   <p className="px-6 pb-5 pt-0 text-base leading-relaxed text-slate-600">
                     {item.answer}

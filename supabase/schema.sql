@@ -264,6 +264,7 @@ create table if not exists projects (
   excerpt    text,
   content    text,
   image_url  text,
+  screenshot_url text,
   website_url text,
   highlights jsonb not null default '[]'::jsonb,
   featured   boolean not null default false,

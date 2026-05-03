@@ -72,35 +72,35 @@ export default async function ProjectDetailPage({ params }: Props) {
         subtitle={project.excerpt}
         heightClass="min-h-[52vh]"
       >
-        <div className="flex flex-wrap gap-3">
-          <Link
-            href="/projecten"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 bg-white/5 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
-          >
-            <ArrowLeft size={14} />
-            Alle projecten
-          </Link>
+        <div className="flex flex-wrap items-center gap-3">
           {project.website_url && (
             <LinkPreview
               url={project.website_url}
               isStatic
               imageSrc={project.image_url}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-slate-900 text-sm font-semibold hover:bg-white/90 transition-colors"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
             >
               Bekijk site <ExternalLink size={14} />
             </LinkPreview>
           )}
+          <Link
+            href="/projecten"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/45"
+          >
+            <ArrowLeft size={14} />
+            Alle projecten
+          </Link>
         </div>
       </WavePageHeader>
 
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
           <Reveal>
-            <div className="rounded-[1.75rem] overflow-hidden border border-slate-200 bg-slate-50">
+            <div className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-50">
               <img
                 src={project.image_url}
                 alt={project.title}
-                className="w-full aspect-[16/10] object-cover"
+                className="aspect-[16/10] w-full object-cover"
               />
             </div>
           </Reveal>
@@ -119,20 +119,20 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </div>
               </div>
 
-              <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
-                <p className="text-sm text-slate-500 leading-relaxed">
-                  Website, webshop of maatwerkoplossing nodig? Dan kijken we samen wat past bij je bedrijf, je doelen en hoe je nu werkt.
+              <div className="border-t border-slate-200 pt-6">
+                <p className="max-w-md text-sm leading-relaxed text-slate-500">
+                  Zit je met een vergelijkbaar vraagstuk? Dan kijk ik mee naar de snelste logische stap voor jouw bedrijf.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-colors"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-200"
                   >
-                    Kennismaking plannen <ArrowRight size={14} />
+                    Even sparren <ArrowRight size={14} />
                   </Link>
                   <Link
                     href="/diensten"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-slate-200 text-slate-700 text-sm font-semibold hover:bg-white transition-colors"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-orange-300 hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-100"
                   >
                     Bekijk diensten
                   </Link>
@@ -142,6 +142,48 @@ export default async function ProjectDetailPage({ params }: Props) {
           </Reveal>
         </div>
       </section>
+
+      {project.screenshot_url && (
+        <section className="bg-slate-50 py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <Reveal>
+              <div className="mb-8 max-w-3xl">
+                <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
+                  Fullpage screenshot
+                </span>
+                <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl">
+                  De pagina in zijn geheel
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-slate-500 md:text-lg">
+                  Een actuele snapshot van de live website, los van de omslagfoto hierboven.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={80}>
+              <div className="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white">
+                <div className="flex h-10 items-center gap-2 border-b border-slate-200 bg-slate-50 px-4">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+                  {project.website_url && (
+                    <span className="ml-3 truncate text-xs font-medium text-slate-400">
+                      {project.website_url}
+                    </span>
+                  )}
+                </div>
+                <div className="max-h-[72vh] overflow-y-auto bg-white">
+                  <img
+                    src={project.screenshot_url}
+                    alt={`Fullpage screenshot van ${project.title}`}
+                    className="h-auto w-full"
+                  />
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       <section className="bg-slate-50 py-16 lg:py-20">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
@@ -175,9 +217,9 @@ export default async function ProjectDetailPage({ params }: Props) {
         <section className="bg-white py-16 lg:py-20">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
             <Reveal>
-              <div className="rounded-2xl border border-slate-200 border-l-[3px] border-l-orange-500 bg-white p-8 shadow-sm md:p-10">
+              <div className="brand-gradient-ring rounded-2xl bg-white p-8 shadow-sm md:p-10">
                 <div className="mb-4 flex items-center gap-2">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+                  <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
                     Wat de klant zegt
                   </span>
                   <div className="flex items-center gap-0.5 ml-auto">
@@ -185,7 +227,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                       <Star
                         key={i}
                         size={14}
-                        className={i < (testimonial.rating ?? 5) ? 'fill-orange-400 text-orange-400' : 'fill-slate-200 text-slate-200'}
+                        className={i < (testimonial.rating ?? 5) ? 'fill-accent-400 text-accent-400' : 'fill-slate-200 text-slate-200'}
                       />
                     ))}
                   </div>

@@ -1,20 +1,28 @@
 import { createPublicSupabaseClient } from '@/lib/supabase/public'
 import { createAdminSupabaseClient } from '@/lib/supabase/server'
 import { getTenantId } from '@/lib/tenant'
-import { Project } from '@/types/database.types'
+import { getStorageUrl } from '@/lib/utils'
+import type { Project } from '@/types/database.types'
 import { isMissingColumnError, isMissingTableError } from '@/lib/supabase/schema-helpers'
-import { defaultProjects, type PortfolioProject } from '@/lib/projects/default-projects'
 
-function sortProjects(projects: PortfolioProject[]) {
-  return [...projects].sort((a, b) => {
-    if (a.sort_order !== b.sort_order) return a.sort_order - b.sort_order
-    return a.title.localeCompare(b.title)
-  })
+export interface PortfolioProject {
+  id: string
+  slug: string
+  title: string
+  category: string
+  excerpt: string
+  content: string
+  highlights: string[]
+  image_url: string
+  screenshot_url: string | null
+  website_url: string | null
+  featured: boolean
+  published: boolean
+  sort_order: number
 }
 
 function normalizeHighlights(value: unknown): string[] {
   if (!Array.isArray(value)) return []
-
   return value
     .filter((item): item is string => typeof item === 'string')
     .map((item) => item.trim())
@@ -31,6 +39,9 @@ function mapProjectRow(project: Project): PortfolioProject {
     content: project.content ?? '',
     highlights: normalizeHighlights(project.highlights),
     image_url: project.image_url ?? '',
+    screenshot_url: project.screenshot_url ?? (project.website_url
+      ? getStorageUrl('media', `${getTenantId()}/project-screenshots/${project.slug}-fullpage.png`)
+      : null),
     website_url: project.website_url ?? null,
     featured: project.featured,
     published: project.published,
@@ -38,14 +49,11 @@ function mapProjectRow(project: Project): PortfolioProject {
   }
 }
 
-function mergeProjects(rows: Project[]) {
-  const merged = new Map(defaultProjects.map((project) => [project.slug, project]))
-
-  rows.forEach((row) => {
-    merged.set(row.slug, mapProjectRow(row))
+function sortProjects(projects: PortfolioProject[]) {
+  return [...projects].sort((a, b) => {
+    if (a.sort_order !== b.sort_order) return a.sort_order - b.sort_order
+    return a.title.localeCompare(b.title)
   })
-
-  return sortProjects([...merged.values()])
 }
 
 async function fetchPublicProjectRows(): Promise<Project[]> {
@@ -63,14 +71,12 @@ async function fetchPublicProjectRows(): Promise<Project[]> {
       .select('*')
       .order('sort_order', { ascending: true })
       .order('created_at', { ascending: false })
-
     data = fallback.data
     error = fallback.error
   }
 
   if (isMissingTableError(error, 'projects')) return []
   if (error) return []
-
   return (data ?? []) as Project[]
 }
 
@@ -89,25 +95,23 @@ async function fetchAdminProjectRows(): Promise<Project[]> {
       .select('*')
       .order('sort_order', { ascending: true })
       .order('created_at', { ascending: false })
-
     data = fallback.data
     error = fallback.error
   }
 
   if (isMissingTableError(error, 'projects')) return []
   if (error) return []
-
   return (data ?? []) as Project[]
 }
 
 export async function getProjects(): Promise<PortfolioProject[]> {
   const rows = await fetchPublicProjectRows()
-  return mergeProjects(rows).filter((project) => project.published)
+  return sortProjects(rows.filter((r) => r.published).map(mapProjectRow))
 }
 
 export async function getAllProjectsAdmin(): Promise<PortfolioProject[]> {
   const rows = await fetchAdminProjectRows()
-  return mergeProjects(rows)
+  return sortProjects(rows.map(mapProjectRow))
 }
 
 export async function getProjectBySlug(slug: string): Promise<PortfolioProject | null> {

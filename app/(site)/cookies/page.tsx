@@ -69,7 +69,7 @@ export default function CookiesPage() {
         <section>
           <h2 className="text-xl font-bold text-slate-900 mb-3">Toestemming intrekken</h2>
           <p>
-            Je kunt je toestemming voor niet-functionele cookies op elk moment intrekken door je browserinstellingen aan te passen of door contact op te nemen via{' '}
+            Je kunt je toestemming voor niet functionele cookies op elk moment intrekken door je browserinstellingen aan te passen of door contact op te nemen via{' '}
             <a href={`mailto:${siteConfig.email}`} className="text-orange-500 hover:underline">
               {siteConfig.email}
             </a>.

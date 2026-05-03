@@ -13,10 +13,10 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
     getMergedSeoSettings(),
   ])
 
-  // Only use DB nav if it has items — otherwise Navbar falls back to siteConfig.nav
+  // Only use DB nav if it has items, otherwise Navbar falls back to siteConfig.nav
   const headerNavItems = allNavItems.filter((i) => i.location === 'header')
   const footerNavItems = allNavItems.filter((i) => i.location === 'footer')
-  // If DB nav has fewer items than config, it's stale — pass empty to trigger FALLBACK_NAV
+  // If DB nav has fewer items than config, it's stale, pass empty to trigger FALLBACK_NAV
   const activeHeaderNav = headerNavItems.length >= siteConfig.nav.length ? headerNavItems : []
 
   return (

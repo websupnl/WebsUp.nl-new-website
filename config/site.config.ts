@@ -1,5 +1,5 @@
 // ============================================================
-// SITE CONFIG — WebsUp.nl
+// SITE CONFIG, WebsUp.nl
 // ============================================================
 
 export const siteConfig = {
@@ -11,20 +11,20 @@ export const siteConfig = {
   url: "https://websup.nl",
 
   // Contact
-  email: "info@websup.nl",
-  phone: "06 82202148",
-  address: "Friesland, Nederland",
+  email: "info@webs-up.nl",
+  phone: "06 82 20 21 48",
+  address: "Friesland / Noord-Nederland",
 
   // Navigatie
   nav: [
+    { label: "Home", href: "/" },
     { label: "Diensten", href: "/diensten" },
     { label: "Projecten", href: "/projecten" },
-    { label: "Kennisbank", href: "/kennisbank" },
-    { label: "Over mij", href: "/over-ons" },
+    { label: "Over Daan", href: "/over-ons" },
     { label: "Contact", href: "/contact" },
   ],
 
-  // Branding — oranje is de enige accentkleur
+  // Branding, oranje is de enige accentkleur
   brand: {
     primary: "#F97316",
     primaryHover: "#EA6C0A",
@@ -32,10 +32,11 @@ export const siteConfig = {
     primaryText: "#FFFFFF",
   },
 
-  // KvK
+  // KvK & BTW
   kvk: "95524061",
+  btw: "", // bv. "NL000000000B00", laat leeg om verbergen
 
-  // WhatsApp (zonder + en spaties — gebruikt in wa.me link)
+  // WhatsApp (zonder + en spaties, gebruikt in wa.me link)
   whatsapp: "31682202148",
 
   // Social media
@@ -60,7 +61,7 @@ export const siteConfig = {
   hero: {
     heading: "Digitale basis die meegroeit",
     subheading:
-      "Ik ben Daan — zelfstandig en persoonlijk. Ik bouw websites, webshops, apps en automatiseringen die samenwerken als één geheel. Van WordPress tot maatwerk: altijd direct contact met de persoon die bouwt.",
+      "Ik ben Daan, zelfstandig en persoonlijk. Ik bouw websites, webshops, apps en automatiseringen die samenwerken als één geheel. Van WordPress tot maatwerk: altijd direct contact met de persoon die bouwt.",
     ctaLabel: "Plan een kennismaking",
     ctaHref: "/contact",
     secondaryCtaLabel: "Vraag gratis ontwerp aan",
@@ -73,7 +74,7 @@ export const siteConfig = {
     ],
   },
 
-  // USP blokken (FeatureCards) — direct na hero
+  // USP blokken (FeatureCards), direct na hero
   features: [
     {
       icon: "Globe",
@@ -106,7 +107,7 @@ export const siteConfig = {
         "Conversiegerichte designs",
         "Razendsnel door Next.js",
         "Zoekmachine geoptimaliseerd",
-        "Mobiel-first & responsief",
+        "Mobiel eerst & responsief",
       ],
       href: "/diensten#websites",
     },
@@ -119,7 +120,7 @@ export const siteConfig = {
         "Optimale checkout flow",
         "Koppeling met betaalsystemen",
         "Voorraadbeheer & orders",
-        "Upsell & cross-sell logica",
+        "Upsell en cross sell logica",
       ],
       href: "/diensten#webshops",
     },
@@ -142,7 +143,7 @@ export const siteConfig = {
       description:
         "Koppelingen en slimme systemen die handmatig werk verminderen en jouw bedrijf efficiënter maken.",
       bullets: [
-        "API-koppelingen",
+        "API koppelingen",
         "Workflow automatisering",
         "CRM & email integraties",
         "Data synchronisatie",
@@ -168,7 +169,7 @@ export const siteConfig = {
         icon: "Code2",
         title: "Technisch sterk",
         description:
-          "Next.js, React, Supabase, n8n. Geen WordPress-templates maar echte maatwerk code die schaalbaar is.",
+          "Next.js, React, Supabase, n8n. Geen WordPress templates maar echte maatwerk code die schaalbaar is.",
       },
       {
         icon: "TrendingUp",
@@ -264,7 +265,7 @@ export const siteConfig = {
       {
         question: "Doe je ook SEO en vindbaarheid?",
         answer:
-          "Ja. Geen losse trucjes, maar een sterke technische basis, duidelijke pagina-opbouw, goede contentstructuur en keuzes die helpen om beter gevonden te worden.",
+          "Ja. Geen losse trucjes, maar een sterke technische basis, duidelijke pagina opbouw, goede contentstructuur en keuzes die helpen om beter gevonden te worden.",
       },
       {
         question: "Kun je ook automatiseringen of koppelingen bouwen?",
@@ -289,13 +290,13 @@ export const siteConfig = {
   cta: {
     heading: "Benieuwd wat ik voor jou kan bouwen?",
     subheading:
-      "Plan een gratis kennismaking — telefonisch of bij jou op locatie. Geen verkoopverhaal, gewoon een eerlijk gesprek over wat jouw bedrijf nodig heeft.",
+      "Plan een gratis kennismaking, telefonisch of bij jou op locatie. Geen verkoopverhaal, gewoon een eerlijk gesprek over wat jouw bedrijf nodig heeft.",
     ctaLabel: "Plan een kennismaking",
     ctaHref: "/contact",
     image: "/group-of-young-business-people-in-the-modern-offic-2026-01-08-05-01-37-utc.jpg",
   },
 
-  // Legacy stubs (voor backward-compat van niet-gebruikte components)
+  // Legacy stubs (voor backward compat van niet gebruikte components)
   about: {
     badge: 'Over mij',
     heading: 'Wij zijn WebsUp.nl',
@@ -326,9 +327,9 @@ export const siteConfig = {
   footer: {
     tagline: "Persoonlijk. Technisch. Eén aanspreekpunt voor jouw complete digitale systeem.",
     links: [
-      { label: "Privacybeleid", href: "/privacybeleid" },
-      { label: "Cookiebeleid", href: "/cookies" },
       { label: "Algemene voorwaarden", href: "/algemene-voorwaarden" },
+      { label: "Privacyverklaring", href: "/privacybeleid" },
+      { label: "Sitemap", href: "/sitemap.xml" },
     ],
   },
 };

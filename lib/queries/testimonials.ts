@@ -4,29 +4,34 @@ import { Testimonial } from '@/types/database.types'
 import { getTenantId } from '@/lib/tenant'
 import { isMissingColumnError } from '@/lib/supabase/schema-helpers'
 
+export interface TestimonialWithProject extends Testimonial {
+  project?: { slug: string; title: string } | null
+}
+
 // ─── Public queries (ISR-safe, no cookies) ────────────────────
 
-export async function getTestimonials(): Promise<Testimonial[]> {
+export async function getTestimonials(): Promise<TestimonialWithProject[]> {
   const supabase = createPublicSupabaseClient()
+  // Join: PostgREST embed via FK relation testimonials.project_id → projects.id
   let { data, error } = await supabase
     .from('testimonials')
-    .select('*')
+    .select('*, project:projects(slug, title)')
     .eq('tenant_id', getTenantId())
     .eq('published', true)
     .order('created_at', { ascending: false })
 
-  if (isMissingColumnError(error, 'tenant_id')) {
+  if (isMissingColumnError(error, 'tenant_id') || isMissingColumnError(error, 'project_id')) {
     const fallback = await supabase
       .from('testimonials')
       .select('*')
       .eq('published', true)
       .order('created_at', { ascending: false })
-    data = fallback.data
+    data = fallback.data as never
     error = fallback.error
   }
 
   if (error) return []
-  return data ?? []
+  return (data ?? []) as unknown as TestimonialWithProject[]
 }
 
 /** Haal de gepubliceerde review op die aan een specifiek project gekoppeld is. */

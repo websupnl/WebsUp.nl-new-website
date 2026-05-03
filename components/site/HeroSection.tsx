@@ -2,32 +2,13 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, MessageCircle, Star, MapPin } from 'lucide-react'
-import { siteConfig } from '@/config/site.config'
-import { GlassCard } from '@/components/site/GlassCard'
+import { ArrowRight, CheckCircle, MessageCircle, Sparkles } from 'lucide-react'
 
-interface HeroSectionProps {
-  ctaLabel?: string
-  ctaHref?: string
-  secondaryCtaLabel?: string
-  secondaryCtaHref?: string
-}
+const trustItems = ['Direct contact met Daan', 'Persoonlijke aanpak', 'Maatwerk voor groei']
 
-const heroBadges = [
-  { icon: MessageCircle, label: 'Direct persoonlijk contact', color: 'text-orange-400' },
-  { icon: Star, label: '5-sterren reviews', color: 'text-pink-400' },
-  { icon: MapPin, label: 'Heel Nederland', color: 'text-violet-300' },
-]
-
-export default function HeroSection({
-  ctaLabel = 'Plan een kennismaking',
-  ctaHref = siteConfig.hero.ctaHref,
-  secondaryCtaLabel = 'Bekijk projecten',
-  secondaryCtaHref = '/projecten',
-}: HeroSectionProps) {
+export default function HeroSection() {
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#06040c]">
-      {/* Background hero wave */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="hero-wave-bg absolute inset-[-8%]">
           <Image
@@ -44,99 +25,87 @@ export default function HeroSection({
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(110deg, rgba(6,4,12,0.92) 0%, rgba(6,4,12,0.78) 45%, rgba(6,4,12,0.55) 70%, rgba(6,4,12,0.30) 100%)',
+              'linear-gradient(110deg, rgba(6,4,12,0.94) 0%, rgba(6,4,12,0.84) 46%, rgba(6,4,12,0.60) 72%, rgba(6,4,12,0.42) 100%)',
           }}
         />
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#06040c] to-transparent" />
       </div>
 
-      <div className="relative flex flex-1 items-center px-6 pb-12 pt-28 sm:px-8 lg:px-10 lg:pb-20 lg:pt-32 xl:px-12">
+      <div className="relative flex flex-1 items-center px-6 pb-14 pt-28 sm:px-8 lg:px-10 lg:pb-20 lg:pt-32 xl:px-12">
         <div className="mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-12 lg:items-center">
-          {/* Left — content */}
           <div className="lg:col-span-7">
-            {/* Badge */}
-            <span className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold text-white/85 backdrop-blur-md">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-400" />
-              Direct persoonlijk contact met de bouwer
+            <span className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-semibold text-white/82 backdrop-blur-md">
+              <Sparkles size={13} className="text-white/70" />
+              Websites, webshops en maatwerk systemen
             </span>
 
             <h1
-              className="mb-7 font-headline font-extrabold leading-[1.05] tracking-[-0.03em] text-white"
-              style={{ fontSize: 'clamp(2.1rem, 4.4vw, 3.6rem)' }}
+              className="max-w-4xl font-headline font-extrabold leading-[1.04] tracking-[-0.03em] text-white"
+              style={{ fontSize: 'clamp(2.35rem, 5vw, 4.35rem)' }}
             >
-              Maatwerk websites en digitale systemen die{' '}
-              <span
-                style={{
-                  background: 'linear-gradient(135deg, #f97316 0%, #ec4899 45%, #a78bfa 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                écht werken.
-              </span>
+              Websites en digitale systemen die{' '}
+              <span className="gradient-text">echt voor je werken.</span>
             </h1>
 
-            <p className="mb-9 max-w-[56ch] text-base leading-relaxed text-white/65 md:text-lg">
-              Geen bureau, geen account manager — direct contact met degene die jouw website bouwt, denkt en oplevert.
+            <p className="mt-7 max-w-[58ch] text-base leading-relaxed text-white/66 md:text-lg">
+              Geen standaard website of los systeem, maar een digitale oplossing die past bij jouw bedrijf. Van een sterke website tot een slim dashboard, webshop of maatwerk app.
             </p>
 
-            <div className="mb-10 flex flex-wrap gap-3">
-              <Link href={ctaHref} className="btn-brand-gradient">
-                {ctaLabel}
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link href="/gratis-ontwerp" className="btn-brand-gradient">
+                Gratis ontwerp aanvragen
                 <ArrowRight size={14} />
               </Link>
-              {secondaryCtaLabel && secondaryCtaHref && (
-                <Link
-                  href={secondaryCtaHref}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-colors duration-150 hover:bg-white/10 hover:border-white/22"
-                >
-                  {secondaryCtaLabel}
-                </Link>
-              )}
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-colors duration-150 hover:border-white/50 hover:bg-white/20"
+              >
+                Kennismaking plannen
+              </Link>
             </div>
 
-            {/* Trust badges met iconen */}
-            <div className="grid gap-3 sm:grid-cols-3 max-w-2xl">
-              {heroBadges.map(({ icon: Icon, label, color }) => (
-                <GlassCard key={label} padding="px-4 py-3" className="flex items-center gap-2.5">
-                  <Icon size={16} className={`flex-shrink-0 ${color}`} />
-                  <span className="text-sm text-white/85 font-medium">{label}</span>
-                </GlassCard>
+            <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
+              {trustItems.map((item) => (
+                <div key={item} className="flex min-h-14 items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-3 text-sm font-medium text-white/82 backdrop-blur-md">
+                  <CheckCircle size={15} className="shrink-0 text-white/58" />
+                  <span>{item}</span>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Right — foto Daan */}
           <div className="relative lg:col-span-5">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Orange glow */}
               <div
                 className="pointer-events-none absolute -inset-6 rounded-[2rem] opacity-80 blur-2xl"
                 style={{
-                  background: 'radial-gradient(closest-side, rgba(249,115,22,0.30), rgba(249,115,22,0) 70%)',
+                  background: 'radial-gradient(closest-side, rgba(236,72,153,0.18), rgba(236,72,153,0) 70%)',
                 }}
               />
-              {/* Photo */}
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-black/40">
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-white/5 shadow-2xl shadow-black/40">
                 <Image
                   src="/Daan Koolhaas.jpg"
-                  alt="Daan Koolhaas — WebsUp"
+                  alt="Daan Koolhaas, eigenaar WebsUp.nl"
                   width={720}
                   height={900}
                   priority
                   className="h-auto w-full object-cover"
                   sizes="(max-width: 1024px) 80vw, 480px"
                 />
-              </div>
-              {/* Floating rating badge */}
-              <div className="absolute -bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/15 bg-white/10 px-5 py-3.5 backdrop-blur-xl shadow-xl shadow-black/30 sm:left-6 sm:right-auto sm:max-w-[280px]">
-                <div className="flex items-center gap-1.5">
-                  {[0, 1, 2, 3, 4].map((i) => (
-                    <Star key={i} size={14} className="fill-orange-400 text-orange-400" />
-                  ))}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#06040c]/86 via-[#06040c]/35 to-transparent p-6 pt-20">
+                  <div className="flex items-end justify-between gap-4">
+                    <div>
+                      <div className="font-headline text-xl font-bold text-white">Daan Koolhaas</div>
+                      <div className="mt-1 text-sm text-white/68">Eigenaar WebsUp.nl</div>
+                    </div>
+                    <div className="hidden h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur-sm sm:flex">
+                      <MessageCircle size={18} />
+                    </div>
+                  </div>
+                  <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/62">
+                    Persoonlijk contact vanaf het eerste idee tot de oplevering.
+                  </p>
                 </div>
-                <span className="text-xs font-semibold text-white">5.0 · 7+ tevreden klanten</span>
               </div>
             </div>
           </div>

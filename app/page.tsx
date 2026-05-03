@@ -11,14 +11,11 @@ import ServicesSection from '@/components/site/ServicesSection'
 import ProjectsSection from '@/components/site/ProjectsSection'
 import VoorWieSection from '@/components/site/VoorWieSection'
 import FAQSection from '@/components/site/FAQSection'
-import KennisbankPreviewSection from '@/components/site/KennisbankPreviewSection'
 import CTASection from '@/components/site/CTASection'
 import CookieBanner from '@/components/site/CookieBanner'
-import { getLatestNewsArticles } from '@/lib/queries/news'
 import { getTestimonials } from '@/lib/queries/testimonials'
 import { getProjects } from '@/lib/queries/projects'
-import { getMergedSiteSettings, getMergedSeoSettings, getNavigationItems } from '@/lib/queries/site-settings'
-import { siteConfig } from '@/config/site.config'
+import { getMergedSiteSettings, getMergedSeoSettings } from '@/lib/queries/site-settings'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getMergedSeoSettings()
@@ -33,17 +30,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [settings, allNavItems, latestArticles, projects, seo, testimonials] = await Promise.all([
+  const [settings, projects, seo, testimonials] = await Promise.all([
     getMergedSiteSettings(),
-    getNavigationItems(),
-    getLatestNewsArticles(3),
     getProjects(),
     getMergedSeoSettings(),
     getTestimonials(),
   ])
-
-  const headerNavItems = allNavItems.filter((i) => i.location === 'header')
-  const activeHeaderNav = headerNavItems.length >= siteConfig.nav.length ? headerNavItems : []
 
   return (
     <>
@@ -51,7 +43,6 @@ export default async function HomePage() {
         siteName={settings.site_name}
         primaryColor={settings.primary_color ?? undefined}
         logoUrl={settings.logo_url ?? undefined}
-        navItems={activeHeaderNav}
       />
       <main className="page-shell flex-1">
         <HeroSection />
@@ -61,18 +52,13 @@ export default async function HomePage() {
         <ReviewsSection testimonials={testimonials} />
         <ProjectsSection projects={projects} limit={3} />
         <StarterCTASection />
-        <FAQSection limit={5} />
-        <KennisbankPreviewSection articles={latestArticles} />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer
         siteName={settings.site_name}
-        email={settings.email ?? undefined}
-        phone={settings.phone ?? undefined}
-        address={settings.address ?? undefined}
         linkedinUrl={settings.linkedin_url ?? undefined}
         logoUrl={settings.logo_url ?? undefined}
-        footerLinks={siteConfig.footer.links}
       />
       <CookieBanner analyticsId={seo.google_analytics_id} />
     </>

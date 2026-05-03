@@ -97,7 +97,7 @@ export default function ContactPage() {
       <section className="bg-white py-20 lg:py-28">
         <Reveal className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-            {/* Left — formulier */}
+            {/* Left, formulier */}
             <div>
               {sent ? (
                 <div className="flex h-full min-h-[400px] flex-col items-center justify-center gap-5 rounded-2xl border border-green-100 bg-green-50 p-12 text-center">
@@ -152,7 +152,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700">
-                        E-mail <span className="text-orange-500">*</span>
+                        Email <span className="text-orange-500">*</span>
                       </label>
                       <input
                         type="email"
@@ -218,7 +218,7 @@ export default function ContactPage() {
               )}
             </div>
 
-            {/* Right — sidebar */}
+            {/* Right, sidebar */}
             <div className="space-y-5">
               <GlassCard variant="orange" padding="px-5 py-4" className="flex items-center gap-3 !bg-orange-500/[0.06]">
                 <Zap size={18} className="flex-shrink-0 text-orange-500" />
@@ -226,14 +226,14 @@ export default function ContactPage() {
               </GlassCard>
               <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4 flex items-center gap-3">
                 <MessageCircle size={18} className="flex-shrink-0 text-orange-500" />
-                <span className="text-sm font-medium text-slate-900">Vrijblijvend sparren — geen verplichtingen</span>
+                <span className="text-sm font-medium text-slate-900">Vrijblijvend sparren, geen verplichtingen</span>
               </div>
               <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4 flex items-center gap-3">
                 <CheckCircle size={18} className="flex-shrink-0 text-orange-500" />
-                <span className="text-sm font-medium text-slate-900">Eerlijk advies — altijd transparant</span>
+                <span className="text-sm font-medium text-slate-900">Eerlijk advies, altijd transparant</span>
               </div>
 
-              {/* Contactgegevens — plain */}
+              {/* Contactgegevens, plain */}
               <div className="pt-6 border-t border-slate-200 space-y-3">
                 <a
                   href={whatsappHref}

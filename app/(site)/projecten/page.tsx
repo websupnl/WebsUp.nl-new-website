@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: 'Bekijk projecten van WebsUp: websites, webshops, portalen en maatwerkoplossingen die praktisch werken.',
 }
 
-// Per-project copy overrides — vervangen de generieke excerpts uit de DB.
+// Per project copy overrides, vervangen de generieke excerpts uit de DB.
 // Match op slug; valt terug op de DB-excerpt als er geen override is.
 const projectExcerptOverrides: Record<string, string> = {
   'verkeerschool-haak':
@@ -105,7 +105,7 @@ export default async function ProjectenPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Reveal className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+              <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
                 Uitgelichte projecten
               </span>
               <h2 className="mt-3 font-headline max-w-2xl text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.08] tracking-[-0.02em]">
@@ -113,7 +113,7 @@ export default async function ProjectenPage() {
               </h2>
             </div>
             <p className="max-w-xl text-base leading-relaxed text-slate-500 md:text-lg lg:justify-self-end">
-              Echt werk dat dagelijks gebruikt wordt. Geen demo's, geen geleende screenshots — wel projecten waar mensen mee verder kunnen.
+              Echt werk dat dagelijks gebruikt wordt. Geen demo&apos;s, geen geleende screenshots, wel projecten waar mensen mee verder kunnen.
             </p>
           </Reveal>
 

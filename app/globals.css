@@ -1,9 +1,20 @@
 @import "tailwindcss";
 
-/* Fonts geladen via next/font (zie app/layout.tsx) — geen externe CSS imports nodig. */
+/* Fonts geladen via next/font (zie app/layout.tsx), geen externe CSS imports nodig. */
+
+@theme {
+  --color-accent-50: #fff7ed;
+  --color-accent-100: #ffedd5;
+  --color-accent-200: #fed7aa;
+  --color-accent-300: #fdba74;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea580c;
+  --color-accent-700: #c2410c;
+}
 
 /* ============================
-   DESIGN TOKENS — WebsUp
+   DESIGN TOKENS, WebsUp
    ============================ */
 :root {
   /* Brand */
@@ -27,7 +38,7 @@
   --font-title:            var(--font-headline), 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-body:             var(--font-body-sans), 'Nunito', system-ui, sans-serif;
 
-  /* Dark section tokens — gebruikt in hero, CTA en dark backgrounds */
+  /* Dark section tokens, gebruikt in hero, CTA en dark backgrounds */
   --color-bg-dark:         #0A0F1A;
   --color-surface-dark:    #111827;
   --color-surface-dark-2:  #1F2937;
@@ -36,12 +47,12 @@
   --color-muted-dark:      #9CA3AF;
   --color-muted-dark-2:    #6B7280;
 
-  /* Enige accentkleur — oranje, overal */
+  /* Enige accentkleur, oranje, overal */
   --color-accent:          #F97316;
   --color-accent-hover:    #EA6C0A;
   --color-accent-subtle:   rgba(249,115,22,0.10);
 
-  /* Hero gradient — alleen voor dark hero overlays */
+  /* Hero gradient, alleen voor dark hero overlays */
   --gradient-hero:         radial-gradient(
                              ellipse at 70% 50%,
                              rgba(249,115,22,0.15) 0%,
@@ -128,7 +139,7 @@ p {
   text-wrap: pretty;
 }
 
-/* Brand gradient — WebsUp signature: oranje → roze → paars */
+/* Brand gradient, WebsUp signature: oranje → roze → paars */
 :root {
   --brand-gradient: linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%);
   --brand-gradient-text: linear-gradient(135deg, #f97316 0%, #ec4899 45%, #a78bfa 100%);
@@ -149,7 +160,7 @@ p {
   background-clip: text;
 }
 
-/* Overline badge — brand gradient border */
+/* Overline badge, brand gradient border */
 .overline-badge {
   position: relative;
   overflow: hidden;
@@ -395,7 +406,7 @@ p {
   box-shadow: 0 8px 28px rgba(11,21,38,0.20);
 }
 
-/* Primary brand-gradient button — oranje → roze → paars (zoals logo) */
+/* Primary brand-gradient button, oranje → roze → paars (zoals logo) */
 .btn-brand-gradient {
   position: relative;
   display: inline-flex;

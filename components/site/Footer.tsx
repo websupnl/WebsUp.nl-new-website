@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, FileText, Receipt } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
 import type { NavigationItemRow } from '@/types/database.types'
 
@@ -49,93 +49,53 @@ export default function Footer({
   logoUrl,
   footerLinks = siteConfig.footer.links,
 }: FooterProps) {
-  const columns = [
+  const navColumns = [
     {
       heading: 'Diensten',
       links: [
         { label: 'Websites', href: '/diensten/websites' },
         { label: 'Webshops', href: '/diensten/webshops' },
-        { label: 'Apps & Dashboards', href: '/diensten/apps-dashboards' },
+        { label: 'Apps en dashboards', href: '/diensten/apps-dashboards' },
         { label: 'Automatisering', href: '/diensten/automatisering' },
+        { label: 'Onderhoud en optimalisatie', href: '/diensten' },
       ],
     },
     {
-      heading: 'Informatie',
+      heading: 'Bedrijf',
       links: [
-        { label: 'Over mij', href: '/over-ons' },
-        { label: 'Kennisbank', href: '/kennisbank' },
-        { label: 'Veelgestelde vragen', href: '/veelgestelde-vragen' },
+        { label: 'Over Daan', href: '/over-ons' },
         { label: 'Projecten', href: '/projecten' },
+        { label: 'Reviews', href: '/projecten' },
+        { label: 'Contact', href: '/contact' },
       ],
-    },
-    {
-      heading: 'Contact',
-      links: [
-        { label: 'Contact opnemen', href: '/contact' },
-        { label: 'Gratis ontwerp aanvragen', href: '/gratis-ontwerp' },
-      ],
-    },
-    {
-      heading: 'Juridisch',
-      links: footerLinks,
     },
   ]
 
   const instagramUrl = siteConfig.social.instagram
   const facebookUrl = siteConfig.social.facebook
   const kvk = siteConfig.kvk
+  const btw = siteConfig.btw
 
   return (
     <footer className="bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand column */}
           <div className="col-span-2">
             <Link href="/" className="inline-block mb-5">
               {logoUrl ? (
-                <img src={logoUrl} alt={siteName} className="h-16 w-auto" />
+                <img src={logoUrl} alt={siteName} className="h-24 w-auto" />
               ) : (
-                <img src="/WebsUp.nl logo zwart.png" alt={siteName} className="h-16 w-auto" />
+                <img src="/WebsUp.nl logo zwart.png" alt={siteName} className="h-24 w-auto" />
               )}
             </Link>
-            <p className="text-slate-700 text-sm font-semibold leading-snug max-w-[280px]">
-              Samen bouwen aan jouw bedrijf.
+            <p className="max-w-[320px] text-sm font-semibold leading-relaxed text-slate-700">
+              WebsUp helpt bedrijven met websites, webshops en maatwerk systemen die professioneel ogen en praktisch werken.
             </p>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-[280px] mt-1.5 mb-6">
-              Persoonlijk. Technisch. Eén aanspreekpunt.
-            </p>
-
-            {/* Contact block */}
-            <div className="space-y-2.5">
-              {email && (
-                <a
-                  href={`mailto:${email}`}
-                  className="flex items-center gap-2 text-slate-500 hover:text-orange-500 text-sm transition-colors"
-                >
-                  <Mail size={14} className="shrink-0" />
-                  {email}
-                </a>
-              )}
-              {phone && (
-                <a
-                  href={`tel:${phone.replace(/\s/g, '')}`}
-                  className="flex items-center gap-2 text-slate-500 hover:text-orange-500 text-sm transition-colors"
-                >
-                  <Phone size={14} className="shrink-0" />
-                  {phone}
-                </a>
-              )}
-              {address && (
-                <div className="flex items-center gap-2 text-slate-500 text-sm">
-                  <MapPin size={14} className="shrink-0" />
-                  {address}
-                </div>
-              )}
-            </div>
           </div>
 
           {/* Nav columns */}
-          {columns.map((col) => (
+          {navColumns.map((col) => (
             <div key={col.heading}>
               <h6 className="font-bold text-slate-900 text-xs uppercase tracking-[0.08em] mb-5">{col.heading}</h6>
               <ul className="space-y-3">
@@ -143,7 +103,7 @@ export default function Footer({
                   <li key={link.href + link.label}>
                     <Link
                       href={link.href}
-                      className="text-slate-500 hover:text-orange-500 text-sm transition-colors duration-150"
+                      className="text-slate-500 hover:text-accent-600 text-sm transition-colors duration-150"
                     >
                       {link.label}
                     </Link>
@@ -152,13 +112,67 @@ export default function Footer({
               </ul>
             </div>
           ))}
+
+          {/* Contact */}
+          <div>
+            <h6 className="font-bold text-slate-900 text-xs uppercase tracking-[0.08em] mb-5">Contact</h6>
+            <ul className="space-y-3">
+              {email && (
+                <li>
+                  <a href={`mailto:${email}`} className="flex items-start gap-2 text-slate-500 hover:text-accent-600 text-sm transition-colors">
+                    <Mail size={14} className="mt-0.5 shrink-0" />
+                    <span>{email}</span>
+                  </a>
+                </li>
+              )}
+              {phone && (
+                <li>
+                  <a href={`tel:${phone.replace(/\s/g, '')}`} className="flex items-start gap-2 text-slate-500 hover:text-accent-600 text-sm transition-colors">
+                    <Phone size={14} className="mt-0.5 shrink-0" />
+                    <span>{phone}</span>
+                  </a>
+                </li>
+              )}
+              {address && (
+                <li className="flex items-start gap-2 text-slate-500 text-sm">
+                  <MapPin size={14} className="mt-0.5 shrink-0" />
+                  <span>{address}</span>
+                </li>
+              )}
+              {kvk && (
+                <li className="flex items-start gap-2 text-slate-500 text-sm">
+                  <FileText size={14} className="mt-0.5 shrink-0" />
+                  <span>KVK {kvk}</span>
+                </li>
+              )}
+              {btw && (
+                <li className="flex items-start gap-2 text-slate-500 text-sm">
+                  <Receipt size={14} className="mt-0.5 shrink-0" />
+                  <span>BTW {btw}</span>
+                </li>
+              )}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom row */}
         <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="text-slate-400 text-xs">
-            © {new Date().getFullYear()} WebsUp.nl{kvk ? ` — KVK ${kvk}` : ''}
+            © {new Date().getFullYear()} WebsUp.nl. Alle rechten voorbehouden.
           </span>
+
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {footerLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-slate-400 hover:text-accent-600 text-xs transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
           <div className="flex items-center gap-3">
             {linkedinUrl && (
               <a
@@ -166,7 +180,7 @@ export default function Footer({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="p-2 rounded-full text-slate-400 hover:text-orange-500 hover:bg-orange-500/8 transition-colors"
+                className="p-2 rounded-full text-slate-400 hover:text-accent-600 hover:bg-accent-400/10 transition-colors"
               >
                 <LinkedinIcon />
               </a>
@@ -177,7 +191,7 @@ export default function Footer({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="p-2 rounded-full text-slate-400 hover:text-orange-500 hover:bg-orange-500/8 transition-colors"
+                className="p-2 rounded-full text-slate-400 hover:text-accent-600 hover:bg-accent-400/10 transition-colors"
               >
                 <InstagramIcon />
               </a>
@@ -188,7 +202,7 @@ export default function Footer({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="p-2 rounded-full text-slate-400 hover:text-orange-500 hover:bg-orange-500/8 transition-colors"
+                className="p-2 rounded-full text-slate-400 hover:text-accent-600 hover:bg-accent-400/10 transition-colors"
               >
                 <FacebookIcon />
               </a>

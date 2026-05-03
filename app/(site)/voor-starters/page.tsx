@@ -9,14 +9,14 @@ import { GlassCard } from '@/components/site/GlassCard'
 export const metadata: Metadata = {
   title: 'Voor starters',
   description:
-    'Serieus starten met een solide digitale basis. Compact maar professioneel — zonder dat je over een half jaar opnieuw moet bouwen.',
+    'Serieus starten met een solide digitale basis. Compact maar professioneel, zonder dat je over een half jaar opnieuw moet bouwen.',
 }
 
 const forYouIf = [
   'Je een concreet plan hebt maar nog geen website, webshop of digitale aanwezigheid',
   'Je begrijpt dat goedkoop nu duur kan zijn later',
   'Je serieus wil starten en niet elke zes maanden alles opnieuw wil bouwen',
-  'Je iemand wil die eerlijk advies geeft over wat je nu nodig hebt — en wat niet',
+  'Je iemand wil die eerlijk advies geeft over wat je nu nodig hebt, en wat niet',
 ]
 
 const youGet = [
@@ -55,7 +55,7 @@ export default function VoorStartersPage() {
           </Link>
           <Link
             href="/gratis-ontwerp"
-            className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/22 hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/20"
           >
             Vraag gratis ontwerp aan
           </Link>
@@ -64,7 +64,7 @@ export default function VoorStartersPage() {
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           {[
             { icon: ShieldCheck, label: 'Alleen voor serieuze plannen', color: 'text-orange-400' },
-            { icon: Sparkles, label: 'Compact maar professioneel', color: 'text-pink-400' },
+            { icon: Sparkles, label: 'Compact maar professioneel', color: 'text-accent-400' },
             { icon: Layers, label: 'Doorgroeien zonder opnieuw beginnen', color: 'text-violet-300' },
           ].map(({ icon: Icon, label, color }) => (
             <GlassCard key={label} padding="px-4 py-3" className="flex items-center gap-2.5">
@@ -79,7 +79,7 @@ export default function VoorStartersPage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <Reveal>
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Voor wie</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Voor wie</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
               Niet voor iedereen. Wel voor jou als…
             </h2>
@@ -104,9 +104,9 @@ export default function VoorStartersPage() {
       <section className="bg-slate-50 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Wat ik bied</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Wat ik bied</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl">
-              Compact maar niet goedkoop-ogend
+              Compact maar niet goedkoop ogend
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-500">
               Een starterstraject bij WebsUp is geen afgeslankte versie van iets groters. Het is een bewust compacte aanpak die nu het juiste neerzet en later ruimte laat om door te bouwen.
@@ -144,7 +144,7 @@ export default function VoorStartersPage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Werkwijze</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Werkwijze</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
               Hoe het werkt voor starters
             </h2>
@@ -154,7 +154,7 @@ export default function VoorStartersPage() {
             {steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 70}>
                 <li className="flex items-start gap-5">
-                  <span className="font-headline flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2 border-orange-500 text-base font-bold text-orange-500">
+                  <span className="font-headline brand-gradient-ring flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full text-base font-bold text-accent-600">
                     {i + 1}
                   </span>
                   <div className="pt-1">

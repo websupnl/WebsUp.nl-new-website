@@ -21,30 +21,34 @@ const FALLBACK_NAV = siteConfig.nav.map((item) => ({
   type: 'internal' as const,
 }))
 
-/* ── Diensten mega-menu items ─────────────────────────── */
+/* Diensten mega menu items */
 const DIENSTEN = [
   {
     title: 'Websites',
-    desc: 'Snel, modern, conversiegericht.',
+    desc: 'Een sterke online basis die duidelijk uitlegt en vertrouwen wekt.',
     href: '/diensten/websites',
+    image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=75',
     icon: Monitor,
   },
   {
     title: 'Webshops',
-    desc: 'WooCommerce of Shopify. iDEAL en Mollie.',
+    desc: 'Shopify of WooCommerce met een logische flow naar afrekenen.',
     href: '/diensten/webshops',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=75',
     icon: ShoppingCart,
   },
   {
     title: 'Apps & Dashboards',
-    desc: 'Portalen en interne tools op maat.',
+    desc: 'Portalen, dashboards en interne tools die dagelijks gebruikt worden.',
     href: '/diensten/apps-dashboards',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=75',
     icon: LayoutDashboard,
   },
   {
     title: 'Automatisering',
-    desc: 'Workflows, n8n en API-koppelingen.',
+    desc: 'Slimme koppelingen en workflows die handmatig werk verminderen.',
     href: '/diensten/automatisering',
+    image: 'https://images.unsplash.com/photo-1518432031352-d6fc5734c3d0?auto=format&fit=crop&w=900&q=75',
     icon: Zap,
   },
 ]
@@ -242,7 +246,7 @@ export default function Navbar({
         </nav>
       </header>
 
-      {/* ── Mega menu panel ───────────────────────────────────── */}
+      {/* Mega menu panel */}
       <div
         onMouseEnter={openMega}
         onMouseLeave={closeMega}
@@ -253,81 +257,91 @@ export default function Navbar({
         }`}
         style={{ top: `${headerHeight}px`, willChange: 'opacity, transform' }}
       >
-        <div className="bg-white border-t border-slate-100 shadow-2xl shadow-slate-900/10">
-          <div className="max-w-screen-xl mx-auto px-6 lg:px-10 py-8">
+        <div className="border-t border-slate-200/70 bg-white/98 shadow-2xl shadow-slate-950/10 backdrop-blur-xl">
+          <div className="mx-auto max-w-screen-xl px-6 py-7 lg:px-10">
 
-            {/* Section header */}
-            <div className="mb-5">
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
-                Wat wil je laten bouwen?
-              </span>
-            </div>
+            <div className="grid gap-7 lg:grid-cols-[0.9fr_1.5fr]">
 
-            {/* 2x2 grid */}
-            <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-              {DIENSTEN.map((dienst) => {
-                const Icon = dienst.icon
-                return (
-                  <Link
-                    key={dienst.href}
-                    href={dienst.href}
-                    onClick={() => setMegaOpen(false)}
-                    className="group flex items-start gap-3 px-4 py-4 rounded-xl border-l-2 border-transparent hover:border-orange-500 hover:bg-slate-50/80 transition-all duration-200"
-                  >
-                    <Icon size={18} className="mt-0.5 text-orange-500 flex-shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <span className="font-semibold text-[15px] text-slate-900">
-                          {dienst.title}
-                        </span>
-                        <ArrowRight size={13} className="text-slate-400 group-hover:text-orange-500 group-hover:translate-x-0.5 transition-all duration-200" />
-                      </div>
-                      <p className="text-[13px] text-slate-500 leading-relaxed">
-                        {dienst.desc}
-                      </p>
-                    </div>
-                  </Link>
-                )
-              })}
-            </div>
-
-            {/* Divider */}
-            <div className="my-5 border-t border-slate-100" />
-
-            {/* Orange GlassCard CTA */}
-            <Link
-              href="/contact"
-              onClick={() => setMegaOpen(false)}
-              className="block rounded-2xl border border-orange-500/25 bg-orange-500/[0.06] backdrop-blur-md px-5 py-4 hover:bg-orange-500/[0.10] transition-colors"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="font-semibold text-sm text-slate-900">
-                    Niet zeker welke dienst past bij jouw situatie?
-                  </p>
-                  <p className="text-[13px] text-slate-600 mt-0.5">
-                    Ik adviseer eerlijk.
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-600 whitespace-nowrap">
-                  Plan een gesprek <ArrowRight size={14} />
-                </span>
-              </div>
-            </Link>
-
-            {/* Bottom: alle diensten link */}
-            <div className="mt-4 flex items-center justify-between">
               <Link
                 href="/diensten"
                 onClick={() => setMegaOpen(false)}
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors"
+                className="group relative min-h-[19rem] overflow-hidden rounded-[1.35rem] bg-slate-950"
               >
-                Bekijk alle diensten
-                <ArrowRight size={14} />
+                <img
+                  src="/hero-bg.png"
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/62 to-slate-950/12" />
+                <div className="relative flex h-full flex-col justify-end p-6 text-white">
+                  <span className="mb-4 w-fit rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white/72 backdrop-blur-sm">
+                    Digitale basis
+                  </span>
+                  <h3 className="max-w-sm font-headline text-2xl font-extrabold leading-tight">
+                    Kies wat nu het meeste verschil maakt.
+                  </h3>
+                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/62">
+                    Websites, shops, dashboards en automatisering horen bij elkaar. Ik help kiezen wat logisch is.
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                    Bekijk alle diensten <ArrowRight size={14} />
+                  </span>
+                </div>
               </Link>
-              <span className="text-xs text-slate-400">
-                Persoonlijk advies · Heel Nederland
-              </span>
+
+              <div>
+                <div className="mb-4 flex items-end justify-between gap-6">
+                  <div>
+                    <div className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-slate-400">
+                      Diensten
+                    </div>
+                    <p className="mt-1 max-w-xl text-sm leading-relaxed text-slate-500">
+                      Vier ingangen, dezelfde aanpak: persoonlijk, technisch sterk en zonder onnodige tussenlagen.
+                    </p>
+                  </div>
+                  <Link
+                    href="/contact"
+                    onClick={() => setMegaOpen(false)}
+                    className="hidden shrink-0 items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition-colors hover:border-slate-900 md:inline-flex"
+                  >
+                    Advies vragen <ArrowRight size={13} />
+                  </Link>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {DIENSTEN.map((dienst) => (
+                    <Link
+                      key={dienst.href}
+                      href={dienst.href}
+                      onClick={() => setMegaOpen(false)}
+                      className="group grid min-h-[8.2rem] grid-cols-[8.2rem_1fr] overflow-hidden rounded-[1.1rem] border border-slate-200 bg-white transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-900/7"
+                    >
+                      <div className="relative overflow-hidden bg-slate-100">
+                        <img
+                          src={dienst.image}
+                          alt=""
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-slate-950/10" />
+                      </div>
+                      <div className="flex min-w-0 flex-col justify-between p-4">
+                        <div>
+                          <div className="flex items-center justify-between gap-3">
+                            <span className="font-headline text-lg font-bold leading-tight text-slate-900">
+                              {dienst.title}
+                            </span>
+                            <ArrowRight size={14} className="shrink-0 text-slate-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-slate-900" />
+                          </div>
+                          <p className="mt-2 text-[13px] leading-relaxed text-slate-500">
+                            {dienst.desc}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
@@ -341,7 +355,7 @@ export default function Navbar({
         />
       )}
 
-      {/* ── Mobile side drawer backdrop ─────────────────────────── */}
+      {/* Mobile side drawer backdrop */}
       <div
         className={`fixed inset-0 z-40 bg-[#06040c]/70 backdrop-blur-sm transition-all duration-300 md:hidden ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -349,7 +363,7 @@ export default function Navbar({
         onClick={() => setMobileOpen(false)}
       />
 
-      {/* ── Mobile side drawer ──────────────────────────────────── */}
+      {/* Mobile side drawer */}
       <div
         className={`fixed top-0 right-0 h-full z-50 w-[300px] flex flex-col bg-[#06040c] border-l border-white/8 shadow-2xl transition-transform duration-300 ease-out md:hidden ${
           mobileOpen ? 'translate-x-0' : 'translate-x-full'
@@ -429,7 +443,7 @@ export default function Navbar({
           ))}
         </div>
 
-        {/* Drawer footer — CTA */}
+        {/* Drawer footer, CTA */}
         <div className="px-4 py-5 border-t border-white/8 flex-shrink-0 space-y-3">
           <Link
             href="/gratis-ontwerp"
@@ -439,9 +453,6 @@ export default function Navbar({
           >
             Gratis ontwerp
           </Link>
-          <p className="text-center text-xs text-white/25">
-            Persoonlijk advies · Heel Nederland
-          </p>
         </div>
       </div>
     </>

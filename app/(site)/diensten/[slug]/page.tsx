@@ -67,7 +67,7 @@ const websiteResults = [
   },
   {
     title: 'Duidelijk vertellen wat je doet',
-    text: 'Bezoekers moeten snel begrijpen wie je bent, wat je doet en waarom ze bij jou moeten zijn — zonder te moeten zoeken.',
+    text: 'Bezoekers moeten snel begrijpen wie je bent, wat je doet en waarom ze bij jou moeten zijn, zonder te moeten zoeken.',
   },
   {
     title: 'Contact en aanvragen stimuleren',
@@ -157,7 +157,7 @@ function WebsitesServicePage() {
     <div>
       <WavePageHeader
         badge="Diensten · Websites"
-        title="Een website die werkt voor jouw bedrijf —"
+        title="Een website die werkt voor jouw bedrijf"
         titleHighlight="niet andersom."
         subtitle="Ik bouw websites die professioneel overkomen, duidelijk vertellen wat je doet en bezoekers aanzetten tot actie. Geen standaard thema's, maar opgebouwd rondom jouw situatie en doelen."
       >
@@ -168,7 +168,7 @@ function WebsitesServicePage() {
           </Link>
           <Link
             href="/gratis-ontwerp"
-            className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/22 hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/20"
           >
             Vraag gratis ontwerp aan
           </Link>
@@ -177,7 +177,7 @@ function WebsitesServicePage() {
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           {[
             { icon: Star, label: 'Professionele uitstraling', color: 'text-orange-400' },
-            { icon: LayoutPanelTop, label: 'Duidelijke structuur', color: 'text-pink-400' },
+            { icon: LayoutPanelTop, label: 'Duidelijke structuur', color: 'text-accent-400' },
             { icon: TrendingUp, label: 'Uitbreidbaar', color: 'text-violet-300' },
           ].map(({ icon: Icon, label, color }) => (
             <GlassCard key={label} padding="px-4 py-3" className="flex items-center gap-2.5">
@@ -192,7 +192,7 @@ function WebsitesServicePage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <Reveal>
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
               Waarom een goede website telt
             </span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
@@ -224,7 +224,7 @@ function WebsitesServicePage() {
       <section className="bg-slate-50 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-3xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
               Wat je krijgt
             </span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl">
@@ -239,7 +239,7 @@ function WebsitesServicePage() {
             <div className="relative min-h-[22rem] overflow-hidden rounded-2xl bg-white">
               <Image
                 src="/Projecten/thuisbatterijen_friesland_mockup.png"
-                alt="Voorbeeldproject — Thuisbatterijen Friesland"
+                alt="Voorbeeldproject, Thuisbatterijen Friesland"
                 fill
                 className="object-contain p-6"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -262,7 +262,7 @@ function WebsitesServicePage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
               Werkwijze
             </span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
@@ -274,7 +274,7 @@ function WebsitesServicePage() {
             {websiteSteps.map((step, i) => (
               <Reveal key={step.title} delay={i * 70}>
                 <li className="flex items-start gap-5">
-                  <span className="font-headline flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2 border-orange-500 text-base font-bold text-orange-500">
+                  <span className="font-headline brand-gradient-ring flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full text-base font-bold text-accent-600">
                     {i + 1}
                   </span>
                   <div className="pt-1">
@@ -300,7 +300,7 @@ function WebsitesServicePage() {
             <blockquote className="font-headline text-xl font-semibold leading-snug text-slate-900 md:text-2xl">
               &ldquo;Daan heeft voor ons in no time een complete professionele website gebouwd. Qua kwaliteit komt het resultaat verrassend dicht in de buurt van veel duurdere agencies.&rdquo;
             </blockquote>
-            <p className="mt-5 text-sm font-semibold text-slate-500">— Jeremy Palsma</p>
+            <p className="mt-5 text-sm font-semibold text-slate-500">Jeremy Palsma</p>
           </Reveal>
         </div>
       </section>
@@ -317,7 +317,7 @@ function WebsitesServicePage() {
                   Persoonlijk contact, technisch sterk en praktisch ingestoken
                 </h2>
                 <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/65">
-                  Je schakelt direct met mij — degene die meedenkt en bouwt. Geen ruis, geen onnodige lagen. Wel een website die past bij jouw bedrijf en ruimte laat om later verder te bouwen.
+                  Je schakelt direct met mij, degene die meedenkt en bouwt. Geen ruis, geen onnodige lagen. Wel een website die past bij jouw bedrijf en ruimte laat om later verder te bouwen.
                 </p>
 
                 <ul className="mt-8 space-y-3">
@@ -408,14 +408,14 @@ function ServiceHero({
         </Link>
         <Link
           href="/gratis-ontwerp"
-          className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/22 hover:bg-white/10"
+          className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/20"
         >
           Vraag gratis ontwerp aan
         </Link>
       </div>
       <div className="mt-8 grid gap-3 sm:grid-cols-3">
         {badges.map(({ icon: Icon, label }, i) => {
-          const colors = ['text-orange-400', 'text-pink-400', 'text-violet-300']
+          const colors = ['text-orange-400', 'text-accent-400', 'text-violet-300']
           return (
             <GlassCard key={label} padding="px-4 py-3" className="flex items-center gap-2.5">
               <Icon size={16} className={`flex-shrink-0 ${colors[i % 3]}`} />
@@ -434,7 +434,7 @@ function NumberedSteps({ steps }: { steps: { title: string; text: string }[] }) 
       {steps.map((step, i) => (
         <Reveal key={step.title} delay={i * 70}>
           <li className="flex items-start gap-5">
-            <span className="font-headline flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2 border-orange-500 text-base font-bold text-orange-500">
+            <span className="font-headline brand-gradient-ring flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full text-base font-bold text-accent-600">
               {i + 1}
             </span>
             <div className="pt-1">
@@ -461,7 +461,7 @@ function ReviewQuote({ author, text }: { author: string; text: string }) {
           <blockquote className="font-headline text-xl font-semibold leading-snug text-slate-900 md:text-2xl">
             &ldquo;{text}&rdquo;
           </blockquote>
-          <p className="mt-5 text-sm font-semibold text-slate-500">— {author}</p>
+          <p className="mt-5 text-sm font-semibold text-slate-500">{author}</p>
         </Reveal>
       </div>
     </section>
@@ -546,7 +546,7 @@ function WhyAndOtherServices({
 const webshopReasons = [
   {
     title: 'Vertrouwen uitstralen',
-    text: 'Bezoekers beslissen in seconden of ze afrekenen of afhaken. Een professionele uitstraling is geen luxe — het is omzetbehoud.',
+    text: 'Bezoekers beslissen in seconden of ze afrekenen of afhaken. Een professionele uitstraling is geen luxe, het is omzetbehoud.',
   },
   {
     title: 'Simpele checkout, minder afhakers',
@@ -559,7 +559,7 @@ const webshopReasons = [
 ]
 
 const webshopIncludes = [
-  'WooCommerce of Shopify — afhankelijk van wat bij je past',
+  'WooCommerce of Shopify, afhankelijk van wat bij je past',
   'iDEAL, Mollie, creditcard en andere betaalmethodes',
   'Productpagina’s die overtuigen',
   'Voorraadbeheer en orderverwerking',
@@ -570,7 +570,7 @@ const webshopIncludes = [
 ]
 
 const webshopSteps = [
-  { title: 'Kennismaking', text: 'We bespreken je producten, je doelgroep en hoe je nu verkoopt — of waarom je wil starten.' },
+  { title: 'Kennismaking', text: 'We bespreken je producten, je doelgroep en hoe je nu verkoopt, of waarom je wil starten.' },
   { title: 'Voorstel en richting', text: 'Je krijgt een heldere opzet: welk platform past, hoe de structuur eruitziet en wat de investering is.' },
   { title: 'Bouw en inrichting', text: 'De webshop wordt ingericht met jouw producten, huisstijl en betaalmethodes. Met ruimte voor feedback tussendoor.' },
   { title: 'Livegang', text: 'We gaan live. Ik leg je uit hoe je zelf producten beheert en bestellingen afhandelt.' },
@@ -595,7 +595,7 @@ function WebshopsServicePage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <Reveal>
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Waarom dit telt</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Waarom dit telt</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
               Een webshop die bezoekers omzet in klanten
             </h2>
@@ -625,7 +625,7 @@ function WebshopsServicePage() {
       <section className="bg-slate-50 py-20 lg:py-28">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal className="mb-10 max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Wat je krijgt</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Wat je krijgt</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl">
               Alles wat je nodig hebt om online te verkopen
             </h2>
@@ -646,7 +646,7 @@ function WebshopsServicePage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Werkwijze</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Werkwijze</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
               Duidelijk proces, korte lijnen
             </h2>
@@ -662,7 +662,7 @@ function WebshopsServicePage() {
 
       <WhyAndOtherServices
         whyHeading="Persoonlijk contact en eerlijk advies over wat past"
-        whyIntro="Niet elk bedrijf heeft Shopify nodig. Niet elk bedrijf is gebaat bij WooCommerce. Ik kijk naar jouw situatie — wat je verkoopt, hoe je werkt en wat je budget is — en adviseer wat het meest logisch is. Zonder voorkeur voor het duurste pakket."
+        whyIntro="Niet elk bedrijf heeft Shopify nodig. Niet elk bedrijf is gebaat bij WooCommerce. Ik kijk naar jouw situatie, wat je verkoopt, hoe je werkt en wat je budget is, en adviseer wat het meest logisch is. Zonder voorkeur voor het duurste pakket."
         whyPoints={[
           'Direct persoonlijk contact',
           'Eerlijk over wat je wel en niet nodig hebt',
@@ -696,11 +696,11 @@ const appsRecognise = [
 const appsBlocks = [
   {
     title: 'Klantportalen',
-    text: 'Een beveiligde omgeving waar jouw klanten bestanden, offertes, statussen of facturen kunnen inzien. Minder heen-en-weer mailen, meer overzicht voor iedereen.',
+    text: 'Een beveiligde omgeving waar jouw klanten bestanden, offertes, statussen of facturen kunnen inzien. Minder heen en weer mailen, meer overzicht voor iedereen.',
   },
   {
     title: 'Interne dashboards',
-    text: 'Realtime inzicht in je bedrijfsdata. Bestellingen, leads, projectstatussen, productiviteit — wat voor jou belangrijk is, zichtbaar op één plek.',
+    text: 'Realtime inzicht in je bedrijfsdata. Bestellingen, leads, projectstatussen, productiviteit, wat voor jou belangrijk is, zichtbaar op één plek.',
   },
   {
     title: 'Interne tools en workflows',
@@ -738,12 +738,12 @@ function AppsServicePage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <Reveal>
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Wanneer is dit slim?</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Wanneer is dit slim?</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
               Wanneer een website niet meer volstaat
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-600">
-              Niet elk probleem lost een website op. Soms heb je iets nodig dat intern werkt — een plek waar jij of je team dagelijks mee werkt.
+              Niet elk probleem lost een website op. Soms heb je iets nodig dat intern werkt, een plek waar jij of je team dagelijks mee werkt.
             </p>
             <p className="mt-4 text-lg font-semibold text-slate-900">Herken je dit?</p>
 
@@ -767,7 +767,7 @@ function AppsServicePage() {
       <section className="bg-slate-50 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Wat ik bouw</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Wat ik bouw</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl">
               Van eenvoudig dashboard tot volledig klantportaal
             </h2>
@@ -788,7 +788,7 @@ function AppsServicePage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Werkwijze</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Werkwijze</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
               Stap voor stap, met overzicht
             </h2>
@@ -832,20 +832,20 @@ const automationRecognise = [
 
 const automationBlocks = [
   {
-    title: 'Formulier- en lead-koppelingen',
-    text: 'Aanvragen van je website gaan automatisch naar je CRM, e-mail of Slack. Geen handmatig overtikken meer.',
+    title: 'Formulier en lead koppelingen',
+    text: 'Aanvragen van je website gaan automatisch naar je CRM, email of Slack. Geen handmatig overtikken meer.',
   },
   {
-    title: 'E-mail en notificatie workflows',
-    text: 'Automatische bevestigingen, follow-ups of herinneringen op basis van acties die klanten of je team uitvoert.',
+    title: 'Email en notificatie workflows',
+    text: 'Automatische bevestigingen, opvolgingen of herinneringen op basis van acties die klanten of je team uitvoert.',
   },
   {
-    title: 'Systeem-koppelingen via API',
+    title: 'Systeem koppelingen via API',
     text: 'Je webshop, boekhouding, CRM en andere tools praten met elkaar. Bestellingen, facturen en klantgegevens worden automatisch gesynchroniseerd.',
   },
   {
     title: 'n8n workflows',
-    text: 'Met n8n bouw ik visuele workflows die complexe processen automatiseren — zonder dat alles maatwerk-code hoeft te worden.',
+    text: 'Met n8n bouw ik visuele workflows die complexe processen automatiseren, zonder dat alles maatwerk code hoeft te worden.',
   },
   {
     title: 'Data synchronisatie',
@@ -867,10 +867,10 @@ function AutomatiseringServicePage() {
         badge="Diensten · Automatisering"
         title="Minder handmatig werk,"
         highlight="meer tijd voor wat telt."
-        subtitle="Ik koppel je tools, automatiseer terugkerende processen en zorg dat systemen samenwerken. Van simpele formulier-koppelingen tot complete n8n-workflows."
+        subtitle="Ik koppel je tools, automatiseer terugkerende processen en zorg dat systemen samenwerken. Van simpele formulier koppelingen tot complete n8n-workflows."
         badges={[
           { icon: Workflow, label: 'n8n workflows' },
-          { icon: LinkIcon, label: 'API-koppelingen' },
+          { icon: LinkIcon, label: 'API koppelingen' },
           { icon: Users, label: 'CRM integraties' },
         ]}
       />
@@ -878,7 +878,7 @@ function AutomatiseringServicePage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <Reveal>
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Wanneer is dit slim?</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Wanneer is dit slim?</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
               Herken je dit?
             </h2>
@@ -893,7 +893,7 @@ function AutomatiseringServicePage() {
             </ul>
 
             <p className="mt-8 text-lg leading-relaxed text-slate-600">
-              Automatisering lost dit op — zonder dat je hoeft te leren programmeren.
+              Automatisering lost dit op, zonder dat je hoeft te leren programmeren.
             </p>
           </Reveal>
         </div>
@@ -902,7 +902,7 @@ function AutomatiseringServicePage() {
       <section className="bg-slate-50 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Wat ik automatiseer</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Wat ik automatiseer</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl">
               Praktische automatiseringen die direct verschil maken
             </h2>
@@ -922,7 +922,7 @@ function AutomatiseringServicePage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Werkwijze</span>
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Werkwijze</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
               Helder traject, snel resultaat
             </h2>

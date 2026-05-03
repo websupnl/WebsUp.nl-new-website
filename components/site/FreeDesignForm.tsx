@@ -57,7 +57,7 @@ export default function FreeDesignForm() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          subject: `Gratis ontwerp aanvraag${form.company ? ` - ${form.company}` : ''}`,
+          subject: `Gratis ontwerp aanvraag${form.company ? `: ${form.company}` : ''}`,
           message,
         }),
       })
@@ -118,7 +118,7 @@ export default function FreeDesignForm() {
 
         <div>
           <label htmlFor="free-design-email" className="mb-1.5 block text-sm font-medium text-slate-700">
-            E-mail <span className="text-orange-500">*</span>
+            Email <span className="text-orange-500">*</span>
           </label>
           <input
             id="free-design-email"

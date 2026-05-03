@@ -179,6 +179,7 @@ export interface Database {
           excerpt: string | null
           content: string | null
           image_url: string | null
+          screenshot_url: string | null
           website_url: string | null
           highlights: string[]
           featured: boolean
@@ -196,6 +197,7 @@ export interface Database {
           excerpt?: string | null
           content?: string | null
           image_url?: string | null
+          screenshot_url?: string | null
           website_url?: string | null
           highlights?: string[]
           featured?: boolean
@@ -213,6 +215,7 @@ export interface Database {
           excerpt?: string | null
           content?: string | null
           image_url?: string | null
+          screenshot_url?: string | null
           website_url?: string | null
           highlights?: string[]
           featured?: boolean

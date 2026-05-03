@@ -4,7 +4,7 @@ import { ReactNode } from 'react'
 interface WavePageHeaderProps {
   badge?: string
   title: string
-  /** Wordt met oranje-roze-paars gradient weergegeven */
+  /** Wordt met oranje roze paars gradient weergegeven */
   titleHighlight?: string
   subtitle?: string
   children?: ReactNode
@@ -14,8 +14,8 @@ interface WavePageHeaderProps {
 const stripFinalDot = (value: string) => value.replace(/\.+\s*$/, '')
 
 /**
- * Herbruikbare donkere paginaheader met hero-bg.png (Stripe-stijl wave).
- * Loopt achter de vaste navbar — geen paddingTop op de sectie zelf.
+ * Herbruikbare donkere paginaheader met hero-bg.png (Stripe stijl wave).
+ * Loopt achter de vaste navbar, geen paddingTop op de sectie zelf.
  */
 export default function WavePageHeader({
   badge,

@@ -8,13 +8,13 @@ interface GlassCardProps {
 }
 
 /**
- * Liquid glass card — gebruik ALLEEN voor:
- * - Trust badges in hero (pill bovenaan headline)
- * - Floating statistieken/review badge in hero
- * - Contact info blokken (reactietijd, vrijblijvend, eerlijk advies)
- * - Nav bij scrollen
- * - "Niet zeker welke dienst past?" kaart in mega menu
- * - Drie vertrouwensitems in CTA-sectie boven footer
+ * Liquid glass card, gebruik ALLEEN voor:
+ *: Trust badges in hero (pill bovenaan headline)
+ *: Floating statistieken/review badge in hero
+ *: Contact info blokken (reactietijd, vrijblijvend, eerlijk advies)
+ *: Nav bij scrollen
+ *: "Niet zeker welke dienst past?" kaart in mega menu
+ *: Drie vertrouwensitems in CTA-sectie boven footer
  *
  * NIET voor: normale service cards, FAQ items, project cards, werkwijze blokken.
  */
