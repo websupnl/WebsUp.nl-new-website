@@ -4,13 +4,11 @@ import { Metadata } from 'next'
 import Navbar from '@/components/site/Navbar'
 import Footer from '@/components/site/Footer'
 import HeroSection from '@/components/site/HeroSection'
-import AboutMeSection from '@/components/site/AboutMeSection'
-import ReviewsSection from '@/components/site/ReviewsSection'
-import StarterCTASection from '@/components/site/StarterCTASection'
+import ProblemSection from '@/components/site/ProblemSection'
 import ServicesSection from '@/components/site/ServicesSection'
 import ProjectsSection from '@/components/site/ProjectsSection'
-import VoorWieSection from '@/components/site/VoorWieSection'
-import FAQSection from '@/components/site/FAQSection'
+import AboutMeSection from '@/components/site/AboutMeSection'
+import ReviewsSection from '@/components/site/ReviewsSection'
 import CTASection from '@/components/site/CTASection'
 import CookieBanner from '@/components/site/CookieBanner'
 import { getTestimonials } from '@/lib/queries/testimonials'
@@ -46,13 +44,11 @@ export default async function HomePage() {
       />
       <main className="page-shell flex-1">
         <HeroSection />
+        <ProblemSection />
         <ServicesSection />
-        <AboutMeSection />
-        <VoorWieSection />
-        <ReviewsSection testimonials={testimonials} />
         <ProjectsSection projects={projects} limit={3} />
-        <StarterCTASection />
-        <FAQSection />
+        <AboutMeSection />
+        <ReviewsSection testimonials={testimonials} />
         <CTASection />
       </main>
       <Footer
