@@ -2,7 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
-import { personalContactPoints } from '@/lib/homepage-content'
+import GrainOverlay from '@/components/ui/GrainOverlay'
+import { personalContactPoints, fallbackReviews } from '@/lib/homepage-content'
+
+const featuredQuote = fallbackReviews[0]
 
 export default function AboutMeSection() {
   return (
@@ -10,26 +13,32 @@ export default function AboutMeSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-18">
           <Reveal>
-            <div className="relative overflow-hidden rounded-[1.75rem] bg-slate-200">
-              <Image
-                src="/Daan Koolhaas.jpg"
-                alt="Daan Koolhaas, eigenaar van WebsUp.nl"
-                width={720}
-                height={900}
-                className="h-[34rem] w-full object-cover"
-                sizes="(max-width: 1024px) 100vw, 45vw"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/82 via-slate-950/34 to-transparent p-6 pt-24 text-white">
-                <div className="font-headline text-xl font-bold">Daan Koolhaas</div>
-                <div className="mt-1 text-sm text-white/68">Eigenaar van WebsUp.nl</div>
+            <div className="[transform:rotate(-1.5deg)] transition-transform duration-500 ease-out hover:[transform:rotate(0deg)]">
+              <div className="relative overflow-hidden rounded-[1.75rem] bg-slate-200 shadow-2xl shadow-slate-950/[0.14]">
+                <Image
+                  src="/Daan Koolhaas.jpg"
+                  alt="Daan Koolhaas, eigenaar van WebsUp.nl"
+                  width={720}
+                  height={900}
+                  className="h-[34rem] w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                />
+                <GrainOverlay opacity={0.055} />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/82 via-slate-950/34 to-transparent p-6 pt-24 text-white">
+                  <div className="font-headline text-xl font-bold">Daan Koolhaas</div>
+                  <div className="mt-1 text-sm text-white/68">Eigenaar van WebsUp.nl</div>
+                </div>
               </div>
             </div>
           </Reveal>
 
           <Reveal delay={80}>
-            <span className="overline-badge mb-5 inline-flex">Geen groot bureau</span>
-            <h2 className="max-w-2xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
-              Direct persoonlijk contact
+            <span className="overline-badge mb-5 inline-flex">Wie zit er achter WebsUp</span>
+            <h2
+              className="max-w-2xl font-headline font-extrabold leading-[1.08] tracking-[-0.03em] text-slate-900"
+              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.75rem)' }}
+            >
+              Geen bureau. Iemand die meedenkt en bouwt.
             </h2>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
@@ -52,6 +61,17 @@ export default function AboutMeSection() {
                 ))}
               </div>
             </div>
+
+            {featuredQuote && (
+              <blockquote className="mt-6 border-l-2 border-orange-400 pl-5">
+                <p className="text-sm italic leading-relaxed text-slate-500">
+                  &ldquo;{featuredQuote.content}&rdquo;
+                </p>
+                <footer className="mt-3 text-xs font-semibold text-slate-400">
+                  {featuredQuote.name} &middot; {featuredQuote.role}
+                </footer>
+              </blockquote>
+            )}
 
             <div className="mt-8">
               <Link
