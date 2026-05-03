@@ -10,7 +10,10 @@ export default function ServicesSection() {
         <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <span className="overline-badge mb-5 inline-flex">Wat ik bouw</span>
-            <h2 className="max-w-2xl font-headline text-4xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-5xl">
+            <h2
+              className="max-w-2xl font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-slate-900"
+              style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}
+            >
               Wat wil je laten bouwen?
             </h2>
           </div>
@@ -37,7 +40,7 @@ export default function ServicesSection() {
 
             return (
               <Reveal key={service.title} delay={index * 60}>
-                <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm shadow-slate-950/[0.03] transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-950/[0.06]">
+                <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm shadow-slate-950/[0.03] transition-all duration-300 hover:-translate-y-1 hover:border-orange-200/60 hover:shadow-lg hover:shadow-slate-950/[0.06] hover:bg-gradient-to-br hover:from-orange-50/40 hover:to-pink-50/30">
                   <div className="flex items-start justify-between gap-5">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-slate-900">
                       <Icon size={20} />
