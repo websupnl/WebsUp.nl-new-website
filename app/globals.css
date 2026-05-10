@@ -35,8 +35,8 @@
   /* Text */
   --on-surface:           #0b1526;
   --on-surface-muted:     #56647a;
-  --font-title:            var(--font-headline), 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-body:             var(--font-body-sans), 'Nunito', system-ui, sans-serif;
+  --font-title:            var(--font-headline), 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body:             var(--font-body-sans), 'Geist', system-ui, sans-serif;
 
   /* Dark section tokens, gebruikt in hero, CTA en dark backgrounds */
   --color-bg-dark:         #0A0F1A;
@@ -124,7 +124,7 @@ h6 {
 .page-shell h1,
 .page-shell h2 {
   font-weight: 800;
-  letter-spacing: 0;
+  letter-spacing: -0.03em;
 }
 
 .page-shell h3,
@@ -133,6 +133,36 @@ h6 {
 .page-shell h6 {
   font-weight: 700;
   letter-spacing: 0;
+}
+
+.page-shell section > div {
+  position: relative;
+}
+
+.page-shell h2.font-headline {
+  position: relative;
+}
+
+.page-shell h2.font-headline::after {
+  content: "";
+  display: block;
+  width: clamp(3.5rem, 8vw, 6.5rem);
+  height: 3px;
+  margin-top: 0.48em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f97316 0%, #ec4899 54%, #a78bfa 100%);
+  transform-origin: left center;
+  animation: focus-pulse 3.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.page-shell [class*="text-center"] h2.font-headline::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-shell section.bg-\[\#06040c\] h2.font-headline::after,
+.page-shell section [class*="text-white"] h2.font-headline::after {
+  opacity: 0.86;
 }
 
 p {
@@ -366,10 +396,10 @@ p {
    ============================ */
 .reveal {
   opacity: 0;
-  transform: translate3d(0, var(--reveal-distance, 28px), 0) scale(0.985);
+  transform: translate3d(0, var(--reveal-distance, 32px), 0) scale(0.985);
   transition:
-    opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
@@ -409,6 +439,7 @@ p {
 /* Primary brand-gradient button, oranje → roze → paars (zoals logo) */
 .btn-brand-gradient {
   position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -424,10 +455,33 @@ p {
   box-shadow: 0 8px 24px rgba(236, 72, 153, 0.28), 0 4px 12px rgba(249, 115, 22, 0.20);
 }
 
+.btn-brand-gradient::after {
+  content: "";
+  position: absolute;
+  inset: -60% auto -60% -35%;
+  width: 36%;
+  transform: translateX(-120%) rotate(18deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.34), transparent);
+  transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-brand-gradient > * {
+  position: relative;
+  z-index: 1;
+}
+
 .btn-brand-gradient:hover {
   transform: translateY(-1px);
   background-position: 100% 50%;
   box-shadow: 0 12px 32px rgba(236, 72, 153, 0.36), 0 6px 16px rgba(167, 139, 250, 0.24);
+}
+
+.btn-brand-gradient:hover::after {
+  transform: translateX(520%) rotate(18deg);
+}
+
+.btn-brand-gradient:active {
+  transform: translateY(0) scale(0.99);
 }
 
 /* Brand gradient ring (border-only) */
@@ -578,8 +632,42 @@ p {
   will-change: transform;
 }
 
+.motion-sheen {
+  position: relative;
+  isolation: isolate;
+}
+
+.motion-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  transform: translateX(-120%);
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.13) 45%, transparent 70%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.motion-sheen:hover::after {
+  transform: translateX(120%);
+}
+
+@keyframes focus-pulse {
+  0%, 100% { opacity: 0.5; transform: scaleX(0.72); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
+.focus-pulse-line {
+  transform-origin: left center;
+  animation: focus-pulse 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-wave-bg { animation: none; transform: scale(1.08); }
+  .marquee-track { animation: none; }
+  .focus-pulse-line { animation: none; }
+  .motion-sheen::after,
+  .btn-brand-gradient::after { display: none; }
 }
 
 /* ============================

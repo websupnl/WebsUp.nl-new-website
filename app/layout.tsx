@@ -1,20 +1,21 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans, Nunito } from 'next/font/google'
+import { Bricolage_Grotesque, Geist } from 'next/font/google'
 import './globals.css'
 import { siteConfig } from '@/config/site.config'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { AppFeedbackProvider } from '@/components/ui/AppFeedbackProvider'
 import FreeDesignModalProvider from '@/components/site/FreeDesignModalProvider'
 import WhatsAppButton from '@/components/site/WhatsAppButton'
+import CustomCursor from '@/components/site/CustomCursor'
 
-const headlineFont = Plus_Jakarta_Sans({
+const headlineFont = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: ['600', '700', '800'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-headline',
   display: 'swap',
 })
 
-const bodyFont = Nunito({
+const bodyFont = Geist({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-body-sans',
@@ -29,9 +30,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.seo.defaultDescription,
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: '/WebsUp favicon.png',
+    shortcut: '/WebsUp favicon.png',
+    apple: '/WebsUp favicon.png',
   },
   openGraph: {
     title: siteConfig.seo.defaultTitle,
@@ -109,6 +110,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col antialiased" suppressHydrationWarning>
         <AppFeedbackProvider>
           {children}
+          <CustomCursor />
           <FreeDesignModalProvider />
           <WhatsAppButton />
           <SpeedInsights />

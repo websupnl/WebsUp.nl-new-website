@@ -62,7 +62,7 @@ export default async function BlogArticlePage({ params }: Props) {
             <ArrowLeft size={16} />
             Terug naar kennisbank
           </Link>
-          <h1 className="font-headline text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.05] tracking-tight mb-6">
+          <h1 className="font-headline text-4xl md:text-4xl font-extrabold text-slate-900 leading-[1.05] tracking-tight mb-6">
             {article.title}
           </h1>
           <div className="flex items-center gap-5 text-sm text-slate-400">

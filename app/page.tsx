@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import Navbar from '@/components/site/Navbar'
 import Footer from '@/components/site/Footer'
 import HeroSection from '@/components/site/HeroSection'
+import StatsStrip from '@/components/site/StatsStrip'
 import ProblemSection from '@/components/site/ProblemSection'
 import ServicesSection from '@/components/site/ServicesSection'
 import ProjectsSection from '@/components/site/ProjectsSection'
@@ -44,6 +45,7 @@ export default async function HomePage() {
       />
       <main className="page-shell flex-1">
         <HeroSection />
+        <StatsStrip />
         <ProblemSection />
         <ServicesSection />
         <ProjectsSection projects={projects} limit={3} />

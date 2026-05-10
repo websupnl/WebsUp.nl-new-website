@@ -1,86 +1,87 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import { homepageServices } from '@/lib/homepage-content'
 
 export default function ServicesSection() {
   return (
-    <section className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <Reveal className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <span className="overline-badge mb-5 inline-flex">Wat ik bouw</span>
             <h2
-              className="max-w-2xl font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-slate-900"
-              style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}
+              className="max-w-3xl font-headline font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900"
+              style={{ fontSize: 'clamp(2rem, 3.4vw, 3.1rem)' }}
             >
-              Wat wil je laten bouwen?
+              Vier routes naar beter digitaal werk.
             </h2>
           </div>
-          <p className="max-w-2xl text-base leading-relaxed text-slate-500 md:text-lg lg:justify-self-end">
-            Van een professionele website tot een slim dashboard of maatwerk systeem. Ik help je met digitale oplossingen die duidelijk zijn, goed werken en passen bij jouw bedrijf.
+          <p className="text-base leading-relaxed text-slate-600 md:text-lg lg:max-w-[44ch] lg:justify-self-end lg:text-right">
+            Van een zichtbare eerste indruk tot systemen die je dagelijkse werk simpeler maken.
           </p>
         </Reveal>
 
-        <Reveal delay={70} className="mt-8 flex flex-wrap gap-2">
-          <span className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white">
-            Populaire keuzes
-          </span>
-          <Link
-            href="/diensten"
-            className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
-          >
-            Alle diensten
-          </Link>
-        </Reveal>
-
-        <div className="mt-8 grid gap-5 lg:grid-cols-2">
-          {homepageServices.map((service, index) => {
+        <div className="mt-12 grid gap-4 lg:grid-cols-2">
+          {homepageServices.map((service, i) => {
             const Icon = service.icon
-
             return (
-              <Reveal key={service.title} delay={index * 60}>
-                <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm shadow-slate-950/[0.03] transition-all duration-300 hover:-translate-y-1 hover:border-orange-200/60 hover:shadow-lg hover:shadow-slate-950/[0.06] hover:bg-gradient-to-br hover:from-orange-50/40 hover:to-pink-50/30">
-                  <div className="flex items-start justify-between gap-5">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-slate-900">
-                      <Icon size={20} />
+              <Reveal key={service.title} delay={i * 70}>
+                <Link
+                  href={service.href}
+                  data-cursor="active"
+                  className="group grid min-h-[22rem] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-950/[0.04] transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl hover:shadow-slate-950/[0.08] md:grid-cols-[0.9fr_1.1fr]"
+                >
+                  <div className="relative min-h-56 overflow-hidden md:min-h-full">
+                    <Image
+                      src={service.image}
+                      alt=""
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      sizes="(max-width: 768px) 100vw, 45vw"
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          'linear-gradient(135deg, rgba(6,4,12,0.74) 0%, rgba(6,4,12,0.24) 100%)',
+                      }}
+                    />
+                    <div className="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white backdrop-blur-md">
+                      <Icon size={18} />
                     </div>
-                    <Link
-                      href={service.href}
-                      className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-900 hover:text-slate-900"
-                    >
-                      {service.cta}
-                      <ArrowRight size={13} />
-                    </Link>
+                    <div className="absolute bottom-5 left-5 font-headline text-4xl font-extrabold tracking-[-0.04em] text-white/24">
+                      {String(i + 1).padStart(2, '0')}
+                    </div>
                   </div>
 
-                  <h3 className="mt-6 font-headline text-2xl font-bold leading-tight text-slate-900">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-500">
-                    {service.description}
-                  </p>
-
-                  <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-                    {service.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-600">
-                        <CheckCircle size={15} className="mt-0.5 shrink-0 text-slate-400" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
+                  <div className="flex flex-col justify-between p-7 md:p-8">
+                    <div>
+                      <h3 className="font-headline text-3xl font-bold leading-tight tracking-[-0.03em] text-slate-900">
+                        {service.title}
+                      </h3>
+                      <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                        {service.description}
+                      </p>
+                    </div>
+                    <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 transition-all duration-150 group-hover:gap-2.5 group-hover:text-orange-600">
+                      {service.cta}
+                      <ArrowRight size={13} className="transition-transform duration-150 group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
+                </Link>
               </Reveal>
             )
           })}
         </div>
 
         <Reveal delay={280}>
-          <div className="mt-10 flex flex-col gap-5 border-t border-slate-200 pt-7 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-2xl text-sm leading-relaxed text-slate-500">
-              Weet je nog niet precies wat je nodig hebt? Geen probleem. Vaak begint het met een idee, frustratie of proces dat slimmer kan.
+          <div className="mt-10 flex flex-col gap-5 border-t border-slate-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-lg text-sm leading-relaxed text-slate-500">
+              Weet je nog niet precies wat je nodig hebt? Vaak begint het gewoon met een gesprek.
             </p>
-            <Link href="/contact" className="btn-brand shrink-0 px-6 py-3 text-sm">
+            <Link href="/contact" className="btn-brand-gradient shrink-0 px-6 py-3 text-sm">
               Ik spar graag mee
             </Link>
           </div>

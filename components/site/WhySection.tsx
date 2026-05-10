@@ -64,7 +64,7 @@ export default function WhySection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="max-w-4xl">
           <span className="overline-badge mb-5 inline-flex">Wat ik voor je kan bouwen</span>
-          <h2 className="font-headline text-4xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-6xl">
+          <h2 className="font-headline text-3xl font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 md:text-4xl">
             Van website tot maatwerk systeem
           </h2>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-500">

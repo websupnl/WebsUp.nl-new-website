@@ -48,7 +48,7 @@ export default function FAQSection({
         <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <Reveal>
             <span className="overline-badge mb-5 inline-flex">FAQ</span>
-            <h2 className="max-w-xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
+            <h2 className="max-w-xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
               Veelgestelde vragen
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-500 md:text-lg">

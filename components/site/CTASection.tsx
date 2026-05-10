@@ -16,7 +16,7 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
-  heading = 'Wil je even sparren over wat slim is voor je website of digitale systeem?',
+  heading = 'Zullen we sparren?',
   subheading = 'Stuur gerust een bericht. Dan kijk ik met je mee naar je idee, huidige website of proces. Vaak wordt in een gesprek al duidelijk wat de slimste volgende stap is.',
   ctaLabel = 'Gratis ontwerp aanvragen',
   ctaHref = '/gratis-ontwerp',
@@ -28,7 +28,7 @@ export default function CTASection({
     <section className={`bg-white px-6 py-12 lg:px-8 ${className}`}>
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#06040c]">
+          <div className="motion-sheen relative overflow-hidden rounded-[2rem] bg-[#06040c]">
             <div className="absolute inset-0 overflow-hidden">
               <div className="hero-wave-bg absolute inset-[-8%]">
                 <Image
@@ -56,8 +56,8 @@ export default function CTASection({
                   Vrijblijvend kennismaken
                 </span>
                 <h2
-                  className="max-w-3xl font-headline font-extrabold leading-[1.08] tracking-[-0.03em] text-white"
-                  style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4rem)' }}
+                  className="max-w-3xl text-balance font-headline font-extrabold leading-[1.04] tracking-[-0.03em] text-white"
+                  style={{ fontSize: 'clamp(1.85rem, 3.1vw, 2.9rem)' }}
                 >
                   {heading}
                 </h2>
@@ -83,7 +83,7 @@ export default function CTASection({
                 {finalTrustItems.map((item) => {
                   const Icon = item.icon
                   return (
-                    <div key={item.label} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4 backdrop-blur-sm">
+                    <div key={item.label} className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]">
                       <Icon size={18} className="shrink-0 text-white/62" />
                       <span className="text-sm font-medium text-white/84">{item.label}</span>
                     </div>

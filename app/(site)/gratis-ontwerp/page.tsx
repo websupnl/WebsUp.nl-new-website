@@ -5,6 +5,7 @@ import WavePageHeader from '@/components/site/WavePageHeader'
 import Reveal from '@/components/ui/Reveal'
 import FreeDesignForm from '@/components/site/FreeDesignForm'
 import { GlassCard } from '@/components/site/GlassCard'
+import { finalTrustItems } from '@/lib/homepage-content'
 
 export const metadata: Metadata = {
   title: 'Gratis ontwerp aanvragen',
@@ -39,8 +40,8 @@ export default function GratisOntwerpPage() {
     <div>
       <WavePageHeader
         badge="Gratis voorbeeldontwerp"
-        title="Zie binnen 48 uur hoe jouw website"
-        titleHighlight="eruit kan zien."
+        title="Gratis ontwerp voor"
+        titleHighlight="jouw website."
         subtitle="Ik maak een gratis voorbeeldontwerp op maat, afgestemd op jouw bedrijf, stijl en doelgroep. Geen verplichtingen. Geen standaard template. Gewoon laten zien wat er mogelijk is."
         heightClass="min-h-[64vh]"
       >
@@ -58,18 +59,18 @@ export default function GratisOntwerpPage() {
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
-          <GlassCard padding="px-4 py-3" className="flex items-center gap-2">
-            <Sparkles size={16} className="text-orange-400" />
-            <span className="text-sm text-white/85">Persoonlijk op maat</span>
-          </GlassCard>
-          <GlassCard padding="px-4 py-3" className="flex items-center gap-2">
-            <Clock size={16} className="text-orange-400" />
-            <span className="text-sm text-white/85">Binnen 48 uur</span>
-          </GlassCard>
-          <GlassCard padding="px-4 py-3" className="flex items-center gap-2">
-            <MessageCircle size={16} className="text-orange-400" />
-            <span className="text-sm text-white/85">Geen verplichtingen</span>
-          </GlassCard>
+          {finalTrustItems.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.label}
+                className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
+              >
+                <Icon size={18} className="shrink-0 text-white/62" />
+                <span className="text-sm font-medium text-white/84">{item.label}</span>
+              </div>
+            )
+          })}
         </div>
       </WavePageHeader>
 
@@ -116,17 +117,17 @@ export default function GratisOntwerpPage() {
       </section>
 
       <section className="bg-white py-20 lg:py-28">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <Reveal className="mb-12 max-w-2xl">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+          <Reveal className="lg:sticky lg:top-32 lg:self-start">
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
               Hoe het werkt
             </span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-4xl">
               Drie stappen, geen omwegen
             </h2>
           </Reveal>
 
-          <ol className="space-y-7">
+          <ol className="space-y-6">
             {steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 70}>
                 <li className="flex items-start gap-5">

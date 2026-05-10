@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import GrainOverlay from '@/components/ui/GrainOverlay'
 import { personalContactPoints, fallbackReviews } from '@/lib/homepage-content'
@@ -35,10 +35,10 @@ export default function AboutMeSection() {
           <Reveal delay={80}>
             <span className="overline-badge mb-5 inline-flex">Wie zit er achter WebsUp</span>
             <h2
-              className="max-w-2xl font-headline font-extrabold leading-[1.08] tracking-[-0.03em] text-slate-900"
-              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.75rem)' }}
+              className="max-w-2xl font-headline font-extrabold leading-[1] tracking-[-0.04em] text-slate-900"
+              style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
             >
-              Geen bureau. Iemand die meedenkt en bouwt.
+              Geen bureau. Direct met Daan.
             </h2>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
@@ -48,18 +48,15 @@ export default function AboutMeSection() {
               Ik denk niet alleen mee over hoe iets eruit moet zien, maar vooral over wat praktisch werkt voor jouw bedrijf. Soms is dat een website. Soms een webshop. En soms juist een maatwerk systeem dat veel werk uit handen neemt.
             </p>
 
-            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-950/[0.03]">
-              <div className="font-headline text-2xl font-bold text-slate-900">
-                Je werkt direct met mij.
-              </div>
-              <div className="mt-5 grid gap-3">
-                {personalContactPoints.map((point) => (
-                  <div key={point} className="flex items-start gap-3 text-sm text-slate-600">
-                    <CheckCircle size={16} className="mt-0.5 shrink-0 text-slate-400" />
-                    <span>{point}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="mt-8 flex flex-wrap gap-2.5">
+              {personalContactPoints.map((point) => (
+                <span
+                  key={point}
+                  className="rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-medium text-slate-600 shadow-sm shadow-slate-950/[0.03]"
+                >
+                  {point}
+                </span>
+              ))}
             </div>
 
             {featuredQuote && (

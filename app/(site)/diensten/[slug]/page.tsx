@@ -26,6 +26,7 @@ import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import CTASection from '@/components/site/CTASection'
 import { GlassCard } from '@/components/site/GlassCard'
+import { finalTrustItems } from '@/lib/homepage-content'
 
 type ServiceMeta = {
   title: string
@@ -175,16 +176,18 @@ function WebsitesServicePage() {
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
-          {[
-            { icon: Star, label: 'Professionele uitstraling', color: 'text-orange-400' },
-            { icon: LayoutPanelTop, label: 'Duidelijke structuur', color: 'text-accent-400' },
-            { icon: TrendingUp, label: 'Uitbreidbaar', color: 'text-violet-300' },
-          ].map(({ icon: Icon, label, color }) => (
-            <GlassCard key={label} padding="px-4 py-3" className="flex items-center gap-2.5">
-              <Icon size={16} className={`flex-shrink-0 ${color}`} />
-              <span className="text-sm text-white/85 font-medium">{label}</span>
-            </GlassCard>
-          ))}
+          {finalTrustItems.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.label}
+                className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
+              >
+                <Icon size={18} className="shrink-0 text-white/62" />
+                <span className="text-sm font-medium text-white/84">{item.label}</span>
+              </div>
+            )
+          })}
         </div>
       </WavePageHeader>
 
@@ -195,7 +198,7 @@ function WebsitesServicePage() {
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
               Waarom een goede website telt
             </span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Een website die duidelijk werkt
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-600">
@@ -265,7 +268,7 @@ function WebsitesServicePage() {
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
               Werkwijze
             </span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Duidelijk proces, korte lijnen
             </h2>
           </Reveal>
@@ -313,7 +316,7 @@ function WebsitesServicePage() {
             <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
               <div className="text-white">
                 <span className="overline-badge overline-badge-dark mb-5">Waarom WebsUp</span>
-                <h2 className="font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] md:text-4xl lg:text-5xl">
+                <h2 className="font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] md:text-4xl lg:text-4xl">
                   Persoonlijk contact, technisch sterk en praktisch ingestoken
                 </h2>
                 <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/65">
@@ -414,13 +417,16 @@ function ServiceHero({
         </Link>
       </div>
       <div className="mt-8 grid gap-3 sm:grid-cols-3">
-        {badges.map(({ icon: Icon, label }, i) => {
-          const colors = ['text-orange-400', 'text-accent-400', 'text-violet-300']
+        {finalTrustItems.map((item) => {
+          const Icon = item.icon
           return (
-            <GlassCard key={label} padding="px-4 py-3" className="flex items-center gap-2.5">
-              <Icon size={16} className={`flex-shrink-0 ${colors[i % 3]}`} />
-              <span className="text-sm text-white/85 font-medium">{label}</span>
-            </GlassCard>
+            <div
+              key={item.label}
+              className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
+            >
+              <Icon size={18} className="shrink-0 text-white/62" />
+              <span className="text-sm font-medium text-white/84">{item.label}</span>
+            </div>
           )
         })}
       </div>
@@ -430,10 +436,10 @@ function ServiceHero({
 
 function NumberedSteps({ steps }: { steps: { title: string; text: string }[] }) {
   return (
-    <ol className="space-y-7">
+    <ol className="grid gap-5 md:grid-cols-2">
       {steps.map((step, i) => (
         <Reveal key={step.title} delay={i * 70}>
-          <li className="flex items-start gap-5">
+          <li className="flex h-full items-start gap-5 rounded-2xl border border-slate-200 bg-white p-5">
             <span className="font-headline brand-gradient-ring flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full text-base font-bold text-accent-600">
               {i + 1}
             </span>
@@ -451,17 +457,20 @@ function NumberedSteps({ steps }: { steps: { title: string; text: string }[] }) 
 function ReviewQuote({ author, text }: { author: string; text: string }) {
   return (
     <section className="bg-slate-50 py-16 lg:py-20">
-      <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:px-8">
         <Reveal>
-          <div className="mb-5 flex items-center justify-center gap-1">
+          <div className="mb-4 flex items-center gap-1">
             {[0, 1, 2, 3, 4].map((i) => (
               <Star key={i} size={16} className="fill-orange-400 text-orange-400" />
             ))}
           </div>
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-400">Klantreactie</p>
+          <p className="mt-4 text-sm font-semibold text-slate-500">{author}</p>
+        </Reveal>
+        <Reveal delay={80}>
           <blockquote className="font-headline text-xl font-semibold leading-snug text-slate-900 md:text-2xl">
             &ldquo;{text}&rdquo;
           </blockquote>
-          <p className="mt-5 text-sm font-semibold text-slate-500">{author}</p>
         </Reveal>
       </div>
     </section>
@@ -488,7 +497,7 @@ function WhyAndOtherServices({
           <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div className="text-white">
               <span className="overline-badge overline-badge-dark mb-5">Waarom WebsUp</span>
-              <h2 className="font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] md:text-4xl lg:text-5xl">
+              <h2 className="font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] md:text-4xl lg:text-4xl">
                 {whyHeading}
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/65">{whyIntro}</p>
@@ -596,7 +605,7 @@ function WebshopsServicePage() {
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <Reveal>
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Waarom dit telt</span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Een webshop die bezoekers omzet in klanten
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-600">
@@ -647,7 +656,7 @@ function WebshopsServicePage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Werkwijze</span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Duidelijk proces, korte lijnen
             </h2>
           </Reveal>
@@ -739,7 +748,7 @@ function AppsServicePage() {
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <Reveal>
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Wanneer is dit slim?</span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Wanneer een website niet meer volstaat
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-600">
@@ -789,7 +798,7 @@ function AppsServicePage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Werkwijze</span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Stap voor stap, met overzicht
             </h2>
           </Reveal>
@@ -879,7 +888,7 @@ function AutomatiseringServicePage() {
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <Reveal>
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Wanneer is dit slim?</span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Herken je dit?
             </h2>
 
@@ -923,7 +932,7 @@ function AutomatiseringServicePage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Werkwijze</span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Helder traject, snel resultaat
             </h2>
           </Reveal>

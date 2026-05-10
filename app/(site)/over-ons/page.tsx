@@ -10,18 +10,13 @@ import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import { GlassCard } from '@/components/site/GlassCard'
 import { getTestimonials } from '@/lib/queries/testimonials'
+import { finalTrustItems } from '@/lib/homepage-content'
 
 export const metadata: Metadata = {
   title: 'Over mij',
   description:
     'Bij WebsUp schakel je direct met degene die meedenkt, ontwerpt en bouwt. Geen tussenlagen, geen ruis, wel korte lijnen en een oplossing die past bij jouw bedrijf.',
 }
-
-const trustItems = [
-  { icon: MessageCircle, label: 'Direct contact, geen tussenlagen', color: 'text-orange-400' },
-  { icon: Zap, label: 'Korte lijnen, snel schakelen', color: 'text-accent-400' },
-  { icon: Heart, label: 'Persoonlijk, maar wel professioneel', color: 'text-violet-300' },
-]
 
 const principlePoints = [
   'Direct contact met degene die meedenkt en bouwt',
@@ -43,8 +38,8 @@ export default async function OverOnsPage() {
       {/* ── Hero (compact, in lijn met andere pagina's) ─── */}
       <WavePageHeader
         badge="Over mij"
-        title="Geen bureau. Wel iemand die"
-        titleHighlight="écht meedenkt en bouwt."
+        title="Geen bureau."
+        titleHighlight="Direct met Daan."
         subtitle="Bij WebsUp schakel je direct met mij, de persoon die meedenkt, ontwerpt en bouwt. Geen tussenlagen, geen account managers, geen ruis."
       >
         <div className="flex flex-wrap items-center gap-3">
@@ -61,12 +56,18 @@ export default async function OverOnsPage() {
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
-          {trustItems.map(({ icon: Icon, label, color }) => (
-            <GlassCard key={label} padding="px-4 py-3" className="flex items-center gap-2.5">
-              <Icon size={16} className={`flex-shrink-0 ${color}`} />
-              <span className="text-sm text-white/85 font-medium">{label}</span>
-            </GlassCard>
-          ))}
+          {finalTrustItems.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.label}
+                className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
+              >
+                <Icon size={18} className="shrink-0 text-white/62" />
+                <span className="text-sm font-medium text-white/84">{item.label}</span>
+              </div>
+            )
+          })}
         </div>
       </WavePageHeader>
 
@@ -102,7 +103,7 @@ export default async function OverOnsPage() {
               <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
                 Wie er achter WebsUp zit
               </span>
-              <h2 className="mt-4 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+              <h2 className="mt-4 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
                 Hoi, ik ben Daan
               </h2>
 
@@ -136,12 +137,14 @@ export default async function OverOnsPage() {
 
       {/* ── Waarom dit anders werkt ─────────────────────── */}
       <section className="bg-slate-50 py-20 lg:py-28">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <Reveal>
-            <h2 className="font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="font-headline text-3xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-4xl">
               Persoonlijk samenwerken, zonder het groter te maken dan het is
             </h2>
-            <div className="mt-7 space-y-5 text-lg leading-relaxed text-slate-600">
+          </Reveal>
+          <Reveal delay={80}>
+            <div className="space-y-5 text-base leading-relaxed text-slate-600 md:text-lg">
               <p>
                 WebsUp is geen groot bureau met accountmanagers, saleslagen of trajecten die onnodig zwaar worden opgetuigd. Het voordeel is simpel: communicatie blijft helder, keuzes blijven logisch en het werk blijft dicht op de praktijk.
               </p>
@@ -158,14 +161,17 @@ export default async function OverOnsPage() {
 
       {/* ── Werkwijze ───────────────────────────────────── */}
       <section className="bg-white py-20 lg:py-28">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <Reveal>
-            <h2 className="font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+          <Reveal className="lg:sticky lg:top-32 lg:self-start">
+            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
+              Werkwijze
+            </span>
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-4xl">
               Geen ruis, wel duidelijke lijnen
             </h2>
           </Reveal>
 
-          <ol className="mt-10 space-y-8">
+          <ol className="space-y-6">
             {collaborationSteps.map((step, i) => (
               <Reveal key={step} delay={i * 80}>
                 <li className="flex items-start gap-5">

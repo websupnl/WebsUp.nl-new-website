@@ -23,7 +23,7 @@ export default function WavePageHeader({
   titleHighlight,
   subtitle,
   children,
-  heightClass = 'min-h-[58vh]',
+  heightClass = 'min-h-[48vh]',
 }: WavePageHeaderProps) {
   const displayTitle = stripFinalDot(title)
   const displayTitleHighlight = titleHighlight ? stripFinalDot(titleHighlight) : undefined
@@ -56,8 +56,13 @@ export default function WavePageHeader({
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#06040c] to-transparent pointer-events-none" />
       </div>
 
+      <div className="pointer-events-none absolute bottom-8 right-10 hidden items-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-white/30 lg:flex">
+        <span className="h-px w-16 bg-gradient-to-r from-orange-400 via-pink-400 to-violet-300" />
+        WebsUp
+      </div>
+
       {/* Inhoud */}
-      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-10 lg:pt-36 lg:pb-12">
+      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-9 lg:pt-32 lg:pb-10">
         {badge && (
           <span className="overline-badge overline-badge-dark mb-5">
             {badge}
@@ -65,8 +70,8 @@ export default function WavePageHeader({
         )}
 
         <h1
-          className="font-headline font-extrabold text-white tracking-[-0.03em] leading-[1.08] mb-5"
-          style={{ fontSize: 'clamp(1.9rem, 4.2vw, 3.4rem)' }}
+          className="max-w-4xl text-balance font-headline font-extrabold text-white tracking-[-0.03em] leading-[1.04] mb-4"
+          style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)' }}
         >
           {displayTitle}
           {displayTitleHighlight && (
@@ -85,9 +90,10 @@ export default function WavePageHeader({
             </>
           )}
         </h1>
+        <div className="focus-pulse-line mb-5 h-[3px] w-24 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-violet-300" />
 
         {subtitle && (
-          <p className="text-base md:text-lg text-white/55 leading-relaxed max-w-[52ch]">
+          <p className="text-base text-white/55 leading-relaxed max-w-[56ch]">
             {subtitle}
           </p>
         )}

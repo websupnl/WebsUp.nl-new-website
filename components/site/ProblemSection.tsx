@@ -1,73 +1,77 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
-import GrainOverlay from '@/components/ui/GrainOverlay'
 
 const painPoints = [
   {
-    problem: 'Bezoekers snappen niet direct wat je doet of aanbiedt',
-    solution: 'Meteen duidelijk: wat je biedt, voor wie en waarom jij de juiste keuze bent',
+    problem: 'Bezoekers snappen niet direct wat je doet',
+    solution: 'Meteen duidelijk: wat je biedt, voor wie en waarom jij de juiste keuze bent.',
   },
   {
-    problem: 'Er is geen duidelijke reden om contact op te nemen',
-    solution: 'Gerichte oproep tot actie op het juiste moment, zodat een bezoeker weet wat de volgende stap is',
+    problem: 'Geen duidelijke reden om contact op te nemen',
+    solution: 'Gerichte call-to-action op het juiste moment. De volgende stap is altijd helder.',
   },
   {
-    problem: 'De uitstraling wekt geen vertrouwen op bij de doelgroep',
-    solution: 'Een uitstraling die aansluit bij jouw merk en het vertrouwen geeft dat bezoekers nodig hebben om te kiezen',
+    problem: 'De uitstraling wekt geen vertrouwen op',
+    solution: 'Een uitstraling die aansluit bij jouw merk en bezoekers het vertrouwen geeft om te kiezen.',
   },
 ]
 
 export default function ProblemSection() {
   return (
-    <section className="relative overflow-hidden bg-[#06040c] py-16 lg:py-24">
-      <GrainOverlay opacity={0.04} />
-
+    <section className="relative overflow-hidden bg-slate-50 py-20 lg:py-28">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <div>
-            <span className="overline-badge overline-badge-dark mb-5 inline-flex">Herkenbaar?</span>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <Reveal className="lg:sticky lg:top-32">
+            <span className="overline-badge mb-5 inline-flex">Herkenbaar?</span>
             <h2
-              className="max-w-2xl font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-white"
-              style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}
+              className="max-w-xl font-headline font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900"
+              style={{ fontSize: 'clamp(2rem, 3.4vw, 3.1rem)' }}
             >
-              Een nette website levert niet automatisch klanten op
+              Drie redenen waarom het misloopt.
             </h2>
-          </div>
-          <p className="max-w-2xl text-base leading-relaxed text-white/56 md:text-lg lg:justify-self-end">
-            Veel bedrijven hebben een website die er goed uitziet, maar te weinig bezoekers omzet in klanten of contact. Dat komt bijna altijd door dezelfde drie dingen.
-          </p>
-        </Reveal>
+            <p className="mt-6 max-w-[42ch] text-base leading-relaxed text-slate-600 md:text-lg">
+              Een website kan er netjes uitzien en toch geen vertrouwen of actie oproepen. Dit zijn meestal de echte knelpunten.
+            </p>
+          </Reveal>
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
-          {painPoints.map((point, index) => (
-            <Reveal key={point.problem} delay={index * 70}>
-              <div className="glass-panel-dark flex h-full flex-col rounded-2xl p-7 transition-colors duration-200 hover:border-white/20 hover:bg-white/[0.08]">
-                <div className="mb-3 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white/38">
-                  Vaak zo
+          <div className="space-y-0">
+            {painPoints.map((point, i) => (
+              <Reveal key={point.problem} delay={i * 80}>
+                <div className="grid gap-5 border-t border-slate-200 py-10 lg:grid-cols-[4.5rem_1fr] lg:gap-8">
+                  <span
+                    className="font-headline text-4xl font-extrabold leading-none tracking-[-0.04em]"
+                    style={{
+                      background: 'linear-gradient(135deg, #f97316 0%, #ec4899 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <p className="text-xl font-semibold leading-snug text-slate-900 md:text-2xl">
+                      {point.problem}
+                    </p>
+                    <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
+                      {point.solution}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm leading-relaxed text-white/58">{point.problem}</p>
-                <div className="my-5 flex items-center gap-3">
-                  <div className="h-px flex-1 bg-white/12" />
-                  <ArrowRight size={13} className="shrink-0 text-white/30" />
-                  <div className="h-px flex-1 bg-white/12" />
-                </div>
-                <div className="mb-3 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white/80">
-                  Hoe het anders kan
-                </div>
-                <p className="text-sm font-medium leading-relaxed text-white/86">{point.solution}</p>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+            <div className="border-t border-slate-200" />
+          </div>
         </div>
 
-        <Reveal delay={240}>
-          <div className="mt-10 flex flex-wrap items-center gap-4 border-t border-white/10 pt-8">
+        <Reveal delay={280}>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link href="/gratis-ontwerp" className="btn-brand-gradient">
               Gratis ontwerp aanvragen
               <ArrowRight size={14} />
             </Link>
-            <p className="text-sm text-white/42">
+            <p className="text-sm text-slate-500">
               Zo zie je direct wat anders kan, zonder verplichting.
             </p>
           </div>

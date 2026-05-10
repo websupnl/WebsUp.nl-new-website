@@ -19,6 +19,7 @@ export const homepageServices: Array<{
   href: string
   cta: string
   icon: LucideIcon
+  image: string
   description: string
   bullets: string[]
 }> = [
@@ -27,6 +28,7 @@ export const homepageServices: Array<{
     href: '/diensten/websites',
     cta: 'Bekijk websites',
     icon: Monitor,
+    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80',
     description:
       'Een professionele website die duidelijk laat zien wie je bent, wat je doet en waarom klanten voor jou moeten kiezen.',
     bullets: [
@@ -41,6 +43,7 @@ export const homepageServices: Array<{
     href: '/diensten/webshops',
     cta: 'Bekijk webshops',
     icon: ShoppingCart,
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=80',
     description:
       'Een webshop die logisch werkt voor je klanten en professioneel aansluit op je merk, producten en doelgroep.',
     bullets: [
@@ -55,6 +58,7 @@ export const homepageServices: Array<{
     href: '/diensten/apps-dashboards',
     cta: 'Bekijk maatwerk',
     icon: LayoutDashboard,
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80',
     description:
       'Maatwerk oplossingen voor bedrijven die meer overzicht willen of processen slimmer willen inrichten.',
     bullets: [
@@ -69,6 +73,7 @@ export const homepageServices: Array<{
     href: '/diensten/automatisering',
     cta: 'Bekijk automatisering',
     icon: Zap,
+    image: 'https://images.unsplash.com/photo-1518432031352-d6fc5734c3d0?w=900&q=80',
     description:
       'Koppelingen en slimme functies die handmatig werk verminderen en je bedrijf makkelijker laten draaien.',
     bullets: [

@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
-import GrainOverlay from '@/components/ui/GrainOverlay'
 import type { PortfolioProject } from '@/lib/queries/projects'
 
 interface ProjectsSectionProps {
@@ -92,21 +91,19 @@ export default function ProjectsSection({ projects = [], limit = 3 }: ProjectsSe
   const [featured, ...rest] = displayed
 
   return (
-    <section className="relative overflow-hidden bg-[#06040c] py-16 lg:py-24">
-      <GrainOverlay opacity={0.04} />
-
+    <section className="relative overflow-hidden bg-slate-50 py-16 lg:py-24">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <span className="overline-badge overline-badge-dark mb-5 inline-flex">Maatwerk in praktijk</span>
+            <span className="overline-badge mb-5 inline-flex">Maatwerk in praktijk</span>
             <h2
-              className="max-w-3xl font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-white"
-              style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}
+              className="max-w-3xl font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-slate-900"
+              style={{ fontSize: 'clamp(2rem, 3.6vw, 3.25rem)' }}
             >
-              Werk dat vertrouwen geeft voordat iemand contact opneemt
+              Werk dat vertrouwen geeft.
             </h2>
           </div>
-          <p className="max-w-2xl text-base leading-relaxed text-white/52 md:text-lg lg:justify-self-end">
+          <p className="max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg lg:justify-self-end">
             Geen templates. Elk project gebouwd rond de uitstraling, doelgroep en doelen van de klant.
           </p>
         </Reveal>
@@ -151,13 +148,13 @@ export default function ProjectsSection({ projects = [], limit = 3 }: ProjectsSe
         </div>
 
         <Reveal delay={280}>
-          <div className="mt-8 flex flex-col gap-5 border-t border-white/10 pt-7 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-2xl text-sm leading-relaxed text-white/42">
+          <div className="mt-8 flex flex-col gap-5 border-t border-slate-200 pt-7 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-2xl text-sm leading-relaxed text-slate-500">
               Wil je weten wat er voor jouw bedrijf mogelijk is? Dan kijk ik graag met je mee.
             </p>
             <Link
               href="/projecten"
-              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/20 bg-white/8 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/14"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:border-orange-200 hover:text-orange-600"
             >
               Bekijk alle projecten
               <ArrowRight size={14} />

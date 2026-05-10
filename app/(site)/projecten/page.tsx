@@ -108,7 +108,7 @@ export default async function ProjectenPage() {
               <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
                 Uitgelichte projecten
               </span>
-              <h2 className="mt-3 font-headline max-w-2xl text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.08] tracking-[-0.02em]">
+              <h2 className="mt-3 font-headline max-w-2xl text-4xl md:text-4xl font-extrabold text-slate-900 leading-[1.08] tracking-[-0.02em]">
                 Werk dat past bij de praktijk
               </h2>
             </div>

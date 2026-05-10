@@ -5,6 +5,7 @@ import WavePageHeader from '@/components/site/WavePageHeader'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
 import { GlassCard } from '@/components/site/GlassCard'
+import { finalTrustItems } from '@/lib/homepage-content'
 
 export const metadata: Metadata = {
   title: 'Voor starters',
@@ -44,8 +45,8 @@ export default function VoorStartersPage() {
     <div>
       <WavePageHeader
         badge="Voor starters"
-        title="Serieus starten met"
-        titleHighlight="een solide digitale basis."
+        title="Start sterk met"
+        titleHighlight="een solide basis."
         subtitle="Sta je aan het begin van een bedrijf of concept? Dan hoeft niet alles groot, maar het moet wel kloppen. Ik help starters die bewust willen beginnen en snappen dat een goede basis later veel gedoe voorkomt."
       >
         <div className="flex flex-wrap items-center gap-3">
@@ -62,16 +63,18 @@ export default function VoorStartersPage() {
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
-          {[
-            { icon: ShieldCheck, label: 'Alleen voor serieuze plannen', color: 'text-orange-400' },
-            { icon: Sparkles, label: 'Compact maar professioneel', color: 'text-accent-400' },
-            { icon: Layers, label: 'Doorgroeien zonder opnieuw beginnen', color: 'text-violet-300' },
-          ].map(({ icon: Icon, label, color }) => (
-            <GlassCard key={label} padding="px-4 py-3" className="flex items-center gap-2.5">
-              <Icon size={16} className={`flex-shrink-0 ${color}`} />
-              <span className="text-sm text-white/85 font-medium">{label}</span>
-            </GlassCard>
-          ))}
+          {finalTrustItems.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.label}
+                className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
+              >
+                <Icon size={18} className="shrink-0 text-white/62" />
+                <span className="text-sm font-medium text-white/84">{item.label}</span>
+              </div>
+            )
+          })}
         </div>
       </WavePageHeader>
 
@@ -80,7 +83,7 @@ export default function VoorStartersPage() {
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <Reveal>
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Voor wie</span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Niet voor iedereen. Wel voor jou als…
             </h2>
 
@@ -145,7 +148,7 @@ export default function VoorStartersPage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">Werkwijze</span>
-            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Hoe het werkt voor starters
             </h2>
           </Reveal>

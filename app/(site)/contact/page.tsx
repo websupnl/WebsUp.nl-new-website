@@ -17,6 +17,7 @@ import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import { GlassCard } from '@/components/site/GlassCard'
 import { createWhatsAppHref } from '@/lib/utils'
+import { finalTrustItems } from '@/lib/homepage-content'
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -78,19 +79,19 @@ export default function ContactPage() {
         titleHighlight="kennismaken."
         subtitle="Vertel kort waar je mee bezig bent of waar je op vastloopt. Ik reageer binnen een werkdag met een eerlijk en vrijblijvend antwoord."
       >
-        <div className="grid gap-3 sm:grid-cols-3 max-w-2xl">
-          <GlassCard padding="px-4 py-3" className="flex items-center gap-2">
-            <Clock size={16} className="text-orange-400" />
-            <span className="text-sm text-white/85">Binnen 1 werkdag</span>
-          </GlassCard>
-          <GlassCard padding="px-4 py-3" className="flex items-center gap-2">
-            <MessageCircle size={16} className="text-orange-400" />
-            <span className="text-sm text-white/85">Vrijblijvend sparren</span>
-          </GlassCard>
-          <GlassCard padding="px-4 py-3" className="flex items-center gap-2">
-            <Shield size={16} className="text-orange-400" />
-            <span className="text-sm text-white/85">Eerlijk advies</span>
-          </GlassCard>
+        <div className="mt-8 grid gap-3 sm:grid-cols-3 max-w-2xl">
+          {finalTrustItems.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.label}
+                className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
+              >
+                <Icon size={18} className="shrink-0 text-white/62" />
+                <span className="text-sm font-medium text-white/84">{item.label}</span>
+              </div>
+            )
+          })}
         </div>
       </WavePageHeader>
 

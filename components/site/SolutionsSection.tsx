@@ -54,7 +54,7 @@ export default function SolutionsSection() {
         <Reveal className="mb-12 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <span className="overline-badge mb-4 inline-flex">Wat ik bouw</span>
-            <h2 className="max-w-2xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
+            <h2 className="max-w-2xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-4xl">
               Vier richtingen, één heldere basis
             </h2>
           </div>

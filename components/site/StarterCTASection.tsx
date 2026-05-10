@@ -26,7 +26,7 @@ export default function StarterCTASection() {
                 <Sparkles size={12} />
                 Voor starters
               </div>
-              <h2 className="max-w-3xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-white md:text-5xl">
+              <h2 className="max-w-3xl font-headline text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-white md:text-4xl">
                 Sterk starten zonder meteen een zwaar traject
               </h2>
             </div>

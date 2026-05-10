@@ -10,7 +10,7 @@ export default function VoorWieSection() {
         <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <span className="overline-badge mb-5 inline-flex">Voor wie</span>
-            <h2 className="max-w-3xl font-headline text-4xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-5xl">
+            <h2 className="max-w-3xl font-headline text-4xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-4xl">
               Vooral voor bedrijven die duidelijkheid en korte lijnen zoeken
             </h2>
           </div>

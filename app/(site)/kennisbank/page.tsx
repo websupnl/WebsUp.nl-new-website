@@ -39,8 +39,8 @@ export default async function KennisbankPage() {
     <div>
       <WavePageHeader
         badge="Kennisbank"
-        title="Praktische informatie over websites, webshops en"
-        titleHighlight="digitale systemen."
+        title="Praktische kennis over"
+        titleHighlight="websites en systemen."
         subtitle="Geen technische blabla maar concrete uitleg over keuzes die voor jou als ondernemer relevant zijn. Wat kost iets, wanneer kies je welk platform, hoe werkt SEO echt."
       />
 

@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     unoptimized: true,
+    qualities: [75, 82, 85, 90],
     // Supabase Storage domein toestaan
     remotePatterns: [
       {
