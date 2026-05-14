@@ -1,0 +1,283 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e22]:
+    - link "Back to home page" [ref=e23] [cursor=pointer]:
+      - /url: /
+      - 'img "Dribbble: the community for graphic design" [ref=e24]'
+    - generic [ref=e27]:
+      - combobox "Submit" [ref=e29]:
+        - search [ref=e30]:
+          - searchbox "Submit" [ref=e32]
+      - generic "Change search type" [ref=e33]:
+        - generic:
+          - generic:
+            - button "Shots" [ref=e34] [cursor=pointer]:
+              - generic [ref=e35]: Shots
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Shots
+                  - generic: Designers
+                  - generic: Services
+      - button "Search" [ref=e36] [cursor=pointer]:
+        - img [ref=e37]
+    - navigation [ref=e39]:
+      - list [ref=e41]:
+        - listitem [ref=e42]:
+          - link "Explore" [ref=e43] [cursor=pointer]:
+            - /url: /shots/popular
+        - listitem [ref=e44]:
+          - link "Hire Talent" [ref=e45] [cursor=pointer]:
+            - /url: /designers
+        - listitem [ref=e46]:
+          - link "Get Hired" [ref=e47] [cursor=pointer]:
+            - /url: /browse-project-briefs
+        - listitem [ref=e48]:
+          - link "Community" [ref=e49] [cursor=pointer]:
+            - /url: /stories
+    - generic [ref=e50]:
+      - link "Sign up" [ref=e51] [cursor=pointer]:
+        - /url: /signups/new
+      - link "Log in" [ref=e52] [cursor=pointer]:
+        - /url: /session/new
+  - main [ref=e55]:
+    - generic [ref=e57]:
+      - generic [ref=e59]:
+        - heading "UnifiedUI — Testimonial Sections" [level=1] [ref=e62]
+        - generic [ref=e64]:
+          - generic [ref=e66]:
+            - link "UnifiedUI" [ref=e67] [cursor=pointer]:
+              - /url: /unifiedui
+              - generic [ref=e68]:
+                - img "UnifiedUI" [ref=e69]
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Online
+            - generic [ref=e70]:
+              - generic [ref=e72]:
+                - link "UnifiedUI" [ref=e73] [cursor=pointer]:
+                  - /url: /unifiedui
+                - text: for
+                - link "Seative Digital" [ref=e74] [cursor=pointer]:
+                  - /url: /seativedigital
+              - generic [ref=e75]:
+                - button "Available for work" [ref=e76] [cursor=pointer]
+                - link "Follow" [ref=e78] [cursor=pointer]:
+                  - /url: /unifiedui/followers
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - button [ref=e82] [cursor=pointer]:
+                - img [ref=e83]
+              - listitem [ref=e85]:
+                - link "Save shot" [ref=e86] [cursor=pointer]:
+                  - /url: /signups/new
+                  - img [ref=e87]
+            - link "Get in touch" [ref=e89] [cursor=pointer]:
+              - /url: /signups/new
+              - generic [ref=e90]: Get in touch
+        - generic [ref=e91]:
+          - link [ref=e95] [cursor=pointer]:
+            - /url: https://cdn.dribbble.com/userupload/17075591/file/original-43f4f99d2735e7e493c260eead5d66f3.jpg?resize=752x&vertical=center
+          - generic [ref=e97]:
+            - paragraph [ref=e98]: Hello everyone,
+            - paragraph [ref=e99]: Have a look at our recently unfold testimonial sections where client feedback is prominently displayed. By featuring real experience and stories, this layout enhances trust to users. Elevate your website with testimonials that resonate and inspire.
+            - paragraph [ref=e100]
+            - paragraph [ref=e101]:
+              - strong [ref=e102]: Let’s explore your needs — book your free strategy call. 👋
+            - paragraph [ref=e103]:
+              - strong [ref=e104]: Your information will be secure and confidential.
+            - paragraph [ref=e105]:
+              - text: Hope you like it &
+              - strong [ref=e106]: “Press L”
+              - text: to show your love
+            - paragraph [ref=e107]: Thank you for watching!
+            - paragraph [ref=e108]
+        - generic [ref=e109]:
+          - link "Seative Digital" [ref=e112] [cursor=pointer]:
+            - /url: /seativedigital
+            - generic [ref=e113]:
+              - img "Seative Digital" [ref=e114]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Online
+          - link "Seative Digital" [ref=e116] [cursor=pointer]:
+            - /url: /seativedigital
+          - generic [ref=e117]: "UI/UX Design Agency: Mobile App & Web Design ⟶ 𝟳𝟬+ Clients"
+          - link "Get in touch" [ref=e119] [cursor=pointer]:
+            - /url: /signups/new
+            - generic [ref=e120]: Get in touch
+        - generic [ref=e121]:
+          - generic [ref=e122]:
+            - heading "More by Seative Digital" [level=4] [ref=e123]
+            - link "View profile" [ref=e124] [cursor=pointer]:
+              - /url: /seativedigital
+          - generic [ref=e125]:
+            - listitem [ref=e127]
+            - listitem [ref=e129]
+            - listitem [ref=e131]
+            - listitem [ref=e133]
+      - generic [ref=e139]:
+        - button "View comments 6" [ref=e140] [cursor=pointer]:
+          - img [ref=e141]
+          - generic: View comments
+          - generic [ref=e143]: "6"
+        - button "Share actions" [ref=e144] [cursor=pointer]:
+          - img [ref=e145]
+          - generic: Share actions
+        - button "Detail actions" [ref=e147] [cursor=pointer]:
+          - img [ref=e148]
+          - generic: Detail actions
+  - contentinfo [ref=e151]:
+    - generic [ref=e154]:
+      - link "Print Print" [ref=e155] [cursor=pointer]:
+        - /url: /shots/popular/print
+        - img "Print" [ref=e158]
+        - generic [ref=e159]: Print
+      - link "Web Design Web Design" [ref=e160] [cursor=pointer]:
+        - /url: /shots/popular/web-design
+        - img "Web Design" [ref=e163]
+        - generic [ref=e164]: Web Design
+      - link "Mobile Mobile" [ref=e165] [cursor=pointer]:
+        - /url: /shots/popular/mobile
+        - img "Mobile" [ref=e168]
+        - generic [ref=e169]: Mobile
+      - link "Animation Animation" [ref=e170] [cursor=pointer]:
+        - /url: /shots/popular/animation
+        - img "Animation" [ref=e173]
+        - generic [ref=e174]: Animation
+      - link "Typography Typography" [ref=e175] [cursor=pointer]:
+        - /url: /shots/popular/typography
+        - img "Typography" [ref=e178]
+        - generic [ref=e179]: Typography
+      - link "Illustration Illustration" [ref=e180] [cursor=pointer]:
+        - /url: /shots/popular/illustration
+        - img "Illustration" [ref=e183]
+        - generic [ref=e184]: Illustration
+      - link "Branding Branding" [ref=e185] [cursor=pointer]:
+        - /url: /shots/popular/branding
+        - img "Branding" [ref=e188]
+        - generic [ref=e189]: Branding
+      - link "Product Design Product Design" [ref=e190] [cursor=pointer]:
+        - /url: /shots/popular/product-design
+        - img "Product Design" [ref=e193]
+        - generic [ref=e194]: Product Design
+      - link "Print Print" [ref=e195] [cursor=pointer]:
+        - /url: /shots/popular/print
+        - img "Print" [ref=e198]
+        - generic [ref=e199]: Print
+      - link "Web Design Web Design" [ref=e200] [cursor=pointer]:
+        - /url: /shots/popular/web-design
+        - img "Web Design" [ref=e203]
+        - generic [ref=e204]: Web Design
+      - link "Mobile Mobile" [ref=e205] [cursor=pointer]:
+        - /url: /shots/popular/mobile
+        - img "Mobile" [ref=e208]
+        - generic [ref=e209]: Mobile
+      - link "Animation Animation" [ref=e210] [cursor=pointer]:
+        - /url: /shots/popular/animation
+        - img "Animation" [ref=e213]
+        - generic [ref=e214]: Animation
+      - link "Typography Typography" [ref=e215] [cursor=pointer]:
+        - /url: /shots/popular/typography
+        - img "Typography" [ref=e218]
+        - generic [ref=e219]: Typography
+      - link "Illustration Illustration" [ref=e220] [cursor=pointer]:
+        - /url: /shots/popular/illustration
+        - img "Illustration" [ref=e223]
+        - generic [ref=e224]: Illustration
+      - link "Branding Branding" [ref=e225] [cursor=pointer]:
+        - /url: /shots/popular/branding
+        - img "Branding" [ref=e228]
+        - generic [ref=e229]: Branding
+      - link "Product Design Product Design" [ref=e230] [cursor=pointer]:
+        - /url: /shots/popular/product-design
+        - img "Product Design" [ref=e233]
+        - generic [ref=e234]: Product Design
+    - generic [ref=e235]:
+      - generic [ref=e236]:
+        - 'link "Dribbble: the community for graphic design Back to home page" [ref=e237] [cursor=pointer]':
+          - /url: /
+          - 'img "Dribbble: the community for graphic design" [ref=e238]'
+          - generic: Back to home page
+        - list [ref=e240]:
+          - listitem [ref=e241]:
+            - link "For designers" [ref=e242] [cursor=pointer]:
+              - /url: /for-designers
+          - listitem [ref=e243]:
+            - link "Hire talent" [ref=e244] [cursor=pointer]:
+              - /url: /hiring
+          - listitem [ref=e245]:
+            - link "Inspiration" [ref=e246] [cursor=pointer]:
+              - /url: /shots/popular
+          - listitem [ref=e247]:
+            - link "Advertising" [ref=e248] [cursor=pointer]:
+              - /url: /advertise
+          - listitem [ref=e249]:
+            - link "Blog" [ref=e250] [cursor=pointer]:
+              - /url: /stories
+          - listitem [ref=e251]:
+            - link "About" [ref=e252] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e253]:
+            - link "Careers" [ref=e254] [cursor=pointer]:
+              - /url: /careers
+          - listitem [ref=e255]:
+            - link "Support" [ref=e256] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=e257]:
+          - link "X" [ref=e258] [cursor=pointer]:
+            - /url: http://x.com/dribbble
+            - img [ref=e259]
+            - generic: X
+          - link "Facebook" [ref=e261] [cursor=pointer]:
+            - /url: http://facebook.com/dribbble
+            - img [ref=e262]
+            - generic: Facebook
+          - link "Instagram" [ref=e264] [cursor=pointer]:
+            - /url: http://instagram.com/dribbble
+            - img [ref=e265]
+            - generic: Instagram
+          - link "Pinterest" [ref=e267] [cursor=pointer]:
+            - /url: http://www.pinterest.com/dribbble/
+            - img [ref=e268]
+            - generic: Pinterest
+      - generic [ref=e270]:
+        - list [ref=e271]:
+          - listitem [ref=e272]: © 2026 Dribbble
+          - listitem [ref=e273]:
+            - link "Terms" [ref=e274] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e275]:
+            - link "Privacy" [ref=e276] [cursor=pointer]:
+              - /url: /privacy
+          - listitem [ref=e277]:
+            - link "Cookies" [ref=e278] [cursor=pointer]:
+              - /url: /cookie-policy
+        - list [ref=e279]:
+          - listitem [ref=e280]:
+            - link "Jobs" [ref=e281] [cursor=pointer]:
+              - /url: /directories/jobs
+          - listitem [ref=e282]:
+            - link "Designers" [ref=e283] [cursor=pointer]:
+              - /url: /directories/designers
+          - listitem [ref=e284]:
+            - link "Freelancers" [ref=e285] [cursor=pointer]:
+              - /url: /directories/freelance-designers
+          - listitem [ref=e286]:
+            - link "Tags" [ref=e287] [cursor=pointer]:
+              - /url: /tags
+          - listitem [ref=e288]:
+            - link "Places" [ref=e289] [cursor=pointer]:
+              - /url: /places
+          - listitem [ref=e290]:
+            - link "Resources" [ref=e291] [cursor=pointer]:
+              - /url: /resources
+  - generic:
+    - link "close":
+      - /url: "#"
+      - img
+  - iframe [ref=e292]:
+    

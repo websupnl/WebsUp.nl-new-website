@@ -632,6 +632,37 @@ p {
   will-change: transform;
 }
 
+/* Hero ambient orb animations */
+@keyframes hero-orb-a {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33%       { transform: translate(28px, -38px) scale(1.06); }
+  66%       { transform: translate(-14px, 18px) scale(0.96); }
+}
+@keyframes hero-orb-b {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  40%       { transform: translate(-22px, 28px) scale(1.08); }
+  70%       { transform: translate(16px, -12px) scale(0.94); }
+}
+@keyframes hero-orb-c {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50%       { transform: translate(18px, -24px) scale(1.04); }
+}
+@keyframes hero-orb-d {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  45%       { transform: translate(-12px, 16px) scale(1.10); }
+}
+
+.hero-orb-a { animation: hero-orb-a 16s ease-in-out infinite; }
+.hero-orb-b { animation: hero-orb-b 20s ease-in-out infinite; }
+.hero-orb-c { animation: hero-orb-c 24s ease-in-out infinite; }
+.hero-orb-d { animation: hero-orb-d 18s ease-in-out infinite 4s; }
+
+@keyframes hero-cursor-blink {
+  0%, 49% { opacity: 0.9; }
+  50%, 100% { opacity: 0; }
+}
+.hero-cursor { animation: hero-cursor-blink 1.05s step-end infinite; }
+
 .motion-sheen {
   position: relative;
   isolation: isolate;
@@ -664,6 +695,7 @@ p {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-wave-bg { animation: none; transform: scale(1.08); }
+  .hero-orb-a, .hero-orb-b, .hero-orb-c, .hero-orb-d { animation: none; }
   .marquee-track { animation: none; }
   .focus-pulse-line { animation: none; }
   .motion-sheen::after,

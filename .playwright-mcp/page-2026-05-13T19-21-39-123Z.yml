@@ -1,0 +1,225 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - paragraph [ref=e5]: Get 20% (up to $100) off your first payment for design and development services on Dribbble! Use code WELCOME20 🎉
+      - link "Get Started" [ref=e6] [cursor=pointer]:
+        - /url: https://dribbble.com/instantmatch
+    - button "close" [ref=e7] [cursor=pointer]:
+      - img [ref=e8]
+  - generic [ref=e11]:
+    - link "Back to home page" [ref=e12] [cursor=pointer]:
+      - /url: /
+      - 'img "Dribbble: the community for graphic design" [ref=e13]'
+    - generic [ref=e16]:
+      - combobox "Submit" [ref=e18]:
+        - search [ref=e19]:
+          - searchbox "Submit" [ref=e21]
+      - generic "Change search type" [ref=e22]:
+        - generic:
+          - generic:
+            - button "Shots" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]: Shots
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Shots
+                  - generic: Designers
+                  - generic: Services
+      - button "Search" [ref=e25] [cursor=pointer]:
+        - img [ref=e26]
+    - navigation [ref=e28]:
+      - list [ref=e30]:
+        - listitem [ref=e31]:
+          - link "Explore" [ref=e32] [cursor=pointer]:
+            - /url: /shots/popular
+        - listitem [ref=e33]:
+          - link "Hire Talent" [ref=e34] [cursor=pointer]:
+            - /url: /designers
+        - listitem [ref=e35]:
+          - link "Get Hired" [ref=e36] [cursor=pointer]:
+            - /url: /browse-project-briefs
+        - listitem [ref=e37]:
+          - link "Community" [ref=e38] [cursor=pointer]:
+            - /url: /stories
+    - generic [ref=e39]:
+      - link "Sign up" [ref=e40] [cursor=pointer]:
+        - /url: /signups/new
+      - link "Log in" [ref=e41] [cursor=pointer]:
+        - /url: /session/new
+  - main [ref=e44]:
+    - generic [ref=e46]:
+      - generic [ref=e48]:
+        - heading "UnifiedUI — Testimonial Sections" [level=1] [ref=e51]
+        - generic [ref=e53]:
+          - generic [ref=e55]:
+            - link "UnifiedUI" [ref=e56] [cursor=pointer]:
+              - /url: /unifiedui
+              - generic [ref=e57]:
+                - img "UnifiedUI" [ref=e58]
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Online
+            - generic [ref=e59]:
+              - generic [ref=e61]:
+                - link "UnifiedUI" [ref=e62] [cursor=pointer]:
+                  - /url: /unifiedui
+                - text: for
+                - link "Seative Digital" [ref=e63] [cursor=pointer]:
+                  - /url: /seativedigital
+              - generic [ref=e64]:
+                - button "Available for work" [ref=e65] [cursor=pointer]
+                - link "Follow" [ref=e67] [cursor=pointer]:
+                  - /url: /unifiedui/followers
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - button [ref=e71] [cursor=pointer]:
+                - img [ref=e72]
+              - listitem [ref=e74]:
+                - link "Save shot" [ref=e75] [cursor=pointer]:
+                  - /url: /signups/new
+                  - img [ref=e76]
+            - link "Get in touch" [ref=e78] [cursor=pointer]:
+              - /url: /signups/new
+              - generic [ref=e79]: Get in touch
+        - generic [ref=e80]:
+          - link [ref=e84] [cursor=pointer]:
+            - /url: https://cdn.dribbble.com/userupload/17075591/file/original-43f4f99d2735e7e493c260eead5d66f3.jpg?resize=752x&vertical=center
+          - generic [ref=e86]:
+            - paragraph [ref=e87]: Hello everyone,
+            - paragraph [ref=e88]: Have a look at our recently unfold testimonial sections where client feedback is prominently displayed. By featuring real experience and stories, this layout enhances trust to users. Elevate your website with testimonials that resonate and inspire.
+            - paragraph [ref=e89]
+            - paragraph [ref=e90]:
+              - strong [ref=e91]: Let’s explore your needs — book your free strategy call. 👋
+            - paragraph [ref=e92]:
+              - strong [ref=e93]: Your information will be secure and confidential.
+            - paragraph [ref=e94]:
+              - text: Hope you like it &
+              - strong [ref=e95]: “Press L”
+              - text: to show your love
+            - paragraph [ref=e96]: Thank you for watching!
+            - paragraph [ref=e97]
+        - generic [ref=e98]:
+          - link "Seative Digital" [ref=e101] [cursor=pointer]:
+            - /url: /seativedigital
+            - generic [ref=e102]:
+              - img "Seative Digital" [ref=e103]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Online
+          - link "Seative Digital" [ref=e105] [cursor=pointer]:
+            - /url: /seativedigital
+          - generic [ref=e106]: "UI/UX Design Agency: Mobile App & Web Design ⟶ 𝟳𝟬+ Clients"
+          - link "Get in touch" [ref=e108] [cursor=pointer]:
+            - /url: /signups/new
+            - generic [ref=e109]: Get in touch
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - heading "More by Seative Digital" [level=4] [ref=e112]
+            - link "View profile" [ref=e113] [cursor=pointer]:
+              - /url: /seativedigital
+          - generic [ref=e114]:
+            - listitem [ref=e116]
+            - listitem [ref=e118]
+            - listitem [ref=e120]
+            - listitem [ref=e122]
+      - generic [ref=e128]:
+        - button "View comments 6" [ref=e129] [cursor=pointer]:
+          - img [ref=e130]
+          - generic: View comments
+          - generic [ref=e132]: "6"
+        - button "Share actions" [ref=e133] [cursor=pointer]:
+          - img [ref=e134]
+          - generic: Share actions
+        - button "Detail actions" [ref=e136] [cursor=pointer]:
+          - img [ref=e137]
+          - generic: Detail actions
+  - contentinfo [ref=e140]:
+    - generic [ref=e141]:
+      - generic [ref=e142]:
+        - 'link "Dribbble: the community for graphic design Back to home page" [ref=e143] [cursor=pointer]':
+          - /url: /
+          - 'img "Dribbble: the community for graphic design" [ref=e144]'
+          - generic: Back to home page
+        - list [ref=e146]:
+          - listitem [ref=e147]:
+            - link "For designers" [ref=e148] [cursor=pointer]:
+              - /url: /for-designers
+          - listitem [ref=e149]:
+            - link "Hire talent" [ref=e150] [cursor=pointer]:
+              - /url: /hiring
+          - listitem [ref=e151]:
+            - link "Inspiration" [ref=e152] [cursor=pointer]:
+              - /url: /shots/popular
+          - listitem [ref=e153]:
+            - link "Advertising" [ref=e154] [cursor=pointer]:
+              - /url: /advertise
+          - listitem [ref=e155]:
+            - link "Blog" [ref=e156] [cursor=pointer]:
+              - /url: /stories
+          - listitem [ref=e157]:
+            - link "About" [ref=e158] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e159]:
+            - link "Careers" [ref=e160] [cursor=pointer]:
+              - /url: /careers
+          - listitem [ref=e161]:
+            - link "Support" [ref=e162] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=e163]:
+          - link "X" [ref=e164] [cursor=pointer]:
+            - /url: http://x.com/dribbble
+            - img [ref=e165]
+            - generic: X
+          - link "Facebook" [ref=e167] [cursor=pointer]:
+            - /url: http://facebook.com/dribbble
+            - img [ref=e168]
+            - generic: Facebook
+          - link "Instagram" [ref=e170] [cursor=pointer]:
+            - /url: http://instagram.com/dribbble
+            - img [ref=e171]
+            - generic: Instagram
+          - link "Pinterest" [ref=e173] [cursor=pointer]:
+            - /url: http://www.pinterest.com/dribbble/
+            - img [ref=e174]
+            - generic: Pinterest
+      - generic [ref=e176]:
+        - list [ref=e177]:
+          - listitem [ref=e178]: © 2026 Dribbble
+          - listitem [ref=e179]:
+            - link "Terms" [ref=e180] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e181]:
+            - link "Privacy" [ref=e182] [cursor=pointer]:
+              - /url: /privacy
+          - listitem [ref=e183]:
+            - link "Cookies" [ref=e184] [cursor=pointer]:
+              - /url: /cookie-policy
+        - list [ref=e185]:
+          - listitem [ref=e186]:
+            - link "Jobs" [ref=e187] [cursor=pointer]:
+              - /url: /directories/jobs
+          - listitem [ref=e188]:
+            - link "Designers" [ref=e189] [cursor=pointer]:
+              - /url: /directories/designers
+          - listitem [ref=e190]:
+            - link "Freelancers" [ref=e191] [cursor=pointer]:
+              - /url: /directories/freelance-designers
+          - listitem [ref=e192]:
+            - link "Tags" [ref=e193] [cursor=pointer]:
+              - /url: /tags
+          - listitem [ref=e194]:
+            - link "Places" [ref=e195] [cursor=pointer]:
+              - /url: /places
+          - listitem [ref=e196]:
+            - link "Resources" [ref=e197] [cursor=pointer]:
+              - /url: /resources
+  - generic:
+    - link "close":
+      - /url: "#"
+      - img
+  - iframe [ref=e198]:
+    

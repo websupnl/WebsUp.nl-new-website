@@ -9,7 +9,6 @@ import ReviewsSection from '@/components/site/ReviewsSection'
 import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
 import { GlassCard } from '@/components/site/GlassCard'
-import { getTestimonials } from '@/lib/queries/testimonials'
 import { finalTrustItems } from '@/lib/homepage-content'
 
 export const metadata: Metadata = {
@@ -32,7 +31,6 @@ const collaborationSteps = [
 ]
 
 export default async function OverOnsPage() {
-  const testimonials = await getTestimonials()
   return (
     <div>
       {/* ── Hero (compact, in lijn met andere pagina's) ─── */}
@@ -187,7 +185,7 @@ export default async function OverOnsPage() {
       </section>
 
       {/* ── Reviews (shared) ────────────────────────────── */}
-      <ReviewsSection testimonials={testimonials} />
+      <ReviewsSection />
 
       {/* ── CTA ─────────────────────────────────────────── */}
       <CTASection />

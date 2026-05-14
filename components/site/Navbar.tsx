@@ -1,10 +1,12 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect, useRef } from 'react'
-import { Menu, X, ChevronDown, Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { ArrowRight, Phone, Mail } from 'lucide-react'
 import { siteConfig } from '@/config/site.config'
+import { createWhatsAppHref } from '@/lib/utils'
 import type { NavigationItemRow } from '@/types/database.types'
 
 interface NavbarProps {
@@ -14,445 +16,290 @@ interface NavbarProps {
   navItems?: Pick<NavigationItemRow, 'id' | 'label' | 'url' | 'type'>[]
 }
 
-const FALLBACK_NAV = siteConfig.nav.map((item) => ({
-  id: item.href,
-  label: item.label,
-  url: item.href,
-  type: 'internal' as const,
-}))
-
-/* Diensten mega menu items */
-const DIENSTEN = [
-  {
-    title: 'Websites',
-    desc: 'Een sterke online basis die duidelijk uitlegt en vertrouwen wekt.',
-    href: '/diensten/websites',
-    image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=75',
-    icon: Monitor,
-  },
-  {
-    title: 'Webshops',
-    desc: 'Shopify of WooCommerce met een logische flow naar afrekenen.',
-    href: '/diensten/webshops',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=75',
-    icon: ShoppingCart,
-  },
-  {
-    title: 'Apps & Dashboards',
-    desc: 'Portalen, dashboards en interne tools die dagelijks gebruikt worden.',
-    href: '/diensten/apps-dashboards',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=75',
-    icon: LayoutDashboard,
-  },
-  {
-    title: 'Automatisering',
-    desc: 'Slimme koppelingen en workflows die handmatig werk verminderen.',
-    href: '/diensten/automatisering',
-    image: 'https://images.unsplash.com/photo-1518432031352-d6fc5734c3d0?auto=format&fit=crop&w=900&q=75',
-    icon: Zap,
-  },
+const NAV_LINKS = [
+  { label: 'Home',      href: '/' },
+  { label: 'Diensten',  href: '/diensten' },
+  { label: 'Projecten', href: '/projecten' },
+  { label: 'Over Daan', href: '/over-ons' },
+  { label: 'Contact',   href: '/contact' },
 ]
 
-export default function Navbar({
-  siteName = siteConfig.name,
-  logoUrl,
-  navItems = [],
-}: NavbarProps) {
-  const pathname = usePathname()
-  const [mobileOpen, setMobileOpen] = useState(false)
+const WA_SVG = (
+  <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.224-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884" />
+  </svg>
+)
+
+export default function Navbar({ siteName = siteConfig.name, logoUrl }: NavbarProps) {
+  const pathname  = usePathname()
+  const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [megaOpen, setMegaOpen] = useState(false)
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
-  const [headerHeight, setHeaderHeight] = useState(96)
-  const headerRef = useRef<HTMLElement>(null)
-  const megaRef = useRef<HTMLDivElement>(null)
-  const megaTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const whatsappHref = createWhatsAppHref(
+    siteConfig.phone,
+    'Hoi Daan, ik wil graag sparren over mijn website.'
+  )
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 12)
-    window.addEventListener('scroll', handler, { passive: true })
-    return () => window.removeEventListener('scroll', handler)
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => { setMenuOpen(false) }, [pathname])
+
   useEffect(() => {
-    const updateHeaderHeight = () => {
-      if (headerRef.current) {
-        setHeaderHeight(headerRef.current.getBoundingClientRect().height)
-      }
-    }
-
-    updateHeaderHeight()
-    window.addEventListener('resize', updateHeaderHeight)
-
-    const resizeObserver = typeof ResizeObserver !== 'undefined' && headerRef.current
-      ? new ResizeObserver(updateHeaderHeight)
-      : null
-
-    if (resizeObserver && headerRef.current) {
-      resizeObserver.observe(headerRef.current)
-    }
-
-    return () => {
-      window.removeEventListener('resize', updateHeaderHeight)
-      resizeObserver?.disconnect()
-    }
-  }, [])
-
-  // Close navigation after route changes without cascading renders inside the effect.
-  useEffect(() => {
-    const id = window.setTimeout(() => {
-      setMegaOpen(false)
-      setMobileOpen(false)
-    }, 0)
-
-    return () => window.clearTimeout(id)
-  }, [pathname])
-
-  // Lock body scroll when side drawer is open
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
-  }, [mobileOpen])
+  }, [menuOpen])
 
-  useEffect(() => {
-    return () => {
-      if (megaTimeout.current) clearTimeout(megaTimeout.current)
-    }
-  }, [])
-
-  const openMega = () => {
-    if (megaTimeout.current) clearTimeout(megaTimeout.current)
-    setMegaOpen(true)
-  }
-  const closeMega = () => {
-    megaTimeout.current = setTimeout(() => setMegaOpen(false), 180)
-  }
-
-  const items = navItems.length > 0 ? navItems : FALLBACK_NAV
-  const nonContactItems = items
-
-  const isActive = (href: string) => {
-    if (href === '/') return pathname === '/'
-    return pathname.startsWith(href)
-  }
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   return (
     <>
+
+      {/* ── Main header ─────────────────────────────────────── */}
       <header
-        ref={headerRef}
-        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-          scrolled || megaOpen
-            ? 'bg-white/95 backdrop-blur-xl backdrop-saturate-150 shadow-sm border-b border-slate-900/6'
-            : 'bg-transparent'
+        className={`fixed left-0 right-0 z-[60] transition-all duration-500 ease-out ${
+          scrolled && !menuOpen
+            ? 'top-4 px-4 md:top-5 md:px-6'
+            : 'top-0'
         }`}
       >
-        <nav className="max-w-screen-2xl mx-auto px-6 lg:px-10">
-          <div className="flex min-h-[6.25rem] items-center justify-between">
-
+        <div
+          className={`mx-auto transition-all duration-500 ease-out ${
+            scrolled && !menuOpen
+              ? 'max-w-6xl rounded-2xl border border-white/[0.09] shadow-[0_12px_48px_rgba(0,0,0,0.36)]'
+              : 'max-w-7xl rounded-none border border-transparent shadow-none'
+          }`}
+          style={{
+            background: menuOpen
+              ? 'transparent'
+              : scrolled
+                ? 'rgba(6,4,12,0.82)'
+                : 'transparent',
+            backdropFilter: scrolled && !menuOpen ? 'blur(28px) saturate(160%)' : 'blur(0px)',
+            WebkitBackdropFilter: scrolled && !menuOpen ? 'blur(28px) saturate(160%)' : 'blur(0px)',
+            transition: 'background 0.5s ease, backdrop-filter 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease',
+          }}
+        >
+          <div
+            className={`flex items-center justify-between px-5 transition-all duration-500 ${
+              scrolled && !menuOpen ? 'py-3' : 'py-3.5 md:py-4'
+            }`}
+          >
             {/* Logo */}
-            <Link href="/" className="flex items-center flex-shrink-0">
+            <Link href="/" onClick={() => setMenuOpen(false)} className="relative z-10 flex-shrink-0">
               {logoUrl ? (
                 <img src={logoUrl} alt={siteName} className="h-24 w-auto" />
               ) : (
-                <img
-                  src={scrolled || megaOpen ? '/WebsUp.nl logo zwart.png' : '/WebsUp.nl logo wit.png'}
-                  alt={siteName}
-                  className="h-24 w-auto transition-opacity duration-300"
-                />
+                <img src="/WebsUp.nl logo wit.png" alt={siteName} className="h-24 w-auto" />
               )}
             </Link>
 
-            {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-0.5">
-              {nonContactItems.map((item) => {
-                const isDiensten = item.url === '/diensten'
-                if (isDiensten) {
-                  return (
-                    <div
-                      key={item.id}
-                      ref={megaRef}
-                      onMouseEnter={openMega}
-                      onMouseLeave={closeMega}
-                      className="relative"
-                    >
-                      <button
-                        className={`inline-flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                          scrolled || megaOpen
-                            ? isActive(item.url)
-                              ? 'text-slate-900 bg-slate-100'
-                              : 'text-slate-700 hover:text-slate-900 hover:bg-slate-900/5'
-                            : isActive(item.url)
-                              ? 'text-white bg-white/15'
-                              : 'text-white/80 hover:text-white hover:bg-white/10'
-                        }`}
-                        aria-expanded={megaOpen}
-                      >
-                        {item.label}
-                        <ChevronDown
-                          size={13}
-                          className={`transition-transform duration-300 ${megaOpen ? 'rotate-180' : ''}`}
-                        />
-                      </button>
-                    </div>
-                  )
-                }
-                return (
-                  <Link
-                    key={item.id}
-                    href={item.url}
-                    target={item.type === 'external' ? '_blank' : undefined}
-                    rel={item.type === 'external' ? 'noopener noreferrer' : undefined}
-                    className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                      scrolled || megaOpen
-                        ? isActive(item.url)
-                          ? 'text-slate-900 bg-slate-100'
-                          : 'text-slate-700 hover:text-slate-900 hover:bg-slate-900/5'
-                        : isActive(item.url)
-                          ? 'text-white bg-white/15'
-                          : 'text-white/80 hover:text-white hover:bg-white/10'
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                )
-              })}
-            </div>
+            {/* Right controls */}
+            <div className="relative z-10 flex items-center gap-3">
 
-            {/* CTA */}
-            <div className="hidden md:flex items-center gap-2">
+              {/* Daan avatar — premium concierge */}
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Direct contact met Daan via WhatsApp"
+                className="group relative hidden sm:block"
+              >
+                {/* Avatar */}
+                <div className="relative h-11 w-11 overflow-hidden rounded-full transition-all duration-500 group-hover:shadow-[0_0_0_2px_rgba(249,115,22,0.30),0_0_20px_rgba(249,115,22,0.12)]"
+                  style={{ border: '1.5px solid rgba(255,255,255,0.12)' }}>
+                  <Image
+                    src="/Daan Koolhaas.jpg"
+                    alt="Daan Koolhaas"
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="44px"
+                  />
+                </div>
+                {/* Online dot — pulsing, groter */}
+                <span className="absolute -bottom-[3px] -right-[3px] flex h-[15px] w-[15px] items-center justify-center">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-35" />
+                  <span className="relative h-[10px] w-[10px] rounded-full border-[1.5px] border-[#06040c] bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
+                </span>
+
+                {/* Premium concierge card */}
+                <div
+                  className="pointer-events-none absolute right-0 top-[calc(100%+10px)] opacity-0 translate-y-1.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out"
+                  style={{
+                    width: '192px',
+                    background: 'rgba(8,6,16,0.76)',
+                    backdropFilter: 'blur(36px) saturate(200%)',
+                    WebkitBackdropFilter: 'blur(36px) saturate(200%)',
+                    border: '1px solid rgba(255,255,255,0.07)',
+                    borderRadius: '12px',
+                    boxShadow: '0 12px 40px rgba(0,0,0,0.38), 0 0 0 0.5px rgba(255,255,255,0.03) inset, 0 0 32px rgba(249,115,22,0.04)',
+                  }}
+                >
+                  {/* Ambient top glow */}
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px rounded-t-[12px]"
+                    style={{ background: 'linear-gradient(90deg, transparent 10%, rgba(249,115,22,0.18) 50%, transparent 90%)' }} />
+
+                  <div className="p-3.5">
+                    <div className="flex items-center gap-2.5">
+                      <div className="relative h-8 w-8 flex-shrink-0 overflow-hidden rounded-full"
+                        style={{ border: '1px solid rgba(255,255,255,0.10)' }}>
+                        <Image src="/Daan Koolhaas.jpg" alt="Daan" fill className="object-cover object-top" sizes="32px" />
+                      </div>
+                      <div>
+                        <p className="text-[0.78rem] font-semibold leading-none text-white/88">Daan Koolhaas</p>
+                        <p className="mt-[5px] flex items-center gap-1.5 text-[0.66rem] text-white/52">
+                          <span className="h-[5px] w-[5px] flex-shrink-0 rounded-full bg-emerald-400/90 shadow-[0_0_4px_rgba(52,211,153,0.6)]" />
+                          Direct bereikbaar
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-3 h-px"
+                      style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+
+                    <p className="mt-2.5 text-[0.69rem] leading-relaxed text-white/50">
+                      Doorgaans binnen enkele uren reactie.
+                    </p>
+
+                    {/* WhatsApp hint */}
+                    <div className="mt-3 flex items-center gap-2">
+                      <svg viewBox="0 0 24 24" className="h-4 w-4 flex-shrink-0" style={{ fill: '#25D366' }} aria-hidden="true">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.224-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884" />
+                      </svg>
+                      <span className="text-[0.68rem] text-white/48">Open in WhatsApp</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              {/* CTA */}
               <Link
                 href="/gratis-ontwerp"
-                className="btn-brand-gradient !px-5 !py-2.5 text-sm"
+                onClick={() => setMenuOpen(false)}
+                className="btn-brand-gradient hidden !px-5 !py-2.5 !text-sm sm:inline-flex"
               >
                 Gratis ontwerp
               </Link>
-            </div>
 
-            {/* Mobile burger */}
-            <button
-              className={`md:hidden p-2 rounded-xl transition-colors ${scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/15'}`}
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Menu"
-            >
-              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
-
-        </nav>
-      </header>
-
-      {/* Mega menu panel */}
-      <div
-        onMouseEnter={openMega}
-        onMouseLeave={closeMega}
-        className={`fixed left-0 right-0 z-40 origin-top transition-all duration-300 ease-out ${
-          megaOpen
-            ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 -translate-y-2 pointer-events-none'
-        }`}
-        style={{ top: `${headerHeight}px`, willChange: 'opacity, transform' }}
-      >
-        <div className="border-t border-slate-200/70 bg-white/98 shadow-2xl shadow-slate-950/10 backdrop-blur-xl">
-          <div className="mx-auto max-w-screen-xl px-6 py-7 lg:px-10">
-
-            <div className="grid gap-7 lg:grid-cols-[0.9fr_1.5fr]">
-
-              <Link
-                href="/diensten"
-                onClick={() => setMegaOpen(false)}
-                className="group relative min-h-[19rem] overflow-hidden rounded-[1.35rem] bg-slate-950"
+              {/* Menu toggle */}
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label={menuOpen ? 'Menu sluiten' : 'Menu openen'}
+                aria-expanded={menuOpen}
+                className={`flex items-center gap-3 rounded-full border px-4 py-2.5 text-sm font-medium transition-all duration-300 ${
+                  menuOpen
+                    ? 'border-white/[0.18] bg-white/[0.08] text-white'
+                    : 'border-white/[0.12] bg-white/[0.04] text-white/65 hover:border-white/[0.22] hover:bg-white/[0.08] hover:text-white'
+                }`}
               >
-                <img
-                  src="/hero-bg.png"
-                  alt=""
-                  className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/62 to-slate-950/12" />
-                <div className="relative flex h-full flex-col justify-end p-6 text-white">
-                  <span className="mb-4 w-fit rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white/72 backdrop-blur-sm">
-                    Digitale basis
-                  </span>
-                  <h3 className="max-w-sm font-headline text-2xl font-extrabold leading-tight">
-                    Kies wat nu het meeste verschil maakt.
-                  </h3>
-                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/62">
-                    Websites, shops, dashboards en automatisering horen bij elkaar. Ik help kiezen wat logisch is.
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white">
-                    Bekijk alle diensten <ArrowRight size={14} />
-                  </span>
+                <span className="hidden sm:inline">Menu</span>
+                <div className="relative h-4 w-5">
+                  <span className="absolute left-0 top-0 block h-px w-full bg-current origin-center transition-all duration-300"
+                    style={{ transform: menuOpen ? 'translateY(8px) rotate(45deg)' : 'none' }} />
+                  <span className="absolute right-0 top-1/2 block h-px -translate-y-1/2 bg-current transition-all duration-300"
+                    style={{ width: '75%', opacity: menuOpen ? 0 : 1, transform: menuOpen ? 'scaleX(0)' : 'none' }} />
+                  <span className="absolute bottom-0 left-0 block h-px w-full bg-current origin-center transition-all duration-300"
+                    style={{ transform: menuOpen ? 'translateY(-8px) rotate(-45deg)' : 'none' }} />
                 </div>
-              </Link>
-
-              <div>
-                <div className="mb-4 flex items-end justify-between gap-6">
-                  <div>
-                    <div className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-slate-400">
-                      Diensten
-                    </div>
-                    <p className="mt-1 max-w-xl text-sm leading-relaxed text-slate-500">
-                      Vier ingangen, dezelfde aanpak: persoonlijk, technisch sterk en zonder onnodige tussenlagen.
-                    </p>
-                  </div>
-                  <Link
-                    href="/contact"
-                    onClick={() => setMegaOpen(false)}
-                    className="hidden shrink-0 items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition-colors hover:border-slate-900 md:inline-flex"
-                  >
-                    Advies vragen <ArrowRight size={13} />
-                  </Link>
-                </div>
-
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {DIENSTEN.map((dienst) => (
-                    <Link
-                      key={dienst.href}
-                      href={dienst.href}
-                      onClick={() => setMegaOpen(false)}
-                      className="group grid min-h-[8.2rem] grid-cols-[8.2rem_1fr] overflow-hidden rounded-[1.1rem] border border-slate-200 bg-white transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-900/7"
-                    >
-                      <div className="relative overflow-hidden bg-slate-100">
-                        <img
-                          src={dienst.image}
-                          alt=""
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-slate-950/10" />
-                      </div>
-                      <div className="flex min-w-0 flex-col justify-between p-4">
-                        <div>
-                          <div className="flex items-center justify-between gap-3">
-                            <span className="font-headline text-lg font-bold leading-tight text-slate-900">
-                              {dienst.title}
-                            </span>
-                            <ArrowRight size={14} className="shrink-0 text-slate-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-slate-900" />
-                          </div>
-                          <p className="mt-2 text-[13px] leading-relaxed text-slate-500">
-                            {dienst.desc}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-
-              </div>
+              </button>
             </div>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mega overlay (klik buiten sluit) */}
-      {megaOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-transparent"
-          onClick={() => setMegaOpen(false)}
-        />
-      )}
-
-      {/* Mobile side drawer backdrop */}
+      {/* ── Backdrop (click to close) ────────────────────────── */}
       <div
-        className={`fixed inset-0 z-40 bg-[#06040c]/70 backdrop-blur-sm transition-all duration-300 md:hidden ${
-          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 z-[62] transition-all duration-500 ${
+          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
-        onClick={() => setMobileOpen(false)}
+        style={{ background: 'rgba(0,0,0,0.32)' }}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
       />
 
-      {/* Mobile side drawer */}
-      <div
-        className={`fixed top-0 right-0 h-full z-50 w-[300px] flex flex-col bg-[#06040c] border-l border-white/8 shadow-2xl transition-transform duration-300 ease-out md:hidden ${
-          mobileOpen ? 'translate-x-0' : 'translate-x-full'
+      {/* ── Right sidebar ────────────────────────────────────── */}
+      <aside
+        className={`fixed right-0 top-0 bottom-0 z-[65] flex w-[300px] flex-col transition-transform duration-500 ease-out ${
+          menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
+        style={{
+          background: 'rgba(6,4,12,0.72)',
+          backdropFilter: 'blur(48px) saturate(200%)',
+          WebkitBackdropFilter: 'blur(48px) saturate(200%)',
+          borderLeft: '1px solid rgba(255,255,255,0.08)',
+          boxShadow: '-32px 0 80px rgba(0,0,0,0.45)',
+        }}
+        aria-hidden={!menuOpen}
       >
-        {/* Drawer header */}
-        <div className="flex items-center justify-between px-5 py-5 border-b border-white/8 flex-shrink-0">
-          <img src="/WebsUp.nl logo wit.png" alt={siteName} className="h-14 w-auto" />
+        {/* ── Top: logo + close ───────────────────────────── */}
+        <div className="relative flex items-center justify-between px-7 pt-6 pb-5">
+          <img src="/WebsUp.nl logo wit.png" alt="WebsUp" className="h-16 w-auto opacity-90" />
           <button
-            onClick={() => setMobileOpen(false)}
-            className="p-2 rounded-xl text-white/50 hover:text-white hover:bg-white/10 transition-colors"
+            onClick={() => setMenuOpen(false)}
             aria-label="Menu sluiten"
+            className="text-white/25 transition-colors hover:text-white/60"
           >
-            <X size={18} />
+            <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="1.6">
+              <path d="M2 2l12 12M14 2L2 14" />
+            </svg>
           </button>
         </div>
 
-        {/* Nav items */}
-        <div className="flex-1 overflow-y-auto px-3 py-4 space-y-0.5">
-          {/* Diensten accordion */}
-          <div>
-            <button
-              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-              className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/8 transition-colors"
-            >
-              Diensten
-              <ChevronDown
-                size={14}
-                className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`}
-              />
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-200 ${
-                mobileServicesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
-              <div className="mt-1 ml-3 space-y-0.5 border-l border-white/10 pl-3 pb-1">
-                {DIENSTEN.map((d) => {
-                  const Icon = d.icon
-                  return (
-                    <Link
-                      key={d.href}
-                      href={d.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      <Icon size={14} className="text-white/35 flex-shrink-0" />
-                      {d.title}
-                    </Link>
-                  )
-                })}
-                <Link
-                  href="/diensten"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-1 px-3 py-2 rounded-lg text-xs text-white/35 hover:text-white/60 transition-colors"
-                >
-                  Alle diensten <ArrowRight size={11} />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Other nav items */}
-          {items.filter((i) => i.url !== '/diensten').map((item) => (
+        {/* ── Nav links ───────────────────────────────────── */}
+        <nav className="relative flex-1 px-4 pb-4">
+          {NAV_LINKS.map(({ label, href }, i) => (
             <Link
-              key={item.id}
-              href={item.url}
-              onClick={() => setMobileOpen(false)}
-              className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                isActive(item.url)
-                  ? 'bg-white/10 text-white'
-                  : 'text-white/70 hover:text-white hover:bg-white/8'
+              key={href}
+              href={href}
+              onClick={() => setMenuOpen(false)}
+              className={`group flex items-center rounded-lg px-3 py-2.5 transition-colors duration-150 ${
+                isActive(href) ? 'text-white' : 'text-white/30 hover:text-white/80'
               }`}
+              style={{ transitionDelay: menuOpen ? `${i * 36}ms` : '0ms' }}
             >
-              {item.label}
+              <span className="font-headline text-[1.6rem] font-extrabold tracking-[-0.03em]">
+                {label}
+              </span>
             </Link>
           ))}
+        </nav>
+
+        {/* ── Contact ─────────────────────────────────────── */}
+        <div className="relative border-t border-white/[0.05] px-7 py-5">
+          <div className="space-y-2.5">
+            <a
+              href={`tel:${siteConfig.phone.replace(/\s/g, '')}`}
+              className="flex items-center gap-2.5 text-[0.75rem] text-white/30 transition-colors hover:text-white/60"
+            >
+              <Phone size={12} className="flex-shrink-0" />
+              {siteConfig.phone}
+            </a>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="flex items-center gap-2.5 text-[0.75rem] text-white/30 transition-colors hover:text-white/60"
+            >
+              <Mail size={12} className="flex-shrink-0" />
+              {siteConfig.email}
+            </a>
+          </div>
         </div>
 
-        {/* Drawer footer, CTA */}
-        <div className="px-4 py-5 border-t border-white/8 flex-shrink-0 space-y-3">
+        {/* ── CTA ─────────────────────────────────────────── */}
+        <div className="relative px-5 pb-7">
           <Link
             href="/gratis-ontwerp"
-            onClick={() => setMobileOpen(false)}
-            className="btn-brand-gradient block justify-center text-center"
+            onClick={() => setMenuOpen(false)}
+            className="btn-brand-gradient w-full justify-center !py-3 !text-sm"
           >
-            Gratis ontwerp
+            Gratis ontwerp aanvragen
+            <ArrowRight size={14} />
           </Link>
         </div>
-      </div>
+      </aside>
     </>
   )
 }

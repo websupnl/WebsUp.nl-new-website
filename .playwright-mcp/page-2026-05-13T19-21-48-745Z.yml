@@ -1,0 +1,262 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - paragraph [ref=e5]: Get 20% (up to $100) off your first payment for design and development services on Dribbble! Use code WELCOME20 🎉
+      - link "Get Started" [ref=e6] [cursor=pointer]:
+        - /url: https://dribbble.com/instantmatch
+    - button "close" [ref=e7] [cursor=pointer]:
+      - img [ref=e8]
+  - generic [ref=e11]:
+    - link "Back to home page" [ref=e12] [cursor=pointer]:
+      - /url: /
+      - 'img "Dribbble: the community for graphic design" [ref=e13]'
+    - generic [ref=e16]:
+      - combobox "Submit" [ref=e18]:
+        - search [ref=e19]:
+          - searchbox "Submit" [ref=e21]
+      - generic "Change search type" [ref=e22]:
+        - generic:
+          - generic:
+            - button "Shots" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]: Shots
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Shots
+                  - generic: Designers
+                  - generic: Services
+      - button "Search" [ref=e25] [cursor=pointer]:
+        - img [ref=e26]
+    - navigation [ref=e28]:
+      - list [ref=e30]:
+        - listitem [ref=e31]:
+          - link "Explore" [ref=e32] [cursor=pointer]:
+            - /url: /shots/popular
+        - listitem [ref=e33]:
+          - link "Hire Talent" [ref=e34] [cursor=pointer]:
+            - /url: /designers
+        - listitem [ref=e35]:
+          - link "Get Hired" [ref=e36] [cursor=pointer]:
+            - /url: /browse-project-briefs
+        - listitem [ref=e37]:
+          - link "Community" [ref=e38] [cursor=pointer]:
+            - /url: /stories
+    - generic [ref=e39]:
+      - link "Sign up" [ref=e40] [cursor=pointer]:
+        - /url: /signups/new
+      - link "Log in" [ref=e41] [cursor=pointer]:
+        - /url: /session/new
+  - main [ref=e44]:
+    - generic [ref=e46]:
+      - generic [ref=e48]:
+        - heading "Testimonials Section" [level=1] [ref=e51]
+        - generic [ref=e53]:
+          - generic [ref=e55]:
+            - link "Mateusz Nieckarz" [ref=e56] [cursor=pointer]:
+              - /url: /matnie
+              - generic [ref=e57]:
+                - img "Mateusz Nieckarz" [ref=e58]
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Online
+            - generic [ref=e59]:
+              - generic [ref=e61]:
+                - link "Mateusz Nieckarz" [ref=e62] [cursor=pointer]:
+                  - /url: /matnie
+                - text: for
+                - link "Studio Matt" [ref=e63] [cursor=pointer]:
+                  - /url: /studiomatt_co
+              - generic [ref=e64]:
+                - button "Available for work" [ref=e65] [cursor=pointer]
+                - link "Follow" [ref=e67] [cursor=pointer]:
+                  - /url: /matnie/followers
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - button [ref=e71] [cursor=pointer]:
+                - img [ref=e72]
+              - listitem [ref=e74]:
+                - link "Save shot" [ref=e75] [cursor=pointer]:
+                  - /url: /signups/new
+                  - img [ref=e76]
+            - link "Get in touch" [ref=e78] [cursor=pointer]:
+              - /url: /signups/new
+              - generic [ref=e79]: Get in touch
+        - generic [ref=e80]:
+          - img [ref=e81]
+          - generic [ref=e83]:
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - link "#FAF9FB" [ref=e86] [cursor=pointer]:
+                  - /url: /shots?color=FAF9FB
+              - listitem [ref=e87]:
+                - link "#04040B" [ref=e88] [cursor=pointer]:
+                  - /url: /shots?color=04040B
+              - listitem [ref=e89]:
+                - link "#B0C9C4" [ref=e90] [cursor=pointer]:
+                  - /url: /shots?color=B0C9C4
+              - listitem [ref=e91]:
+                - link "#3C3947" [ref=e92] [cursor=pointer]:
+                  - /url: /shots?color=3C3947
+              - listitem [ref=e93]:
+                - link "#007C2D" [ref=e94] [cursor=pointer]:
+                  - /url: /shots?color=007C2D
+              - listitem [ref=e95]:
+                - link "#5D5A68" [ref=e96] [cursor=pointer]:
+                  - /url: /shots?color=5D5A68
+              - listitem [ref=e97]:
+                - link "#9F9CA6" [ref=e98] [cursor=pointer]:
+                  - /url: /shots?color=9F9CA6
+              - listitem [ref=e99]:
+                - link "#469B75" [ref=e100] [cursor=pointer]:
+                  - /url: /shots?color=469B75
+            - link "Download color palette" [ref=e101] [cursor=pointer]:
+              - /url: /shots/25483575-Testimonials-Section/colors.aco
+              - img [ref=e102]
+              - generic: Download color palette
+        - generic [ref=e105]:
+          - link [ref=e109] [cursor=pointer]:
+            - /url: https://cdn.dribbble.com/userupload/18469899/file/original-6bcfea70f1fa2bf202c6efddba2c7675.jpg?resize=752x&vertical=center
+          - generic [ref=e111]:
+            - paragraph [ref=e112]:
+              - strong [ref=e113]: —
+            - paragraph [ref=e114]
+            - paragraph [ref=e115]:
+              - strong [ref=e116]: We are Studio Matt
+            - paragraph [ref=e117]: We team up with forward-thinking businesses and ambitious startups to deliver user-centric designs that convert and make a lasting impact. We specialize in product design, web, and app design.
+            - paragraph [ref=e118]
+        - generic [ref=e119]:
+          - link "Studio Matt" [ref=e122] [cursor=pointer]:
+            - /url: /studiomatt_co
+            - generic [ref=e123]:
+              - img "Studio Matt" [ref=e124]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Online
+          - link "Studio Matt" [ref=e126] [cursor=pointer]:
+            - /url: /studiomatt_co
+          - generic [ref=e127]: Design partner for startups & founders
+          - link "Get in touch" [ref=e129] [cursor=pointer]:
+            - /url: /signups/new
+            - generic [ref=e130]: Get in touch
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - heading "More by Studio Matt" [level=4] [ref=e133]
+            - link "View profile" [ref=e134] [cursor=pointer]:
+              - /url: /studiomatt_co
+          - generic [ref=e135]:
+            - listitem [ref=e137]
+            - listitem [ref=e139]
+            - listitem [ref=e141]
+            - listitem [ref=e143]
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - heading "Services by Mateusz Nieckarz" [level=4] [ref=e146]
+            - paragraph [ref=e147]:
+              - link "View all services" [ref=e148] [cursor=pointer]:
+                - /url: /matnie/services
+          - 'button "View service: Monthly Product Design Partnership" [ref=e150] [cursor=pointer]':
+            - img [ref=e152]
+            - generic [ref=e153]:
+              - generic [ref=e154]: Monthly Product Design Partnership
+              - generic [ref=e155]: $6,000
+      - generic [ref=e161]:
+        - button "View comments 8" [ref=e162] [cursor=pointer]:
+          - img [ref=e163]
+          - generic: View comments
+          - generic [ref=e165]: "8"
+        - button "Share actions" [ref=e166] [cursor=pointer]:
+          - img [ref=e167]
+          - generic: Share actions
+        - button "Detail actions" [ref=e169] [cursor=pointer]:
+          - img [ref=e170]
+          - generic: Detail actions
+  - contentinfo [ref=e173]:
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - 'link "Dribbble: the community for graphic design Back to home page" [ref=e176] [cursor=pointer]':
+          - /url: /
+          - 'img "Dribbble: the community for graphic design" [ref=e177]'
+          - generic: Back to home page
+        - list [ref=e179]:
+          - listitem [ref=e180]:
+            - link "For designers" [ref=e181] [cursor=pointer]:
+              - /url: /for-designers
+          - listitem [ref=e182]:
+            - link "Hire talent" [ref=e183] [cursor=pointer]:
+              - /url: /hiring
+          - listitem [ref=e184]:
+            - link "Inspiration" [ref=e185] [cursor=pointer]:
+              - /url: /shots/popular
+          - listitem [ref=e186]:
+            - link "Advertising" [ref=e187] [cursor=pointer]:
+              - /url: /advertise
+          - listitem [ref=e188]:
+            - link "Blog" [ref=e189] [cursor=pointer]:
+              - /url: /stories
+          - listitem [ref=e190]:
+            - link "About" [ref=e191] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e192]:
+            - link "Careers" [ref=e193] [cursor=pointer]:
+              - /url: /careers
+          - listitem [ref=e194]:
+            - link "Support" [ref=e195] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=e196]:
+          - link "X" [ref=e197] [cursor=pointer]:
+            - /url: http://x.com/dribbble
+            - img [ref=e198]
+            - generic: X
+          - link "Facebook" [ref=e200] [cursor=pointer]:
+            - /url: http://facebook.com/dribbble
+            - img [ref=e201]
+            - generic: Facebook
+          - link "Instagram" [ref=e203] [cursor=pointer]:
+            - /url: http://instagram.com/dribbble
+            - img [ref=e204]
+            - generic: Instagram
+          - link "Pinterest" [ref=e206] [cursor=pointer]:
+            - /url: http://www.pinterest.com/dribbble/
+            - img [ref=e207]
+            - generic: Pinterest
+      - generic [ref=e209]:
+        - list [ref=e210]:
+          - listitem [ref=e211]: © 2026 Dribbble
+          - listitem [ref=e212]:
+            - link "Terms" [ref=e213] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e214]:
+            - link "Privacy" [ref=e215] [cursor=pointer]:
+              - /url: /privacy
+          - listitem [ref=e216]:
+            - link "Cookies" [ref=e217] [cursor=pointer]:
+              - /url: /cookie-policy
+        - list [ref=e218]:
+          - listitem [ref=e219]:
+            - link "Jobs" [ref=e220] [cursor=pointer]:
+              - /url: /directories/jobs
+          - listitem [ref=e221]:
+            - link "Designers" [ref=e222] [cursor=pointer]:
+              - /url: /directories/designers
+          - listitem [ref=e223]:
+            - link "Freelancers" [ref=e224] [cursor=pointer]:
+              - /url: /directories/freelance-designers
+          - listitem [ref=e225]:
+            - link "Tags" [ref=e226] [cursor=pointer]:
+              - /url: /tags
+          - listitem [ref=e227]:
+            - link "Places" [ref=e228] [cursor=pointer]:
+              - /url: /places
+          - listitem [ref=e229]:
+            - link "Resources" [ref=e230] [cursor=pointer]:
+              - /url: /resources
+  - generic:
+    - link "close":
+      - /url: "#"
+      - img
+  - iframe [ref=e231]:
+    

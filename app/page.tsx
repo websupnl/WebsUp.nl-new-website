@@ -12,7 +12,6 @@ import AboutMeSection from '@/components/site/AboutMeSection'
 import ReviewsSection from '@/components/site/ReviewsSection'
 import CTASection from '@/components/site/CTASection'
 import CookieBanner from '@/components/site/CookieBanner'
-import { getTestimonials } from '@/lib/queries/testimonials'
 import { getProjects } from '@/lib/queries/projects'
 import { getMergedSiteSettings, getMergedSeoSettings } from '@/lib/queries/site-settings'
 
@@ -29,11 +28,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [settings, projects, seo, testimonials] = await Promise.all([
+  const [settings, projects, seo] = await Promise.all([
     getMergedSiteSettings(),
     getProjects(),
     getMergedSeoSettings(),
-    getTestimonials(),
   ])
 
   return (
@@ -50,7 +48,7 @@ export default async function HomePage() {
         <ServicesSection />
         <ProjectsSection projects={projects} limit={3} />
         <AboutMeSection />
-        <ReviewsSection testimonials={testimonials} />
+        <ReviewsSection />
         <CTASection />
       </main>
       <Footer
