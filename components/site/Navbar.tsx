@@ -92,9 +92,9 @@ export default function Navbar({ siteName = siteConfig.name, logoUrl }: NavbarPr
             {/* Logo */}
             <Link href="/" onClick={() => setMenuOpen(false)} className="relative z-10 flex-shrink-0">
               {logoUrl ? (
-                <img src={logoUrl} alt={siteName} className="h-24 w-auto" />
+                <img src={logoUrl} alt={siteName} className="h-10 sm:h-14 md:h-20 w-auto" />
               ) : (
-                <img src="/WebsUp.nl logo wit.png" alt={siteName} className="h-24 w-auto" />
+                <img src="/WebsUp.nl logo wit.png" alt={siteName} className="h-10 sm:h-14 md:h-20 w-auto" />
               )}
             </Link>
 

@@ -29,7 +29,7 @@ export default function HeroSection() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(110deg, rgba(6,4,12,0.95) 0%, rgba(6,4,12,0.82) 38%, rgba(6,4,12,0.44) 65%, rgba(6,4,12,0.18) 100%)',
+              'linear-gradient(110deg, rgba(6,4,12,0.92) 0%, rgba(6,4,12,0.72) 35%, rgba(6,4,12,0.32) 62%, rgba(6,4,12,0.08) 100%)',
           }}
         />
 
@@ -45,28 +45,32 @@ export default function HeroSection() {
       <GrainOverlay opacity={0.022} className="absolute" />
 
       {/* ── Main grid ──────────────────────────────────────────── */}
-      <div className="relative mx-auto grid w-full max-w-7xl flex-1 gap-14 px-6 pb-16 pt-28 md:pt-32 lg:grid-cols-[1.22fr_0.78fr] lg:items-center lg:gap-20 lg:px-8 lg:pb-20 lg:pt-36">
+      <div className="relative mx-auto grid w-full max-w-7xl flex-1 gap-10 px-6 pb-16 pt-20 sm:pt-24 md:pt-32 lg:grid-cols-[1.22fr_0.78fr] lg:items-center lg:gap-20 lg:px-8 lg:pb-20 lg:pt-36">
 
         {/* ── LEFT: content ──────────────────────────────────── */}
         <div className="flex flex-col">
 
-          {/* Badge */}
-          <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/[0.11] bg-white/[0.055] px-4 py-2 backdrop-blur-md">
-            <span className="h-[5px] w-[5px] rounded-full bg-gradient-to-r from-orange-400 to-pink-400" />
-            <span className="text-[0.72rem] font-medium tracking-wide text-white/55">
-              Digitale oplossingen die met je bedrijf meegroeien
-            </span>
+          {/* Pills */}
+          <div className="mb-7 flex flex-wrap gap-2">
+            {['Direct contact met Daan', 'Geen verplichting', 'Praktisch advies'].map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.10] bg-white/[0.04] px-3.5 py-1.5 text-[0.68rem] font-medium tracking-wide text-white/50 backdrop-blur-md"
+              >
+                <span className="h-[4px] w-[4px] rounded-full bg-gradient-to-r from-orange-400 to-pink-400 opacity-80" />
+                {label}
+              </span>
+            ))}
           </div>
 
           {/* Headline */}
           <h1
-            className="font-headline font-extrabold leading-[1.04] tracking-[-0.038em] text-white"
-            style={{ fontSize: 'clamp(2.2rem, 4.2vw, 4.8rem)' }}
+            className="font-headline font-extrabold leading-[1.06] tracking-[-0.038em] text-white"
+            style={{ fontSize: 'clamp(1.75rem, 4.2vw, 3.8rem)' }}
           >
-            Ik bouw oplossingen
+            Ik bouw voor bedrijven
             <br />
-            voor bedrijven die willen
-            <br />
+            die willen{' '}
             <HeroRotatingWord />
           </h1>
 

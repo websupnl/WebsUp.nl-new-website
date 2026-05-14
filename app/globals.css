@@ -663,6 +663,23 @@ p {
 }
 .hero-cursor { animation: hero-cursor-blink 1.05s step-end infinite; }
 
+/* ============================
+   ECOSYSTEM PULSE ANIMATIONS
+   ============================ */
+@keyframes ecosys-pulse {
+  0%   { left: -30%; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { left: 130%; opacity: 0; }
+}
+
+@keyframes ecosys-pulse-v {
+  0%   { top: -20%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 120%; opacity: 0; }
+}
+
 .motion-sheen {
   position: relative;
   isolation: isolate;
