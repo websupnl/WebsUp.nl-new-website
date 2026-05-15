@@ -17,7 +17,7 @@ export default function WhatsAppButton() {
 
       {/* Hover card — verschijnt boven de button */}
       <div
-        className="pointer-events-none absolute bottom-[72px] right-0 w-52 opacity-0 translate-y-2.5 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0"
+        className="pointer-events-none absolute bottom-[72px] right-0 w-60 opacity-0 translate-y-2.5 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0"
         style={{
           background: 'rgba(8,6,16,0.84)',
           backdropFilter: 'blur(36px) saturate(200%)',
@@ -44,8 +44,8 @@ export default function WhatsAppButton() {
               </span>
             </div>
             <div>
-              <p className="text-[0.76rem] font-semibold leading-none text-white/88">Daan Koolhaas</p>
-              <p className="mt-[5px] flex items-center gap-1 text-[0.64rem] text-white/50">
+              <p className="text-[0.82rem] font-semibold leading-none text-white">Daan Koolhaas</p>
+              <p className="mt-[5px] flex items-center gap-1 text-[0.72rem] text-white/80">
                 <span className="h-[5px] w-[5px] flex-shrink-0 rounded-full bg-emerald-400/90" />
                 Nu beschikbaar
               </p>
@@ -57,8 +57,8 @@ export default function WhatsAppButton() {
             style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
           {/* Body */}
-          <p className="mt-2.5 text-[0.69rem] leading-relaxed text-white/55">
-            Stuur me direct een bericht — ik reageer zelf, dezelfde dag.
+          <p className="mt-2.5 text-[0.8rem] leading-relaxed text-white/85">
+            Persoonlijk bereikbaar voor vragen, ideeën of advies.
           </p>
 
           {/* WhatsApp hint */}
@@ -66,7 +66,7 @@ export default function WhatsAppButton() {
             <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 flex-shrink-0" style={{ fill: '#25D366' }} aria-hidden="true">
               <path d={WA_PATH} />
             </svg>
-            <span className="text-[0.63rem] text-white/40">Klik om te openen in WhatsApp</span>
+            <span className="text-[0.72rem] text-white/70">Klik om te openen in WhatsApp</span>
           </div>
         </div>
       </div>

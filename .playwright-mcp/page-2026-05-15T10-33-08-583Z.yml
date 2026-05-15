@@ -1,0 +1,311 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "WebsUp.nl" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "WebsUp.nl" [ref=e6]
+      - generic [ref=e7]:
+        - link "Direct contact met Daan via WhatsApp" [ref=e8] [cursor=pointer]:
+          - /url: https://wa.me/31682202148?text=Hoi%20Daan%2C%20ik%20wil%20graag%20sparren%20over%20mijn%20website.
+          - img "Daan Koolhaas" [ref=e10]
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - img "Daan"
+                - generic:
+                  - paragraph: Daan Koolhaas
+                  - paragraph: Nu beschikbaar
+              - paragraph: Persoonlijk bereikbaar voor vragen, ideeën of advies.
+              - generic:
+                - img
+                - generic: Klik om te openen in WhatsApp
+        - link "Gratis ontwerp" [ref=e14] [cursor=pointer]:
+          - /url: /gratis-ontwerp
+        - button "Menu openen" [ref=e15]:
+          - generic [ref=e16]: Menu
+  - complementary [ref=e21]:
+    - generic [ref=e22]:
+      - img [ref=e23]
+      - button [ref=e24]:
+        - img [ref=e25]
+    - navigation [ref=e27]:
+      - link [ref=e28] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e29]: Home
+      - link [ref=e30] [cursor=pointer]:
+        - /url: /diensten
+        - generic [ref=e31]: Diensten
+      - link [ref=e32] [cursor=pointer]:
+        - /url: /projecten
+        - generic [ref=e33]: Projecten
+      - link [ref=e34] [cursor=pointer]:
+        - /url: /over-ons
+        - generic [ref=e35]: Over Daan
+      - link [ref=e36] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e37]: Contact
+    - generic [ref=e39]:
+      - link [ref=e40] [cursor=pointer]:
+        - /url: tel:0682202148
+        - img [ref=e41]
+        - text: 06 82 20 21 48
+      - link [ref=e43] [cursor=pointer]:
+        - /url: mailto:info@webs-up.nl
+        - img [ref=e44]
+        - text: info@webs-up.nl
+    - link [ref=e48] [cursor=pointer]:
+      - /url: /gratis-ontwerp
+      - text: Gratis ontwerp aanvragen
+      - img [ref=e49]
+  - main [ref=e51]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic: WebsUp
+        - generic [ref=e54]:
+          - generic [ref=e55]: Diensten
+          - heading "Digitale oplossingen die passen bij je bedrijf" [level=1] [ref=e56]
+          - paragraph [ref=e58]: Geen standaard pakketten. Ik kijk naar wat past bij jouw situatie, je doelen en hoe je bedrijf werkt.
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - link "Plan een kennismaking" [ref=e61] [cursor=pointer]:
+                - /url: /contact
+                - text: Plan een kennismaking
+                - img [ref=e62]
+              - link "Vraag gratis ontwerp aan" [ref=e64] [cursor=pointer]:
+                - /url: /gratis-ontwerp
+            - generic [ref=e65]:
+              - generic [ref=e66]:
+                - img [ref=e67]
+                - generic [ref=e70]: Geen verplichting
+              - generic [ref=e71]:
+                - img [ref=e72]
+                - generic [ref=e74]: Direct contact met Daan
+              - generic [ref=e75]:
+                - img [ref=e76]
+                - generic [ref=e78]: Praktisch advies
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - generic [ref=e82]: Wat ik bouw
+          - heading "Vier richtingen, een aanpak" [level=2] [ref=e83]
+          - paragraph [ref=e84]: Heldere keuzes voor bedrijven die professioneel zichtbaar willen zijn, online willen verkopen of slimmer willen werken.
+        - generic [ref=e85]:
+          - link "Websites Moderne, snelle websites die professioneel overkomen en gericht zijn op resultaat. WordPress, Next.js of Shopify, het platform volgt de vraag. Conversiegerichte opbouw Mobiel eerst & razendsnel Basis SEO en technische fundering Beheerbaar en uitbreidbaar Meer over websites" [ref=e87] [cursor=pointer]:
+            - /url: /diensten/websites
+            - generic [ref=e88]:
+              - img [ref=e90]
+              - heading "Websites" [level=3] [ref=e92]
+            - paragraph [ref=e93]: Moderne, snelle websites die professioneel overkomen en gericht zijn op resultaat. WordPress, Next.js of Shopify, het platform volgt de vraag.
+            - list [ref=e94]:
+              - listitem [ref=e95]:
+                - img [ref=e96]
+                - generic [ref=e99]: Conversiegerichte opbouw
+              - listitem [ref=e100]:
+                - img [ref=e101]
+                - generic [ref=e104]: Mobiel eerst & razendsnel
+              - listitem [ref=e105]:
+                - img [ref=e106]
+                - generic [ref=e109]: Basis SEO en technische fundering
+              - listitem [ref=e110]:
+                - img [ref=e111]
+                - generic [ref=e114]: Beheerbaar en uitbreidbaar
+            - generic [ref=e115]:
+              - text: Meer over websites
+              - img [ref=e116]
+          - link "Webshops Webshops die vertrouwen uitstralen én verkopen. Met iDEAL, Mollie, slimme checkout en alles wat nodig is om direct te starten. Optimale checkout flow Koppeling met betaalsystemen Voorraadbeheer & orders Uitbreidbaar naar maatwerk Meer over webshops" [ref=e119] [cursor=pointer]:
+            - /url: /diensten/webshops
+            - generic [ref=e120]:
+              - img [ref=e122]
+              - heading "Webshops" [level=3] [ref=e126]
+            - paragraph [ref=e127]: Webshops die vertrouwen uitstralen én verkopen. Met iDEAL, Mollie, slimme checkout en alles wat nodig is om direct te starten.
+            - list [ref=e128]:
+              - listitem [ref=e129]:
+                - img [ref=e130]
+                - generic [ref=e133]: Optimale checkout flow
+              - listitem [ref=e134]:
+                - img [ref=e135]
+                - generic [ref=e138]: Koppeling met betaalsystemen
+              - listitem [ref=e139]:
+                - img [ref=e140]
+                - generic [ref=e143]: Voorraadbeheer & orders
+              - listitem [ref=e144]:
+                - img [ref=e145]
+                - generic [ref=e148]: Uitbreidbaar naar maatwerk
+            - generic [ref=e149]:
+              - text: Meer over webshops
+              - img [ref=e150]
+          - link "Apps & Dashboards Maatwerk tools, klantportalen en dashboards die processen automatiseren en inzicht geven. Voor bedrijven die meer nodig hebben dan een website. Klantportalen op maat Interne management tools Realtime data dashboards Rolgebaseerde toegang Meer over apps & dashboards" [ref=e153] [cursor=pointer]:
+            - /url: /diensten/apps-dashboards
+            - generic [ref=e154]:
+              - img [ref=e156]
+              - heading "Apps & Dashboards" [level=3] [ref=e161]
+            - paragraph [ref=e162]: Maatwerk tools, klantportalen en dashboards die processen automatiseren en inzicht geven. Voor bedrijven die meer nodig hebben dan een website.
+            - list [ref=e163]:
+              - listitem [ref=e164]:
+                - img [ref=e165]
+                - generic [ref=e168]: Klantportalen op maat
+              - listitem [ref=e169]:
+                - img [ref=e170]
+                - generic [ref=e173]: Interne management tools
+              - listitem [ref=e174]:
+                - img [ref=e175]
+                - generic [ref=e178]: Realtime data dashboards
+              - listitem [ref=e179]:
+                - img [ref=e180]
+                - generic [ref=e183]: Rolgebaseerde toegang
+            - generic [ref=e184]:
+              - text: Meer over apps & dashboards
+              - img [ref=e185]
+          - link "Automatisering Koppelingen en slimme workflows die handmatig werk elimineren. Van n8n-automatiseringen tot volledige API koppelingen tussen je systemen. API koppelingen Workflow automatisering CRM & email integraties n8n en maatwerk scripts Meer over automatisering" [ref=e188] [cursor=pointer]:
+            - /url: /diensten/automatisering
+            - generic [ref=e189]:
+              - img [ref=e191]
+              - heading "Automatisering" [level=3] [ref=e193]
+            - paragraph [ref=e194]: Koppelingen en slimme workflows die handmatig werk elimineren. Van n8n-automatiseringen tot volledige API koppelingen tussen je systemen.
+            - list [ref=e195]:
+              - listitem [ref=e196]:
+                - img [ref=e197]
+                - generic [ref=e200]: API koppelingen
+              - listitem [ref=e201]:
+                - img [ref=e202]
+                - generic [ref=e205]: Workflow automatisering
+              - listitem [ref=e206]:
+                - img [ref=e207]
+                - generic [ref=e210]: CRM & email integraties
+              - listitem [ref=e211]:
+                - img [ref=e212]
+                - generic [ref=e215]: n8n en maatwerk scripts
+            - generic [ref=e216]:
+              - text: Meer over automatisering
+              - img [ref=e217]
+      - generic [ref=e220]:
+        - generic [ref=e221]:
+          - generic [ref=e222]:
+            - img [ref=e223]
+            - img [ref=e225]
+            - img [ref=e227]
+            - img [ref=e229]
+            - img [ref=e231]
+          - paragraph [ref=e233]: Klantreactie
+          - paragraph [ref=e234]: Jeremy Palsma
+        - blockquote [ref=e236]: “Daan heeft voor ons in no time, binnen 2 weken, een complete professionele website gebouwd. Qua kwaliteit komt het resultaat verrassend dicht in de buurt van veel duurdere agencies.”
+      - generic [ref=e244]:
+        - generic [ref=e245]:
+          - generic [ref=e246]: Vrijblijvend kennismaken
+          - heading "Zullen we sparren?" [level=2] [ref=e247]
+          - paragraph [ref=e248]: Stuur gerust een bericht. Dan kijk ik met je mee naar je idee, huidige website of proces. Vaak wordt in een gesprek al duidelijk wat de slimste volgende stap is.
+          - generic [ref=e249]:
+            - link "Gratis ontwerp aanvragen" [ref=e250] [cursor=pointer]:
+              - /url: /gratis-ontwerp
+              - text: Gratis ontwerp aanvragen
+              - img [ref=e251]
+            - link "Kennismaking plannen" [ref=e253] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=e254]:
+          - generic [ref=e255]:
+            - img [ref=e256]
+            - generic [ref=e259]: Geen verplichting
+          - generic [ref=e260]:
+            - img [ref=e261]
+            - generic [ref=e263]: Direct contact met Daan
+          - generic [ref=e264]:
+            - img [ref=e265]
+            - generic [ref=e267]: Praktisch advies
+  - contentinfo [ref=e268]:
+    - generic [ref=e269]:
+      - generic [ref=e270]:
+        - generic [ref=e271]:
+          - link "WebsUp.nl" [ref=e272] [cursor=pointer]:
+            - /url: /
+            - img "WebsUp.nl" [ref=e273]
+          - paragraph [ref=e274]: WebsUp helpt bedrijven met websites, webshops en maatwerk systemen die professioneel ogen en praktisch werken.
+        - generic [ref=e275]:
+          - heading "Diensten" [level=6] [ref=e276]
+          - list [ref=e277]:
+            - listitem [ref=e278]:
+              - link "Websites" [ref=e279] [cursor=pointer]:
+                - /url: /diensten/websites
+            - listitem [ref=e280]:
+              - link "Webshops" [ref=e281] [cursor=pointer]:
+                - /url: /diensten/webshops
+            - listitem [ref=e282]:
+              - link "Apps en dashboards" [ref=e283] [cursor=pointer]:
+                - /url: /diensten/apps-dashboards
+            - listitem [ref=e284]:
+              - link "Automatisering" [ref=e285] [cursor=pointer]:
+                - /url: /diensten/automatisering
+            - listitem [ref=e286]:
+              - link "Onderhoud en optimalisatie" [ref=e287] [cursor=pointer]:
+                - /url: /diensten
+        - generic [ref=e288]:
+          - heading "Bedrijf" [level=6] [ref=e289]
+          - list [ref=e290]:
+            - listitem [ref=e291]:
+              - link "Over Daan" [ref=e292] [cursor=pointer]:
+                - /url: /over-ons
+            - listitem [ref=e293]:
+              - link "Projecten" [ref=e294] [cursor=pointer]:
+                - /url: /projecten
+            - listitem [ref=e295]:
+              - link "Reviews" [ref=e296] [cursor=pointer]:
+                - /url: /projecten
+            - listitem [ref=e297]:
+              - link "Contact" [ref=e298] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e299]:
+          - heading "Contact" [level=6] [ref=e300]
+          - list [ref=e301]:
+            - listitem [ref=e302]:
+              - link "info@websup.nl" [ref=e303] [cursor=pointer]:
+                - /url: mailto:info@websup.nl
+                - img [ref=e304]
+                - generic [ref=e307]: info@websup.nl
+            - listitem [ref=e308]:
+              - link "+31 6 12345678" [ref=e309] [cursor=pointer]:
+                - /url: tel:+31612345678
+                - img [ref=e310]
+                - generic [ref=e312]: +31 6 12345678
+            - listitem [ref=e313]:
+              - img [ref=e314]
+              - generic [ref=e317]: Friesland, Nederland
+            - listitem [ref=e318]:
+              - img [ref=e319]
+              - generic [ref=e322]: KVK 95524061
+      - generic [ref=e323]:
+        - generic [ref=e324]: © 2026 WebsUp.nl. Alle rechten voorbehouden.
+        - navigation [ref=e325]:
+          - link "Algemene voorwaarden" [ref=e326] [cursor=pointer]:
+            - /url: /algemene-voorwaarden
+          - link "Privacyverklaring" [ref=e327] [cursor=pointer]:
+            - /url: /privacybeleid
+          - link "Sitemap" [ref=e328] [cursor=pointer]:
+            - /url: /sitemap.xml
+        - generic [ref=e329]:
+          - link "LinkedIn" [ref=e330] [cursor=pointer]:
+            - /url: https://linkedin.com/company/websup
+            - img [ref=e331]
+          - link "Instagram" [ref=e333] [cursor=pointer]:
+            - /url: https://www.instagram.com/websup_nl/
+            - img [ref=e334]
+          - link "Facebook" [ref=e337] [cursor=pointer]:
+            - /url: https://www.facebook.com/WebsUp.nl
+            - img [ref=e338]
+  - generic [ref=e340]:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - img "Daan"
+          - generic:
+            - paragraph: Daan Koolhaas
+            - paragraph: Nu beschikbaar
+        - paragraph: Persoonlijk bereikbaar voor vragen, ideeën of advies.
+        - generic:
+          - img
+          - generic: Klik om te openen in WhatsApp
+    - link "Chat met Daan via WhatsApp" [ref=e341] [cursor=pointer]:
+      - /url: https://wa.me/31682202148?text=Hoi%20Daan%2C%20ik%20heb%20een%20vraag%20over%20mijn%20website%20of%20digitale%20systeem.
+      - img [ref=e343]
+      - generic: App mij direct
+  - button "Open Next.js Dev Tools" [ref=e350] [cursor=pointer]:
+    - img [ref=e351]

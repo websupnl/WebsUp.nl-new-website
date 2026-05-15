@@ -64,7 +64,7 @@ export default function ReviewsCarousel({ testimonials }: Props) {
         {visible.map((t) => (
           <div
             key={t.id}
-            className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-6"
+            className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-950/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:border-pink-100 hover:shadow-md hover:shadow-slate-950/[0.07]"
           >
             <Stars count={t.rating ?? 5} />
             <p className="flex-1 text-sm leading-relaxed text-slate-700">
@@ -72,7 +72,7 @@ export default function ReviewsCarousel({ testimonials }: Props) {
             </p>
             <div>
               <p className="text-sm font-semibold text-slate-900">{t.name}</p>
-              <p className="mt-0.5 text-xs text-slate-400">
+              <p className="mt-0.5 text-xs text-slate-500">
                 {t.role ?? 'Klant van WebsUp'} &middot; {formatDate(t.created_at)}
               </p>
             </div>
@@ -99,7 +99,7 @@ export default function ReviewsCarousel({ testimonials }: Props) {
             onClick={() => setOffset(Math.max(0, offset - 1))}
             disabled={!canPrev}
             aria-label="Vorige"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-slate-300 hover:text-slate-900 disabled:opacity-30"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-orange-200 hover:text-orange-500 disabled:opacity-30"
           >
             <ChevronLeft size={16} />
           </button>
@@ -107,7 +107,7 @@ export default function ReviewsCarousel({ testimonials }: Props) {
             onClick={() => setOffset(Math.min(total - VISIBLE, offset + 1))}
             disabled={!canNext}
             aria-label="Volgende"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-slate-300 hover:text-slate-900 disabled:opacity-30"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-orange-200 hover:text-orange-500 disabled:opacity-30"
           >
             <ChevronRight size={16} />
           </button>

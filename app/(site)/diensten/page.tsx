@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import WavePageHeader from '@/components/site/WavePageHeader'
-import { Monitor, ShoppingCart, LayoutDashboard, Zap, ArrowRight, CheckCircle, LucideIcon, Star, Settings, MapPin, MessageCircle } from 'lucide-react'
+import { ArrowRight, Star } from 'lucide-react'
+import ServiceCardsGrid from '@/components/site/ServiceCard'
 import Reveal from '@/components/ui/Reveal'
 import CTASection from '@/components/site/CTASection'
-import { GlassCard } from '@/components/site/GlassCard'
 import { finalTrustItems } from '@/lib/homepage-content'
 
 export const metadata: Metadata = {
@@ -12,69 +12,6 @@ export const metadata: Metadata = {
   description:
     'Websites, webshops, maatwerk apps, dashboards en automatisering. Persoonlijk gebouwd, geen standaard pakketten.',
 }
-
-interface ServiceItem {
-  title: string
-  slug: string
-  icon: LucideIcon
-  intro: string
-  bullets: string[]
-}
-
-const services: ServiceItem[] = [
-  {
-    title: 'Websites',
-    slug: 'websites',
-    icon: Monitor,
-    intro:
-      'Moderne, snelle websites die professioneel overkomen en gericht zijn op resultaat. WordPress, Next.js of Shopify, het platform volgt de vraag.',
-    bullets: [
-      'Conversiegerichte opbouw',
-      'Mobiel eerst & razendsnel',
-      'Basis SEO en technische fundering',
-      'Beheerbaar en uitbreidbaar',
-    ],
-  },
-  {
-    title: 'Webshops',
-    slug: 'webshops',
-    icon: ShoppingCart,
-    intro:
-      'Webshops die vertrouwen uitstralen én verkopen. Met iDEAL, Mollie, slimme checkout en alles wat nodig is om direct te starten.',
-    bullets: [
-      'Optimale checkout flow',
-      'Koppeling met betaalsystemen',
-      'Voorraadbeheer & orders',
-      'Uitbreidbaar naar maatwerk',
-    ],
-  },
-  {
-    title: 'Apps & Dashboards',
-    slug: 'apps-dashboards',
-    icon: LayoutDashboard,
-    intro:
-      'Maatwerk tools, klantportalen en dashboards die processen automatiseren en inzicht geven. Voor bedrijven die meer nodig hebben dan een website.',
-    bullets: [
-      'Klantportalen op maat',
-      'Interne management tools',
-      'Realtime data dashboards',
-      'Rolgebaseerde toegang',
-    ],
-  },
-  {
-    title: 'Automatisering',
-    slug: 'automatisering',
-    icon: Zap,
-    intro:
-      'Koppelingen en slimme workflows die handmatig werk elimineren. Van n8n-automatiseringen tot volledige API koppelingen tussen je systemen.',
-    bullets: [
-      'API koppelingen',
-      'Workflow automatisering',
-      'CRM & email integraties',
-      'n8n en maatwerk scripts',
-    ],
-  },
-]
 
 export default function DienstenPage() {
   return (
@@ -114,78 +51,37 @@ export default function DienstenPage() {
         </div>
       </WavePageHeader>
 
-      {/* Service cards */}
-      <section className="bg-white py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Service cards — wit met dark glass cards */}
+      <section className="relative overflow-hidden bg-[#f8f9fc] py-20 lg:py-28">
+        <div className="pointer-events-none absolute -top-20 left-[5%] h-72 w-72 rounded-full bg-orange-400/10 blur-[90px]" />
+        <div className="pointer-events-none absolute -bottom-10 right-[5%] h-64 w-64 rounded-full bg-violet-400/10 blur-[80px]" />
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal className="mb-14 max-w-2xl">
-            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
-              Wat ik bouw
-            </span>
+            <span className="overline-badge mb-4 inline-flex">Wat ik bouw</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Vier richtingen, een aanpak
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-slate-500">
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-slate-500">
               Heldere keuzes voor bedrijven die professioneel zichtbaar willen zijn, online willen verkopen of slimmer willen werken.
             </p>
           </Reveal>
 
-          <div className="grid gap-5 lg:grid-cols-2">
-            {services.map((service, i) => {
-              const Icon = service.icon
-              return (
-                <Reveal key={service.slug} delay={i * 70}>
-                  <Link
-                    href={`/diensten/${service.slug}`}
-                    className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent-200 hover:shadow-xl hover:shadow-slate-900/5"
-                  >
-                    <div className="mb-5 flex items-center gap-4">
-                      <span
-                        className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-md"
-                        style={{ background: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)' }}
-                      >
-                        <Icon size={22} strokeWidth={1.8} />
-                      </span>
-                      <h3 className="font-headline text-2xl font-bold text-slate-900 transition-colors group-hover:text-accent-600">
-                        {service.title}
-                      </h3>
-                    </div>
-
-                    <p className="text-base leading-relaxed text-slate-600">
-                      {service.intro}
-                    </p>
-
-                    <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
-                      {service.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-start gap-2 text-sm leading-relaxed text-slate-700">
-                          <CheckCircle size={14} className="mt-0.5 flex-shrink-0 text-orange-500" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600">
-                      Meer over {service.title.toLowerCase()}
-                      <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                    </span>
-                  </Link>
-                </Reveal>
-              )
-            })}
-          </div>
+          <ServiceCardsGrid />
         </div>
       </section>
 
-      {/* Quote */}
-      <section className="bg-slate-50 py-20 lg:py-24">
+      {/* Quote — light */}
+      <section className="bg-[#f8f9fc] py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:px-8">
           <Reveal>
-            <div className="mb-5 flex items-center gap-1">
+            <div className="mb-4 flex items-center gap-1">
               {[0, 1, 2, 3, 4].map((i) => (
-                <Star key={i} size={18} className="fill-accent-400 text-accent-400" />
+                <Star key={i} size={18} className="fill-orange-400 text-orange-400" />
               ))}
             </div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-400">Klantreactie</p>
-            <p className="mt-4 text-sm font-semibold text-slate-500">Jeremy Palsma</p>
+            <p className="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-slate-400">Klantreactie</p>
+            <p className="mt-3 text-sm font-semibold text-slate-500">Jeremy Palsma</p>
           </Reveal>
           <Reveal delay={80}>
             <blockquote className="font-headline text-2xl font-bold leading-snug tracking-[-0.01em] text-slate-900 md:text-3xl">

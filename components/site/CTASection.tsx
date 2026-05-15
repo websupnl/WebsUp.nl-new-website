@@ -61,7 +61,7 @@ export default function CTASection({
                 >
                   {heading}
                 </h2>
-                <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/64 md:text-lg">
+                <p className="mt-5 max-w-2xl text-[1.0625rem] leading-relaxed text-white/75 md:text-lg">
                   {subheading}
                 </p>
 
@@ -84,8 +84,8 @@ export default function CTASection({
                   const Icon = item.icon
                   return (
                     <div key={item.label} className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]">
-                      <Icon size={18} className="shrink-0 text-white/62" />
-                      <span className="text-sm font-medium text-white/84">{item.label}</span>
+                      <Icon size={18} className="shrink-0 text-white/75" />
+                      <span className="text-sm font-medium text-white/90">{item.label}</span>
                     </div>
                   )
                 })}

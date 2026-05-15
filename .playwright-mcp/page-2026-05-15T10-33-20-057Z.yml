@@ -1,0 +1,159 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "WebsUp.nl" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "WebsUp.nl" [ref=e6]
+      - generic [ref=e7]:
+        - link "Direct contact met Daan via WhatsApp" [ref=e8] [cursor=pointer]:
+          - /url: https://wa.me/31682202148?text=Hoi%20Daan%2C%20ik%20wil%20graag%20sparren%20over%20mijn%20website.
+          - img "Daan Koolhaas" [ref=e10]
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - img "Daan"
+                - generic:
+                  - paragraph: Daan Koolhaas
+                  - paragraph: Nu beschikbaar
+              - paragraph: Persoonlijk bereikbaar voor vragen, ideeën of advies.
+              - generic:
+                - img
+                - generic: Klik om te openen in WhatsApp
+        - link "Gratis ontwerp" [ref=e14] [cursor=pointer]:
+          - /url: /gratis-ontwerp
+        - button "Menu openen" [ref=e15]:
+          - generic [ref=e16]: Menu
+  - complementary [ref=e21]:
+    - generic [ref=e22]:
+      - img [ref=e23]
+      - button [ref=e24]:
+        - img [ref=e25]
+    - navigation [ref=e27]:
+      - link [ref=e28] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e29]: Home
+      - link [ref=e30] [cursor=pointer]:
+        - /url: /diensten
+        - generic [ref=e31]: Diensten
+      - link [ref=e32] [cursor=pointer]:
+        - /url: /projecten
+        - generic [ref=e33]: Projecten
+      - link [ref=e34] [cursor=pointer]:
+        - /url: /over-ons
+        - generic [ref=e35]: Over Daan
+      - link [ref=e36] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e37]: Contact
+    - generic [ref=e39]:
+      - link [ref=e40] [cursor=pointer]:
+        - /url: tel:0682202148
+        - img [ref=e41]
+        - text: 06 82 20 21 48
+      - link [ref=e43] [cursor=pointer]:
+        - /url: mailto:info@webs-up.nl
+        - img [ref=e44]
+        - text: info@webs-up.nl
+    - link [ref=e48] [cursor=pointer]:
+      - /url: /gratis-ontwerp
+      - text: Gratis ontwerp aanvragen
+      - img [ref=e49]
+  - main [ref=e51]
+  - contentinfo [ref=e61]:
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - link "WebsUp.nl" [ref=e65] [cursor=pointer]:
+            - /url: /
+            - img "WebsUp.nl" [ref=e66]
+          - paragraph [ref=e67]: WebsUp helpt bedrijven met websites, webshops en maatwerk systemen die professioneel ogen en praktisch werken.
+        - generic [ref=e68]:
+          - heading "Diensten" [level=6] [ref=e69]
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - link "Websites" [ref=e72] [cursor=pointer]:
+                - /url: /diensten/websites
+            - listitem [ref=e73]:
+              - link "Webshops" [ref=e74] [cursor=pointer]:
+                - /url: /diensten/webshops
+            - listitem [ref=e75]:
+              - link "Apps en dashboards" [ref=e76] [cursor=pointer]:
+                - /url: /diensten/apps-dashboards
+            - listitem [ref=e77]:
+              - link "Automatisering" [ref=e78] [cursor=pointer]:
+                - /url: /diensten/automatisering
+            - listitem [ref=e79]:
+              - link "Onderhoud en optimalisatie" [ref=e80] [cursor=pointer]:
+                - /url: /diensten
+        - generic [ref=e81]:
+          - heading "Bedrijf" [level=6] [ref=e82]
+          - list [ref=e83]:
+            - listitem [ref=e84]:
+              - link "Over Daan" [ref=e85] [cursor=pointer]:
+                - /url: /over-ons
+            - listitem [ref=e86]:
+              - link "Projecten" [ref=e87] [cursor=pointer]:
+                - /url: /projecten
+            - listitem [ref=e88]:
+              - link "Reviews" [ref=e89] [cursor=pointer]:
+                - /url: /projecten
+            - listitem [ref=e90]:
+              - link "Contact" [ref=e91] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e92]:
+          - heading "Contact" [level=6] [ref=e93]
+          - list [ref=e94]:
+            - listitem [ref=e95]:
+              - link "info@websup.nl" [ref=e96] [cursor=pointer]:
+                - /url: mailto:info@websup.nl
+                - img [ref=e97]
+                - generic [ref=e100]: info@websup.nl
+            - listitem [ref=e101]:
+              - link "+31 6 12345678" [ref=e102] [cursor=pointer]:
+                - /url: tel:+31612345678
+                - img [ref=e103]
+                - generic [ref=e105]: +31 6 12345678
+            - listitem [ref=e106]:
+              - img [ref=e107]
+              - generic [ref=e110]: Friesland, Nederland
+            - listitem [ref=e111]:
+              - img [ref=e112]
+              - generic [ref=e115]: KVK 95524061
+      - generic [ref=e116]:
+        - generic [ref=e117]: © 2026 WebsUp.nl. Alle rechten voorbehouden.
+        - navigation [ref=e118]:
+          - link "Algemene voorwaarden" [ref=e119] [cursor=pointer]:
+            - /url: /algemene-voorwaarden
+          - link "Privacyverklaring" [ref=e120] [cursor=pointer]:
+            - /url: /privacybeleid
+          - link "Sitemap" [ref=e121] [cursor=pointer]:
+            - /url: /sitemap.xml
+        - generic [ref=e122]:
+          - link "LinkedIn" [ref=e123] [cursor=pointer]:
+            - /url: https://linkedin.com/company/websup
+            - img [ref=e124]
+          - link "Instagram" [ref=e126] [cursor=pointer]:
+            - /url: https://www.instagram.com/websup_nl/
+            - img [ref=e127]
+          - link "Facebook" [ref=e130] [cursor=pointer]:
+            - /url: https://www.facebook.com/WebsUp.nl
+            - img [ref=e131]
+  - generic [ref=e133]:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - img "Daan"
+          - generic:
+            - paragraph: Daan Koolhaas
+            - paragraph: Nu beschikbaar
+        - paragraph: Persoonlijk bereikbaar voor vragen, ideeën of advies.
+        - generic:
+          - img
+          - generic: Klik om te openen in WhatsApp
+    - link "Chat met Daan via WhatsApp" [ref=e134] [cursor=pointer]:
+      - /url: https://wa.me/31682202148?text=Hoi%20Daan%2C%20ik%20heb%20een%20vraag%20over%20mijn%20website%20of%20digitale%20systeem.
+      - img [ref=e136]
+      - generic: App mij direct
+  - button "Open Next.js Dev Tools" [ref=e143] [cursor=pointer]:
+    - img [ref=e144]

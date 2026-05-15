@@ -95,27 +95,47 @@ export default function ContactPage() {
         </div>
       </WavePageHeader>
 
-      <section className="bg-white py-20 lg:py-28">
-        <Reveal className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-            {/* Left, formulier */}
-            <div>
+      <section className="relative overflow-hidden bg-[#f8f9fc] py-20 lg:py-28">
+        <div className="pointer-events-none absolute -top-20 left-[10%] h-72 w-72 rounded-full bg-orange-400/10 blur-[90px]" />
+        <div className="pointer-events-none absolute -bottom-10 right-[10%] h-64 w-64 rounded-full bg-violet-400/10 blur-[80px]" />
+
+        <Reveal className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+
+            {/* Form card */}
+            <div
+              className="rounded-2xl p-7 md:p-9"
+              style={{
+                background: 'rgba(12,10,22,0.85)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                backdropFilter: 'blur(20px)',
+              }}
+            >
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px rounded-t-2xl"
+                style={{
+                  background: 'linear-gradient(90deg, transparent 0%, #f97316 30%, #ec4899 60%, #a78bfa 90%, transparent 100%)',
+                  opacity: 0.3,
+                  position: 'absolute',
+                }}
+              />
+
               {sent ? (
-                <div className="flex h-full min-h-[400px] flex-col items-center justify-center gap-5 rounded-2xl border border-green-100 bg-green-50 p-12 text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                    <CheckCircle size={32} className="text-green-600" />
+                <div className="flex min-h-[400px] flex-col items-center justify-center gap-5 text-center">
+                  <div
+                    className="flex h-16 w-16 items-center justify-center rounded-full"
+                    style={{ background: 'rgba(167,139,250,0.15)', border: '1px solid rgba(167,139,250,0.30)' }}
+                  >
+                    <CheckCircle size={32} style={{ color: '#a78bfa' }} />
                   </div>
                   <div>
-                    <h3 className="mb-2 text-xl font-bold text-slate-900">Bericht ontvangen!</h3>
-                    <p className="text-slate-500">
-                      Bedankt voor je bericht. Ik neem binnen een werkdag contact met je op.
-                    </p>
+                    <h3 className="mb-2 text-xl font-bold text-white">Bericht ontvangen!</h3>
+                    <p className="text-white/50">Bedankt voor je bericht. Ik neem binnen een werkdag contact met je op.</p>
                   </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
+                    <label className="mb-2 block text-sm font-medium text-white/60">
                       Waar gaat het ongeveer over?
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -124,11 +144,16 @@ export default function ContactPage() {
                           type="button"
                           key={type}
                           onClick={() => setForm({ ...form, type })}
-                          className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
-                            form.type === type
-                              ? 'border-transparent bg-orange-500 text-white'
-                              : 'border-slate-200 bg-white text-slate-600 hover:border-orange-300 hover:text-orange-500'
-                          }`}
+                          className="rounded-full px-4 py-2 text-sm font-medium transition-all duration-200"
+                          style={form.type === type ? {
+                            background: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)',
+                            border: '1px solid transparent',
+                            color: '#fff',
+                          } : {
+                            background: 'rgba(255,255,255,0.05)',
+                            border: '1px solid rgba(255,255,255,0.12)',
+                            color: 'rgba(255,255,255,0.55)',
+                          }}
                         >
                           {type}
                         </button>
@@ -136,10 +161,10 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-700">
-                        Naam <span className="text-orange-500">*</span>
+                      <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-white/60">
+                        Naam <span className="text-orange-400">*</span>
                       </label>
                       <input
                         type="text"
@@ -147,13 +172,14 @@ export default function ContactPage() {
                         required
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-orange-400"
+                        className="w-full rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/25 outline-none transition-all focus:ring-2 focus:ring-orange-400/50"
+                        style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)' }}
                         placeholder="Jouw naam"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700">
-                        Email <span className="text-orange-500">*</span>
+                      <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-white/60">
+                        Email <span className="text-orange-400">*</span>
                       </label>
                       <input
                         type="email"
@@ -161,14 +187,15 @@ export default function ContactPage() {
                         required
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-orange-400"
+                        className="w-full rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/25 outline-none transition-all focus:ring-2 focus:ring-orange-400/50"
+                        style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)' }}
                         placeholder="jouw@email.nl"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-slate-700">
+                    <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-white/60">
                       Onderwerp
                     </label>
                     <input
@@ -176,14 +203,15 @@ export default function ContactPage() {
                       id="subject"
                       value={form.subject}
                       onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                      className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-orange-400"
+                      className="w-full rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/25 outline-none transition-all focus:ring-2 focus:ring-orange-400/50"
+                      style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)' }}
                       placeholder="Bijv. website voor mijn installatiebedrijf"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-slate-700">
-                      Vertel kort wat er speelt <span className="text-orange-500">*</span>
+                    <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-white/60">
+                      Vertel kort wat er speelt <span className="text-orange-400">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -191,88 +219,71 @@ export default function ContactPage() {
                       rows={6}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full resize-none rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-orange-400"
+                      className="w-full resize-none rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/25 outline-none transition-all focus:ring-2 focus:ring-orange-400/50"
+                      style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)' }}
                       placeholder="Wat wil je maken, waar loop je nu tegenaan of waar wil je graag even over sparren?"
                     />
                   </div>
 
-                  {error && <p className="text-sm text-orange-600">{error}</p>}
+                  {error && <p className="text-sm text-red-400">{error}</p>}
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="btn-brand-gradient disabled:opacity-50"
-                  >
-                    {loading ? (
-                      <>
-                        <Zap size={16} className="animate-pulse" />
-                        Verzenden…
-                      </>
-                    ) : (
-                      <>
-                        Stuur vrijblijvend een bericht
-                        <Send size={16} />
-                      </>
-                    )}
+                  <button type="submit" disabled={loading} className="btn-brand-gradient disabled:opacity-50">
+                    {loading ? <><Zap size={16} className="animate-pulse" />Verzenden…</> : <>Stuur vrijblijvend een bericht<Send size={16} /></>}
                   </button>
                 </form>
               )}
             </div>
 
-            {/* Right, sidebar */}
-            <div className="space-y-5">
-              <GlassCard variant="orange" padding="px-5 py-4" className="flex items-center gap-3 !bg-orange-500/[0.06]">
-                <Zap size={18} className="flex-shrink-0 text-orange-500" />
-                <span className="text-sm font-medium text-slate-900">Binnen 1 werkdag reactietijd</span>
-              </GlassCard>
-              <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4 flex items-center gap-3">
-                <MessageCircle size={18} className="flex-shrink-0 text-orange-500" />
-                <span className="text-sm font-medium text-slate-900">Vrijblijvend sparren, geen verplichtingen</span>
-              </div>
-              <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4 flex items-center gap-3">
-                <CheckCircle size={18} className="flex-shrink-0 text-orange-500" />
-                <span className="text-sm font-medium text-slate-900">Eerlijk advies, altijd transparant</span>
-              </div>
-
-              {/* Contactgegevens, plain */}
-              <div className="pt-6 border-t border-slate-200 space-y-3">
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-slate-600 hover:text-orange-500 transition-colors"
+            {/* Sidebar */}
+            <div className="space-y-4">
+              {[
+                { icon: Zap, label: 'Binnen 1 werkdag reactietijd', glow: 'rgba(249,115,22,0.12)', border: 'rgba(249,115,22,0.22)' },
+                { icon: MessageCircle, label: 'Vrijblijvend sparren, geen verplichtingen', glow: 'rgba(236,72,153,0.10)', border: 'rgba(236,72,153,0.20)' },
+                { icon: CheckCircle, label: 'Eerlijk advies, altijd transparant', glow: 'rgba(167,139,250,0.10)', border: 'rgba(167,139,250,0.20)' },
+              ].map(({ icon: Icon, label, glow, border }) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-3 rounded-xl px-5 py-4"
+                  style={{ background: glow, border: `1px solid ${border}`, backdropFilter: 'blur(12px)' }}
                 >
-                  <MessageCircle size={16} className="flex-shrink-0" />
+                  <Icon size={17} className="flex-shrink-0" style={{ color: '#f97316' }} />
+                  <span className="text-sm font-medium text-white/80">{label}</span>
+                </div>
+              ))}
+
+              <div className="space-y-3 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-white/35 transition-colors hover:text-white/70">
+                  <MessageCircle size={15} className="flex-shrink-0" />
                   <span className="text-sm">WhatsApp</span>
                 </a>
-                <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 text-slate-600 hover:text-orange-500 transition-colors">
-                  <Mail size={16} className="flex-shrink-0" />
+                <a href={`mailto:${siteConfig.email}`}
+                  className="flex items-center gap-3 text-white/35 transition-colors hover:text-white/70">
+                  <Mail size={15} className="flex-shrink-0" />
                   <span className="text-sm">{siteConfig.email}</span>
                 </a>
-                <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 text-slate-600 hover:text-orange-500 transition-colors">
-                  <Phone size={16} className="flex-shrink-0" />
+                <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`}
+                  className="flex items-center gap-3 text-white/35 transition-colors hover:text-white/70">
+                  <Phone size={15} className="flex-shrink-0" />
                   <span className="text-sm">{siteConfig.phone}</span>
                 </a>
-                <div className="flex items-center gap-3 text-slate-500">
-                  <MapPin size={16} className="flex-shrink-0" />
+                <div className="flex items-center gap-3 text-white/25">
+                  <MapPin size={15} className="flex-shrink-0" />
                   <span className="text-sm">{siteConfig.address}</span>
                 </div>
               </div>
 
-              {/* Wat kun je verwachten */}
-              <div className="pt-6 border-t border-slate-200">
-                <h3 className="mb-4 text-sm font-bold uppercase tracking-[0.12em] text-slate-400">
-                  Wat kun je verwachten?
-                </h3>
-                <ul className="space-y-3">
+              <div className="pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                <p className="mb-3 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-white/25">Wat kun je verwachten?</p>
+                <ul className="space-y-2.5">
                   {[
                     'Vrijblijvend eerste gesprek of appcontact',
                     'Eerlijke inschatting van wat slim is',
                     'Ook prima als je nog niet precies weet wat je nodig hebt',
                     'Direct persoonlijk contact',
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-slate-600">
-                      <CheckCircle size={15} className="mt-0.5 flex-shrink-0 text-orange-500" />
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-white/45">
+                      <CheckCircle size={14} className="mt-0.5 flex-shrink-0 text-orange-400/70" />
                       {item}
                     </li>
                   ))}

@@ -85,12 +85,12 @@
    ============================ */
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 17px; }
 
 body {
   font-family: var(--font-body);
   color: var(--on-surface);
-  background-color: var(--surface);
+  background-color: #06040c;
   -webkit-font-smoothing: antialiased;
   font-kerning: normal;
 }
@@ -135,7 +135,7 @@ h6 {
   letter-spacing: 0;
 }
 
-.page-shell section > div {
+.page-shell section > div:not(.pointer-events-none) {
   position: relative;
 }
 
@@ -226,14 +226,16 @@ p {
 }
 
 .overline-badge-dark {
-  background: rgba(255,255,255,0.07);
-  color: rgba(255,255,255,0.78);
-  border-color: rgba(255,255,255,0.16);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+  background: transparent;
+  color: rgba(249, 115, 22, 0.92);
+  border-color: rgba(249, 115, 22, 0.34);
+  box-shadow: inset 0 0 1px rgba(249, 115, 22, 0.2);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .overline-badge-dark::before {
-  opacity: 0.18;
+  opacity: 0;
 }
 
 .hero-glass-stat {
@@ -268,6 +270,7 @@ p {
   background-color: #06040c;
   background-image: none;
 }
+
 
 /* ============================
    GLASSMORPHISM
@@ -700,14 +703,37 @@ p {
   transform: translateX(120%);
 }
 
-@keyframes focus-pulse {
-  0%, 100% { opacity: 0.5; transform: scaleX(0.72); }
-  50% { opacity: 1; transform: scaleX(1); }
+@keyframes gradient-shimmer {
+  0% {
+    opacity: 0.6;
+    filter: brightness(0.8);
+    box-shadow: -8px 0 16px rgba(249, 115, 22, 0.4), inset 0 0 8px rgba(255, 255, 255, 0);
+  }
+  25% {
+    opacity: 0.85;
+    filter: brightness(1.15);
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.5), inset 0 0 12px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    opacity: 0.95;
+    filter: brightness(1.3);
+    box-shadow: 8px 0 20px rgba(167, 139, 250, 0.4), inset 0 0 16px rgba(255, 255, 255, 0.4);
+  }
+  75% {
+    opacity: 0.85;
+    filter: brightness(1.15);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.5), inset 0 0 12px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    opacity: 0.6;
+    filter: brightness(0.8);
+    box-shadow: -8px 0 16px rgba(236, 72, 153, 0.4), inset 0 0 8px rgba(255, 255, 255, 0);
+  }
 }
 
 .focus-pulse-line {
-  transform-origin: left center;
-  animation: focus-pulse 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  transform-origin: center;
+  animation: gradient-shimmer 3.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

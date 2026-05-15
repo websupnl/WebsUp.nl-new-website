@@ -4,8 +4,8 @@ import { Metadata } from 'next'
 import Navbar from '@/components/site/Navbar'
 import Footer from '@/components/site/Footer'
 import HeroSection from '@/components/site/HeroSection'
-import EcosystemSection from '@/components/site/EcosystemSection'
-import ProblemSection from '@/components/site/ProblemSection'
+import GuarantiesSection from '@/components/site/GuarantiesSection'
+import ComparisonSection from '@/components/site/ComparisonSection'
 import ServicesSection from '@/components/site/ServicesSection'
 import ProjectsSection from '@/components/site/ProjectsSection'
 import AboutMeSection from '@/components/site/AboutMeSection'
@@ -43,8 +43,8 @@ export default async function HomePage() {
       />
       <main className="page-shell flex-1">
         <HeroSection />
-        <EcosystemSection />
-        <ProblemSection />
+        <GuarantiesSection />
+        <ComparisonSection />
         <ServicesSection />
         <ProjectsSection projects={projects} limit={3} />
         <AboutMeSection />

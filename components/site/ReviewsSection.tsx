@@ -32,11 +32,11 @@ export default async function ReviewsSection() {
               className="font-headline font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900"
               style={{ fontSize: 'clamp(2rem, 3.4vw, 3.1rem)' }}
             >
-              Neem ons niet op ons woord — lees wat klanten zeggen.
+              Neem me niet op mijn woord — lees wat klanten zeggen.
             </h2>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-slate-600 lg:justify-self-end">
-            Echte ervaringen van echte klanten. Geen marketingpraat, geen loze beloften — alleen eerlijke feedback van mensen die het meegemaakt hebben.
+            Echte ervaringen van klanten die ik zelf geholpen heb. Geen marketingpraat, geen loze beloften — alleen eerlijke feedback.
           </p>
         </Reveal>
 

@@ -74,7 +74,7 @@ export default function GratisOntwerpPage() {
         </div>
       </WavePageHeader>
 
-      <section id="aanvragen" className="bg-slate-50 py-20 lg:py-28">
+      <section id="aanvragen" className="bg-[#f8f9fc] py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8">
           <Reveal className="lg:sticky lg:top-32 lg:self-start">
             <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
@@ -92,7 +92,7 @@ export default function GratisOntwerpPage() {
 
             <div className="mt-8 space-y-3">
               {youGet.map((b) => (
-                <div key={b} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+                <div key={b} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm shadow-slate-950/[0.03] transition-colors hover:border-orange-200">
                   <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
                   <span className="text-sm leading-relaxed text-slate-700">{b}</span>
                 </div>
@@ -116,27 +116,51 @@ export default function GratisOntwerpPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+      <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+        <div className="pointer-events-none absolute top-1/3 right-[10%] h-64 w-64 rounded-full bg-violet-400/8 blur-[80px]" />
+
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
           <Reveal className="lg:sticky lg:top-32 lg:self-start">
-            <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
-              Hoe het werkt
-            </span>
+            <span className="overline-badge mb-4 inline-flex">Hoe het werkt</span>
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.06] tracking-[-0.02em] text-slate-900 md:text-4xl">
               Drie stappen, geen omwegen
             </h2>
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-slate-500">
+              Snel duidelijkheid, zonder lange intake-sessies of eindeloze vragenlijsten.
+            </p>
           </Reveal>
 
-          <ol className="space-y-6">
+          <ol className="space-y-4">
             {steps.map((step, i) => (
-              <Reveal key={step.title} delay={i * 70}>
-                <li className="flex items-start gap-5">
-                  <span className="font-headline brand-gradient-ring flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full text-base font-bold text-accent-600">
+              <Reveal key={step.title} delay={i * 80}>
+                <li
+                  className="relative flex items-start gap-5 rounded-2xl p-6"
+                  style={{
+                    background: 'rgba(12,10,22,0.85)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    backdropFilter: 'blur(20px)',
+                  }}
+                >
+                  <div
+                    className="pointer-events-none absolute inset-x-0 top-0 h-px rounded-t-2xl"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent 0%, #f97316 30%, #ec4899 60%, #a78bfa 90%, transparent 100%)',
+                      opacity: 0.28,
+                    }}
+                  />
+                  <span
+                    className="font-headline flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-base font-bold"
+                    style={{
+                      background: 'rgba(167,139,250,0.12)',
+                      border: '1px solid rgba(167,139,250,0.24)',
+                      color: '#a78bfa',
+                    }}
+                  >
                     {i + 1}
                   </span>
-                  <div className="pt-1">
-                    <h3 className="font-headline text-xl font-bold text-slate-900">{step.title}</h3>
-                    <p className="mt-2 text-base leading-relaxed text-slate-600">{step.text}</p>
+                  <div>
+                    <h3 className="font-headline text-lg font-bold text-white/90">{step.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-white/48">{step.text}</p>
                   </div>
                 </li>
               </Reveal>

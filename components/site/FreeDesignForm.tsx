@@ -219,7 +219,7 @@ export default function FreeDesignForm() {
       <button
         type="submit"
         disabled={loading}
-        className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+        className="btn-brand-gradient mt-6 min-h-12 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? 'Verzenden...' : 'Aanvraag versturen'}
         <Send size={16} />

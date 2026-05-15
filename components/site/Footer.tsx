@@ -103,7 +103,7 @@ export default function Footer({
                   <li key={link.href + link.label}>
                     <Link
                       href={link.href}
-                      className="text-slate-500 hover:text-accent-600 text-sm transition-colors duration-150"
+                      className="text-slate-600 hover:text-accent-600 text-sm transition-colors duration-150"
                     >
                       {link.label}
                     </Link>
@@ -119,7 +119,7 @@ export default function Footer({
             <ul className="space-y-3">
               {email && (
                 <li>
-                  <a href={`mailto:${email}`} className="flex items-start gap-2 text-slate-500 hover:text-accent-600 text-sm transition-colors">
+                  <a href={`mailto:${email}`} className="flex items-start gap-2 text-slate-600 hover:text-accent-600 text-sm transition-colors">
                     <Mail size={14} className="mt-0.5 shrink-0" />
                     <span>{email}</span>
                   </a>
@@ -127,26 +127,26 @@ export default function Footer({
               )}
               {phone && (
                 <li>
-                  <a href={`tel:${phone.replace(/\s/g, '')}`} className="flex items-start gap-2 text-slate-500 hover:text-accent-600 text-sm transition-colors">
+                  <a href={`tel:${phone.replace(/\s/g, '')}`} className="flex items-start gap-2 text-slate-600 hover:text-accent-600 text-sm transition-colors">
                     <Phone size={14} className="mt-0.5 shrink-0" />
                     <span>{phone}</span>
                   </a>
                 </li>
               )}
               {address && (
-                <li className="flex items-start gap-2 text-slate-500 text-sm">
+                <li className="flex items-start gap-2 text-slate-600 text-sm">
                   <MapPin size={14} className="mt-0.5 shrink-0" />
                   <span>{address}</span>
                 </li>
               )}
               {kvk && (
-                <li className="flex items-start gap-2 text-slate-500 text-sm">
+                <li className="flex items-start gap-2 text-slate-600 text-sm">
                   <FileText size={14} className="mt-0.5 shrink-0" />
                   <span>KVK {kvk}</span>
                 </li>
               )}
               {btw && (
-                <li className="flex items-start gap-2 text-slate-500 text-sm">
+                <li className="flex items-start gap-2 text-slate-600 text-sm">
                   <Receipt size={14} className="mt-0.5 shrink-0" />
                   <span>BTW {btw}</span>
                 </li>
@@ -157,7 +157,7 @@ export default function Footer({
 
         {/* Bottom row */}
         <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="text-slate-400 text-xs">
+          <span className="text-slate-500 text-xs">
             © {new Date().getFullYear()} WebsUp.nl. Alle rechten voorbehouden.
           </span>
 
@@ -166,7 +166,7 @@ export default function Footer({
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-slate-400 hover:text-accent-600 text-xs transition-colors"
+                className="text-slate-500 hover:text-accent-600 text-xs transition-colors"
               >
                 {link.label}
               </Link>
@@ -180,7 +180,7 @@ export default function Footer({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="p-2 rounded-full text-slate-400 hover:text-accent-600 hover:bg-accent-400/10 transition-colors"
+                className="p-2 rounded-full text-slate-500 hover:text-accent-600 hover:bg-accent-400/10 transition-colors"
               >
                 <LinkedinIcon />
               </a>
@@ -191,7 +191,7 @@ export default function Footer({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="p-2 rounded-full text-slate-400 hover:text-accent-600 hover:bg-accent-400/10 transition-colors"
+                className="p-2 rounded-full text-slate-500 hover:text-accent-600 hover:bg-accent-400/10 transition-colors"
               >
                 <InstagramIcon />
               </a>
@@ -202,7 +202,7 @@ export default function Footer({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="p-2 rounded-full text-slate-400 hover:text-accent-600 hover:bg-accent-400/10 transition-colors"
+                className="p-2 rounded-full text-slate-500 hover:text-accent-600 hover:bg-accent-400/10 transition-colors"
               >
                 <FacebookIcon />
               </a>
