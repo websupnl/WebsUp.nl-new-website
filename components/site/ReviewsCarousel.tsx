@@ -19,7 +19,7 @@ function GoogleLogo() {
 function AnimatedStars({ count = 5, delay = 0 }: { count?: number; delay?: number }) {
   const ref    = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-30px' })
-  const SIZE   = 68  // viewBox size for each star
+  const SIZE   = 68
 
   return (
     <div ref={ref} className="flex items-center gap-0.5">
@@ -27,8 +27,8 @@ function AnimatedStars({ count = 5, delay = 0 }: { count?: number; delay?: numbe
         <svg key={i} width="16" height="16" viewBox={`0 0 ${SIZE} ${SIZE}`}>
           <defs>
             <linearGradient id={`sg-${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor={i < count ? '#FBBC05' : '#E2E8F0'} />
-              <stop offset="100%" stopColor={i < count ? '#F59E0B' : '#E2E8F0'} />
+              <stop offset="0%" stopColor={i < count ? '#FBBC05' : '#334155'} />
+              <stop offset="100%" stopColor={i < count ? '#F59E0B' : '#334155'} />
             </linearGradient>
           </defs>
           <motion.path
@@ -40,7 +40,7 @@ function AnimatedStars({ count = 5, delay = 0 }: { count?: number; delay?: numbe
             strokeLinecap="round"
             initial={{ pathLength: 0, fillOpacity: 0 }}
             animate={inView ? { pathLength: 1, fillOpacity: 1 } : {}}
-            style={{ fill: i < count ? '#FBBC05' : '#E2E8F0' }}
+            style={{ fill: i < count ? '#FBBC05' : '#334155' }}
             transition={{
               pathLength: { duration: 0.5, ease: 'easeOut', delay: delay + i * 0.08 },
               fillOpacity: { duration: 0.3, delay: delay + i * 0.08 + 0.35 },
@@ -80,29 +80,47 @@ function ReviewCard({ testimonial, index }: { testimonial: TestimonialWithProjec
   return (
     <motion.div
       ref={cardRef}
-      className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-950/[0.04]"
-      style={{ rotateX, rotateY, transformPerspective: 800, willChange: 'transform' }}
+      className="group relative flex flex-col gap-5 rounded-2xl p-6"
+      style={{
+        background: 'rgba(12,10,22,0.90)',
+        border: '1px solid rgba(255,255,255,0.10)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.22)',
+        rotateX,
+        rotateY,
+        transformPerspective: 800,
+        willChange: 'transform',
+      }}
       initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1], delay: shouldReduceMotion ? 0 : index * 0.06 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: shouldReduceMotion ? 0 : index * 0.08 }}
       whileHover={{
-        borderColor: 'rgba(236,72,153,0.20)',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
-        y: shouldReduceMotion ? 0 : -2,
+        boxShadow: '0 20px 56px rgba(0,0,0,0.40), 0 0 40px rgba(236,72,153,0.10)',
+        borderColor: 'rgba(236,72,153,0.28)',
+        y: shouldReduceMotion ? 0 : -3,
         transition: { type: 'spring', stiffness: 260, damping: 24, mass: 0.7 },
       }}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
     >
+      {/* Top gradient line */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px rounded-t-2xl opacity-40 transition-opacity duration-500 group-hover:opacity-80"
+        style={{ background: 'linear-gradient(90deg, transparent 0%, #f97316 30%, #ec4899 60%, #a78bfa 90%, transparent 100%)' }}
+      />
+
       <AnimatedStars count={testimonial.rating ?? 5} delay={index * 0.08} />
-      <p className="flex-1 text-sm leading-relaxed text-slate-700">
+
+      <p className="flex-1 text-[1rem] leading-relaxed text-white/72">
         &ldquo;{testimonial.content}&rdquo;
       </p>
+
       <div>
-        <p className="text-sm font-semibold text-slate-900">{testimonial.name}</p>
-        <p className="mt-0.5 text-xs text-slate-500">
+        <p className="text-[0.9375rem] font-semibold text-white/90">{testimonial.name}</p>
+        <p className="mt-0.5 text-[0.875rem] text-white/52">
           {testimonial.role ?? 'Klant van WebsUp'} &middot;{' '}
-          {new Date(testimonial.created_at).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
+          {new Date(testimonial.created_at).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long' })}
         </p>
       </div>
     </motion.div>
@@ -135,31 +153,34 @@ export default function ReviewsCarousel({ testimonials }: { testimonials: Testim
           <div>
             <div className="flex items-center gap-2">
               <AnimatedStars count={5} />
-              <span className="text-sm font-semibold text-slate-900">Uitstekend</span>
+              <span className="text-[0.9375rem] font-semibold text-slate-900">Uitstekend</span>
             </div>
             <p className="mt-0.5 text-xs text-slate-400">
               {avg} &middot; Gebaseerd op {total} Google reviews
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setOffset(Math.max(0, offset - 1))}
-            disabled={!canPrev}
-            aria-label="Vorige"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-orange-200 hover:text-orange-500 disabled:opacity-30"
-          >
-            <ChevronLeft size={16} />
-          </button>
-          <button
-            onClick={() => setOffset(Math.min(total - VISIBLE, offset + 1))}
-            disabled={!canNext}
-            aria-label="Volgende"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-orange-200 hover:text-orange-500 disabled:opacity-30"
-          >
-            <ChevronRight size={16} />
-          </button>
-        </div>
+
+        {(canPrev || canNext) && (
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setOffset(Math.max(0, offset - 1))}
+              disabled={!canPrev}
+              aria-label="Vorige"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-orange-200 hover:text-orange-500 disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button
+              onClick={() => setOffset(Math.min(total - VISIBLE, offset + 1))}
+              disabled={!canNext}
+              aria-label="Volgende"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-orange-200 hover:text-orange-500 disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )

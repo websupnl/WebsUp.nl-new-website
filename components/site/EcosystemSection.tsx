@@ -127,7 +127,7 @@ export default function EcosystemSection() {
           >
             Jouw digitale ecosysteem
           </h2>
-          <p className="mt-4 max-w-[44ch] text-[0.95rem] leading-relaxed text-slate-600">
+          <p className="mt-4 max-w-[44ch] text-[1rem] leading-relaxed text-slate-600">
             Van eerste indruk tot schaalbare groei — systemen die samenwerken en versterken.
           </p>
         </div>

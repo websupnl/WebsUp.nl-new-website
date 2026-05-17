@@ -25,14 +25,16 @@ export default function VoorWieSection() {
 
             return (
               <Reveal key={item.title} delay={index * 45}>
-                <div className="group h-full rounded-2xl border border-slate-200 bg-white p-6 transition-colors hover:border-slate-300">
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-50 text-slate-800 ring-1 ring-slate-200">
-                    <Icon size={19} />
+                <div className="group h-full rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-200 hover:border-slate-300 hover:shadow-sm hover:shadow-orange-100/50 hover:-translate-y-0.5">
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-50 text-slate-800 ring-1 ring-slate-200 transition-all duration-200 group-hover:bg-orange-50 group-hover:ring-orange-200">
+                    <div className="transition-transform duration-200 group-hover:scale-110">
+                      <Icon size={19} />
+                    </div>
                   </div>
                   <h3 className="font-headline text-xl font-bold text-slate-900">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                  <p className="mt-2 text-[1rem] leading-relaxed text-slate-500">
                     {item.text}
                   </p>
                 </div>
@@ -45,7 +47,7 @@ export default function VoorWieSection() {
           <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="text-sm font-semibold text-slate-900">Past jouw bedrijf hierbij?</div>
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-[1rem] text-slate-500">
                 Dan is een korte kennismaking vaak genoeg om de richting scherp te krijgen.
               </p>
             </div>

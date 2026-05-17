@@ -13,6 +13,7 @@ import {
   ExternalLink,
   LogOut,
   ChevronRight,
+  Scale,
 } from 'lucide-react'
 
 const editorNavItems = [
@@ -24,6 +25,7 @@ const editorNavItems = [
 
 const adminNavItems = [
   ...editorNavItems,
+  { label: 'Juridisch', href: '/admin/juridisch', icon: Scale },
   { label: 'Instellingen', href: '/admin/instellingen', icon: Settings },
 ]
 

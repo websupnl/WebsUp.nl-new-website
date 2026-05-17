@@ -171,7 +171,7 @@ export default function ProjectsSection({ projects = [], limit = 3 }: ProjectsSe
 
         <Reveal delay={280}>
           <div className="mt-8 flex flex-col gap-5 border-t border-slate-200 pt-7 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-2xl text-sm leading-relaxed text-slate-500">
+            <p className="max-w-2xl text-[1rem] leading-relaxed text-slate-500">
               Wil je weten wat er voor jouw bedrijf mogelijk is? Dan kijk ik graag met je mee.
             </p>
             <Link

@@ -54,7 +54,7 @@ export default function ServicesSection() {
               Vier routes naar beter digitaal werk.
             </h2>
           </div>
-          <p className="mt-4 max-w-[40ch] text-[0.95rem] leading-relaxed text-slate-500 lg:mt-0 lg:text-right">
+          <p className="mt-4 max-w-[40ch] text-[1rem] leading-relaxed text-slate-500 lg:mt-0 lg:text-right">
             Van een zichtbare eerste indruk tot systemen die je dagelijkse werk simpeler maken.
           </p>
         </div>
@@ -83,7 +83,7 @@ export default function ServicesSection() {
             transition: 'opacity 0.8s ease 0.5s',
           }}
         >
-          <p className="max-w-lg text-sm leading-relaxed text-slate-500">
+          <p className="max-w-lg text-[1rem] leading-relaxed text-slate-500">
             Weet je nog niet precies wat je nodig hebt? Vaak begint het gewoon met een gesprek.
           </p>
           <Link href="/contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800">
@@ -238,7 +238,7 @@ function ServiceCard({
             {service.title}
           </h3>
           <p
-            className="mt-3 text-sm leading-relaxed transition-colors duration-300"
+            className="mt-3 text-[1rem] leading-relaxed transition-colors duration-300"
             style={{ color: hovered ? 'rgba(255,255,255,0.58)' : 'rgba(255,255,255,0.42)' }}
           >
             {service.description}

@@ -84,7 +84,7 @@ export default function FreeDesignForm() {
           <CheckCircle size={28} />
         </div>
         <h2 className="mt-5 font-headline text-2xl font-bold text-slate-900">Aanvraag ontvangen</h2>
-        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-slate-600">
+        <p className="mx-auto mt-3 max-w-md text-[1rem] leading-relaxed text-slate-600">
           Ik neem binnen een werkdag contact met je op met een paar gerichte vragen of een eerste richting.
         </p>
       </div>
@@ -96,7 +96,7 @@ export default function FreeDesignForm() {
       <div className="mb-6">
         <span className="overline-badge mb-4 inline-flex">Aanvraag</span>
         <h2 className="font-headline text-2xl font-bold text-slate-900">Vraag je gratis ontwerp aan</h2>
-        <p className="mt-2 text-sm leading-relaxed text-slate-500">
+        <p className="mt-2 text-[1rem] leading-relaxed text-slate-500">
           Deel kort wat je wilt bouwen. Ik kijk mee naar een passende richting voor je website, webshop of digitale systeem.
         </p>
       </div>

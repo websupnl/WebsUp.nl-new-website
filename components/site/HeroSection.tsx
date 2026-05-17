@@ -2,29 +2,29 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Clock3, DraftingCompass, MessagesSquare } from 'lucide-react'
+import { ArrowRight, Layers, PenTool, Target } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import HeroRotatingWord from '@/components/site/HeroRotatingWord'
 
 const TRUST = [
   {
-    icon: MessagesSquare,
-    value: '1-op-1',
-    title: 'Direct met Daan',
-    text: 'Geen accountmanager, gewoon sparren met degene die bouwt.',
+    icon: Target,
+    value: 'Strategie',
+    title: 'Strategie voor je begint',
+    text: 'We kijken eerst naar je doel, doelgroep en wat je website of systeem moet opleveren.',
   },
   {
-    icon: DraftingCompass,
-    value: '0 euro',
-    title: 'Eerste richting gratis',
-    text: 'Je krijgt snel gevoel bij aanpak, stijl en kansen.',
+    icon: PenTool,
+    value: 'Ontwerp',
+    title: 'Ontwerp dat vertrouwen wekt',
+    text: 'Geen standaard uitstraling, maar een duidelijke online basis die past bij je bedrijf.',
   },
   {
-    icon: Clock3,
-    value: '48 uur',
-    title: 'Helder plan terug',
-    text: 'Concreet advies voor je website, systeem of automatisering.',
+    icon: Layers,
+    value: 'Techniek',
+    title: 'Techniek die meegroeit',
+    text: 'Van website tot maatwerk functie, koppeling of dashboard wanneer je bedrijf daarom vraagt.',
   },
 ]
 
@@ -218,7 +218,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
             >
-              Ik ontwerp en bouw digitale oplossingen die niet alleen goed ogen, maar ook bijdragen aan de groei van jouw bedrijf. Van converterende websites en webshops tot maatwerk dashboards en automatisering.
+              Ik ontwerp en bouw digitale oplossingen die er professioneel uitzien, duidelijk werken en bijdragen aan groei. Van converterende websites en webshops tot maatwerk dashboards, koppelingen en automatisering.
             </motion.p>
 
             <motion.div
@@ -238,7 +238,7 @@ export default function HeroSection() {
                 href="/projecten"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/[0.18] bg-white/[0.06] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white/[0.30] hover:bg-white/[0.10] hover:text-white sm:w-auto"
               >
-                Bekijk projecten
+                Bekijk mijn werk
               </Link>
             </motion.div>
 
@@ -271,10 +271,10 @@ export default function HeroSection() {
                       <item.icon size={17} />
                     </span>
                   </div>
-                  <p className="mt-4 text-[0.98rem] font-semibold leading-tight text-white/90">
+                  <p className="mt-4 text-[1rem] font-semibold leading-tight text-white/90">
                     {item.title}
                   </p>
-                  <p className="mt-2 text-[0.88rem] leading-relaxed text-white/62">
+                  <p className="mt-2 text-[1rem] leading-relaxed text-white/62">
                     {item.text}
                   </p>
                 </motion.div>
@@ -283,7 +283,7 @@ export default function HeroSection() {
           </div>
 
           {/* ── RIGHT: photo card with 3D tilt ───────────────────── */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex lg:flex-col lg:gap-3">
             <motion.div
               className="relative mx-auto max-w-[26rem]"
               style={{
@@ -320,10 +320,7 @@ export default function HeroSection() {
                 />
 
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#06040c]/95 via-[#06040c]/55 to-transparent px-6 pb-7 pt-24">
-                  <p className="text-[0.74rem] font-bold uppercase tracking-[0.18em] text-orange-300/78">
-                    WebsUp.nl
-                  </p>
-                  <p className="mt-2 text-[1.35rem] font-extrabold leading-tight tracking-[-0.02em] text-white">
+                  <p className="text-[1.35rem] font-extrabold leading-tight tracking-[-0.02em] text-white">
                     Daan Koolhaas
                   </p>
                   <div className="mt-2 flex items-center gap-2">
@@ -335,6 +332,30 @@ export default function HeroSection() {
                   </div>
                 </div>
               </div>
+            </motion.div>
+
+            {/* Status-card onder de foto */}
+            <motion.div
+              className="flex cursor-default items-center gap-3 overflow-hidden rounded-2xl px-5 py-3.5"
+              style={{
+                background: 'rgba(255,255,255,0.055)',
+                border: '1px solid rgba(255,255,255,0.11)',
+                backdropFilter: 'blur(18px) saturate(150%)',
+                WebkitBackdropFilter: 'blur(18px) saturate(150%)',
+                boxShadow: '0 12px 36px rgba(0,0,0,0.16), 0 1px 0 rgba(255,255,255,0.07) inset',
+              }}
+              initial={{ opacity: 0, y: 14, rotate: -1.8 }}
+              animate={{ opacity: 1, y: 0, rotate: -1.8 }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: 0.72 }}
+              whileHover={{ rotate: 0, scale: 1.015, transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] } }}
+            >
+              <span className="relative flex h-2.5 w-2.5 shrink-0">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              </span>
+              <p className="text-[0.84rem] font-medium text-white/80">
+                Open voor nieuwe projecten
+              </p>
             </motion.div>
           </div>
 

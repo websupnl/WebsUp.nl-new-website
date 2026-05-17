@@ -1,17 +1,34 @@
 import type { Metadata } from 'next'
 import Reveal from '@/components/ui/Reveal'
 import { siteConfig } from '@/config/site.config'
+import { getLegalPage } from '@/lib/queries/legal'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Privacybeleid',
   description: 'Lees het privacybeleid van WebsUp.nl en hoe wordt omgegaan met persoonsgegevens.',
 }
 
-export default function PrivacybeleidPage() {
+export default async function PrivacybeleidPage() {
+  const page = await getLegalPage('privacybeleid')
+
   return (
     <Reveal className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-      <h1 className="font-headline text-4xl font-extrabold text-slate-900 mb-2">Privacybeleid</h1>
-      <p className="text-slate-400 text-sm mb-10">Laatst bijgewerkt: januari 2026</p>
+      <h1 className="font-headline text-4xl font-extrabold text-slate-900 mb-2">
+        {page?.title ?? 'Privacybeleid'}
+      </h1>
+      <p className="text-slate-400 text-sm mb-10">
+        {page?.version ? `Versie ${page.version}` : 'Laatst bijgewerkt: januari 2026'}
+      </p>
+
+      {page?.content && (
+        <div
+          className="prose-content space-y-6 text-slate-700"
+          dangerouslySetInnerHTML={{ __html: page.content }}
+        />
+      )}
+      {!page?.content && (
 
       <div className="prose-content space-y-8 text-slate-700">
         <section>
@@ -97,6 +114,7 @@ export default function PrivacybeleidPage() {
           </p>
         </section>
       </div>
+      )}
     </Reveal>
   )
 }

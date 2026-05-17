@@ -84,6 +84,16 @@ export interface FormRow {
   updated_at: string
 }
 
+export interface LegalPage {
+  id: string
+  tenant_id: string
+  slug: string
+  title: string
+  content: string | null
+  version: string | null
+  updated_at: string
+}
+
 // ─── Existing table types ────────────────────────────────────
 
 export interface Database {
@@ -132,6 +142,34 @@ export interface Database {
           content?: string | null
           image_url?: string | null
           published?: boolean
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      legal_pages: {
+        Row: {
+          id: string
+          tenant_id: string
+          slug: string
+          title: string
+          content: string | null
+          version: string | null
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          tenant_id?: string
+          slug: string
+          title: string
+          content?: string | null
+          version?: string | null
+          updated_at?: string
+        }
+        Update: {
+          slug?: string
+          title?: string
+          content?: string | null
+          version?: string | null
           updated_at?: string
         }
         Relationships: []

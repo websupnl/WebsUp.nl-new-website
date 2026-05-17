@@ -3,15 +3,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { useInView } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Reveal from '@/components/ui/Reveal'
 import GrainOverlay from '@/components/ui/GrainOverlay'
 import { finalTrustItems } from '@/lib/homepage-content'
 
-const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$&'
-
-function ScrambleText({
+function TypewriterText({
   text,
   className,
   style,
@@ -20,63 +18,61 @@ function ScrambleText({
   className?: string
   style?: React.CSSProperties
 }) {
-  const ref        = useRef<HTMLSpanElement>(null)
-  const inView     = useInView(ref, { once: true, margin: '-80px' })
-  const chars      = useMemo(() => text.split(''), [text])
-  const [output, setOutput] = useState<string[]>(chars)
+  const ref         = useRef<HTMLSpanElement>(null)
+  const inView      = useInView(ref, { once: true, margin: '-80px' })
+  const [displayed, setDisplayed] = useState(0)
+  const [showCursor, setShowCursor] = useState(false)
   const hasAnimated = useRef(false)
+
+  const reducedMotion =
+    typeof window !== 'undefined'
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false
 
   useEffect(() => {
     if (!inView || hasAnimated.current) return
-    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     hasAnimated.current = true
 
-    const locked = new Array(chars.length).fill(false)
-    const STAGGER_MS  = 68
-    const BASE_LOCK_MS = 160
-    const TICK_MS     = 36
-    const startTime   = performance.now()
+    if (reducedMotion) {
+      setDisplayed(text.length)
+      return
+    }
 
-    const interval = setInterval(() => {
-      const elapsed = performance.now() - startTime
-      let allLocked = true
+    setDisplayed(0)
+    setShowCursor(true)
 
-      const next = chars.map((ch, i) => {
-        if (ch === ' ') return ' '
-        if (locked[i]) return ch
-        if (elapsed >= BASE_LOCK_MS + i * STAGGER_MS) {
-          locked[i] = true
-          return ch
-        }
-        allLocked = false
-        return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]
-      })
+    let i = 0
+    const TYPE_MS = 55
 
-      setOutput(next)
-      if (allLocked) clearInterval(interval)
-    }, TICK_MS)
+    const typeNext = () => {
+      i += 1
+      setDisplayed(i)
+      if (i < text.length) {
+        setTimeout(typeNext, TYPE_MS)
+      } else {
+        // Typing done — blink cursor a few more times, then fade out
+        setTimeout(() => setShowCursor(false), 2000)
+      }
+    }
 
-    return () => clearInterval(interval)
-  }, [chars, inView])
+    setTimeout(typeNext, TYPE_MS)
+  }, [inView, text, reducedMotion])
 
   return (
     <span ref={ref} className={className} style={style}>
-      {output.map((ch, i) => {
-        const isCorrect = ch === chars[i]
-        return (
-          <span
-            key={i}
-            style={{
-              display: 'inline',
-              color: isCorrect || chars[i] === ' ' ? 'inherit' : 'rgba(249,115,22,0.55)',
-              opacity: isCorrect || chars[i] === ' ' ? 1 : 0.7,
-              transition: isCorrect ? 'color 0.12s ease, opacity 0.12s ease' : 'none',
-            }}
-          >
-            {ch === ' ' ? ' ' : ch}
-          </span>
-        )
-      })}
+      {text.slice(0, displayed)}
+      <motion.span
+        animate={{ opacity: showCursor ? [1, 0, 1] : 0 }}
+        transition={
+          showCursor
+            ? { duration: 1.1, repeat: Infinity, ease: 'linear' }
+            : { duration: 0.3 }
+        }
+        style={{ color: 'rgba(249,115,22,0.9)', marginLeft: '1px' }}
+        aria-hidden
+      >
+        |
+      </motion.span>
     </span>
   )
 }
@@ -135,7 +131,7 @@ export default function CTASection({
                   className="max-w-3xl text-balance font-headline font-extrabold leading-[1.04] tracking-[-0.03em] text-white"
                   style={{ fontSize: 'clamp(1.85rem, 3.1vw, 2.9rem)' }}
                 >
-                  <ScrambleText text={heading} />
+                  <TypewriterText text={heading} />
                 </h2>
                 <p className="mt-5 max-w-2xl text-[1.0625rem] leading-relaxed text-white/75 md:text-lg">
                   {subheading}

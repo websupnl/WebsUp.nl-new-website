@@ -1,6 +1,9 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { CheckCircle, ArrowRight, Monitor, ShoppingCart, LayoutDashboard, Zap } from 'lucide-react'
+import { motion } from 'framer-motion'
 import Reveal from '@/components/ui/Reveal'
 import GradientIcon from '@/components/site/GradientIcon'
 
@@ -75,7 +78,17 @@ export default function SolutionsSection() {
                     className="group flex h-full flex-col border-b border-slate-200 py-7 lg:border-b-0 lg:px-6 lg:first:pl-0 lg:last:pr-0 lg:[&:not(:first-child)]:border-l lg:[&:not(:first-child)]:border-slate-200"
                   >
                     <div className="mb-5 flex items-start justify-between gap-4">
-                      <GradientIcon icon={Icon} size="sm" />
+                      <motion.div
+                        animate={{ y: [0, -6, 0] }}
+                        transition={{
+                          duration: 2.8 + index * 0.4,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                        }}
+                        className="group-hover:scale-110 transition-transform duration-300"
+                      >
+                        <GradientIcon icon={Icon} size="sm" />
+                      </motion.div>
                       <div className="text-xs font-bold uppercase tracking-[0.12em] text-slate-300 transition-colors group-hover:text-orange-400">
                         0{index + 1}
                       </div>
@@ -96,7 +109,7 @@ export default function SolutionsSection() {
                       {solution.title}
                     </h3>
                     <p className="mt-3 text-sm font-medium text-slate-400">{solution.stack}</p>
-                    <p className="mt-4 text-sm leading-relaxed text-slate-500">{solution.intro}</p>
+                    <p className="mt-4 text-[1rem] leading-relaxed text-slate-500">{solution.intro}</p>
 
                     <div className="mt-6 space-y-2.5">
                       {solution.bullets.map((bullet) => (

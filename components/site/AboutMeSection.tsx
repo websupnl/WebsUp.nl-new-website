@@ -39,21 +39,20 @@ function TypewriterChip({ text, delay }: { text: string; delay: number }) {
   return (
     <span
       ref={ref}
-      className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-white/80"
+      className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-[1rem] font-medium text-slate-700"
       style={{
-        background: 'rgba(12,10,22,0.88)',
-        border: `1px solid ${done ? 'rgba(249,115,22,0.22)' : 'rgba(255,255,255,0.10)'}`,
-        backdropFilter: 'blur(12px)',
-        transition: 'border-color 0.4s ease',
+        background: done ? 'rgba(249,115,22,0.07)' : 'rgba(249,115,22,0.04)',
+        border: `1px solid ${done ? 'rgba(249,115,22,0.28)' : 'rgba(249,115,22,0.14)'}`,
+        transition: 'border-color 0.4s ease, background 0.4s ease',
         minWidth: '4rem',
       }}
     >
       {displayed}
       {!done && (
         <span
-          className="ml-[2px] inline-block w-[1.5px] rounded-[1px]"
+          className="inline-block w-[1.5px] rounded-[1px]"
           style={{
-            height: '0.8em',
+            height: '0.85em',
             background: 'linear-gradient(180deg, #f97316 0%, #ec4899 100%)',
             animation: 'blink 0.9s step-end infinite',
           }}
@@ -83,9 +82,8 @@ export default function AboutMeSection() {
           {/* Photo — parallax + subtle tilt */}
           <motion.div
             ref={photoRef}
-            initial={{ opacity: 0, y: 24, rotate: -1.5 }}
-            animate={contentInView ? { opacity: 1, y: 0, rotate: -1.5 } : {}}
-            whileHover={{ rotate: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={contentInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <motion.div
@@ -97,8 +95,8 @@ export default function AboutMeSection() {
                 style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(249,115,22,0.16), rgba(236,72,153,0.08) 50%, transparent 72%)' }}
               />
               <div
-                className="relative overflow-hidden rounded-[2rem] shadow-[0_32px_80px_rgba(0,0,0,0.18)]"
-                style={{ border: '1px solid rgba(12,10,22,0.12)', background: 'rgba(12,10,22,0.88)', backdropFilter: 'blur(8px)' }}
+                className="relative overflow-hidden rounded-[2rem] shadow-[0_32px_80px_rgba(0,0,0,0.14)]"
+                style={{ border: '1px solid rgba(0,0,0,0.08)' }}
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                 <Image
@@ -166,10 +164,10 @@ export default function AboutMeSection() {
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-px"
                   style={{ background: 'linear-gradient(90deg, transparent, #f97316, #ec4899, transparent)', opacity: 0.4 }} />
                 <div className="mb-3 h-0.5 w-8 rounded-full" style={{ background: 'linear-gradient(90deg, #f97316, #ec4899)' }} />
-                <p className="text-[0.98rem] italic leading-relaxed text-white/68">
+                <p className="text-[1rem] italic leading-relaxed text-white/80">
                   &ldquo;{featuredQuote.content}&rdquo;
                 </p>
-                <footer className="mt-3 text-[0.86rem] font-semibold text-white/48">
+                <footer className="mt-3 text-[0.9375rem] font-semibold text-white/55">
                   {featuredQuote.name} &middot; {featuredQuote.role}
                 </footer>
               </motion.div>

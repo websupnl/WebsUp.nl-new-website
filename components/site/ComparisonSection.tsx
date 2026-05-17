@@ -1,56 +1,45 @@
 'use client'
 
-import { CheckCircle2, X } from 'lucide-react'
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const COMPARISONS = [
-  { feature: 'Eén aanspreekpunt',        templates: false, websup: true,  impact: 'Korte lijnen, sneller schakelen, minder gedoe' },
-  { feature: 'Past bij jouw bedrijf',    templates: false, websup: true,  impact: 'Geen standaard blokken, wel precies wat nodig is' },
-  { feature: 'Gebouwd voor aanvragen',   templates: false, websup: true,  impact: 'Structuur, tekst en flow sturen op conversie' },
-  { feature: 'Koppelingen met je tools', templates: false, websup: true,  impact: 'Minder handwerk, meer overzicht in je proces' },
-  { feature: 'Meegroeien na livegang',   templates: false, websup: true,  impact: 'Doorontwikkelen zodra je bedrijf daarom vraagt' },
-  { feature: 'Basis SEO op orde',        templates: true,  websup: true,  impact: 'Bij maatwerk scherper afgestemd op jouw markt' },
+  {
+    feature:  'Doel van de website',
+    standard: 'Alleen online zichtbaar zijn',
+    websup:   'Meer vertrouwen, aanvragen en groei',
+  },
+  {
+    feature:  'Structuur',
+    standard: "Pagina's vullen met tekst",
+    websup:   'Een logische flow richting contact of verkoop',
+  },
+  {
+    feature:  'Design',
+    standard: 'Mooi uiterlijk',
+    websup:   'Ontwerp dat past bij je merk en doelgroep',
+  },
+  {
+    feature:  'Conversie',
+    standard: 'Een knop naar contact',
+    websup:   "Gerichte CTA's en secties die bezoekers meenemen",
+  },
+  {
+    feature:  'Techniek',
+    standard: 'Website staat online',
+    websup:   'Snel, schaalbaar en makkelijk uit te breiden',
+  },
+  {
+    feature:  'Maatwerk',
+    standard: 'Beperkt tot standaard functies',
+    websup:   'Tools, formulieren, dashboards en koppelingen',
+  },
+  {
+    feature:  'Na oplevering',
+    standard: 'Website is klaar',
+    websup:   'Actieve partner die meedenkt, verbetert en doorontwikkelt',
+  },
 ]
-
-function WebsUpCheck({ delay }: { delay: number }) {
-  return (
-    <motion.div
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{
-        type: 'spring',
-        stiffness: 400,
-        damping: 16,
-        delay,
-      }}
-    >
-      <motion.div
-        animate={{ boxShadow: ['0 0 0px rgba(52,211,153,0)', '0 0 16px rgba(52,211,153,0.32)', '0 0 0px rgba(52,211,153,0)'] }}
-        transition={{ duration: 0.8, delay: delay + 0.15, ease: 'easeOut' }}
-        className="rounded-full"
-      >
-        <CheckCircle2 size={18} style={{ color: 'rgba(52,211,153,0.82)' }} />
-      </motion.div>
-    </motion.div>
-  )
-}
-
-function TemplateCell({ value, delay }: { value: boolean; delay: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4, delay }}
-      className="flex items-center justify-center"
-    >
-      {value
-        ? <CheckCircle2 size={18} style={{ color: 'rgba(52,211,153,0.46)' }} />
-        : <X size={18} strokeWidth={2} style={{ color: 'rgba(248,113,113,0.52)' }} />
-      }
-    </motion.div>
-  )
-}
 
 export default function ComparisonSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -70,15 +59,15 @@ export default function ComparisonSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="overline-badge mb-4">De verschillen</span>
+          <span className="overline-badge mb-4">De WebsUp aanpak</span>
           <h2
             className="font-headline font-extrabold leading-[1.06] tracking-[-0.03em] text-slate-900"
             style={{ fontSize: 'clamp(1.7rem, 3vw, 2.8rem)' }}
           >
-            Template sites vs. maatwerk
+            Van online visitekaartje naar digitale oplossing
           </h2>
-          <p className="mt-5 max-w-[52ch] text-[0.95rem] leading-relaxed text-slate-500">
-            Het verschil zit in resultaten, groei en hoe jouw bedrijf zich ontwikkelt.
+          <p className="mt-5 max-w-[56ch] text-[1rem] leading-relaxed text-slate-500">
+            Een website moet meer doen dan er goed uitzien. Hij moet je verhaal duidelijk maken, vertrouwen opbouwen en bezoekers helpen de juiste stap te zetten. Daarom kijk ik niet alleen naar design, maar ook naar strategie, conversie, techniek en de processen achter je bedrijf.
           </p>
         </motion.div>
 
@@ -104,11 +93,11 @@ export default function ComparisonSection() {
           <div className="relative z-10 grid grid-cols-3 border-b" style={{ background: 'rgba(255,255,255,0.035)', borderColor: 'rgba(255,255,255,0.10)' }}>
             <div className="px-6 py-4 lg:px-8" />
             <div className="px-6 py-4 lg:px-8" style={{ borderRight: '1px solid rgba(255,255,255,0.08)' }}>
-              <p className="text-[0.9rem] font-semibold uppercase tracking-[0.12em] text-white/65">Standaard template</p>
+              <p className="text-[0.9rem] font-semibold uppercase tracking-[0.12em] text-white/65">Standaard aanpak</p>
             </div>
             <div className="px-6 py-4 lg:px-8">
               <p className="text-[0.9rem] font-semibold uppercase tracking-[0.12em]" style={{ backgroundImage: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a78bfa 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                Maatwerk voor groei
+                WebsUp aanpak
               </p>
             </div>
           </div>
@@ -124,28 +113,22 @@ export default function ComparisonSection() {
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.25 + idx * 0.07 }}
                 style={{ borderBottom: idx < COMPARISONS.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}
               >
-                {/* Feature */}
+                {/* Feature label */}
                 <div className="px-6 py-4 lg:px-8">
-                  <p className="text-[1rem] font-medium text-white/92">{comp.feature}</p>
-                  <p className="mt-1 text-[0.88rem] leading-relaxed text-white/64">{comp.impact}</p>
+                  <p className="text-[0.9375rem] font-semibold text-white/80">{comp.feature}</p>
                 </div>
 
-                {/* Template */}
-                <div className="flex items-center justify-center px-6 py-4 lg:px-8" style={{ borderRight: '1px solid rgba(255,255,255,0.05)' }}>
-                  <TemplateCell value={comp.templates} delay={0.3 + idx * 0.07} />
+                {/* Standaard aanpak */}
+                <div className="px-5 py-4 lg:px-7" style={{ borderRight: '1px solid rgba(255,255,255,0.05)' }}>
+                  <p className="text-[0.9375rem] leading-snug text-white/42">{comp.standard}</p>
                 </div>
 
-                {/* WebsUp */}
+                {/* WebsUp aanpak */}
                 <div
-                  className={`flex items-center justify-center px-6 py-4 lg:px-8 ${comp.websup ? 'brand-gradient-wash' : ''}`}
-                  style={{
-                    borderLeft: comp.websup ? '1px solid rgba(236,72,153,0.18)' : '1px solid transparent',
-                  }}
+                  className="brand-gradient-wash px-5 py-4 lg:px-7"
+                  style={{ borderLeft: '1px solid rgba(236,72,153,0.14)' }}
                 >
-                  {comp.websup
-                    ? <WebsUpCheck delay={0.32 + idx * 0.07} />
-                    : <TemplateCell value={false} delay={0.3 + idx * 0.07} />
-                  }
+                  <p className="text-[0.9375rem] font-medium leading-snug text-white/88">{comp.websup}</p>
                 </div>
               </motion.div>
             ))}
@@ -161,9 +144,9 @@ export default function ComparisonSection() {
           transition={{ duration: 0.8, delay: 0.7 }}
           style={{ border: '1px solid rgba(167,139,250,0.22)', background: 'rgba(167,139,250,0.06)' }}
         >
-          <p className="text-center text-[0.875rem] text-slate-700">
-            <span className="font-semibold" style={{ backgroundImage: 'linear-gradient(135deg, #ec4899, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Pro tip:</span>{' '}
-            De meeste bedrijven die ik help zagen 30–50% meer leads/conversies na 3 maanden. Niet omdat het mooier is — maar omdat alles om jouw groei draait.
+          <p className="text-center text-[1rem] text-slate-700">
+            <span className="font-semibold" style={{ backgroundImage: 'linear-gradient(135deg, #ec4899, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Geen verrassingen:</span>{' '}
+            Je krijgt altijd een duidelijk voorstel voordat we iets bouwen. Samen bepalen we wat logisch is voor jouw bedrijf en jouw budget.
           </p>
         </motion.div>
       </div>

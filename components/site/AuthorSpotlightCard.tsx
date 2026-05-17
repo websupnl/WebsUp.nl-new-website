@@ -37,7 +37,7 @@ export default function AuthorSpotlightCard({ className, compact = false }: Auth
           <h2 className={cn('font-headline font-bold leading-tight text-white', compact ? 'text-2xl md:text-3xl' : 'text-2xl')}>
             Praktisch advies, direct uit de bouwpraktijk
           </h2>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/68">
+          <p className="mt-3 max-w-xl text-[1rem] leading-relaxed text-white/68">
             Ik schrijf over keuzes die ik vaak met klanten bespreek: wat maakt een site duidelijker, sneller of slimmer gekoppeld aan je proces?
           </p>
           <Link

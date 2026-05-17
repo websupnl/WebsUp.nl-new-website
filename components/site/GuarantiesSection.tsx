@@ -128,7 +128,7 @@ export default function GuarantiesSection() {
           >
             Dit krijg je altijd van mij.
           </h2>
-          <p className="mt-5 max-w-[48ch] text-[0.95rem] leading-relaxed text-slate-500">
+          <p className="mt-5 max-w-[48ch] text-[1rem] leading-relaxed text-slate-500">
             Geen standaardwerk, geen tussentijdse verdwijning, geen lege beloftes.
           </p>
         </div>
@@ -211,7 +211,7 @@ function GuaranteeCard({
 
       {/* Desc */}
       <p
-        className="mt-2.5 text-[0.875rem] leading-relaxed transition-colors duration-300"
+        className="mt-2.5 text-[1rem] leading-relaxed transition-colors duration-300"
         style={{ color: hovered ? 'rgba(255,255,255,0.58)' : 'rgba(255,255,255,0.45)' }}
       >
         {g.desc}

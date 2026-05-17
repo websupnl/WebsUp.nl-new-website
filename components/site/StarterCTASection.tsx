@@ -43,7 +43,7 @@ export default function StarterCTASection() {
                     {index + 1}
                   </div>
                   <h3 className="font-headline text-xl font-bold text-white">{point.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/56">{point.text}</p>
+                  <p className="mt-3 text-[1rem] leading-relaxed text-white/56">{point.text}</p>
                 </article>
               </Reveal>
             ))}

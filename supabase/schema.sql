@@ -438,3 +438,26 @@ create policy "Auth kan berichten beheren"
   on chat_messages for all
   using (auth.role() = 'authenticated')
   with check (auth.role() = 'authenticated');
+
+-- ============================================================
+-- LEGAL_PAGES (AV, Privacy, Cookies — beheersbaar via admin)
+-- ============================================================
+create table if not exists legal_pages (
+  id         uuid primary key default uuid_generate_v4(),
+  tenant_id  uuid not null default '00000000-0000-0000-0000-000000000001'
+             references tenants(id) on delete cascade,
+  slug       text not null check (slug in ('algemene-voorwaarden', 'privacybeleid', 'cookiebeleid')),
+  title      text not null,
+  content    text,
+  version    text,
+  updated_at timestamptz not null default now(),
+  unique (tenant_id, slug)
+);
+
+alter table legal_pages enable row level security;
+create policy "Public kan legal_pages lezen"
+  on legal_pages for select using (true);
+create policy "Auth kan legal_pages bewerken"
+  on legal_pages for all
+  using (auth.role() = 'authenticated')
+  with check (auth.role() = 'authenticated');
