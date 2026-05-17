@@ -39,6 +39,15 @@ export const siteConfig = {
   // WhatsApp (zonder + en spaties, gebruikt in wa.me link)
   whatsapp: "31682202148",
 
+  // Beschikbaarheid label in navbar
+  availability: {
+    enabled: true,
+    label: "Nog ruimte voor 2 projecten",
+    detail: "deze maand",
+    slots: 2,
+    period: "deze maand",
+  },
+
   // Social media
   social: {
     linkedin: "https://www.linkedin.com/in/daan-koolhaas-903b76258/",

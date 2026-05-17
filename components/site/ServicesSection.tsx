@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
+import { motion, useMotionTemplate, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
 import { homepageServices } from '@/lib/homepage-content'
 
 function useFadeIn(threshold = 0.15) {
@@ -19,12 +20,12 @@ function useFadeIn(threshold = 0.15) {
     obs.observe(el)
     return () => obs.disconnect()
   }, [threshold])
-  return { ref, visible }
+  return [ref, visible] as const
 }
 
 export default function ServicesSection() {
-  const header = useFadeIn(0.12)
-  const grid = useFadeIn(0.08)
+  const [headerRef, headerVisible] = useFadeIn(0.12)
+  const [gridRef, gridVisible] = useFadeIn(0.08)
 
   return (
     <section className="relative overflow-hidden bg-[#f8f9fc] py-24 lg:py-32">
@@ -36,11 +37,11 @@ export default function ServicesSection() {
 
         {/* Header */}
         <div
-          ref={header.ref}
+          ref={headerRef}
           className="mb-14 flex flex-col lg:flex-row lg:items-end lg:justify-between"
           style={{
-            opacity: header.visible ? 1 : 0,
-            transform: header.visible ? 'translateY(0)' : 'translateY(20px)',
+            opacity: headerVisible ? 1 : 0,
+            transform: headerVisible ? 'translateY(0)' : 'translateY(20px)',
             transition: 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1)',
           }}
         >
@@ -59,7 +60,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Cards — dark glass op lichte achtergrond */}
-        <div ref={grid.ref} className="grid gap-4 lg:grid-cols-2">
+        <div ref={gridRef} className="grid gap-4 lg:grid-cols-2">
           {homepageServices.map((service, i) => {
             const Icon = service.icon
             return (
@@ -68,7 +69,7 @@ export default function ServicesSection() {
                 service={service}
                 Icon={Icon}
                 index={i}
-                visible={grid.visible}
+                visible={gridVisible}
               />
             )
           })}
@@ -78,15 +79,15 @@ export default function ServicesSection() {
         <div
           className="mt-10 flex flex-col gap-5 border-t border-slate-200 pt-8 sm:flex-row sm:items-center sm:justify-between"
           style={{
-            opacity: grid.visible ? 1 : 0,
+            opacity: gridVisible ? 1 : 0,
             transition: 'opacity 0.8s ease 0.5s',
           }}
         >
           <p className="max-w-lg text-sm leading-relaxed text-slate-500">
             Weet je nog niet precies wat je nodig hebt? Vaak begint het gewoon met een gesprek.
           </p>
-          <Link href="/contact" className="btn-brand-gradient shrink-0">
-            Ik spar graag mee
+          <Link href="/contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800">
+            Vrijblijvend sparren
             <ArrowRight size={14} />
           </Link>
         </div>
@@ -103,28 +104,85 @@ function ServiceCard({
   index: number
   visible: boolean
 }) {
-  const [hovered, setHovered] = useState(false)
+  const [hovered, setHovered]       = useState(false)
+  const cardRef                     = useRef<HTMLAnchorElement>(null)
+  const shouldReduceMotion          = useReducedMotion()
+  const rawX                        = useMotionValue(0)
+  const rawY                        = useMotionValue(0)
+  const spotX                       = useMotionValue(50)
+  const spotY                       = useMotionValue(50)
+  const x                           = useSpring(rawX, { stiffness: 170, damping: 22, mass: 0.7 })
+  const y                           = useSpring(rawY, { stiffness: 170, damping: 22, mass: 0.7 })
+  const spotlight                   = useMotionTemplate`radial-gradient(280px circle at ${spotX}% ${spotY}%, rgba(249,115,22,0.10) 0%, transparent 70%)`
+
+  const onMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (shouldReduceMotion) return
+    const card = cardRef.current
+    if (!card) return
+    const rect = card.getBoundingClientRect()
+    const nx   = ((e.clientX - rect.left) / rect.width)  * 100
+    const ny   = ((e.clientY - rect.top)  / rect.height) * 100
+    spotX.set(nx)
+    spotY.set(ny)
+    // Magnetic: pull max 6px toward cursor
+    const mx = (e.clientX - rect.left - rect.width  / 2) / rect.width  * 6
+    const my = (e.clientY - rect.top  - rect.height / 2) / rect.height * 6
+    rawX.set(mx)
+    rawY.set(my - 4)
+  }
+
+  const onMouseEnter = () => {
+    setHovered(true)
+    if (!shouldReduceMotion) rawY.set(-4)
+  }
+
+  const onMouseLeave = () => {
+    setHovered(false)
+    rawX.set(0)
+    rawY.set(0)
+  }
 
   return (
     <Link
+      ref={cardRef}
       href={service.href}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="group grid min-h-[22rem] overflow-hidden rounded-2xl md:grid-cols-[0.9fr_1.1fr]"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onMouseMove={onMouseMove}
+      className="group block rounded-2xl"
       style={{
-        background: 'rgba(12,10,22,0.90)',
-        border: `1px solid ${hovered ? 'rgba(249,115,22,0.22)' : 'rgba(255,255,255,0.10)'}`,
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        boxShadow: hovered
-          ? '0 24px 60px rgba(0,0,0,0.28), 0 0 40px rgba(249,115,22,0.08)'
-          : '0 8px 32px rgba(0,0,0,0.14)',
-        transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
-        transition: 'all 0.45s cubic-bezier(0.16,1,0.3,1)',
         opacity: visible ? 1 : 0,
-        transitionDelay: visible ? `${index * 90}ms` : '0ms',
+        transition: 'opacity 0.45s ease',
+        transitionDelay: visible ? `${index * 70}ms` : '0ms',
       }}
     >
+      <motion.div
+        className="relative grid min-h-[22rem] overflow-hidden rounded-2xl md:grid-cols-[0.9fr_1.1fr]"
+        style={{
+          x,
+          y,
+          background: 'rgba(12,10,22,0.90)',
+          border: `1px solid ${hovered ? 'rgba(249,115,22,0.22)' : 'rgba(255,255,255,0.10)'}`,
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          boxShadow: hovered
+            ? '0 24px 60px rgba(0,0,0,0.28), 0 0 40px rgba(249,115,22,0.08)'
+            : '0 8px 32px rgba(0,0,0,0.14)',
+          transition: hovered
+            ? 'border-color 0.3s, box-shadow 0.3s, opacity 0.6s'
+            : 'border-color 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s cubic-bezier(0.16,1,0.3,1)',
+          willChange: 'transform',
+        }}
+      >
+      {/* Cursor spotlight */}
+      <motion.div
+        className="pointer-events-none absolute inset-0 rounded-2xl"
+        style={{
+          background: spotlight,
+          opacity: hovered ? 1 : 0,
+          transition: 'opacity 0.3s ease',
+        }}
+      />
       {/* Top gradient line */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-px rounded-t-2xl"
@@ -197,6 +255,7 @@ function ServiceCard({
           />
         </span>
       </div>
+      </motion.div>
     </Link>
   )
 }

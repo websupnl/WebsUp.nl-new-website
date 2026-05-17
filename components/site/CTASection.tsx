@@ -1,9 +1,85 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useInView } from 'framer-motion'
 import Reveal from '@/components/ui/Reveal'
 import GrainOverlay from '@/components/ui/GrainOverlay'
 import { finalTrustItems } from '@/lib/homepage-content'
+
+const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$&'
+
+function ScrambleText({
+  text,
+  className,
+  style,
+}: {
+  text: string
+  className?: string
+  style?: React.CSSProperties
+}) {
+  const ref        = useRef<HTMLSpanElement>(null)
+  const inView     = useInView(ref, { once: true, margin: '-80px' })
+  const chars      = useMemo(() => text.split(''), [text])
+  const [output, setOutput] = useState<string[]>(chars)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    if (!inView || hasAnimated.current) return
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    hasAnimated.current = true
+
+    const locked = new Array(chars.length).fill(false)
+    const STAGGER_MS  = 68
+    const BASE_LOCK_MS = 160
+    const TICK_MS     = 36
+    const startTime   = performance.now()
+
+    const interval = setInterval(() => {
+      const elapsed = performance.now() - startTime
+      let allLocked = true
+
+      const next = chars.map((ch, i) => {
+        if (ch === ' ') return ' '
+        if (locked[i]) return ch
+        if (elapsed >= BASE_LOCK_MS + i * STAGGER_MS) {
+          locked[i] = true
+          return ch
+        }
+        allLocked = false
+        return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]
+      })
+
+      setOutput(next)
+      if (allLocked) clearInterval(interval)
+    }, TICK_MS)
+
+    return () => clearInterval(interval)
+  }, [chars, inView])
+
+  return (
+    <span ref={ref} className={className} style={style}>
+      {output.map((ch, i) => {
+        const isCorrect = ch === chars[i]
+        return (
+          <span
+            key={i}
+            style={{
+              display: 'inline',
+              color: isCorrect || chars[i] === ' ' ? 'inherit' : 'rgba(249,115,22,0.55)',
+              opacity: isCorrect || chars[i] === ' ' ? 1 : 0.7,
+              transition: isCorrect ? 'color 0.12s ease, opacity 0.12s ease' : 'none',
+            }}
+          >
+            {ch === ' ' ? ' ' : ch}
+          </span>
+        )
+      })}
+    </span>
+  )
+}
 
 interface CTASectionProps {
   heading?: string
@@ -16,19 +92,19 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
-  heading = 'Zullen we sparren?',
-  subheading = 'Stuur gerust een bericht. Dan kijk ik met je mee naar je idee, huidige website of proces. Vaak wordt in een gesprek al duidelijk wat de slimste volgende stap is.',
-  ctaLabel = 'Gratis ontwerp aanvragen',
-  ctaHref = '/gratis-ontwerp',
+  heading       = 'Zullen we sparren?',
+  subheading    = 'Stuur gerust een bericht. Dan kijk ik met je mee naar je idee, huidige website of proces. Vaak wordt in een gesprek al duidelijk wat de slimste volgende stap is.',
+  ctaLabel      = 'Gratis ontwerp aanvragen',
+  ctaHref       = '/gratis-ontwerp',
   secondaryLabel = 'Kennismaking plannen',
-  secondaryHref = '/contact',
-  className = '',
+  secondaryHref  = '/contact',
+  className      = '',
 }: CTASectionProps) {
   return (
     <section className={`bg-white px-6 py-12 lg:px-8 ${className}`}>
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <div className="motion-sheen relative overflow-hidden rounded-[2rem] bg-[#06040c]">
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#06040c]">
             <div className="absolute inset-0 overflow-hidden">
               <div className="hero-wave-bg absolute inset-[-8%]">
                 <Image
@@ -59,7 +135,7 @@ export default function CTASection({
                   className="max-w-3xl text-balance font-headline font-extrabold leading-[1.04] tracking-[-0.03em] text-white"
                   style={{ fontSize: 'clamp(1.85rem, 3.1vw, 2.9rem)' }}
                 >
-                  {heading}
+                  <ScrambleText text={heading} />
                 </h2>
                 <p className="mt-5 max-w-2xl text-[1.0625rem] leading-relaxed text-white/75 md:text-lg">
                   {subheading}

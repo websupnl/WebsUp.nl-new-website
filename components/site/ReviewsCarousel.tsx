@@ -1,12 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { motion, useInView, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
 import type { TestimonialWithProject } from '@/lib/queries/testimonials'
 
 function GoogleLogo() {
   return (
-    <svg viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" width="22" height="22">
       <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
       <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
       <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
@@ -15,14 +16,35 @@ function GoogleLogo() {
   )
 }
 
-function Stars({ count = 5, size = 16 }: { count?: number; size?: number }) {
+function AnimatedStars({ count = 5, delay = 0 }: { count?: number; delay?: number }) {
+  const ref    = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-30px' })
+  const SIZE   = 68  // viewBox size for each star
+
   return (
-    <div className="flex items-center gap-0.5">
+    <div ref={ref} className="flex items-center gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} width={size} height={size} viewBox="0 0 24 24">
-          <path
-            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-            fill={i < count ? '#FBBC05' : '#E2E8F0'}
+        <svg key={i} width="16" height="16" viewBox={`0 0 ${SIZE} ${SIZE}`}>
+          <defs>
+            <linearGradient id={`sg-${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor={i < count ? '#FBBC05' : '#E2E8F0'} />
+              <stop offset="100%" stopColor={i < count ? '#F59E0B' : '#E2E8F0'} />
+            </linearGradient>
+          </defs>
+          <motion.path
+            d="M34 4l8.4 17L62 23.6l-14 13.7 3.3 19.3L34 47.5 16.7 56.6 20 37.3 6 23.6l19.6-2.6L34 4z"
+            fill="none"
+            stroke={`url(#sg-${i})`}
+            strokeWidth="4"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            initial={{ pathLength: 0, fillOpacity: 0 }}
+            animate={inView ? { pathLength: 1, fillOpacity: 1 } : {}}
+            style={{ fill: i < count ? '#FBBC05' : '#E2E8F0' }}
+            transition={{
+              pathLength: { duration: 0.5, ease: 'easeOut', delay: delay + i * 0.08 },
+              fillOpacity: { duration: 0.3, delay: delay + i * 0.08 + 0.35 },
+            }}
           />
         </svg>
       ))}
@@ -30,53 +52,80 @@ function Stars({ count = 5, size = 16 }: { count?: number; size?: number }) {
   )
 }
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString('nl-NL', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+function ReviewCard({ testimonial, index }: { testimonial: TestimonialWithProject; index: number }) {
+  const cardRef            = useRef<HTMLDivElement>(null)
+  const inView             = useInView(cardRef, { once: true, margin: '-40px' })
+  const shouldReduceMotion = useReducedMotion()
+  const rawRotateX         = useMotionValue(0)
+  const rawRotateY         = useMotionValue(0)
+  const rotateX            = useSpring(rawRotateX, { stiffness: 180, damping: 22, mass: 0.6 })
+  const rotateY            = useSpring(rawRotateY, { stiffness: 180, damping: 22, mass: 0.6 })
+
+  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (shouldReduceMotion) return
+    const el   = cardRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const nx   = (e.clientX - rect.left) / rect.width  - 0.5
+    const ny   = (e.clientY - rect.top)  / rect.height - 0.5
+    rawRotateX.set(ny * -5)
+    rawRotateY.set(nx * 5)
+  }
+
+  const onMouseLeave = () => {
+    rawRotateX.set(0)
+    rawRotateY.set(0)
+  }
+
+  return (
+    <motion.div
+      ref={cardRef}
+      className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-950/[0.04]"
+      style={{ rotateX, rotateY, transformPerspective: 800, willChange: 'transform' }}
+      initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1], delay: shouldReduceMotion ? 0 : index * 0.06 }}
+      whileHover={{
+        borderColor: 'rgba(236,72,153,0.20)',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
+        y: shouldReduceMotion ? 0 : -2,
+        transition: { type: 'spring', stiffness: 260, damping: 24, mass: 0.7 },
+      }}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+    >
+      <AnimatedStars count={testimonial.rating ?? 5} delay={index * 0.08} />
+      <p className="flex-1 text-sm leading-relaxed text-slate-700">
+        &ldquo;{testimonial.content}&rdquo;
+      </p>
+      <div>
+        <p className="text-sm font-semibold text-slate-900">{testimonial.name}</p>
+        <p className="mt-0.5 text-xs text-slate-500">
+          {testimonial.role ?? 'Klant van WebsUp'} &middot;{' '}
+          {new Date(testimonial.created_at).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+      </div>
+    </motion.div>
+  )
 }
 
 const VISIBLE = 3
 
-interface Props {
-  testimonials: TestimonialWithProject[]
-}
-
-export default function ReviewsCarousel({ testimonials }: Props) {
+export default function ReviewsCarousel({ testimonials }: { testimonials: TestimonialWithProject[] }) {
   const [offset, setOffset] = useState(0)
-
-  const total = testimonials.length
+  const total   = testimonials.length
   const canPrev = offset > 0
   const canNext = offset + VISIBLE < total
-
-  const avg =
-    total > 0
-      ? (testimonials.reduce((sum, t) => sum + (t.rating ?? 5), 0) / total).toFixed(1)
-      : '5.0'
-
+  const avg     = total > 0
+    ? (testimonials.reduce((sum, t) => sum + (t.rating ?? 5), 0) / total).toFixed(1)
+    : '5.0'
   const visible = testimonials.slice(offset, offset + VISIBLE)
 
   return (
     <div>
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {visible.map((t) => (
-          <div
-            key={t.id}
-            className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-950/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:border-pink-100 hover:shadow-md hover:shadow-slate-950/[0.07]"
-          >
-            <Stars count={t.rating ?? 5} />
-            <p className="flex-1 text-sm leading-relaxed text-slate-700">
-              &ldquo;{t.content}&rdquo;
-            </p>
-            <div>
-              <p className="text-sm font-semibold text-slate-900">{t.name}</p>
-              <p className="mt-0.5 text-xs text-slate-500">
-                {t.role ?? 'Klant van WebsUp'} &middot; {formatDate(t.created_at)}
-              </p>
-            </div>
-          </div>
+        {visible.map((t, i) => (
+          <ReviewCard key={t.id} testimonial={t} index={i} />
         ))}
       </div>
 
@@ -85,7 +134,7 @@ export default function ReviewsCarousel({ testimonials }: Props) {
           <GoogleLogo />
           <div>
             <div className="flex items-center gap-2">
-              <Stars count={5} size={14} />
+              <AnimatedStars count={5} />
               <span className="text-sm font-semibold text-slate-900">Uitstekend</span>
             </div>
             <p className="mt-0.5 text-xs text-slate-400">
@@ -93,7 +142,6 @@ export default function ReviewsCarousel({ testimonials }: Props) {
             </p>
           </div>
         </div>
-
         <div className="flex items-center gap-2">
           <button
             onClick={() => setOffset(Math.max(0, offset - 1))}

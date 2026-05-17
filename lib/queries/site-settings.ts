@@ -36,6 +36,11 @@ export async function getMergedSiteSettings() {
     address:         db?.address         ?? siteConfig.address,
     linkedin_url:    db?.linkedin_url    ?? siteConfig.social.linkedin,
     og_image_url:    db?.og_image_url    ?? siteConfig.seo.ogImage,
+    availability_enabled: db?.availability_enabled ?? siteConfig.availability.enabled,
+    availability_label:   db?.availability_label   ?? siteConfig.availability.label,
+    availability_detail:  db?.availability_detail  ?? siteConfig.availability.detail,
+    availability_slots:   db?.availability_slots   ?? siteConfig.availability.slots,
+    availability_period:  db?.availability_period  ?? siteConfig.availability.period,
   }
 }
 

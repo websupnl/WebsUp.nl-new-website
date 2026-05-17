@@ -26,6 +26,13 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         primaryColor={settings.primary_color ?? undefined}
         logoUrl={settings.logo_url ?? undefined}
         navItems={activeHeaderNav}
+        availability={{
+          enabled: settings.availability_enabled,
+          label: settings.availability_label,
+          detail: settings.availability_detail,
+          slots: settings.availability_slots,
+          period: settings.availability_period,
+        }}
       />
       <main className="page-shell flex-1">{children}</main>
       <Footer

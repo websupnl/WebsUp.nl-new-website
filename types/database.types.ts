@@ -24,6 +24,11 @@ export interface SiteSettingsRow {
   address: string | null
   linkedin_url: string | null
   og_image_url: string | null
+  availability_enabled: boolean | null
+  availability_label: string | null
+  availability_detail: string | null
+  availability_slots: number | null
+  availability_period: string | null
   updated_at: string
 }
 
@@ -287,21 +292,30 @@ export interface Database {
           logo_url: string | null; logo_dark_url: string | null; favicon_url: string | null
           primary_color: string | null; secondary_color: string | null; font_family: string | null
           email: string | null; phone: string | null; address: string | null
-          linkedin_url: string | null; og_image_url: string | null; updated_at: string
+          linkedin_url: string | null; og_image_url: string | null
+          availability_enabled: boolean | null; availability_label: string | null
+          availability_detail: string | null; availability_slots: number | null
+          availability_period: string | null; updated_at: string
         }
         Insert: {
           id?: string; tenant_id: string; site_name?: string | null; tagline?: string | null
           logo_url?: string | null; logo_dark_url?: string | null; favicon_url?: string | null
           primary_color?: string | null; secondary_color?: string | null; font_family?: string | null
           email?: string | null; phone?: string | null; address?: string | null
-          linkedin_url?: string | null; og_image_url?: string | null; updated_at?: string
+          linkedin_url?: string | null; og_image_url?: string | null
+          availability_enabled?: boolean | null; availability_label?: string | null
+          availability_detail?: string | null; availability_slots?: number | null
+          availability_period?: string | null; updated_at?: string
         }
         Update: {
           id?: string; tenant_id?: string; site_name?: string | null; tagline?: string | null
           logo_url?: string | null; logo_dark_url?: string | null; favicon_url?: string | null
           primary_color?: string | null; secondary_color?: string | null; font_family?: string | null
           email?: string | null; phone?: string | null; address?: string | null
-          linkedin_url?: string | null; og_image_url?: string | null; updated_at?: string
+          linkedin_url?: string | null; og_image_url?: string | null
+          availability_enabled?: boolean | null; availability_label?: string | null
+          availability_detail?: string | null; availability_slots?: number | null
+          availability_period?: string | null; updated_at?: string
         }
         Relationships: []
       }

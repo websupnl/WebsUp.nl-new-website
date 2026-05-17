@@ -31,6 +31,12 @@ export async function saveSiteSettings(
     if (data.favicon_url) assert(isSafeUrl(data.favicon_url), 'Favicon-URL is ongeldig.')
     if (data.linkedin_url) assert(isSafeUrl(data.linkedin_url), 'LinkedIn-URL is ongeldig.')
     if (data.og_image_url) assert(isSafeUrl(data.og_image_url), 'OG image-URL is ongeldig.')
+    if (data.availability_label) assert(validateLength(normalizeText(data.availability_label), 60), 'Beschikbaarheidslabel is te lang.')
+    if (data.availability_detail) assert(validateLength(normalizeText(data.availability_detail), 60), 'Beschikbaarheidsdetail is te lang.')
+    if (data.availability_period) assert(validateLength(normalizeText(data.availability_period), 60), 'Beschikbaarheidsperiode is te lang.')
+    if (typeof data.availability_slots === 'number') {
+      assert(Number.isInteger(data.availability_slots) && data.availability_slots >= 0 && data.availability_slots <= 9, 'Aantal plekken moet tussen 0 en 9 liggen.')
+    }
     const supabase = await createServerSupabaseClient()
     const { error } = await supabase
       .from('site_settings')

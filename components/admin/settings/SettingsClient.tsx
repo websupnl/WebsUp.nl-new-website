@@ -16,9 +16,10 @@ import SeoSection from '@/components/admin/settings/SeoSection'
 import NavigatieSection from '@/components/admin/settings/NavigatieSection'
 import ModulesSection from '@/components/admin/settings/ModulesSection'
 import FormBuilderSection from '@/components/admin/settings/FormBuilderSection'
+import BeschikbaarheidSection from '@/components/admin/settings/BeschikbaarheidSection'
 
 import {
-  Palette, Building2, Search, Navigation, ToggleLeft, FileText, Save, AlertTriangle,
+  Palette, Building2, Search, Navigation, ToggleLeft, FileText, Save, AlertTriangle, CalendarRange,
 } from 'lucide-react'
 
 import type {
@@ -28,6 +29,7 @@ import type {
 const TABS = [
   { id: 'branding', label: 'Branding', icon: Palette },
   { id: 'bedrijf', label: 'Bedrijfsinfo', icon: Building2 },
+  { id: 'beschikbaarheid', label: 'Beschikbaarheid', icon: CalendarRange },
   { id: 'seo', label: 'SEO', icon: Search },
   { id: 'navigatie', label: 'Navigatie', icon: Navigation },
   { id: 'modules', label: 'Modules', icon: ToggleLeft },
@@ -73,6 +75,7 @@ export default function SettingsClient({
       switch (tab) {
         case 'branding':
         case 'bedrijf':
+        case 'beschikbaarheid':
           result = await saveSiteSettings(siteSettings)
           break
         case 'seo':
@@ -163,6 +166,12 @@ export default function SettingsClient({
         )}
         {tab === 'bedrijf' && (
           <BedrijfsinfoSection
+            data={siteSettings}
+            onChange={(patch) => setSiteSettings((prev) => ({ ...prev, ...patch }))}
+          />
+        )}
+        {tab === 'beschikbaarheid' && (
+          <BeschikbaarheidSection
             data={siteSettings}
             onChange={(patch) => setSiteSettings((prev) => ({ ...prev, ...patch }))}
           />

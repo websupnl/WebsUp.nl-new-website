@@ -46,6 +46,13 @@ create table if not exists site_settings (
   -- OG image
   og_image_url      text,
 
+  -- Availability badge
+  availability_enabled boolean default true,
+  availability_label   text default 'Nog ruimte voor 2 projecten',
+  availability_detail  text default 'deze maand',
+  availability_slots   integer default 2,
+  availability_period  text default 'deze maand',
+
   updated_at        timestamptz not null default now(),
 
   unique (tenant_id)

@@ -1,6 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Reveal from '@/components/ui/Reveal'
 import type { PortfolioProject } from '@/lib/queries/projects'
 
@@ -17,11 +21,7 @@ const preferredProjects = [
   'rottevalle',
 ]
 
-const projectCopy: Record<string, {
-  title?: string
-  text: string
-  bullets: string[]
-}> = {
+const projectCopy: Record<string, { title?: string; text: string; bullets: string[] }> = {
   'decorservice-haak': {
     title: 'Decorservice Haak',
     text: 'Een website met een professionele uitstraling, duidelijke structuur en genoeg ruimte om diensten en vakwerk goed te presenteren.',
@@ -47,29 +47,54 @@ function pickProjects(projects: PortfolioProject[], limit: number) {
   return [...preferred, ...rest].slice(0, limit)
 }
 
-interface ProjectSlotProps {
+function ProjectSlot({
+  project,
+  className = '',
+  imageSize = '(max-width: 1024px) 100vw, 50vw',
+  delay = 0,
+}: {
   project: PortfolioProject
   className?: string
   imageSize?: string
-}
+  delay?: number
+}) {
+  const copy    = projectCopy[project.slug]
+  const ref     = useRef<HTMLAnchorElement>(null)
+  const inView  = useInView(ref, { once: true, margin: '-60px' })
 
-function ProjectSlot({ project, className = '', imageSize = '(max-width: 1024px) 100vw, 50vw' }: ProjectSlotProps) {
-  const copy = projectCopy[project.slug]
   return (
     <Link
+      ref={ref}
       href={`/projecten/${project.slug}`}
       className={`group relative block overflow-hidden rounded-2xl bg-slate-900 ${className}`}
     >
-      <Image
-        src={project.image_url || '/hero-bg.png'}
-        alt={copy?.title ?? project.title}
-        fill
-        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-        sizes={imageSize}
-      />
+      {/* Image with scroll-driven wipe reveal */}
+      <motion.div
+        className="absolute inset-0"
+        initial={{ clipPath: 'inset(0 100% 0 0)' }}
+        animate={inView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+        transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: delay / 1000 }}
+      >
+        <Image
+          src={project.image_url || '/hero-bg.png'}
+          alt={copy?.title ?? project.title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          sizes={imageSize}
+        />
+      </motion.div>
+
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
-      <div className="absolute inset-x-0 bottom-0 translate-y-1 p-6 transition-transform duration-300 group-hover:translate-y-0">
-        <div className="mb-2 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white/50">
+
+      {/* Text */}
+      <motion.div
+        className="absolute inset-x-0 bottom-0 p-6"
+        initial={{ opacity: 0, y: 12 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: (delay / 1000) + 0.55 }}
+      >
+        <div className="mb-2 text-[0.82rem] font-bold uppercase tracking-[0.12em] text-white/68">
           {project.category || 'Website'}
         </div>
         <h3 className="font-headline text-xl font-bold text-white">
@@ -78,7 +103,7 @@ function ProjectSlot({ project, className = '', imageSize = '(max-width: 1024px)
         <div className="mt-3 flex items-center gap-2 text-sm font-semibold text-white/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           Bekijk project <ArrowRight size={13} />
         </div>
-      </div>
+      </motion.div>
     </Link>
   )
 }
@@ -110,38 +135,35 @@ export default function ProjectsSection({ projects = [], limit = 3 }: ProjectsSe
 
         <div className="mt-10">
           {displayed.length === 1 && (
-            <Reveal>
-              <ProjectSlot project={featured} className="h-80 lg:h-[480px]" imageSize="(max-width: 1024px) 100vw, 1200px" />
-            </Reveal>
+            <ProjectSlot project={featured} className="h-80 lg:h-[480px]" imageSize="(max-width: 1024px) 100vw, 1200px" />
           )}
 
           {displayed.length === 2 && (
             <div className="grid gap-3 lg:grid-cols-2">
               {displayed.map((p, i) => (
-                <Reveal key={p.slug} delay={i * 60}>
-                  <ProjectSlot project={p} className="h-72 lg:h-[420px]" />
-                </Reveal>
+                <ProjectSlot key={p.slug} project={p} className="h-72 lg:h-[420px]" delay={i * 80} />
               ))}
             </div>
           )}
 
           {displayed.length >= 3 && (
             <div className="grid gap-3 lg:grid-cols-5 lg:grid-rows-2">
-              <Reveal className="lg:col-span-3 lg:row-span-2">
+              <div className="lg:col-span-3 lg:row-span-2">
                 <ProjectSlot
                   project={featured}
                   className="h-64 lg:h-full lg:min-h-[540px]"
                   imageSize="(max-width: 1024px) 100vw, 60vw"
                 />
-              </Reveal>
+              </div>
               {rest.slice(0, 2).map((p, i) => (
-                <Reveal key={p.slug} delay={(i + 1) * 70} className="lg:col-span-2">
+                <div key={p.slug} className="lg:col-span-2">
                   <ProjectSlot
                     project={p}
                     className="h-64 lg:h-full"
                     imageSize="(max-width: 1024px) 100vw, 40vw"
+                    delay={(i + 1) * 120}
                   />
-                </Reveal>
+                </div>
               ))}
             </div>
           )}
