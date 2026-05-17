@@ -44,7 +44,7 @@ export default function DienstenPage() {
                 className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
               >
                 <Icon size={18} className="shrink-0 text-white/62" />
-                <span className="text-sm font-medium text-white/84">{item.label}</span>
+                <span className="text-[1rem] font-medium text-white/84">{item.label}</span>
               </div>
             )
           })}
@@ -62,7 +62,7 @@ export default function DienstenPage() {
             <h2 className="mt-3 font-headline text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-4xl">
               Vier richtingen, een aanpak
             </h2>
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-slate-500">
+            <p className="mt-4 text-[1rem] leading-relaxed text-slate-500">
               Heldere keuzes voor bedrijven die professioneel zichtbaar willen zijn, online willen verkopen of slimmer willen werken.
             </p>
           </Reveal>
@@ -81,7 +81,7 @@ export default function DienstenPage() {
               ))}
             </div>
             <p className="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-slate-400">Klantreactie</p>
-            <p className="mt-3 text-sm font-semibold text-slate-500">Jeremy Palsma</p>
+            <p className="mt-3 text-[0.9375rem] font-semibold text-slate-500">Jeremy Palsma</p>
           </Reveal>
           <Reveal delay={80}>
             <blockquote className="font-headline text-2xl font-bold leading-snug tracking-[-0.01em] text-slate-900 md:text-3xl">

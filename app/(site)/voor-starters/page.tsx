@@ -71,7 +71,7 @@ export default function VoorStartersPage() {
                 className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
               >
                 <Icon size={18} className="shrink-0 text-white/62" />
-                <span className="text-sm font-medium text-white/84">{item.label}</span>
+                <span className="text-[1rem] font-medium text-white/84">{item.label}</span>
               </div>
             )
           })}
@@ -123,7 +123,7 @@ export default function VoorStartersPage() {
                 {youGet.map((item) => (
                   <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
                     <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
-                    <span className="text-sm leading-relaxed text-slate-700">{item}</span>
+                    <span className="text-[1rem] leading-relaxed text-slate-700">{item}</span>
                   </div>
                 ))}
               </div>
@@ -134,7 +134,7 @@ export default function VoorStartersPage() {
                 {iDont.map((item) => (
                   <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
                     <X size={16} className="mt-0.5 flex-shrink-0 text-slate-400" />
-                    <span className="text-sm leading-relaxed text-slate-600">{item}</span>
+                    <span className="text-[1rem] leading-relaxed text-slate-600">{item}</span>
                   </div>
                 ))}
               </div>

@@ -7,6 +7,7 @@ import HeroSection from '@/components/site/HeroSection'
 import GuarantiesSection from '@/components/site/GuarantiesSection'
 import ComparisonSection from '@/components/site/ComparisonSection'
 import ServicesSection from '@/components/site/ServicesSection'
+import ModulesSection from '@/components/site/ModulesSection'
 import ProjectsSection from '@/components/site/ProjectsSection'
 import AboutMeSection from '@/components/site/AboutMeSection'
 import ReviewsSection from '@/components/site/ReviewsSection'
@@ -46,6 +47,7 @@ export default async function HomePage() {
         <GuarantiesSection />
         <ComparisonSection />
         <ServicesSection />
+        <ModulesSection />
         <ProjectsSection projects={projects} limit={3} />
         <AboutMeSection />
         <ReviewsSection />

@@ -120,7 +120,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               </div>
 
               <div className="border-t border-slate-200 pt-6">
-                <p className="max-w-md text-sm leading-relaxed text-slate-500">
+                <p className="max-w-md text-[1rem] leading-relaxed text-slate-500">
                   Zit je met een vergelijkbaar vraagstuk? Dan kijk ik mee naar de snelste logische stap voor jouw bedrijf.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">

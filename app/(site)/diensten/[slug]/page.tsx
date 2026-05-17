@@ -184,7 +184,7 @@ function WebsitesServicePage() {
                 className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
               >
                 <Icon size={18} className="shrink-0 text-white/62" />
-                <span className="text-sm font-medium text-white/84">{item.label}</span>
+                <span className="text-[1rem] font-medium text-white/84">{item.label}</span>
               </div>
             )
           })}
@@ -253,7 +253,7 @@ function WebsitesServicePage() {
               {websiteIncludes.map((item) => (
                 <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
                   <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
-                  <span className="text-sm leading-relaxed text-slate-700">{item}</span>
+                  <span className="text-[1rem] leading-relaxed text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
@@ -303,7 +303,7 @@ function WebsitesServicePage() {
             <blockquote className="font-headline text-xl font-semibold leading-snug text-slate-900 md:text-2xl">
               &ldquo;Daan heeft voor ons in no time een complete professionele website gebouwd. Qua kwaliteit komt het resultaat verrassend dicht in de buurt van veel duurdere agencies.&rdquo;
             </blockquote>
-            <p className="mt-5 text-sm font-semibold text-slate-500">Jeremy Palsma</p>
+            <p className="mt-5 text-[0.9375rem] font-semibold text-slate-500">Jeremy Palsma</p>
           </Reveal>
         </div>
       </section>
@@ -425,7 +425,7 @@ function ServiceHero({
               className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
             >
               <Icon size={18} className="shrink-0 text-white/62" />
-              <span className="text-sm font-medium text-white/84">{item.label}</span>
+              <span className="text-[1rem] font-medium text-white/84">{item.label}</span>
             </div>
           )
         })}
@@ -465,7 +465,7 @@ function ReviewQuote({ author, text }: { author: string; text: string }) {
             ))}
           </div>
           <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-400">Klantreactie</p>
-          <p className="mt-4 text-sm font-semibold text-slate-500">{author}</p>
+          <p className="mt-4 text-[0.9375rem] font-semibold text-slate-500">{author}</p>
         </Reveal>
         <Reveal delay={80}>
           <blockquote className="font-headline text-xl font-semibold leading-snug text-slate-900 md:text-2xl">
@@ -644,7 +644,7 @@ function WebshopsServicePage() {
             {webshopIncludes.map((item) => (
               <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
                 <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
-                <span className="text-sm leading-relaxed text-slate-700">{item}</span>
+                <span className="text-[1rem] leading-relaxed text-slate-700">{item}</span>
               </div>
             ))}
           </div>

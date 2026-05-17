@@ -139,13 +139,13 @@ export default async function ProjectenPage() {
                     <h3 className="text-xl font-bold leading-tight text-slate-900 transition-colors group-hover:text-orange-500">
                       <Link href={`/projecten/${project.slug}`}>{project.title}</Link>
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-500">
+                    <p className="mt-3 text-[1rem] leading-relaxed text-slate-500">
                       {projectCopy(project.slug, project.excerpt)}
                     </p>
 
                     <div className="mt-5 space-y-2.5">
                       {project.highlights.slice(0, 2).map((highlight) => (
-                        <div key={highlight} className="flex items-start gap-2.5 text-sm text-slate-600">
+                        <div key={highlight} className="flex items-start gap-2.5 text-[1rem] text-slate-600">
                           <CheckCircle size={16} className="mt-0.5 text-orange-500 flex-shrink-0" />
                           <span>{highlight}</span>
                         </div>
@@ -155,7 +155,7 @@ export default async function ProjectenPage() {
                     <div className="mt-auto flex flex-wrap items-center gap-4 border-t border-slate-100 pt-5">
                       <Link
                         href={`/projecten/${project.slug}`}
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition-colors hover:text-orange-500"
+                        className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-slate-900 transition-colors hover:text-orange-500"
                       >
                         Bekijk project <ArrowRight size={14} />
                       </Link>
@@ -164,7 +164,7 @@ export default async function ProjectenPage() {
                           url={project.website_url}
                           isStatic
                           imageSrc={project.image_url}
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900"
+                          className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-slate-500 transition-colors hover:text-slate-900"
                         >
                           Bekijk site <ExternalLink size={14} />
                         </LinkPreview>
@@ -205,10 +205,10 @@ export default async function ProjectenPage() {
                       <h3 className="text-2xl font-bold text-slate-900 mb-3">
                         {project.title}
                       </h3>
-                      <p className="text-slate-500 text-sm leading-relaxed mb-5">{projectCopy(project.slug, project.excerpt)}</p>
+                      <p className="text-slate-500 text-[1rem] leading-relaxed mb-5">{projectCopy(project.slug, project.excerpt)}</p>
                       <div className="space-y-2 mb-6">
                         {project.highlights.slice(0, 2).map((highlight) => (
-                          <div key={highlight} className="flex items-start gap-2 text-sm text-slate-600">
+                          <div key={highlight} className="flex items-start gap-2 text-[1rem] text-slate-600">
                             <CheckCircle size={15} className="mt-0.5 text-orange-500 flex-shrink-0" />
                             <span>{highlight}</span>
                           </div>
@@ -217,7 +217,7 @@ export default async function ProjectenPage() {
                       <div className="flex flex-wrap gap-3">
                         <Link
                           href={`/projecten/${project.slug}`}
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-orange-500 transition-colors"
+                          className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-slate-900 hover:text-orange-500 transition-colors"
                         >
                           Bekijk project <ArrowRight size={14} />
                         </Link>
@@ -226,7 +226,7 @@ export default async function ProjectenPage() {
                             url={project.website_url}
                             isStatic
                             imageSrc={project.image_url}
-                            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors"
+                            className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-slate-500 hover:text-slate-900 transition-colors"
                           >
                             Bekijk site <ExternalLink size={14} />
                           </LinkPreview>

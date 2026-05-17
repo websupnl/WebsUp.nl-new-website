@@ -56,8 +56,8 @@ export default async function BlogArticlePage({ params }: Props) {
       <section className="py-16 lg:py-24 mesh-gradient-bg">
         <Reveal className="max-w-4xl mx-auto px-6 lg:px-8">
           <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-orange-500 transition-colors mb-8"
+            href="/kennisbank"
+            className="inline-flex items-center gap-2 text-[0.9375rem] text-slate-500 hover:text-orange-500 transition-colors mb-8"
           >
             <ArrowLeft size={16} />
             Terug naar kennisbank
@@ -65,7 +65,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <h1 className="font-headline text-4xl md:text-4xl font-extrabold text-slate-900 leading-[1.05] tracking-tight mb-6">
             {article.title}
           </h1>
-          <div className="flex items-center gap-5 text-sm text-slate-400">
+          <div className="flex items-center gap-5 text-[0.9375rem] text-slate-400">
             <span className="flex items-center gap-1.5">
               <Calendar size={14} />
               {formatDate(article.created_at)}

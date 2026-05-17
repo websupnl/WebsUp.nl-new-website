@@ -49,7 +49,7 @@ export default async function KennisbankPage() {
           <div className="mb-6 grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
             <div className="max-w-2xl">
             <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">Populaire onderwerpen</div>
-            <p className="mt-2 text-sm leading-relaxed text-slate-500">
+            <p className="mt-2 text-[1rem] leading-relaxed text-slate-500">
               Niet technisch ingestoken, maar gewoon in duidelijke taal. Dit zijn de onderwerpen waar ondernemers meestal mee zitten.
             </p>
             </div>
@@ -64,7 +64,7 @@ export default async function KennisbankPage() {
                   <span className="block text-base font-bold leading-tight text-slate-900">
                   {cat.label}
                   </span>
-                  <span className="mt-3 block text-sm leading-relaxed text-slate-500">
+                  <span className="mt-3 block text-[1rem] leading-relaxed text-slate-500">
                     {cat.tip}
                   </span>
                 </span>

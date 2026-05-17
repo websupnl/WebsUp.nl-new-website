@@ -334,29 +334,6 @@ export default function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Status-card onder de foto */}
-            <motion.div
-              className="flex cursor-default items-center gap-3 overflow-hidden rounded-2xl px-5 py-3.5"
-              style={{
-                background: 'rgba(255,255,255,0.055)',
-                border: '1px solid rgba(255,255,255,0.11)',
-                backdropFilter: 'blur(18px) saturate(150%)',
-                WebkitBackdropFilter: 'blur(18px) saturate(150%)',
-                boxShadow: '0 12px 36px rgba(0,0,0,0.16), 0 1px 0 rgba(255,255,255,0.07) inset',
-              }}
-              initial={{ opacity: 0, y: 14, rotate: -1.8 }}
-              animate={{ opacity: 1, y: 0, rotate: -1.8 }}
-              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: 0.72 }}
-              whileHover={{ rotate: 0, scale: 1.015, transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] } }}
-            >
-              <span className="relative flex h-2.5 w-2.5 shrink-0">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
-              </span>
-              <p className="text-[0.84rem] font-medium text-white/80">
-                Open voor nieuwe projecten
-              </p>
-            </motion.div>
           </div>
 
         </div>

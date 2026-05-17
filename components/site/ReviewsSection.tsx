@@ -18,9 +18,18 @@ const FALLBACK: TestimonialWithProject[] = fallbackReviews.map((r, i) => ({
   project: null,
 }))
 
+function sortReviews(reviews: TestimonialWithProject[]): TestimonialWithProject[] {
+  return [...reviews].sort((a, b) => {
+    // Reviews with a named role first (real ones), null role = generic "Klant van WebsUp" last
+    if (a.role && !b.role) return -1
+    if (!a.role && b.role) return 1
+    return 0
+  })
+}
+
 export default async function ReviewsSection() {
   const db = await getTestimonials()
-  const testimonials: TestimonialWithProject[] = db.length > 0 ? db : FALLBACK
+  const testimonials: TestimonialWithProject[] = db.length > 0 ? sortReviews(db) : FALLBACK
 
   return (
     <section className="relative overflow-hidden bg-slate-50 py-18 lg:py-24">

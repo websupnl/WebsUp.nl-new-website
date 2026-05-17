@@ -67,7 +67,7 @@ export default function GratisOntwerpPage() {
                 className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
               >
                 <Icon size={18} className="shrink-0 text-white/62" />
-                <span className="text-sm font-medium text-white/84">{item.label}</span>
+                <span className="text-[1rem] font-medium text-white/84">{item.label}</span>
               </div>
             )
           })}
@@ -94,7 +94,7 @@ export default function GratisOntwerpPage() {
               {youGet.map((b) => (
                 <div key={b} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm shadow-slate-950/[0.03] transition-colors hover:border-orange-200">
                   <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-orange-500" />
-                  <span className="text-sm leading-relaxed text-slate-700">{b}</span>
+                  <span className="text-[1rem] leading-relaxed text-slate-700">{b}</span>
                 </div>
               ))}
             </div>
@@ -105,7 +105,7 @@ export default function GratisOntwerpPage() {
               <h3 className="font-headline text-2xl font-bold text-slate-900">
                 Vertel kort wat je wilt bouwen
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-500">
+              <p className="mt-2 text-[1rem] leading-relaxed text-slate-500">
                 Geen uitgebreid briefing document nodig. Een paar regels over je bedrijf en wat je wil bereiken is genoeg om mee te beginnen.
               </p>
               <div className="mt-6">
@@ -160,7 +160,7 @@ export default function GratisOntwerpPage() {
                   </span>
                   <div>
                     <h3 className="font-headline text-lg font-bold text-white/90">{step.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-white/48">{step.text}</p>
+                    <p className="mt-1.5 text-[1rem] leading-relaxed text-white/55">{step.text}</p>
                   </div>
                 </li>
               </Reveal>

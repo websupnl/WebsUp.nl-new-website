@@ -62,7 +62,7 @@ export default async function OverOnsPage() {
                 className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
               >
                 <Icon size={18} className="shrink-0 text-white/62" />
-                <span className="text-sm font-medium text-white/84">{item.label}</span>
+                <span className="text-[1rem] font-medium text-white/84">{item.label}</span>
               </div>
             )
           })}

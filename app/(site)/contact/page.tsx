@@ -88,7 +88,7 @@ export default function ContactPage() {
                 className="flex items-center gap-3 border-l border-white/14 bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-colors hover:border-orange-400/60 hover:bg-white/[0.045]"
               >
                 <Icon size={18} className="shrink-0 text-white/62" />
-                <span className="text-sm font-medium text-white/84">{item.label}</span>
+                <span className="text-[1rem] font-medium text-white/84">{item.label}</span>
               </div>
             )
           })}
@@ -135,7 +135,7 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-white/60">
+                    <label className="mb-2 block text-[1rem] font-medium text-white/60">
                       Waar gaat het ongeveer over?
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -163,7 +163,7 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-white/60">
+                      <label htmlFor="name" className="mb-1.5 block text-[1rem] font-medium text-white/60">
                         Naam <span className="text-orange-400">*</span>
                       </label>
                       <input
@@ -178,7 +178,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-white/60">
+                      <label htmlFor="email" className="mb-1.5 block text-[1rem] font-medium text-white/60">
                         Email <span className="text-orange-400">*</span>
                       </label>
                       <input
@@ -195,7 +195,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-white/60">
+                    <label htmlFor="subject" className="mb-1.5 block text-[1rem] font-medium text-white/60">
                       Onderwerp
                     </label>
                     <input
@@ -210,7 +210,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-white/60">
+                    <label htmlFor="message" className="mb-1.5 block text-[1rem] font-medium text-white/60">
                       Vertel kort wat er speelt <span className="text-orange-400">*</span>
                     </label>
                     <textarea
@@ -247,7 +247,7 @@ export default function ContactPage() {
                   style={{ background: glow, border: `1px solid ${border}`, backdropFilter: 'blur(12px)' }}
                 >
                   <Icon size={17} className="flex-shrink-0" style={{ color: '#f97316' }} />
-                  <span className="text-sm font-medium text-white/80">{label}</span>
+                  <span className="text-[1rem] font-medium text-white/80">{label}</span>
                 </div>
               ))}
 
@@ -282,7 +282,7 @@ export default function ContactPage() {
                     'Ook prima als je nog niet precies weet wat je nodig hebt',
                     'Direct persoonlijk contact',
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-white/45">
+                    <li key={item} className="flex items-start gap-2.5 text-[1rem] text-white/45">
                       <CheckCircle size={14} className="mt-0.5 flex-shrink-0 text-orange-400/70" />
                       {item}
                     </li>
