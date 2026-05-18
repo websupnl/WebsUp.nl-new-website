@@ -14,8 +14,6 @@ export const metadata: Metadata = {
   description: 'Bekijk projecten van WebsUp: websites, webshops, portalen en maatwerkoplossingen die praktisch werken.',
 }
 
-// Per project copy overrides, vervangen de generieke excerpts uit de DB.
-// Match op slug; valt terug op de DB-excerpt als er geen override is.
 const projectExcerptOverrides: Record<string, string> = {
   'verkeerschool-haak':
     'Een overzichtelijke website die het lesaanbod en de pakketten helder presenteert. Gebouwd op een manier die de rijschool zelf eenvoudig kan bijhouden.',
@@ -59,6 +57,8 @@ function projectCopy(slug: string, fallback: string) {
   return projectExcerptOverrides[slug] ?? fallback
 }
 
+const ACCENT_COLORS = ['#f97316', '#ec4899', '#a78bfa', '#f97316']
+
 export default async function ProjectenPage() {
   const projects = await getProjects()
   const featuredSource = projects.filter((project) => project.featured)
@@ -68,9 +68,9 @@ export default async function ProjectenPage() {
 
   const stats = [
     { value: `${projects.length}+`, label: 'Projecten opgeleverd' },
-    { value: 'Heel Nederland', label: 'Werkgebied' },
+    { value: 'Heel NL', label: 'Werkgebied' },
+    { value: '5.0 ⭐', label: 'Google rating' },
     { value: 'Persoonlijk', label: 'Direct contact' },
-    { value: 'Mobiel sterk', label: 'Klaar voor dagelijks gebruik' },
   ]
 
   return (
@@ -79,94 +79,120 @@ export default async function ProjectenPage() {
         badge="Projecten"
         title="Werk dat"
         titleHighlight="voor zichzelf spreekt."
-        subtitle="Van lokale ondernemers tot technische bedrijven en zorgpraktijken. Elk project begint met een goed gesprek en eindigt met iets dat echt werkt."
+        subtitle="Van lokale ondernemers tot technische bedrijven. Elk project gebouwd op wat jouw bedrijf nodig heeft — niet op een standaard template."
+        heightClass="min-h-[56vh]"
       >
-        <Link href="/contact" className="btn-brand-gradient">
-          Project bespreken <ArrowRight size={14} />
-        </Link>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/contact" className="btn-brand-gradient">
+            Project bespreken <ArrowRight size={14} />
+          </Link>
+          <Link
+            href="/gratis-ontwerp"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/20"
+          >
+            Gratis ontwerp aanvragen
+          </Link>
+        </div>
       </WavePageHeader>
 
-      <div className="bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-100">
+      {/* Stats */}
+      <div className="border-b border-slate-100 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-2 divide-x divide-slate-100 md:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="py-7 px-6 text-center">
-                <div className="font-headline font-extrabold text-xl md:text-2xl text-slate-900 mb-1">
+              <div key={stat.label} className="px-6 py-7 text-center">
+                <div className="font-headline text-2xl font-extrabold tracking-[-0.03em] text-slate-900 md:text-3xl">
                   {stat.value}
                 </div>
-                <div className="text-xs text-slate-400 font-medium">{stat.label}</div>
+                <div className="mt-1 text-xs font-medium text-slate-400">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
+      {/* Featured projects */}
       <section className="bg-white py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
             <div>
-              <span className="gradient-text text-[11px] font-bold uppercase tracking-[0.14em]">
-                Uitgelichte projecten
-              </span>
-              <h2 className="mt-3 font-headline max-w-2xl text-4xl md:text-4xl font-extrabold text-slate-900 leading-[1.08] tracking-[-0.02em]">
-                Werk dat past bij de praktijk
+              <span className="overline-badge mb-4 inline-flex">Uitgelichte projecten</span>
+              <h2
+                className="font-headline font-extrabold leading-[1.06] tracking-[-0.035em] text-slate-900"
+                style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)' }}
+              >
+                Werk dat past bij de praktijk.
               </h2>
             </div>
-            <p className="max-w-xl text-base leading-relaxed text-slate-500 md:text-lg lg:justify-self-end">
-              Echt werk dat dagelijks gebruikt wordt. Geen demo&apos;s, geen geleende screenshots, wel projecten waar mensen mee verder kunnen.
+            <p className="max-w-xl text-[1.0625rem] leading-relaxed text-slate-500 lg:justify-self-end">
+              Geen demo&apos;s, geen geleende screenshots — echte projecten die dagelijks gebruikt worden.
             </p>
           </Reveal>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {featured.map((project, index) => (
-              <Reveal key={project.slug} delay={index * 50}>
-                <article className="group feature-card flex h-full flex-col overflow-hidden">
-                  <Link href={`/projecten/${project.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-slate-100">
+              <Reveal key={project.slug} delay={index * 55}>
+                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-200 hover:shadow-lg">
+                  <Link
+                    href={`/projecten/${project.slug}`}
+                    className="relative block aspect-[16/10] overflow-hidden bg-slate-100"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={project.image_url}
                       alt={project.title}
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/35 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/30 via-transparent to-transparent" />
+                    {/* Gradient line on top on hover */}
+                    <div
+                      className="pointer-events-none absolute inset-x-0 top-0 h-0.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      style={{ background: `linear-gradient(90deg, transparent, ${ACCENT_COLORS[index % 4]}, transparent)` }}
+                    />
                   </Link>
 
                   <div className="flex flex-1 flex-col p-6">
                     <div className="mb-3 inline-flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-slate-400">
-                      <span className="h-2 w-2 rounded-full bg-orange-500" />
+                      <span
+                        className="h-2 w-2 rounded-full"
+                        style={{ background: ACCENT_COLORS[index % 4] }}
+                      />
                       {project.category}
                     </div>
-                    <h3 className="text-xl font-bold leading-tight text-slate-900 transition-colors group-hover:text-orange-500">
+
+                    <h3 className="font-headline text-lg font-bold leading-tight text-slate-900 transition-colors group-hover:text-orange-500">
                       <Link href={`/projecten/${project.slug}`}>{project.title}</Link>
                     </h3>
-                    <p className="mt-3 text-[1rem] leading-relaxed text-slate-500">
+
+                    <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-slate-500">
                       {projectCopy(project.slug, project.excerpt)}
                     </p>
 
-                    <div className="mt-5 space-y-2.5">
+                    <div className="mt-4 space-y-2">
                       {project.highlights.slice(0, 2).map((highlight) => (
-                        <div key={highlight} className="flex items-start gap-2.5 text-[1rem] text-slate-600">
-                          <CheckCircle size={16} className="mt-0.5 text-orange-500 flex-shrink-0" />
+                        <div key={highlight} className="flex items-start gap-2.5 text-[0.875rem] text-slate-600">
+                          <CheckCircle size={14} className="mt-0.5 shrink-0 text-orange-500" />
                           <span>{highlight}</span>
                         </div>
                       ))}
                     </div>
 
-                    <div className="mt-auto flex flex-wrap items-center gap-4 border-t border-slate-100 pt-5">
+                    <div className="mt-5 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4">
                       <Link
                         href={`/projecten/${project.slug}`}
-                        className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-slate-900 transition-colors hover:text-orange-500"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 transition-colors hover:text-orange-500"
                       >
-                        Bekijk project <ArrowRight size={14} />
+                        Bekijk project <ArrowRight size={13} />
                       </Link>
                       {project.website_url && (
                         <LinkPreview
                           url={project.website_url}
                           isStatic
                           imageSrc={project.image_url}
-                          className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-slate-500 transition-colors hover:text-slate-900"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-400 transition-colors hover:text-slate-700"
                         >
-                          Bekijk site <ExternalLink size={14} />
+                          Live site <ExternalLink size={13} />
                         </LinkPreview>
                       )}
                     </div>
@@ -178,57 +204,59 @@ export default async function ProjectenPage() {
         </div>
       </section>
 
+      {/* Meer projecten */}
       {rest.length > 0 && (
-        <section className="bg-slate-50 py-16 lg:py-20">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section className="bg-[#f8f9fc] py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <Reveal className="mb-10">
-              <h2 className="font-headline text-2xl md:text-3xl font-bold text-slate-900">
+              <span className="overline-badge mb-4 inline-flex">Meer werk</span>
+              <h2
+                className="font-headline font-extrabold leading-[1.06] tracking-[-0.035em] text-slate-900"
+                style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}
+              >
                 Meer projecten
               </h2>
             </Reveal>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {rest.map((project, index) => (
                 <Reveal key={project.slug} delay={index * 40}>
-                  <article className="feature-card h-full overflow-hidden">
-                    <img
-                      src={project.image_url}
-                      alt={project.title}
-                      className="w-full h-56 object-cover"
-                      loading="lazy"
-                    />
-                    <div className="p-7">
-                      <div className="mb-4 inline-flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-slate-400">
-                        <span className="h-2 w-2 rounded-full bg-orange-500" />
+                  <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+                    <Link href={`/projecten/${project.slug}`} className="block">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={project.image_url}
+                        alt={project.title}
+                        className="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        loading="lazy"
+                      />
+                    </Link>
+                    <div className="p-6">
+                      <div className="mb-3 inline-flex items-center gap-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-slate-400">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
                         {project.category}
                       </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                      <h3 className="font-headline text-lg font-bold text-slate-900 transition-colors group-hover:text-orange-500">
                         {project.title}
                       </h3>
-                      <p className="text-slate-500 text-[1rem] leading-relaxed mb-5">{projectCopy(project.slug, project.excerpt)}</p>
-                      <div className="space-y-2 mb-6">
-                        {project.highlights.slice(0, 2).map((highlight) => (
-                          <div key={highlight} className="flex items-start gap-2 text-[1rem] text-slate-600">
-                            <CheckCircle size={15} className="mt-0.5 text-orange-500 flex-shrink-0" />
-                            <span>{highlight}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="flex flex-wrap gap-3">
+                      <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-slate-500">
+                        {projectCopy(project.slug, project.excerpt)}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-3">
                         <Link
                           href={`/projecten/${project.slug}`}
-                          className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-slate-900 hover:text-orange-500 transition-colors"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-800 transition-colors hover:text-orange-500"
                         >
-                          Bekijk project <ArrowRight size={14} />
+                          Bekijk project <ArrowRight size={13} />
                         </Link>
                         {project.website_url && (
                           <LinkPreview
                             url={project.website_url}
                             isStatic
                             imageSrc={project.image_url}
-                            className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-slate-500 hover:text-slate-900 transition-colors"
+                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-400 transition-colors hover:text-slate-700"
                           >
-                            Bekijk site <ExternalLink size={14} />
+                            Live site <ExternalLink size={13} />
                           </LinkPreview>
                         )}
                       </div>

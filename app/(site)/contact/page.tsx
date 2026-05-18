@@ -15,7 +15,6 @@ import {
 } from 'lucide-react'
 import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
-import { GlassCard } from '@/components/site/GlassCard'
 import { createWhatsAppHref } from '@/lib/utils'
 import { finalTrustItems } from '@/lib/homepage-content'
 
