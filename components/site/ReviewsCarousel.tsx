@@ -1,9 +1,17 @@
 'use client'
 
+import Image from 'next/image'
 import { useState, useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion, useInView, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
 import type { TestimonialWithProject } from '@/lib/queries/testimonials'
+
+const AVATAR_GRADIENTS = [
+  'linear-gradient(135deg,#f97316,#ec4899)',
+  'linear-gradient(135deg,#ec4899,#a78bfa)',
+  'linear-gradient(135deg,#a78bfa,#f97316)',
+  'linear-gradient(135deg,#f97316,#a78bfa)',
+]
 
 function GoogleLogo() {
   return (
@@ -110,18 +118,40 @@ function ReviewCard({ testimonial, index }: { testimonial: TestimonialWithProjec
         style={{ background: 'linear-gradient(90deg, transparent 0%, #f97316 30%, #ec4899 60%, #a78bfa 90%, transparent 100%)' }}
       />
 
-      <AnimatedStars count={testimonial.rating ?? 5} delay={index * 0.08} />
+      <div className="flex items-center justify-between">
+        <AnimatedStars count={testimonial.rating ?? 5} delay={index * 0.08} />
+        <GoogleLogo />
+      </div>
 
       <p className="flex-1 text-[1rem] leading-relaxed text-white/72">
         &ldquo;{testimonial.content}&rdquo;
       </p>
 
-      <div>
-        <p className="text-[0.9375rem] font-semibold text-white/90">{testimonial.name}</p>
-        <p className="mt-0.5 text-[0.875rem] text-white/52">
-          {testimonial.role ?? 'Klant van WebsUp'} &middot;{' '}
-          {new Date(testimonial.created_at).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long' })}
-        </p>
+      <div className="flex items-center gap-3 pt-1 border-t border-white/[0.07]">
+        <div
+          className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full"
+          style={{ background: AVATAR_GRADIENTS[index % AVATAR_GRADIENTS.length] }}
+        >
+          {testimonial.avatar_url ? (
+            <Image
+              src={testimonial.avatar_url}
+              alt={testimonial.name}
+              fill
+              className="object-cover"
+              sizes="40px"
+            />
+          ) : (
+            <span className="text-[0.88rem] font-bold text-white">
+              {testimonial.name.charAt(0).toUpperCase()}
+            </span>
+          )}
+        </div>
+        <div>
+          <p className="text-[0.9375rem] font-semibold text-white/90">{testimonial.name}</p>
+          <p className="mt-0.5 text-[0.8125rem] text-white/50">
+            {testimonial.role ?? 'Klant van WebsUp'}
+          </p>
+        </div>
       </div>
     </motion.div>
   )
@@ -149,15 +179,11 @@ export default function ReviewsCarousel({ testimonials }: { testimonials: Testim
 
       <div className="mt-8 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <GoogleLogo />
-          <div>
-            <div className="flex items-center gap-2">
-              <AnimatedStars count={5} />
-              <span className="text-[0.9375rem] font-semibold text-slate-900">Uitstekend</span>
-            </div>
-            <p className="mt-0.5 text-xs text-slate-400">
-              {avg} &middot; Gebaseerd op {total} Google reviews
-            </p>
+          <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 shadow-sm">
+            <GoogleLogo />
+            <AnimatedStars count={5} />
+            <span className="text-[0.9375rem] font-semibold text-slate-900">5.0</span>
+            <span className="text-xs text-slate-400">&middot; {total} reviews</span>
           </div>
         </div>
 

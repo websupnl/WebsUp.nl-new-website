@@ -191,9 +191,9 @@ export default function Navbar({ siteName = siteConfig.name, logoUrl, availabili
         aria-hidden={!menuOpen}
       >
         {/* Gradient ambient drops */}
-        <div className="pointer-events-none absolute -top-10 -left-10 h-40 w-40 rounded-full bg-orange-500/20 blur-3xl" />
-        <div className="pointer-events-none absolute top-1/3 -right-10 h-36 w-36 rounded-full bg-pink-500/15 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-20 left-0 h-40 w-40 rounded-full bg-violet-500/[0.18] blur-3xl" />
+        <div className="pointer-events-none absolute -top-10 -left-10 h-40 w-40 rounded-full bg-orange-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/3 -right-10 h-36 w-36 rounded-full bg-pink-500/8 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-20 left-0 h-40 w-40 rounded-full bg-violet-500/[0.10] blur-3xl" />
 
         {/* ── Top: logo + close ───────────────────────────── */}
         <div className="relative flex items-center justify-between px-7 pt-6 pb-5">
@@ -216,8 +216,10 @@ export default function Navbar({ siteName = siteConfig.name, logoUrl, availabili
               key={href}
               href={href}
               onClick={() => setMenuOpen(false)}
-              className={`group flex items-center rounded-lg px-3 py-2.5 ${
-                isActive(href) ? 'text-white' : 'text-white/30 hover:text-white/80'
+              className={`group flex items-center rounded-xl px-3 py-2.5 transition-colors duration-150 ${
+                isActive(href)
+                  ? 'bg-white/[0.08] text-white'
+                  : 'text-white/40 hover:bg-white/[0.04] hover:text-white/80'
               }`}
               style={{
                 opacity: menuOpen ? 1 : 0,

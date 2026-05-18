@@ -105,9 +105,9 @@ export default function GuarantiesSection() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-slate-200" />
 
       {/* Gradient color drops */}
-      <div className="pointer-events-none absolute -top-20 left-[10%] h-72 w-72 rounded-full bg-orange-400/20 blur-[90px]" />
-      <div className="pointer-events-none absolute top-1/3 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-pink-400/15 blur-[100px]" />
-      <div className="pointer-events-none absolute -bottom-20 right-[10%] h-72 w-72 rounded-full bg-violet-400/20 blur-[90px]" />
+      <div className="pointer-events-none absolute -top-20 left-[10%] h-72 w-72 rounded-full bg-orange-400/10 blur-[100px]" />
+      <div className="pointer-events-none absolute top-1/3 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-pink-400/8 blur-[110px]" />
+      <div className="pointer-events-none absolute -bottom-20 right-[10%] h-72 w-72 rounded-full bg-violet-400/10 blur-[100px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
