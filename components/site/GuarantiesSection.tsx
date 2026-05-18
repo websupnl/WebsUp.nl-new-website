@@ -101,7 +101,6 @@ export default function GuarantiesSection() {
 
   return (
     <section className="relative overflow-hidden bg-[#f8f9fc] py-24 lg:py-32">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-slate-200" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-slate-200" />
 
       {/* Gradient color drops */}

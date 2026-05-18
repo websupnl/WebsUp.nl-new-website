@@ -13,6 +13,8 @@ import AboutMeSection from '@/components/site/AboutMeSection'
 import ReviewsSection from '@/components/site/ReviewsSection'
 import CTASection from '@/components/site/CTASection'
 import CookieBanner from '@/components/site/CookieBanner'
+import ServiceCategoryStrip from '@/components/site/ServiceCategoryStrip'
+import FeaturedSystemBanner from '@/components/site/FeaturedSystemBanner'
 import { getProjects } from '@/lib/queries/projects'
 import { getMergedSiteSettings, getMergedSeoSettings } from '@/lib/queries/site-settings'
 
@@ -44,6 +46,8 @@ export default async function HomePage() {
       />
       <main className="page-shell flex-1">
         <HeroSection />
+        <ServiceCategoryStrip />
+        <FeaturedSystemBanner />
         <GuarantiesSection />
         <ComparisonSection />
         <ServicesSection />
