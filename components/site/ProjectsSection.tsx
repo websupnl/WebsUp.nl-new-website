@@ -66,7 +66,7 @@ function ProjectSlot({
     <Link
       ref={ref}
       href={`/projecten/${project.slug}`}
-      className={`group relative block overflow-hidden rounded-2xl bg-slate-900 ${className}`}
+      className={`group relative block overflow-hidden rounded-2xl bg-[#06040c] ${className}`}
     >
       {/* Image with scroll-driven wipe reveal */}
       <motion.div
@@ -84,23 +84,41 @@ function ProjectSlot({
         />
       </motion.div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#06040c]/92 via-[#06040c]/30 to-transparent transition-all duration-500 group-hover:from-[#06040c]/95" />
+
+      {/* Top gradient line */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        style={{ background: 'linear-gradient(90deg,transparent,#f97316 30%,#ec4899 60%,#a78bfa 90%,transparent)' }}
+      />
+
+      {/* Category badge */}
+      <div className="absolute left-4 top-4">
+        <span
+          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.14em]"
+          style={{
+            background: 'rgba(6,4,12,0.75)',
+            border: '1px solid rgba(255,255,255,0.14)',
+            backdropFilter: 'blur(12px)',
+            color: 'rgba(255,255,255,0.85)',
+          }}
+        >
+          {project.category || 'Website'}
+        </span>
+      </div>
 
       {/* Text */}
       <motion.div
-        className="absolute inset-x-0 bottom-0 p-6"
+        className="absolute inset-x-0 bottom-0 p-5"
         initial={{ opacity: 0, y: 12 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: (delay / 1000) + 0.55 }}
       >
-        <div className="mb-2 text-[0.82rem] font-bold uppercase tracking-[0.12em] text-white/68">
-          {project.category || 'Website'}
-        </div>
-        <h3 className="font-headline text-xl font-bold text-white">
+        <h3 className="font-headline text-xl font-bold leading-tight text-white">
           {copy?.title ?? project.title}
         </h3>
-        <div className="mt-3 flex items-center gap-2 text-sm font-semibold text-white/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div className="mt-3 flex items-center gap-1.5 text-sm font-semibold text-orange-300/90 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5">
           Bekijk project <ArrowRight size={13} />
         </div>
       </motion.div>
@@ -116,7 +134,7 @@ export default function ProjectsSection({ projects = [], limit = 3 }: ProjectsSe
   const [featured, ...rest] = displayed
 
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-16 lg:py-24">
+    <section className="relative overflow-hidden bg-white py-16 lg:py-24">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>

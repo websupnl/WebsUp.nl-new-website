@@ -69,53 +69,57 @@ function ModuleBlock({
   const isEven = index % 2 === 0
   const Icon   = mod.Icon
 
+  const bgColor = isEven ? '#f8f9fc' : '#ffffff'
+
   return (
     <div
       ref={ref}
       className="border-t border-slate-100"
+      style={{ background: bgColor }}
     >
-      <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+      <div className={`mx-auto max-w-7xl px-6 lg:px-8 flex flex-col py-16 lg:py-0 ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} lg:items-center lg:gap-16 lg:py-20`}>
 
         {/* Mockup image */}
         <motion.div
-          className="group relative min-h-[22rem] flex-[1.6] overflow-hidden lg:min-h-[38rem]"
+          className="flex-[1.5]"
           initial={{ opacity: 0, x: isEven ? -24 : 24 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <Image
-            src={mod.image}
-            alt={mod.title}
-            fill
-            className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
-            sizes="(max-width: 1024px) 100vw, 62vw"
-          />
-          {/* Fade edge toward text side */}
           <div
-            className={`pointer-events-none absolute inset-y-0 w-32 ${
-              isEven ? 'right-0 bg-gradient-to-l' : 'left-0 bg-gradient-to-r'
-            } from-transparent to-white/[0.04]`}
-          />
-          {/* Category chip on image */}
-          <div className="absolute left-6 top-6">
-            <span
-              className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[0.72rem] font-bold uppercase tracking-[0.18em]"
-              style={{
-                background: 'rgba(12,10,22,0.82)',
-                border: '1px solid rgba(255,255,255,0.14)',
-                backdropFilter: 'blur(12px)',
-                color: mod.accent,
-              }}
-            >
-              <Icon size={11} />
-              {mod.category}
-            </span>
+            className="group relative overflow-hidden rounded-2xl shadow-[0_24px_64px_rgba(0,0,0,0.10)]"
+            style={{ border: '1px solid rgba(0,0,0,0.07)' }}
+          >
+            <div className="relative min-h-[22rem] lg:min-h-[34rem]">
+              <Image
+                src={mod.image}
+                alt={mod.title}
+                fill
+                className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                sizes="(max-width: 1024px) 100vw, 55vw"
+              />
+            </div>
+            {/* Category chip on image */}
+            <div className="absolute left-5 top-5">
+              <span
+                className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[0.72rem] font-bold uppercase tracking-[0.18em]"
+                style={{
+                  background: 'rgba(6,4,12,0.82)',
+                  border: '1px solid rgba(255,255,255,0.14)',
+                  backdropFilter: 'blur(12px)',
+                  color: mod.accent,
+                }}
+              >
+                <Icon size={11} />
+                {mod.category}
+              </span>
+            </div>
           </div>
         </motion.div>
 
         {/* Text column */}
         <motion.div
-          className="flex flex-[1] flex-col justify-center px-8 py-14 lg:px-14 lg:py-24"
+          className="flex flex-[1] flex-col justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
@@ -126,18 +130,22 @@ function ModuleBlock({
           >
             {mod.title}
           </h3>
-          <p className="mt-5 max-w-[38ch] text-[1rem] leading-relaxed text-slate-500">
+          <p className="mt-5 text-[1rem] leading-relaxed text-slate-500">
             {mod.description}
           </p>
 
           <ul className="mt-7 space-y-3">
             {mod.bullets.map((b) => (
               <li key={b} className="flex items-start gap-3">
-                <CheckCircle
-                  size={15}
-                  className="mt-0.5 shrink-0"
-                  style={{ color: mod.accent }}
-                />
+                <div
+                  className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                  style={{ background: `${mod.accent}18`, border: `1px solid ${mod.accent}40` }}
+                >
+                  <CheckCircle
+                    size={12}
+                    style={{ color: mod.accent }}
+                  />
+                </div>
                 <span className="text-[1rem] leading-relaxed text-slate-700">{b}</span>
               </li>
             ))}

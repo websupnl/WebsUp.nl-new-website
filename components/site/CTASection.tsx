@@ -19,7 +19,7 @@ function TypewriterText({
   style?: React.CSSProperties
 }) {
   const ref         = useRef<HTMLSpanElement>(null)
-  const inView      = useInView(ref, { once: true, margin: '-80px' })
+  const inView      = useInView(ref, { once: true, margin: '0px' })
   const [displayed, setDisplayed] = useState(0)
   const [showCursor, setShowCursor] = useState(false)
   const hasAnimated = useRef(false)
@@ -129,7 +129,7 @@ export default function CTASection({
                 </span>
                 <h2
                   className="max-w-3xl text-balance font-headline font-extrabold leading-[1.04] tracking-[-0.03em] text-white"
-                  style={{ fontSize: 'clamp(1.85rem, 3.1vw, 2.9rem)' }}
+                  style={{ fontSize: 'clamp(2rem, 3.8vw, 2.9rem)' }}
                 >
                   <TypewriterText text={heading} />
                 </h2>

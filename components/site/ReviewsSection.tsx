@@ -45,6 +45,23 @@ export default async function ReviewsSection() {
             >
               Klanten aan het woord.
             </h2>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
+                <span className="flex gap-0.5">
+                  {[0,1,2,3,4].map(i => (
+                    <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#FBBC05" aria-hidden="true">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/>
+                    </svg>
+                  ))}
+                </span>
+                <span className="text-sm font-bold text-slate-900">5.0</span>
+                <span className="text-xs text-slate-400">Google</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
+                <span className="h-2 w-2 rounded-full bg-green-400" />
+                <span className="text-xs font-semibold text-slate-700">Beschikbaar voor nieuwe projecten</span>
+              </div>
+            </div>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-slate-600 lg:justify-self-end">
             Geen marketingpraat — echte feedback van mensen waarvoor ik heb gebouwd.

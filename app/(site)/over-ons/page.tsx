@@ -3,12 +3,11 @@ export const revalidate = 3600
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, MessageCircle, Zap, Heart } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import CTASection from '@/components/site/CTASection'
 import ReviewsSection from '@/components/site/ReviewsSection'
 import Reveal from '@/components/ui/Reveal'
 import WavePageHeader from '@/components/site/WavePageHeader'
-import { GlassCard } from '@/components/site/GlassCard'
 import { finalTrustItems } from '@/lib/homepage-content'
 
 export const metadata: Metadata = {

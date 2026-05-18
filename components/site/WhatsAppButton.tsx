@@ -63,7 +63,7 @@ export default function WhatsAppButton() {
 
         {/* Tekst */}
         <p className="mt-3 px-5 text-center text-[0.92rem] leading-relaxed text-slate-700">
-          Nieuwsgierig naar jouw nieuwe website? Stel je vraag of plan direct een gesprek!
+          Vraag over je website, webshop of digitaal project? Stuur een bericht en ik kijk met je mee!
         </p>
 
         {/* CTA */}
@@ -85,9 +85,9 @@ export default function WhatsAppButton() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label="Chat met Daan via WhatsApp"
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#06040c] shadow-[0_8px_24px_rgba(0,0,0,0.25)] transition-transform duration-200 hover:scale-105 active:scale-95"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_8px_28px_rgba(37,211,102,0.40)] transition-all duration-200 hover:scale-105 hover:shadow-[0_12px_32px_rgba(37,211,102,0.50)] active:scale-95"
       >
-        <svg viewBox="0 0 24 24" className="h-6 w-6" style={{ fill: '#25D366' }} aria-hidden="true">
+        <svg viewBox="0 0 24 24" className="h-6 w-6" style={{ fill: '#ffffff' }} aria-hidden="true">
           <path d={WA_PATH} />
         </svg>
       </button>

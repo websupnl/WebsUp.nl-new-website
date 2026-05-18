@@ -3,64 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import { fallbackReviews, personalContactPoints } from '@/lib/homepage-content'
+import { fallbackReviews } from '@/lib/homepage-content'
 
 const featuredQuote = fallbackReviews[0]
-
-function TypewriterChip({ text, delay }: { text: string; delay: number }) {
-  const [displayed, setDisplayed] = useState('')
-  const [done, setDone]           = useState(false)
-  const ref    = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-40px' })
-  const timer  = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  useEffect(() => {
-    if (!inView) return
-    let i = 0
-    const start = () => {
-      timer.current = setTimeout(() => {
-        const type = () => {
-          i++
-          setDisplayed(text.slice(0, i))
-          if (i < text.length) timer.current = setTimeout(type, 38 + Math.random() * 18)
-          else setDone(true)
-        }
-        type()
-      }, delay)
-    }
-    start()
-    return () => {
-      if (timer.current) clearTimeout(timer.current)
-    }
-  }, [inView, text, delay])
-
-  return (
-    <span
-      ref={ref}
-      className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-[1rem] font-medium text-slate-700"
-      style={{
-        background: done ? 'rgba(249,115,22,0.07)' : 'rgba(249,115,22,0.04)',
-        border: `1px solid ${done ? 'rgba(249,115,22,0.28)' : 'rgba(249,115,22,0.14)'}`,
-        transition: 'border-color 0.4s ease, background 0.4s ease',
-        minWidth: '4rem',
-      }}
-    >
-      {displayed}
-      {!done && (
-        <span
-          className="inline-block w-[1.5px] rounded-[1px]"
-          style={{
-            height: '0.85em',
-            background: 'linear-gradient(180deg, #f97316 0%, #ec4899 100%)',
-            animation: 'blink 0.9s step-end infinite',
-          }}
-        />
-      )}
-    </span>
-  )
-}
 
 export default function AboutMeSection() {
   const sectionRef  = useRef<HTMLDivElement>(null)
@@ -146,13 +93,6 @@ export default function AboutMeSection() {
               Ik denk niet alleen mee over hoe iets eruit moet zien, maar vooral over wat praktisch werkt voor jouw bedrijf. Soms is dat een website. Soms een webshop. En soms juist een maatwerk systeem.
             </p>
 
-            {/* Typewriter chips */}
-            <div className="mt-8 flex flex-wrap gap-2.5">
-              {personalContactPoints.map((point, i) => (
-                <TypewriterChip key={point} text={point} delay={i * 120} />
-              ))}
-            </div>
-
             {featuredQuote && (
               <motion.div
                 className="relative mt-7 overflow-hidden rounded-2xl p-5"
@@ -183,9 +123,6 @@ export default function AboutMeSection() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
-      `}</style>
     </section>
   )
 }
