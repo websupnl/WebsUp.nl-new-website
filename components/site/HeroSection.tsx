@@ -98,35 +98,10 @@ export default function HeroSection() {
   }, [rawTiltX, rawTiltY])
 
   return (
-<<<<<<< Updated upstream
-    <section
-      ref={heroRef}
-      className="relative flex min-h-screen flex-col overflow-hidden bg-[#06040c]"
-    >
-      {/* ── Animated wave background (mobile-safe) ───────────────── */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="hero-wave-bg absolute inset-[-8%]">
-          <Image
-            src="/hero-bg.png"
-            alt=""
-            fill
-            priority
-            loading="eager"
-            className="object-cover object-center"
-            sizes="100vw"
-            quality={85}
-          />
-        </div>
-      </div>
-
-      {/* ── Static overlays ──────────────────────────────────────── */}
-      <div className="pointer-events-none absolute inset-0">
-=======
     <section className="bg-white pb-0">
       <div>
 
         {/* ── Feature hero card ────────────────────────────────────── */}
->>>>>>> Stashed changes
         <div
           ref={cardRef}
           className="relative overflow-hidden"
@@ -206,115 +181,6 @@ export default function HeroSection() {
                 willChange: 'left, top',
               }}
             />
-<<<<<<< Updated upstream
-
-            <motion.p
-              className="mt-5 max-w-[52ch] text-[1.0625rem] leading-[1.76] text-white/75"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-            >
-              Ik ontwerp en bouw digitale oplossingen die er professioneel uitzien, duidelijk werken en bijdragen aan groei. Van converterende websites en webshops tot maatwerk dashboards, koppelingen en automatisering.
-            </motion.p>
-
-            <motion.div
-              className="mt-8 flex flex-wrap gap-3"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
-            >
-              <Link
-                href="/contact"
-                className="btn-brand-gradient group gap-2.5"
-              >
-                Gratis ontwerp aanvragen
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-              </Link>
-              <Link
-                href="/projecten"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/[0.18] bg-white/[0.06] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white/[0.30] hover:bg-white/[0.10] hover:text-white"
-              >
-                Bekijk mijn werk
-              </Link>
-            </motion.div>
-
-            {/* Social proof strip */}
-            <motion.div
-              className="mt-7 flex flex-wrap items-center gap-4"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
-            >
-              <div className="flex items-center gap-2.5">
-                <div className="flex -space-x-2">
-                  {['D','M','R','J'].map((initial, i) => (
-                    <div
-                      key={i}
-                      className="relative flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#06040c] text-[0.6rem] font-bold text-white"
-                      style={{ background: i === 0 ? 'linear-gradient(135deg,#f97316,#ec4899)' : i === 1 ? 'linear-gradient(135deg,#ec4899,#a78bfa)' : i === 2 ? 'linear-gradient(135deg,#a78bfa,#f97316)' : 'linear-gradient(135deg,#f97316,#a78bfa)', zIndex: 4 - i }}
-                    >
-                      {initial}
-                    </div>
-                  ))}
-                </div>
-                <span className="text-[0.82rem] text-white/60">
-                  <span className="font-semibold text-white/88">10+</span> tevreden klanten
-                </span>
-              </div>
-              <div className="h-3.5 w-px bg-white/20" />
-              <div className="flex items-center gap-1.5">
-                <div className="flex gap-0.5">
-                  {[0,1,2,3,4].map(i => (
-                    <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#FBBC05" aria-hidden="true">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/>
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-[0.82rem] font-semibold text-white/88">5.0</span>
-                <span className="text-[0.82rem] text-white/50">Google</span>
-              </div>
-            </motion.div>
-
-            {/* Trust cards */}
-            <div className="mt-9 grid max-w-4xl gap-3.5 sm:grid-cols-3">
-              {TRUST.map((item, i) => (
-                <motion.div
-                  key={item.title}
-                  className="group relative min-h-[10rem] overflow-hidden rounded-2xl p-5"
-                  style={{
-                    background: 'rgba(255,255,255,0.055)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    backdropFilter: 'blur(18px) saturate(150%)',
-                    WebkitBackdropFilter: 'blur(18px) saturate(150%)',
-                    boxShadow: '0 14px 42px rgba(0,0,0,0.18), 0 1px 0 rgba(255,255,255,0.08) inset',
-                  }}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.55 + i * 0.07 }}
-                >
-                  <div
-                    className="pointer-events-none absolute inset-x-0 top-0 h-px opacity-70"
-                    style={{ background: 'linear-gradient(90deg, transparent, rgba(249,115,22,0.45), rgba(236,72,153,0.34), transparent)' }}
-                  />
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="gradient-text font-headline text-[1.42rem] font-extrabold leading-none tracking-[-0.02em]">
-                      {item.value}
-                    </span>
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/[0.12] bg-white/[0.07] text-orange-200/90">
-                      <item.icon size={17} />
-                    </span>
-                  </div>
-                  <p className="mt-4 text-[1rem] font-semibold leading-tight text-white/90">
-                    {item.title}
-                  </p>
-                  <p className="mt-2 text-[1rem] leading-relaxed text-white/62">
-                    {item.text}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-=======
->>>>>>> Stashed changes
           </div>
 
           {/* ── Content grid ───────────────────────────────────────── */}
