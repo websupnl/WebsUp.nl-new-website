@@ -607,7 +607,7 @@ function WebshopsServicePage() {
   const includes = [
     'WooCommerce of Shopify, wat bij je past',
     'iDEAL, Mollie, creditcard en meer betaalmethodes',
-    'Productpagina's die overtuigen',
+    "Productpagina's die overtuigen",
     'Voorraadbeheer en orderverwerking',
     'Mobiel geoptimaliseerde checkout',
     'Koppeling met boekhouding of CRM waar nodig',
