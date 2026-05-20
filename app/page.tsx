@@ -7,7 +7,6 @@ import HeroSection from '@/components/site/HeroSection'
 import GuarantiesSection from '@/components/site/GuarantiesSection'
 import ComparisonSection from '@/components/site/ComparisonSection'
 import ServicesSection from '@/components/site/ServicesSection'
-import ModulesSection from '@/components/site/ModulesSection'
 import ProjectsSection from '@/components/site/ProjectsSection'
 import AboutMeSection from '@/components/site/AboutMeSection'
 import ReviewsSection from '@/components/site/ReviewsSection'
@@ -18,14 +17,11 @@ import FeaturedSystemBanner from '@/components/site/FeaturedSystemBanner'
 import CdEcosystemIntro from '@/components/site/cd-ecosystem-intro'
 import CdWebsiteRedesign from '@/components/site/cd-website-redesign'
 import CdAutomation from '@/components/site/cd-automation'
-import CdDaanBanner from '@/components/site/cd-daan-banner'
 import CdWorkflow from '@/components/site/cd-workflow'
-import CdCases from '@/components/site/cd-cases'
-import CdGratisOntwerp from '@/components/site/cd-gratis-ontwerp'
 import CdKennisbankCards from '@/components/site/cd-kennisbank-cards'
 import CdNieuwsUpdate from '@/components/site/cd-nieuws-update'
 import CdFaq from '@/components/site/cd-faq'
-import CdKennismakenCta from '@/components/site/cd-kennismaken-cta'
+
 import { getProjects } from '@/lib/queries/projects'
 import { getMergedSiteSettings, getMergedSeoSettings } from '@/lib/queries/site-settings'
 
@@ -62,21 +58,16 @@ export default async function HomePage() {
         <CdEcosystemIntro />
         <CdWebsiteRedesign />
         <CdAutomation />
-        <CdDaanBanner />
         <CdWorkflow />
-        <CdCases />
-        <CdGratisOntwerp />
         <CdKennisbankCards />
         <CdNieuwsUpdate />
-        <CdFaq />
-        <CdKennismakenCta />
         <GuarantiesSection />
         <ComparisonSection />
         <ServicesSection />
-        <ModulesSection />
         <ProjectsSection projects={projects} limit={3} />
         <AboutMeSection />
         <ReviewsSection />
+        <CdFaq />
         <CTASection />
       </main>
       <Footer
